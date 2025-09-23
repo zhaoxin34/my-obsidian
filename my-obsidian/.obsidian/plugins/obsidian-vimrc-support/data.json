@@ -1,0 +1,14 @@
+{
+  "vimrcFileName": "/Users/zhaoxin/.vimrc",
+  "displayChord": true,
+  "displayVimMode": true,
+  "fixedNormalModeLayout": false,
+  "capturedKeyboardMap": {},
+  "supportJsCommands": false,
+  "vimStatusPromptMap": {
+    "normal": "🟢",
+    "insert": "🟠",
+    "visual": "🟡",
+    "replace": "🔴"
+  }
+}
