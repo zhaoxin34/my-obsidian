@@ -1,7 +1,7 @@
 {
   "remoteURL": "git@github.com:zhaoxin34/my-obsidian.git",
   "gitLocation": "",
-  "syncinterval": 60,
+  "syncinterval": 3,
   "isSyncOnLoad": true,
   "checkStatusOnLoad": true
 }
