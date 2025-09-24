@@ -166,13 +166,15 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "github-sync:Sync with Remote": false
     }
   },
   "active": "80cfdf29da88e1db",
   "lastOpenFiles": [
-    "Pasted image 20250923194119.png",
+    "Untitled.base",
     "my-obsidian/操作记录/工作环境初始化.md",
+    "Pasted image 20250923194119.png",
     "my-obsidian/操作记录/fluxdb安装配置.md",
     "laop/TDD_v7.0.md",
     "laop/PRD_v4.0.md",
