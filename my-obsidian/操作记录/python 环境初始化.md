@@ -14,5 +14,17 @@ pyenv install --list 可以查看python可用的版本
 
 ```bash
 pyenv install 3.12.11
+# 查看安装的版本
+pyenv versions
+
+pyenv install 3.13.7
+# 查看安装的版本
+pyenv versions
 
 ```
+
+目前先将全局版本设置为3.12.11
+pyenv global 3.12.11
+
+如果想设置某个本地目录的python版本，可以使用
+pyenv local 3.13.7
