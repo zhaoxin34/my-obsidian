@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "my-obsidian/操作记录/安装配置openvpn.md",
+                "file": "my-obsidian/操作记录/工作环境初始化.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "安装配置openvpn"
+              "title": "工作环境初始化"
             }
           }
         ]
@@ -172,10 +172,10 @@
   },
   "active": "80cfdf29da88e1db",
   "lastOpenFiles": [
-    "Untitled.md",
-    "my-obsidian/操作记录/安装配置openvpn.md",
-    "my-obsidian/操作记录/工作环境初始化.md",
     "my-obsidian/操作记录/python 环境初始化.md",
+    "my-obsidian/操作记录/安装配置openvpn.md",
+    "Untitled.md",
+    "my-obsidian/操作记录/工作环境初始化.md",
     "my-obsidian/操作记录/安装配置p10k.md",
     "my-obsidian/操作记录/fluxdb安装配置.md",
     "my-obsidian/操作记录/看过的有意义的视频，但没来得及实践.md",
