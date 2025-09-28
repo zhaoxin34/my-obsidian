@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "my-obsidian/操作记录/工作环境初始化.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -151,12 +151,12 @@
               "title": "Outline of 工作环境初始化"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 569
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -170,7 +170,7 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "80cfdf29da88e1db",
+  "active": "03191970b48d6559",
   "lastOpenFiles": [
     "my-obsidian/操作记录/yabai的一些可以实验的配置.md",
     "my-obsidian/操作记录/工作环境初始化.md",
