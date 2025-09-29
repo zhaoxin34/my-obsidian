@@ -1,0 +1,10 @@
+### 快捷键帮助地址
+https://www.lazyvim.org/keymaps
+
+比较有意义的命令
+
+| Key          | Description            | Mode  |
+| ------------ | ---------------------- | ----- |
+| `<C-Up>`     | Increase Window Height | **n** |
+| `<C-Down>`   | Decrease Window Height | **n** |
+| `<leader>ft` | Terminal (Root Dir)    | **n** |
