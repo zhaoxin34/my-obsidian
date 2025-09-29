@@ -46,3 +46,5 @@ Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lan
 
 查看所有事件
 :h events
+
+### [[python Neovim环境创建]]
