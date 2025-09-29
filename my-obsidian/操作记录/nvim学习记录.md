@@ -41,3 +41,8 @@ Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lan
 |Key|Description|Mode|
 |---|---|---|
 |`<leader>cv`|Select VirtualEnv|**n**|
+
+### 一些命令
+
+查看所有事件
+:h events
