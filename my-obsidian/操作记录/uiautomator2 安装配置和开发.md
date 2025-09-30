@@ -23,3 +23,5 @@ uiautodev
 ```
 
 配合 [[python 环境初始化#自动切换venv的zsh插件]] 可以自动切换venv
+
+安装Andriod Studio
