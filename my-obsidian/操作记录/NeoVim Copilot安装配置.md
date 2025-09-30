@@ -5,7 +5,7 @@ https://github.com/zbirenbaum/copilot.lua
 配置放到plugins/copilot.lua
 
 授权:Copilot auth
-copilot-language-server
+
 *注意这里可能要升级到22以后的nodejs*
 ```bash
 nvm install 24
