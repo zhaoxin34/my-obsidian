@@ -15,3 +15,5 @@ cd working/python/uiautomator2
 python -m venv .venv
 source .venv/bin/activate
 ```
+
+配合 [[python 环境初始化#自动切换venv的zsh插件]] 可以自动切换venv

@@ -28,3 +28,11 @@ pyenv global 3.12.11
 
 如果想设置某个本地目录的python版本，可以使用
 pyenv local 3.13.7
+
+### 自动切换venv的zsh插件
+https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv
+
+git clone "https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv.git" "$ZSH_CUSTOM/plugins/autoswitch_virtualenv"
+
+zshrc增加
+plugins=(autoswitch_virtualenv $plugins)
