@@ -48,3 +48,6 @@ Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lan
 :h events
 
 ### [[python Neovim环境创建]]
+
+
+[[NeoVim Copilot安装配置]]
