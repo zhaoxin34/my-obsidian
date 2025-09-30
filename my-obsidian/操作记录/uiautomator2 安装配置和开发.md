@@ -14,6 +14,12 @@ cd working/python/uiautomator2
 # 可以先用python local 3.12.11选择pyenv的版本
 python -m venv .venv
 source .venv/bin/activate
+
+pip install uiautomator2
+uiautomator2 version
+pip install uiautodev
+# 命令行启动后会自动打开浏览器
+uiautodev
 ```
 
 配合 [[python 环境初始化#自动切换venv的zsh插件]] 可以自动切换venv
