@@ -1,3 +1,3 @@
+https://github.com/zbirenbaum/copilot.lua
 
-git clone --depth=1 https://github.com/github/copilot.vim.git \
-  ~/.config/nvim/pack/github/start/copilot.vim
+:LazyExtras 选择ai.copilot进行安装
