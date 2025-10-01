@@ -31,9 +31,6 @@ adb devices
 
 # 设置检测wifi的网站
 adb shell settings put global captive_portal_https_url https://www.baidu.com
-
-# 安装apk
-
 ```
 
 以下命令可以运行输出device的信息
@@ -53,7 +50,7 @@ print(d.info)
 *比如：*
 `adb -s emulator-5554 install -r -g your_app.apk`
 #### 📌 验证安装是否成功
-安装完可以查看：
+*安装完可以查看：*
 `adb -s emulator-5554 shell pm list packages | grep your.app.package`
-或者直接启动：
+*或者直接启动：*
 `adb -s emulator-5554 shell monkey -p your.app.package -c android.intent.category.LAUNCHER 1`
