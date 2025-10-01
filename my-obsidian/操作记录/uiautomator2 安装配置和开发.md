@@ -24,4 +24,16 @@ uiautodev
 
 配合 [[python 环境初始化#自动切换venv的zsh插件]] 可以自动切换venv
 
-安装Andriod Studio
+### 安装Andriod Studio
+启动模拟器, 使用下命令查看device
+```bash
+~/working/sdk/andriod/platform-tools/adb devices
+```
+
+以下命令可以运行输出device的信息
+```python
+import uiautomator2 as u2
+
+d = u2.connect('emulator-5554') # 连接多台设备需要指定设备序列号
+print(d.info)
+```
