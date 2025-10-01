@@ -27,7 +27,13 @@ uiautodev
 ### 安装Andriod Studio
 启动模拟器, 使用下命令查看device
 ```bash
-~/working/sdk/andriod/platform-tools/adb devices
+adb devices
+
+# 设置检测wifi的网站
+adb shell settings put global captive_portal_https_url https://www.baidu.com
+
+# 安装apk
+
 ```
 
 以下命令可以运行输出device的信息
@@ -37,3 +43,17 @@ import uiautomator2 as u2
 d = u2.connect('emulator-5554') # 连接多台设备需要指定设备序列号
 print(d.info)
 ```
+
+### 安装 APK 的命令
+`adb -s emulator-5554 install your_app.apk`
+*常见参数*
+- `-r` ：允许覆盖安装（更新已有应用）
+- `-d` ：允许降级安装（版本号比现有低时也能装）
+- `-g` ：自动授予所有运行时权限
+*比如：*
+`adb -s emulator-5554 install -r -g your_app.apk`
+#### 📌 验证安装是否成功
+安装完可以查看：
+`adb -s emulator-5554 shell pm list packages | grep your.app.package`
+或者直接启动：
+`adb -s emulator-5554 shell monkey -p your.app.package -c android.intent.category.LAUNCHER 1`
