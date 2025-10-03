@@ -50,6 +50,8 @@ Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lan
 :LspInfo
 :ConformInfo
 
+verbose autocmd BufWritePre
+
 ### [[python Neovim环境创建]]
 
 
