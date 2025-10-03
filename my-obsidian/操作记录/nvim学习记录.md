@@ -46,6 +46,9 @@ Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lan
 
 查看所有事件
 :h events
+产看当前文件是否支持格式化及其他lsp信息
+:LspInfo
+:ConformInfo
 
 ### [[python Neovim环境创建]]
 
