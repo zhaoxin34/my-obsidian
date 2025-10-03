@@ -49,7 +49,7 @@ Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lan
 产看当前文件是否支持格式化及其他lsp信息
 :LspInfo
 :ConformInfo
-
+查看某个事件的命令，如下示例展示了文件保存后的回调
 verbose autocmd BufWritePre
 
 ### [[python Neovim环境创建]]
