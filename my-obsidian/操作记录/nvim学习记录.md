@@ -26,7 +26,13 @@ https://www.lazyvim.org/keymaps
 | `<leader>sp` | Search for Plugin Spec     | **n**        |
 | `gd`         | Goto Definition            | **n**        |
 | `gr`         | References                 | **n**        |
+| `gcc`        | 注释当前行                      | **n**        |
+| `gbc`        | 注释代码块                      | **n**        |
 | `<leader>ss` | Goto Symbol (Aerial)       | **n**        |
+| `>>`         | 增加缩进                       | **n**        |
+| `<<`         | 减少缩进                       | **n**        |
+
+
 #### [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim.git)
 
 Part of [lazyvim.plugins.extras.lang.markdown](https://www.lazyvim.org/extras/lang/markdown)
@@ -38,9 +44,9 @@ Part of [lazyvim.plugins.extras.lang.markdown](https://www.lazyvim.org/extras/l
 
 Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lang/python)
 
-|Key|Description|Mode|
-|---|---|---|
-|`<leader>cv`|Select VirtualEnv|**n**|
+| Key          | Description       | Mode  |
+| ------------ | ----------------- | ----- |
+| `<leader>cv` | Select VirtualEnv | **n** |
 
 ### 一些命令
 
