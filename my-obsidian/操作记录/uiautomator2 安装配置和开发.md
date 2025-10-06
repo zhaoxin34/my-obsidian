@@ -8,7 +8,6 @@
 简单来说就是把Android自动化的能力通过HTTP接口的方式暴露给Python使用。这种设计使得Python端的代码编写更加简单直观。
 
 ## 初始化环境
-
 ```bash
 cd working/python/uiautomator2
 # 可以先用python local 3.12.11选择pyenv的版本
@@ -42,6 +41,7 @@ print(d.info)
 ```
 
 ### 安装 APK 的命令
+#### 安装
 `adb -s emulator-5554 install your_app.apk`
 *常见参数*
 - `-r` ：允许覆盖安装（更新已有应用）
