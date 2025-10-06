@@ -53,7 +53,6 @@ Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lan
 查看某个事件的命令，如下示例展示了文件保存后的回调
 verbose autocmd BufWritePre
 
-### [[python Neovim环境创建]]
+### [[Python Neovim环境创建]]
 
-
-[[NeoVim Copilot安装配置]]
+### [[NeoVim Copilot安装配置]]
