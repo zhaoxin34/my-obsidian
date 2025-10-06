@@ -13,11 +13,16 @@
             "state": {
               "type": "markdown",
               "state": {
+<<<<<<< HEAD
                 "file": "my-obsidian/操作记录/nvim学习记录.md",
+=======
+                "file": "my-obsidian/操作记录/NVim 未完成的配置.md",
+>>>>>>> 8e399704f1395040ecaccdc1d2cac39738cf2ac4
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
+<<<<<<< HEAD
               "title": "nvim学习记录"
             }
           },
@@ -33,6 +38,9 @@
               },
               "icon": "lucide-file",
               "title": "Untitled"
+=======
+              "title": "NVim 未完成的配置"
+>>>>>>> 8e399704f1395040ecaccdc1d2cac39738cf2ac4
             }
           }
         ],
@@ -119,7 +127,26 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
+<<<<<<< HEAD
               "title": "Backlinks for 工作环境初始化"
+=======
+              "title": "Backlinks for uiautomator2 安装配置和开发"
+            }
+          },
+          {
+            "id": "03191970b48d6559",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "my-obsidian/操作记录/NVim 未完成的配置.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of NVim 未完成的配置"
+>>>>>>> 8e399704f1395040ecaccdc1d2cac39738cf2ac4
             }
           },
           {
@@ -170,8 +197,12 @@
       }
     ],
     "direction": "horizontal",
+<<<<<<< HEAD
     "width": 300,
     "collapsed": true
+=======
+    "width": 296
+>>>>>>> 8e399704f1395040ecaccdc1d2cac39738cf2ac4
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -189,16 +220,32 @@
   "lastOpenFiles": [
     "Untitled.md",
     "my-obsidian/操作记录/nvim学习记录.md",
+<<<<<<< HEAD
     "my-obsidian/操作记录/uiautomator2 安装配置和开发.md",
     "my-obsidian/操作记录/NeoVim Copilot安装配置.md",
     "my-obsidian/操作记录/python Neovim环境创建.md",
     "my-obsidian/操作记录/Node.js环境初始化.md",
     "my-obsidian/操作记录/工作环境初始化.md",
+=======
+    "my-obsidian/操作记录/NVim 未完成的配置.md",
+    "my-obsidian/操作记录/NeoVim Copilot安装配置.md",
+    "my-obsidian/操作记录/python 环境初始化.md",
+    "my-obsidian/操作记录/python Neovim环境创建.md",
+    "my-obsidian/操作记录/看过的有意义的视频，但没来得及实践.md",
+    "my-obsidian/操作记录/uiautomator2 安装配置和开发.md",
+    "my-obsidian/操作记录/Node.js环境初始化.md",
+    "my-obsidian/操作记录/工作环境初始化.md",
+    "Untitled.md",
+    "my-obsidian/操作记录/fluxdb安装配置.md",
+>>>>>>> 8e399704f1395040ecaccdc1d2cac39738cf2ac4
     "my-obsidian/操作记录/yabai的一些可以实验的配置.md",
     "my-obsidian/操作记录/安装配置p10k.md",
+<<<<<<< HEAD
     "my-obsidian/操作记录/安装配置openvpn.md",
     "my-obsidian/操作记录/python 环境初始化.md",
     "my-obsidian/操作记录/看过的有意义的视频，但没来得及实践.md",
+=======
+>>>>>>> 8e399704f1395040ecaccdc1d2cac39738cf2ac4
     "Untitled.base",
     "Pasted image 20250923194119.png",
     "my-obsidian/操作记录/fluxdb安装配置.md",

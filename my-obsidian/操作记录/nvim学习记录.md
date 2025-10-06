@@ -27,17 +27,16 @@ https://www.lazyvim.org/keymaps
 | `<leader>ss` | Goto Symbol (Aerial)       | **n**        |
 | `>>`         | 增加缩进                       | **n**        |
 | `<<`         | 减少缩进                       | **n**        |
-
-
 #### [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim.git)
 
 Part of [lazyvim.plugins.extras.lang.markdown](https://www.lazyvim.org/extras/lang/markdown)
+需要先安装npm命令行
+`npm install markdownlint-cli2 --global`
 
-|Key|Description|Mode|
-|---|---|---|
-|`<leader>cp`|Markdown Preview|**n**|
+| Key          | Description      | Mode  |
+| ------------ | ---------------- | ----- |
+| `<leader>cp` | Markdown Preview | **n** |
 #### [venv-selector.nvim](https://github.com/linux-cultist/venv-selector.nvim.git)
-
 Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lang/python)
 
 | Key          | Description       | Mode  |
@@ -54,7 +53,6 @@ Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lan
 查看某个事件的命令，如下示例展示了文件保存后的回调
 verbose autocmd BufWritePre
 
-### [[python Neovim环境创建]]
+### [[Python Neovim环境创建]]
 
-
-[[NeoVim Copilot安装配置]]
+### [[NeoVim Copilot安装配置]]
