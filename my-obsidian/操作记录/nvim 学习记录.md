@@ -3,6 +3,8 @@
 ```bash
 # markdown preview 需要用
 npm install markdownlint-cli2 --global
+# https://github.com/jonschlinkert/markdown-toc
+npm install -g markdown-toc
 # js 格式化需要用
 npm install prettier --global 
 ```
