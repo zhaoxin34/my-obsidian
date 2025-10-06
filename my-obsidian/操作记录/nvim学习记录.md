@@ -27,17 +27,16 @@ https://www.lazyvim.org/keymaps
 | `<leader>ss` | Goto Symbol (Aerial)       | **n**        |
 | `>>`         | 增加缩进                       | **n**        |
 | `<<`         | 减少缩进                       | **n**        |
-
-
 #### [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim.git)
 
 Part of [lazyvim.plugins.extras.lang.markdown](https://www.lazyvim.org/extras/lang/markdown)
+需要先安装npm命令行
+`npm install markdownlint-cli2 --global`
 
-|Key|Description|Mode|
-|---|---|---|
-|`<leader>cp`|Markdown Preview|**n**|
+| Key          | Description      | Mode  |
+| ------------ | ---------------- | ----- |
+| `<leader>cp` | Markdown Preview | **n** |
 #### [venv-selector.nvim](https://github.com/linux-cultist/venv-selector.nvim.git)
-
 Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lang/python)
 
 | Key          | Description       | Mode  |
