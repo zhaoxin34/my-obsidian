@@ -5,15 +5,11 @@ https://www.lazyvim.org/keymaps
 
 | Key          | Description                | Mode         |
 | ------------ | -------------------------- | ------------ |
-| `<C-Up>`     | Increase Window Height     | **n**        |
-| `<C-Down>`   | Decrease Window Height     | **n**        |
 | `<leader>ft` | Terminal (Root Dir)        | **n**        |
 | `]]`         | Next Reference             | **n**        |
 | `[[`         | Prev Reference             | **n**        |
 | `<a-n>`      | Next Reference             | **n**        |
 | `<a-p>`      | Prev Reference             | **n**        |
-| `<S-h>`      | Prev Buffer                | **n**        |
-| `<S-l>`      | Next Buffer                | **n**        |
 | `<leader>sr` | Search and Replace         | **n**, **v** |
 | `<leader>,`  | Buffers                    | **n**        |
 | `<leader>.`  | Toggle Scratch Buffer      | **n**        |
@@ -26,7 +22,13 @@ https://www.lazyvim.org/keymaps
 | `<leader>sp` | Search for Plugin Spec     | **n**        |
 | `gd`         | Goto Definition            | **n**        |
 | `gr`         | References                 | **n**        |
+| `gcc`        | 注释当前行                      | **n**        |
+| `gbc`        | 注释代码块                      | **n**        |
 | `<leader>ss` | Goto Symbol (Aerial)       | **n**        |
+| `>>`         | 增加缩进                       | **n**        |
+| `<<`         | 减少缩进                       | **n**        |
+
+
 #### [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim.git)
 
 Part of [lazyvim.plugins.extras.lang.markdown](https://www.lazyvim.org/extras/lang/markdown)
@@ -38,14 +40,19 @@ Part of [lazyvim.plugins.extras.lang.markdown](https://www.lazyvim.org/extras/l
 
 Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lang/python)
 
-|Key|Description|Mode|
-|---|---|---|
-|`<leader>cv`|Select VirtualEnv|**n**|
+| Key          | Description       | Mode  |
+| ------------ | ----------------- | ----- |
+| `<leader>cv` | Select VirtualEnv | **n** |
 
 ### 一些命令
 
 查看所有事件
 :h events
+产看当前文件是否支持格式化及其他lsp信息
+:LspInfo
+:ConformInfo
+查看某个事件的命令，如下示例展示了文件保存后的回调
+verbose autocmd BufWritePre
 
 ### [[python Neovim环境创建]]
 
