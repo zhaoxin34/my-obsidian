@@ -4,3 +4,4 @@
 - [ ] 测试运行的插件，可以启动单元测试，运行
 - [ ] Treesitter 高亮配置
 - [ ] blink.cmp 补全配置
+- [ ] Conform的prettierd配置，可以用于pretier加速 https://github.com/fsouza/prettierd

@@ -1,3 +1,13 @@
+### 一些必须初始化的命令
+
+```bash
+# markdown preview 需要用
+npm install markdownlint-cli2 --global
+# https://github.com/jonschlinkert/markdown-toc
+npm install -g markdown-toc
+# js 格式化需要用
+npm install prettier --global 
+```
 ### 快捷键帮助地址
 https://www.lazyvim.org/keymaps
 
@@ -31,7 +41,6 @@ https://www.lazyvim.org/keymaps
 
 Part of [lazyvim.plugins.extras.lang.markdown](https://www.lazyvim.org/extras/lang/markdown)
 需要先安装npm命令行
-`npm install markdownlint-cli2 --global`
 
 | Key          | Description      | Mode  |
 | ------------ | ---------------- | ----- |
