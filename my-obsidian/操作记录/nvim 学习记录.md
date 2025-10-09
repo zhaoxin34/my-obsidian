@@ -77,6 +77,8 @@ Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lan
 :verbose autocmd BufWritePre
 *查看快捷键对应的命令*
 :verbose map <leader>.
+查看某个包有没有被加载
+:lua print(vim.inspect(package.loaded["blink.cmp"]))
 
 ### [[Python Neovim环境创建]]
 
