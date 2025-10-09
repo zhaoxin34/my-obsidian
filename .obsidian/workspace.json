@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "my-obsidian/操作记录/NVim 未完成的配置.md",
+                "file": "my-obsidian/操作记录/nvim 学习记录.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "NVim 未完成的配置"
+              "title": "nvim 学习记录"
             }
           }
         ]
@@ -113,13 +113,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "my-obsidian/操作记录/NVim 未完成的配置.md",
+                "file": "my-obsidian/操作记录/nvim 学习记录.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of NVim 未完成的配置"
+              "title": "Outline of nvim 学习记录"
             }
           },
           {
@@ -171,11 +171,11 @@
   },
   "active": "80cfdf29da88e1db",
   "lastOpenFiles": [
+    "my-obsidian/操作记录/NVim 未完成的配置.md",
     "Untitled 2.md",
     "my-obsidian/操作记录/nvim 学习记录.md",
     "my-obsidian/操作记录/工作环境初始化.md",
     "my-obsidian/操作记录/python Neovim环境创建.md",
-    "my-obsidian/操作记录/NVim 未完成的配置.md",
     "Untitled.md",
     "Untitled 1.md",
     "my-obsidian/操作记录/NeoVim Copilot安装配置.md",
