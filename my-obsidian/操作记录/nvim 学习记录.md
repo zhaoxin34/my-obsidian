@@ -68,13 +68,15 @@ Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lan
 
 ### 一些命令
 
-查看所有事件
+*查看所有事件*
 :h events
-产看当前文件是否支持格式化及其他lsp信息
+*产看当前文件是否支持格式化及其他lsp信息*
 :LspInfo
 :ConformInfo
-查看某个事件的命令，如下示例展示了文件保存后的回调
-verbose autocmd BufWritePre
+*查看某个事件的命令，如下示例展示了文件保存后的回调*
+:verbose autocmd BufWritePre
+*查看快捷键对应的命令*
+:verbose map <leader>.
 
 ### [[Python Neovim环境创建]]
 
