@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "my-obsidian/操作记录/uiautomator2 安装配置和开发.md",
+                "file": "my-obsidian/操作记录/NVim 未完成的配置.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "uiautomator2 安装配置和开发"
+              "title": "NVim 未完成的配置"
             }
           }
         ]
@@ -113,13 +113,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "my-obsidian/操作记录/uiautomator2 安装配置和开发.md",
+                "file": "my-obsidian/操作记录/NVim 未完成的配置.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of uiautomator2 安装配置和开发"
+              "title": "Outline of NVim 未完成的配置"
             }
           },
           {
@@ -171,6 +171,8 @@
   },
   "active": "80cfdf29da88e1db",
   "lastOpenFiles": [
+    "my-obsidian/操作记录/yabai的一些可以实验的配置.md",
+    "my-obsidian/操作记录/uiautomator2 安装配置和开发.md",
     "my-obsidian/操作记录/nvim 学习记录.md",
     "my-obsidian/操作记录/NVim 未完成的配置.md",
     "Untitled 2.md",
@@ -181,10 +183,8 @@
     "my-obsidian/操作记录/NeoVim Copilot安装配置.md",
     "my-obsidian/操作记录/python 环境初始化.md",
     "my-obsidian/操作记录/看过的有意义的视频，但没来得及实践.md",
-    "my-obsidian/操作记录/uiautomator2 安装配置和开发.md",
     "my-obsidian/操作记录/Node.js环境初始化.md",
     "my-obsidian/操作记录/fluxdb安装配置.md",
-    "my-obsidian/操作记录/yabai的一些可以实验的配置.md",
     "my-obsidian/操作记录/安装配置openvpn.md",
     "my-obsidian/操作记录/安装配置p10k.md",
     "Untitled.base",
