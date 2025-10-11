@@ -11,7 +11,7 @@
     "disable": "Cmd-Shift-ArrowRight"
   },
   "suggestionDelay": 500,
-  "debug": false,
+  "debug": true,
   "onlyOnHotkey": false,
   "onlyInCodeBlock": false,
   "exclude": [],
@@ -28,8 +28,8 @@
       "expiresAt": null
     },
     "selectedModel": {
-      "label": "GPT-o4-mini",
-      "value": "o4-mini"
+      "label": "GPT-4o",
+      "value": "gpt-4o-2024-08-06"
     }
   },
   "systemPrompt": "You are GitHub Copilot, an AI assistant. You are helping the user with their tasks in Obsidian.",
