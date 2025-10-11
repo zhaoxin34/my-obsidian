@@ -154,9 +154,19 @@
               "icon": "message-square",
               "title": "Copilot"
             }
+          },
+          {
+            "id": "4f69f14b26f4587d",
+            "type": "leaf",
+            "state": {
+              "type": "github-copilot-chat-view",
+              "state": {},
+              "icon": "bot-message-square",
+              "title": "Copilot Chat"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -175,7 +185,7 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "18bb7157d5f5e7ec",
+  "active": "4f69f14b26f4587d",
   "lastOpenFiles": [
     "Untitled.canvas",
     "copilot/copilot-custom-prompts/Rewrite as tweet thread.md",
