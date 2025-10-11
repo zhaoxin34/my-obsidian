@@ -6,7 +6,6 @@
 - [ ] blink.cmp 补全配置
 - [ ] Conform的prettierd配置，可以用于pretier加速 https://github.com/fsouza/prettierd
 
-
 super-tab的配置, https://cmp.saghen.dev/installation.html
 ```lua
 return {
