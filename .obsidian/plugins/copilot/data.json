@@ -93,13 +93,13 @@
     {
       "name": "gpt-5",
       "provider": "openai",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true,
       "core": true,
       "capabilities": [
         "vision"
       ],
-      "enableCors": true
+      "enableCors": false
     },
     {
       "name": "gpt-5-mini",
@@ -142,6 +142,24 @@
       "capabilities": [
         "vision"
       ]
+    },
+    {
+      "name": "deepseek/deepseek-chat",
+      "provider": "openrouterai",
+      "apiKey": "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",
+      "enabled": true
+    },
+    {
+      "name": "openai/gpt-4o",
+      "provider": "openrouterai",
+      "apiKey": "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",
+      "enabled": true
+    },
+    {
+      "name": "openai/gpt-5",
+      "provider": "openrouterai",
+      "apiKey": "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",
+      "enabled": true
     }
   ],
   "activeEmbeddingModels": [
