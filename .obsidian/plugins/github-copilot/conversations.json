@@ -1,0 +1,41 @@
+{
+  "conversations": [
+    {
+      "id": "1760187797172",
+      "title": "你了解neovim",
+      "messages": [
+        {
+          "id": "1760187797172",
+          "content": "你了解neovim",
+          "role": "user",
+          "timestamp": 1760187797172
+        },
+        {
+          "id": "1760187813767",
+          "content": "你了解neovim吗",
+          "role": "user",
+          "timestamp": 1760187813767
+        },
+        {
+          "id": "1760187887066",
+          "content": "你了解neovim吗",
+          "role": "user",
+          "timestamp": 1760187887066
+        },
+        {
+          "id": "chatcmpl-CPTZ9P7ZJGnVpqOdSMJg6tq5fNCXG",
+          "content": "是的，我了解 Neovim。Neovim 是一个基于 Vim 编辑器的开源文本编辑器，旨在提供更好的可扩展性和可维护性。它保留了 Vim 的大部分功能和用户体验，但引入了一些改进和新特性，例如：\n\n1. **异步插件**：Neovim 支持异步 I/O，这使得插件可以在后台运行而不阻塞编辑器。\n2. **内置终端**：Neovim 包含一个内置终端模拟器，可以在编辑器中直接运行命令行程序。\n3. **更好的插件架构**：Neovim 的插件系统更现代化，支持使用 Lua 编写插件。\n4. **图形用户界面支持**：Neovim 提供了更好的 GUI 支持，允许开发者创建更丰富的图形界面。\n5. **社区驱动**：Neovim 拥有一个活跃的社区，持续为其开发新功能和改进。\n\n如果你有关于 Neovim 的具体问题或需要帮助的地方，请告诉我！",
+          "role": "assistant",
+          "timestamp": 1760187889771
+        }
+      ],
+      "createdAt": 1760187797172,
+      "updatedAt": 1760187889771,
+      "model": {
+        "label": "GPT-o4-mini",
+        "value": "o4-mini"
+      }
+    }
+  ],
+  "activeConversationId": "1760187797172"
+}

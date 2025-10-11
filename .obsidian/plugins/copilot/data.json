@@ -160,6 +160,12 @@
       "provider": "openrouterai",
       "apiKey": "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",
       "enabled": true
+    },
+    {
+      "name": "qwen/qwen3-coder",
+      "provider": "openrouterai",
+      "apiKey": "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",
+      "enabled": true
     }
   ],
   "activeEmbeddingModels": [
