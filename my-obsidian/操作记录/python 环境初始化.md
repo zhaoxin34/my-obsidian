@@ -36,3 +36,5 @@ git clone "https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv.git" "$Z
 
 zshrc增加
 plugins=(autoswitch_virtualenv $plugins)
+
+### [[poetry 安装和配置]]
