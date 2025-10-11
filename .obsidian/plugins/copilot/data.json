@@ -2,7 +2,7 @@
   "userId": "374130ac-4a68-4c82-a074-06c9d5ec90e4",
   "isPlusUser": false,
   "plusLicenseKey": "",
-  "openAIApiKey": "",
+  "openAIApiKey": "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",
   "openAIOrgId": "",
   "huggingfaceApiKey": "",
   "cohereApiKey": "",
@@ -142,30 +142,6 @@
       "capabilities": [
         "vision"
       ]
-    },
-    {
-      "name": "deepseek/deepseek-chat",
-      "provider": "openrouterai",
-      "apiKey": "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",
-      "enabled": true
-    },
-    {
-      "name": "openai/gpt-4o",
-      "provider": "openrouterai",
-      "apiKey": "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",
-      "enabled": true
-    },
-    {
-      "name": "openai/gpt-5",
-      "provider": "openrouterai",
-      "apiKey": "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",
-      "enabled": true
-    },
-    {
-      "name": "qwen/qwen3-coder",
-      "provider": "openrouterai",
-      "apiKey": "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",
-      "enabled": true
     }
   ],
   "activeEmbeddingModels": [
