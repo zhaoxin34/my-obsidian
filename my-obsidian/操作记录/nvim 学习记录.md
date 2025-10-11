@@ -76,10 +76,15 @@ Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lan
 *查看某个事件的命令，如下示例展示了文件保存后的回调*
 :verbose autocmd BufWritePre
 *查看快捷键对应的命令*
+```
 :verbose map <leader>.
+```
 查看某个包有没有被加载
 :lua print(vim.inspect(package.loaded["blink.cmp"]))
 
+### 配置overseer.nvim进行任务管理
+
+https://github.com/stevearc/overseer.nvim
 ### [[Python Neovim环境创建]]
 
 ### [[NeoVim Copilot安装配置]]
