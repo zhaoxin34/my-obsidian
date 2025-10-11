@@ -109,13 +109,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Untitled.canvas",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Untitled"
+              "title": "Outline"
             }
           },
           {
@@ -145,13 +144,23 @@
               "icon": "lucide-tags",
               "title": "Tags"
             }
+          },
+          {
+            "id": "18bb7157d5f5e7ec",
+            "type": "leaf",
+            "state": {
+              "type": "copilot-chat-view",
+              "state": {},
+              "icon": "message-square",
+              "title": "Copilot"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 296
+    "width": 594
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -162,12 +171,28 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
-      "github-sync:Sync with Remote": false
+      "github-sync:Sync with Remote": false,
+      "copilot:Open Copilot Chat": false
     }
   },
-  "active": "c26973c1cba6ff90",
+  "active": "18bb7157d5f5e7ec",
   "lastOpenFiles": [
     "Untitled.canvas",
+    "copilot/copilot-custom-prompts/Rewrite as tweet thread.md",
+    "copilot/copilot-custom-prompts/Rewrite as tweet.md",
+    "copilot/copilot-custom-prompts/Remove URLs.md",
+    "copilot/copilot-custom-prompts/Generate glossary.md",
+    "copilot/copilot-custom-prompts/Generate table of contents.md",
+    "copilot/copilot-custom-prompts/Make longer.md",
+    "copilot/copilot-custom-prompts/Make shorter.md",
+    "copilot/copilot-custom-prompts/Emojify.md",
+    "copilot/copilot-custom-prompts/Explain like I am 5.md",
+    "copilot/copilot-custom-prompts/Simplify.md",
+    "copilot/copilot-custom-prompts/Summarize.md",
+    "copilot/copilot-custom-prompts/Translate to Chinese.md",
+    "copilot/copilot-custom-prompts/Fix grammar and spelling.md",
+    "copilot/copilot-custom-prompts",
+    "copilot",
     "my-obsidian/操作记录/poetry 安装和配置.md",
     "2025-10-11.md",
     "my-obsidian/操作记录/python 环境初始化.md",
@@ -180,20 +205,8 @@
     "my-obsidian/操作记录/python Neovim环境创建.md",
     "my-obsidian/操作记录/NVim 未完成的配置.md",
     "my-obsidian/操作记录/yabai的一些可以实验的配置.md",
-    "my-obsidian/操作记录/nvim 学习记录.md",
-    "Untitled.md",
-    "Untitled 1.md",
-    "my-obsidian/操作记录/NeoVim Copilot安装配置.md",
-    "my-obsidian/操作记录/Node.js环境初始化.md",
-    "my-obsidian/操作记录/fluxdb安装配置.md",
     "Untitled.base",
     "Pasted image 20250923194119.png",
-    "laop/TDD_v7.0.md",
-    "laop/PRD_v4.0.md",
-    "laop/PDD_v3.0.md",
-    "laop/database_design_postgres_v2.md",
-    "my-obsidian/test.md",
-    "laop",
-    "my-obsidian/create a link.md"
+    "laop"
   ]
 }
