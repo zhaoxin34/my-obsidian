@@ -93,7 +93,7 @@
     {
       "name": "gpt-5",
       "provider": "openai",
-      "enabled": false,
+      "enabled": true,
       "isBuiltIn": true,
       "core": true,
       "capabilities": [
@@ -104,7 +104,7 @@
     {
       "name": "gpt-5-mini",
       "provider": "openai",
-      "enabled": false,
+      "enabled": true,
       "isBuiltIn": true,
       "core": true,
       "capabilities": [
@@ -114,7 +114,7 @@
     {
       "name": "gpt-5-nano",
       "provider": "openai",
-      "enabled": false,
+      "enabled": true,
       "isBuiltIn": true,
       "core": true,
       "capabilities": [
@@ -124,7 +124,7 @@
     {
       "name": "gpt-4.1",
       "provider": "openai",
-      "enabled": false,
+      "enabled": true,
       "isBuiltIn": true,
       "core": true,
       "projectEnabled": true,
@@ -135,7 +135,7 @@
     {
       "name": "gpt-4.1-mini",
       "provider": "openai",
-      "enabled": false,
+      "enabled": true,
       "isBuiltIn": true,
       "core": true,
       "projectEnabled": true,
@@ -181,7 +181,8 @@
       "enabled": true,
       "isBuiltIn": true,
       "isEmbeddingModel": true,
-      "core": true
+      "core": true,
+      "enableCors": true
     },
     {
       "name": "gemini-embedding-001",
