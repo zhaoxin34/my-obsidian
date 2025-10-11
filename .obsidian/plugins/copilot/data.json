@@ -48,7 +48,7 @@
     {
       "name": "copilot-plus-flash",
       "provider": "copilot-plus",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true,
       "core": true,
       "plusExclusive": true,
@@ -60,7 +60,7 @@
     {
       "name": "google/gemini-2.5-flash-lite",
       "provider": "openrouterai",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true,
       "core": true,
       "projectEnabled": true,
@@ -71,7 +71,7 @@
     {
       "name": "google/gemini-2.5-flash",
       "provider": "openrouterai",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true,
       "core": true,
       "projectEnabled": true,
@@ -82,7 +82,7 @@
     {
       "name": "google/gemini-2.5-pro",
       "provider": "openrouterai",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true,
       "core": true,
       "projectEnabled": true,
@@ -98,12 +98,13 @@
       "core": true,
       "capabilities": [
         "vision"
-      ]
+      ],
+      "enableCors": true
     },
     {
       "name": "gpt-5-mini",
       "provider": "openai",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true,
       "core": true,
       "capabilities": [
@@ -113,7 +114,7 @@
     {
       "name": "gpt-5-nano",
       "provider": "openai",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true,
       "core": true,
       "capabilities": [
@@ -123,7 +124,7 @@
     {
       "name": "gpt-4.1",
       "provider": "openai",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true,
       "core": true,
       "projectEnabled": true,
@@ -134,153 +135,13 @@
     {
       "name": "gpt-4.1-mini",
       "provider": "openai",
-      "enabled": true,
+      "enabled": false,
       "isBuiltIn": true,
       "core": true,
       "projectEnabled": true,
       "capabilities": [
         "vision"
       ]
-    },
-    {
-      "name": "openai/gpt-4.1",
-      "provider": "openrouterai",
-      "enabled": true,
-      "isBuiltIn": true,
-      "core": false,
-      "projectEnabled": true,
-      "capabilities": [
-        "vision"
-      ]
-    },
-    {
-      "name": "openai/gpt-4.1-mini",
-      "provider": "openrouterai",
-      "enabled": true,
-      "isBuiltIn": true,
-      "core": false,
-      "projectEnabled": true,
-      "capabilities": [
-        "vision"
-      ]
-    },
-    {
-      "name": "x-ai/grok-4-fast:free",
-      "provider": "openrouterai",
-      "enabled": true,
-      "isBuiltIn": true,
-      "core": false,
-      "projectEnabled": true
-    },
-    {
-      "name": "gpt-4.1-nano",
-      "provider": "openai",
-      "enabled": true,
-      "isBuiltIn": true,
-      "capabilities": [
-        "vision"
-      ]
-    },
-    {
-      "name": "claude-sonnet-4-20250514",
-      "provider": "anthropic",
-      "enabled": true,
-      "isBuiltIn": true,
-      "capabilities": [
-        "reasoning",
-        "vision"
-      ]
-    },
-    {
-      "name": "claude-3-7-sonnet-latest",
-      "provider": "anthropic",
-      "enabled": true,
-      "isBuiltIn": true,
-      "capabilities": [
-        "reasoning",
-        "vision"
-      ]
-    },
-    {
-      "name": "grok-3-beta",
-      "provider": "xai",
-      "enabled": true,
-      "isBuiltIn": true
-    },
-    {
-      "name": "grok-3-mini-beta",
-      "provider": "xai",
-      "enabled": true,
-      "isBuiltIn": true
-    },
-    {
-      "name": "gemini-2.5-flash",
-      "provider": "google",
-      "enabled": true,
-      "isBuiltIn": true,
-      "projectEnabled": true,
-      "capabilities": [
-        "vision"
-      ]
-    },
-    {
-      "name": "gemini-2.5-flash-lite",
-      "provider": "google",
-      "enabled": true,
-      "isBuiltIn": true,
-      "projectEnabled": true,
-      "capabilities": [
-        "vision"
-      ]
-    },
-    {
-      "name": "gemini-2.5-pro",
-      "provider": "google",
-      "enabled": true,
-      "isBuiltIn": true,
-      "projectEnabled": true,
-      "capabilities": [
-        "vision"
-      ]
-    },
-    {
-      "name": "azure-openai",
-      "provider": "azure openai",
-      "enabled": true,
-      "isBuiltIn": true
-    },
-    {
-      "name": "deepseek-chat",
-      "provider": "deepseek",
-      "enabled": true,
-      "isBuiltIn": true
-    },
-    {
-      "name": "deepseek-reasoner",
-      "provider": "deepseek",
-      "enabled": true,
-      "isBuiltIn": true,
-      "capabilities": [
-        "reasoning"
-      ]
-    },
-    {
-      "name": "openai/gpt-4o",
-      "provider": "openrouterai",
-      "apiKey": "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",
-      "enabled": true
-    },
-    {
-      "name": "openai/gpt-5-chat",
-      "provider": "openrouterai",
-      "apiKey": "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",
-      "enabled": true
-    },
-    {
-      "name": "openai/gpt-5",
-      "provider": "openrouterai",
-      "apiKey": "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",
-      "enabled": true
     }
   ],
   "activeEmbeddingModels": [
@@ -329,34 +190,6 @@
       "isBuiltIn": true,
       "isEmbeddingModel": true,
       "core": true
-    },
-    {
-      "name": "text-embedding-3-large",
-      "provider": "openai",
-      "enabled": true,
-      "isBuiltIn": true,
-      "isEmbeddingModel": true
-    },
-    {
-      "name": "embed-multilingual-light-v3.0",
-      "provider": "cohereai",
-      "enabled": true,
-      "isBuiltIn": true,
-      "isEmbeddingModel": true
-    },
-    {
-      "name": "text-embedding-004",
-      "provider": "google",
-      "enabled": true,
-      "isBuiltIn": true,
-      "isEmbeddingModel": true
-    },
-    {
-      "name": "azure-openai",
-      "provider": "azure openai",
-      "enabled": true,
-      "isBuiltIn": true,
-      "isEmbeddingModel": true
     }
   ],
   "embeddingRequestsPerMin": 60,
