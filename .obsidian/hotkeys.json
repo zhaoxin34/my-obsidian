@@ -8,6 +8,7 @@
       "key": "I"
     }
   ],
+<<<<<<< HEAD
   "app:toggle-left-sidebar": [
     {
       "modifiers": [
@@ -17,6 +18,8 @@
       "key": "E"
     }
   ],
+=======
+>>>>>>> 4e58105e88387af833d894c8a56d808389fcd565
   "app:toggle-right-sidebar": [
     {
       "modifiers": [
@@ -25,5 +28,17 @@
       ],
       "key": "L"
     }
+<<<<<<< HEAD
+=======
+  ],
+  "app:toggle-left-sidebar": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "H"
+    }
+>>>>>>> 4e58105e88387af833d894c8a56d808389fcd565
   ]
 }
