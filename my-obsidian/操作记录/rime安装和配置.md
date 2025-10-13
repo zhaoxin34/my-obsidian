@@ -30,10 +30,17 @@ app_options:
   com.apple.Spotlight:
     ascii_mode: true    # 开启默认英文
   com.microsoft.VSCode:
-    vim_mode: true   # 关闭默认英文
+    vim_mode: true 
+  md.obsidian:
+    vim_mode: true
+  com.github.wez.wezterm:
+    vim_mode: true
 style:
   # 选择皮肤，亮色与暗色主题
   color_scheme: solarized_rock
   color_scheme_dark: solarized_rock
 
 ```
+
+ 💡知识点：
+* 这个命令可以获取app的id`osascript -e 'id of app "WezTerm"'`
