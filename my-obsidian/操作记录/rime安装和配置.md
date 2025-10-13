@@ -4,3 +4,6 @@
 下载后安装，要求logout然后再login系统
 
 ## 配置
+
+首先在系統中
+git clone https://github.com/iDvel/rime-ice.git Rime --depth 1
