@@ -32,7 +32,9 @@ pyenv local 3.13.7
 ### 自动切换venv的zsh插件
 https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv
 
+```bash
 git clone "https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv.git" "$ZSH_CUSTOM/plugins/autoswitch_virtualenv"
+```
 
 zshrc增加
 plugins=(autoswitch_virtualenv $plugins)
