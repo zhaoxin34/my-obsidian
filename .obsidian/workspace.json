@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "my-obsidian/操作记录/python 环境初始化.md",
+                "file": "my-obsidian/操作记录/NeoVim Copilot安装配置.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "python 环境初始化"
+              "title": "NeoVim Copilot安装配置"
             }
           }
         ],
@@ -211,6 +211,8 @@
   },
   "active": "f03dc0ef68a20efc",
   "lastOpenFiles": [
+    "my-obsidian/操作记录/fluxdb安装配置.md",
+    "my-obsidian/操作记录/python 环境初始化.md",
     "my-obsidian/操作记录/NeoVim Copilot安装配置.md",
     "Untitled 1.md",
     "Untitled 4.md",
@@ -229,11 +231,9 @@
     "my-obsidian/操作记录/yabai的一些可以实验的配置.md",
     "my-obsidian/操作记录/安装配置openvpn.md",
     "laop/database_design_postgres_v2.md",
-    "my-obsidian/操作记录/python 环境初始化.md",
     "my-obsidian/操作记录/python 环境初始化-mindmap.md",
     "my-obsidian/操作记录/安装配置p10k.md",
     "my-obsidian/操作记录/Node.js环境初始化.md",
-    "my-obsidian/操作记录/fluxdb安装配置.md",
     "my-obsidian/操作记录/fluxdb安装配置-mindmap.md",
     "copilot/copilot-custom-prompts/Explain like I am 5.md",
     "my-obsidian/操作记录/NVim 未完成的配置.md",
