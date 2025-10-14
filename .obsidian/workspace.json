@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "my-obsidian/操作记录/NeoVim Copilot安装配置.md",
+                "file": "my-obsidian/操作记录/工作环境初始化.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "NeoVim Copilot安装配置"
+              "title": "工作环境初始化"
             }
           },
           {
@@ -108,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "my-obsidian/操作记录/NeoVim Copilot安装配置.md",
+                "file": "my-obsidian/操作记录/工作环境初始化.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for NeoVim Copilot安装配置"
+              "title": "Backlinks for 工作环境初始化"
             }
           },
           {
@@ -187,16 +187,20 @@
   },
   "active": "80cfdf29da88e1db",
   "lastOpenFiles": [
-    "my-obsidian/技术工作/redis哨兵模式选主的过程.md",
     "my-obsidian/操作记录/nvim 学习记录.md",
+    "my-obsidian/操作记录/NVim 未完成的配置.md",
+    "my-obsidian/操作记录/rime安装和配置.md",
+    "my-obsidian/操作记录/工作环境初始化.md",
+    "my-obsidian/操作记录/安装配置p10k.md",
+    "my-obsidian/操作记录/安装配置openvpn.md",
+    "my-obsidian/操作记录/yabai的一些可以实验的配置.md",
+    "my-obsidian/操作记录/NeoVim Copilot安装配置.md",
+    "my-obsidian/技术工作/redis哨兵模式选主的过程.md",
     "Untitled.md",
     "my-obsidian/操作记录/python 环境初始化.md",
-    "my-obsidian/操作记录/工作环境初始化.md",
     "my-obsidian/技术工作/设计模式 - 策略模式.md",
     "my-obsidian/技术工作/异步消息的优缺点和问题解决方案.md",
     "my-obsidian/技术工作",
-    "my-obsidian/操作记录/rime安装和配置.md",
-    "my-obsidian/操作记录/NeoVim Copilot安装配置.md",
     "Untitled.canvas",
     "Untitled 2.md",
     "my-obsidian/操作记录/poetry 安装和配置.md",
@@ -211,12 +215,8 @@
     "copilot/copilot-custom-prompts/Generate table of contents.md",
     "copilot/copilot-custom-prompts/Generate glossary.md",
     "copilot/copilot-custom-prompts/Fix grammar and spelling.md",
-    "copilot/copilot-custom-prompts/Explain like I am 5.md",
-    "copilot/copilot-custom-prompts/Emojify.md",
     "copilot/copilot-custom-prompts",
     "copilot",
-    "Untitled 1.md",
-    "my-obsidian/操作记录/NVim 未完成的配置.md",
     "Untitled.base",
     "Pasted image 20250923194119.png",
     "laop"
