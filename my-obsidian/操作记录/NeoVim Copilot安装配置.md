@@ -12,3 +12,11 @@ nvm install 24
 nvm use 24
 nvm alias default 24
 ```
+
+**切换账户的方法**
+
+删除掉以下的目录
+```bash
+rm -rf ~/.config/github-copilot
+```
+
