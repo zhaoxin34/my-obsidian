@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "my-obsidian/操作记录/NeoVim Copilot安装配置.md",
+                "file": "my-obsidian/操作记录/python Neovim环境创建.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "NeoVim Copilot安装配置"
+              "title": "python Neovim环境创建"
             }
           }
         ],
@@ -211,12 +211,14 @@
   },
   "active": "f03dc0ef68a20efc",
   "lastOpenFiles": [
+    "my-obsidian/操作记录/poetry 安装和配置.md",
+    "my-obsidian/操作记录/Node.js环境初始化.md",
+    "my-obsidian/操作记录/nvim 学习记录.md",
     "my-obsidian/操作记录/fluxdb安装配置.md",
-    "my-obsidian/操作记录/python 环境初始化.md",
     "my-obsidian/操作记录/NeoVim Copilot安装配置.md",
+    "my-obsidian/操作记录/python 环境初始化.md",
     "Untitled 1.md",
     "Untitled 4.md",
-    "my-obsidian/操作记录/nvim 学习记录.md",
     "my-obsidian/技术工作/redis哨兵模式选主的过程.md",
     "Untitled 3.md",
     "Untitled.md",
@@ -233,12 +235,10 @@
     "laop/database_design_postgres_v2.md",
     "my-obsidian/操作记录/python 环境初始化-mindmap.md",
     "my-obsidian/操作记录/安装配置p10k.md",
-    "my-obsidian/操作记录/Node.js环境初始化.md",
     "my-obsidian/操作记录/fluxdb安装配置-mindmap.md",
     "copilot/copilot-custom-prompts/Explain like I am 5.md",
     "my-obsidian/操作记录/NVim 未完成的配置.md",
     "Untitled.canvas",
-    "copilot/copilot-custom-prompts/Rewrite as tweet thread.md",
     "copilot/copilot-custom-prompts",
     "copilot",
     "Untitled.base",
