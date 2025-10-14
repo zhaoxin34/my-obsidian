@@ -13,6 +13,7 @@ nvm use 24
 nvm alias default 24
 ```
 
+<<<<<<< HEAD
 ### 常见问题
 
 `:LspInfo` 如果发现copilot-language-server没有运行, 可以尝试手动安装
@@ -20,3 +21,12 @@ nvm alias default 24
 ```bash
 npm i -g @github/copilot-language-server
 ```
+=======
+**切换账户的方法**
+
+删除掉以下的目录
+```bash
+rm -rf ~/.config/github-copilot
+```
+
+>>>>>>> cbdc4a004ed2564eceba0bd40712251761dd3541
