@@ -88,8 +88,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -186,7 +185,7 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "b7a7feb015d62557",
+  "active": "c26973c1cba6ff90",
   "lastOpenFiles": [
     "my-obsidian/操作记录/nvim 学习记录.md",
     "my-obsidian/操作记录/NVim 未完成的配置.md",
