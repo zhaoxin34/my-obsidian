@@ -67,7 +67,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "markdown",
+                "query": "atuin",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -88,7 +88,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -185,7 +186,7 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "80cfdf29da88e1db",
+  "active": "b7a7feb015d62557",
   "lastOpenFiles": [
     "my-obsidian/操作记录/nvim 学习记录.md",
     "my-obsidian/操作记录/NVim 未完成的配置.md",
