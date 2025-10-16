@@ -1,7 +1,7 @@
 {
   "nodePath": "/Users/zhaoxin/.nvm/versions/node/v24.9.0/bin/node",
   "nodePathUpdatedToNode20": true,
-  "enabled": true,
+  "enabled": false,
   "hotkeys": {
     "accept": "Tab",
     "cancel": "Escape",

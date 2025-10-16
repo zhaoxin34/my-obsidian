@@ -97,12 +97,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Untitled 3.md",
+                "file": "my-obsidian/操作记录/工作环境初始化.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled 3"
+              "title": "工作环境初始化"
             }
           }
         ],
@@ -267,8 +267,8 @@
   },
   "active": "2525d389c2ce0f18",
   "lastOpenFiles": [
-    "my-obsidian/技术工作/Redis 分布式锁.md",
     "Untitled 3.md",
+    "my-obsidian/技术工作/Redis 分布式锁.md",
     "Untitled 2.md",
     "Untitled 1.md",
     "Untitled.md",
