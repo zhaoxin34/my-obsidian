@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "my-obsidian/技术工作/Redis 分布式锁.md",
+                "file": "my-obsidian/技术工作/redis哨兵模式选主的过程.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Redis 分布式锁"
+              "title": "redis哨兵模式选主的过程"
             }
           }
         ],
@@ -187,11 +187,11 @@
   },
   "active": "1e2b29b5b9154491",
   "lastOpenFiles": [
-    "my-obsidian/技术工作/redis哨兵模式选主的过程.md",
+    "Untitled.md",
     "my-obsidian/技术工作/Redis 分布式锁.md",
+    "my-obsidian/技术工作/redis哨兵模式选主的过程.md",
     "my-obsidian/技术工作/设计模式 - 策略模式.md",
     "my-obsidian/技术工作/异步消息的优缺点和问题解决方案.md",
-    "Untitled.md",
     "my-obsidian/操作记录/工作环境初始化.md",
     "my-obsidian/技术工作",
     "my-obsidian/操作记录/rime安装和配置.md",
