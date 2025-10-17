@@ -170,13 +170,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "copilot/copilot-custom-prompts/Explain like I am 5.md",
+                "file": "my-obsidian/操作记录/工作环境初始化.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Explain like I am 5"
+              "title": "Outline of 工作环境初始化"
             }
           },
           {
@@ -185,11 +185,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "my-obsidian/操作记录/工作环境初始化.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from 工作环境初始化"
             }
           },
           {
@@ -218,12 +219,11 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 594,
-    "collapsed": true
+    "width": 594
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -237,10 +237,11 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "1a8c3abf5e35f71f",
+  "active": "03191970b48d6559",
   "lastOpenFiles": [
-    "Untitled.md",
+    "my-obsidian/操作记录/安装配置p10k.md",
     "my-obsidian/操作记录/工作环境初始化.md",
+    "Untitled.md",
     "Untitled 2.md",
     "Untitled 4.md",
     "Untitled 5.md",
@@ -265,7 +266,6 @@
     "my-obsidian/操作记录/工作环境初始化-mindmap.md",
     "my-obsidian/操作记录/uiautomator2 安装配置和开发.md",
     "my-obsidian/操作记录/yabai的一些可以实验的配置.md",
-    "my-obsidian/操作记录/安装配置openvpn.md",
     "Untitled.canvas",
     "copilot/copilot-custom-prompts",
     "copilot",
