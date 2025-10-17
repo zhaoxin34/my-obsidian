@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "my-obsidian/技术工作/ChatGpt回复申万arm系统streaming worker内存gc问题.md",
+                "file": "my-obsidian/技术工作/Gemini回复申万arm系统streaming worker内存gc问题.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ChatGpt回复申万arm系统streaming worker内存gc问题"
+              "title": "Gemini回复申万arm系统streaming worker内存gc问题"
             }
           }
         ],
@@ -189,7 +189,7 @@
   "active": "60a0986848076683",
   "lastOpenFiles": [
     "my-obsidian/操作记录/工作环境初始化.md",
-    "my-obsidian/技术工作/ChatGpt回复申万arm系统streaming worker内存gc问题.md",
+    "my-obsidian/技术工作/Gemini回复申万arm系统streaming worker内存gc问题.md",
     "my-obsidian/操作记录/python 环境初始化.md",
     "Untitled.md",
     "my-obsidian/技术工作/Redis 分布式锁.md",
