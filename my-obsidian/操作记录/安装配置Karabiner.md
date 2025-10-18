@@ -14,3 +14,6 @@ brew install --cask karabiner-elements
 | `CapsLock + A` | 等价于 `Ctrl + Option + A` |
 | `CapsLock + S` | 等价于 `Ctrl + Option + S` |
 | 以此类推           | 任意键都行                   |
+配置文件已经在config目录下，需要加载一下
+
+![[Pasted image 20251018145546.png]]
