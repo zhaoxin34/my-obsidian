@@ -14,12 +14,14 @@ echo 'eval "$(jenv init -)"' >> ~/.zshrc
 ```
 
 将已有的jdk目录添加到 jenv
+
 ```bash
 jenv add /Volumes/data/working/sdk/java/jdk1.8.0_361.jdk/Contents/Home/
 jenv doctor
 ```
 
 设置全局java版本
+
 ```bash
 jenv global 1.8
 ```
