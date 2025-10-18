@@ -13,9 +13,10 @@ echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.zshrc
 echo 'eval "$(jenv init -)"' >> ~/.zshrc
 ```
 
-验证jdk是由安装
+验证jdk是否安装, 此时肯定是没有安装的
 
 ```bash
 jenv doctor
 [ERROR]	Java binary in path is not in the jenv shims.
 ```
+
