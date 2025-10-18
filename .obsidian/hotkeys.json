@@ -8,8 +8,15 @@
       "key": "I"
     }
   ],
-<<<<<<< HEAD
   "app:toggle-left-sidebar": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "E"
+    }
+  ],
+  "markdown:toggle-preview": [
     {
       "modifiers": [
         "Mod",
@@ -18,27 +25,12 @@
       "key": "E"
     }
   ],
-=======
->>>>>>> 4e58105e88387af833d894c8a56d808389fcd565
   "app:toggle-right-sidebar": [
     {
       "modifiers": [
-        "Mod",
-        "Shift"
+        "Mod"
       ],
       "key": "L"
     }
-<<<<<<< HEAD
-=======
-  ],
-  "app:toggle-left-sidebar": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "H"
-    }
->>>>>>> 4e58105e88387af833d894c8a56d808389fcd565
   ]
 }
