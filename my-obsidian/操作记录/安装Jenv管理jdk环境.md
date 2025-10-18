@@ -13,10 +13,13 @@ echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.zshrc
 echo 'eval "$(jenv init -)"' >> ~/.zshrc
 ```
 
-验证jdk是否安装, 此时肯定是没有安装的
-
+将已有的jdk目录添加到 jenv
 ```bash
+jenv add /Volumes/data/working/sdk/java/jdk1.8.0_361.jdk/Contents/Home/
 jenv doctor
-[ERROR]	Java binary in path is not in the jenv shims.
 ```
 
+设置全局java版本
+```bash
+jenv global 1.8
+```
