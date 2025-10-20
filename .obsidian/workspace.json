@@ -69,12 +69,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "my-obsidian/操作记录/安装Jenv管理jdk环境.md",
+                "file": "my-obsidian/操作记录/工作环境初始化.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "安装Jenv管理jdk环境"
+              "title": "工作环境初始化"
             }
           }
         ],
@@ -214,8 +214,8 @@
             "state": {
               "type": "github-copilot-chat-view",
               "state": {},
-              "icon": "bot-message-square",
-              "title": "Copilot Chat"
+              "icon": "lucide-ghost",
+              "title": "github-copilot-chat-view"
             }
           }
         ],
@@ -240,9 +240,10 @@
   },
   "active": "1a8c3abf5e35f71f",
   "lastOpenFiles": [
+    "my-obsidian/操作记录/安装配置Karabiner.md",
+    "my-obsidian/操作记录/NeoVim Copilot安装配置.md",
     "my-obsidian/操作记录/安装Jenv管理jdk环境.md",
     "my-obsidian/操作记录/工作环境初始化.md",
-    "my-obsidian/操作记录/安装配置Karabiner.md",
     "Pasted image 20251018145546.png",
     "my-obsidian/操作记录/Claude Code安装和配置.md",
     "my-obsidian/操作记录/安装配置p10k.md",
@@ -254,7 +255,6 @@
     "my-obsidian/操作记录/Node.js环境初始化.md",
     "my-obsidian/操作记录/nvim 学习记录.md",
     "my-obsidian/操作记录/fluxdb安装配置.md",
-    "my-obsidian/操作记录/NeoVim Copilot安装配置.md",
     "my-obsidian/操作记录/python 环境初始化.md",
     "my-obsidian/技术工作/redis哨兵模式选主的过程.md",
     "my-obsidian/操作记录/rime安装和配置.md",
