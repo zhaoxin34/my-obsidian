@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "my-obsidian/操作记录/Claude Code安装和配置.md",
+                "file": "my-obsidian/操作记录/安装Jenv管理jdk环境.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Claude Code安装和配置"
+              "title": "安装Jenv管理jdk环境"
             }
           }
         ],
@@ -201,12 +201,12 @@
   },
   "active": "9eb48c78dc211e86",
   "lastOpenFiles": [
+    "my-obsidian/操作记录/工作环境初始化.md",
+    "Untitled.md",
+    "my-obsidian/操作记录/Claude Code安装和配置.md",
     "my-obsidian/操作记录/安装配置Karabiner.md",
     "my-obsidian/操作记录/安装配置openvpn.md",
-    "Untitled.md",
-    "my-obsidian/操作记录/工作环境初始化.md",
     "my-obsidian/操作记录/安装Jenv管理jdk环境.md",
-    "my-obsidian/操作记录/Claude Code安装和配置.md",
     "my-obsidian/操作记录/看过的有意义的视频，但没来得及实践.md",
     "my-obsidian/技术工作/Gemini回复申万arm系统streaming worker内存gc问题.md",
     "my-obsidian/操作记录/python 环境初始化.md",
