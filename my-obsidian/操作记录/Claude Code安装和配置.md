@@ -28,3 +28,7 @@ npm install -g @anthropic-ai/claude-code
 ## 添加context7 mcp
 
 注册context7 mcp api key https://context7.com/dashboard
+
+```bash
+claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "CONTEXT7_API_KEY: ctx7sk-557ec667-d615-488c-891d-0c6fb25d6c31"
+```
