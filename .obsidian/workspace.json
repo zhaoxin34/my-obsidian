@@ -93,8 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "cca87e84ad62be7b",
@@ -183,8 +182,7 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
-      "github-sync:Sync with Remote": false,
-      "copilot:Open Copilot Chat": false
+      "github-sync:Sync with Remote": false
     }
   },
   "active": "60a0986848076683",
