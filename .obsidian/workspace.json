@@ -93,7 +93,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "cca87e84ad62be7b",
@@ -188,8 +189,9 @@
   },
   "active": "60a0986848076683",
   "lastOpenFiles": [
-    "my-obsidian/技术工作/Gemini回复申万arm系统streaming worker内存gc问题.md",
+    "my-obsidian/操作记录/看过的有意义的视频，但没来得及实践.md",
     "my-obsidian/操作记录/工作环境初始化.md",
+    "my-obsidian/技术工作/Gemini回复申万arm系统streaming worker内存gc问题.md",
     "my-obsidian/操作记录/python 环境初始化.md",
     "Untitled.md",
     "my-obsidian/技术工作/Redis 分布式锁.md",
@@ -215,7 +217,6 @@
     "copilot/copilot-custom-prompts/Remove URLs.md",
     "copilot/copilot-custom-prompts/Make shorter.md",
     "copilot/copilot-custom-prompts/Make longer.md",
-    "copilot/copilot-custom-prompts/Generate table of contents.md",
     "copilot/copilot-custom-prompts",
     "copilot",
     "Untitled.base",
