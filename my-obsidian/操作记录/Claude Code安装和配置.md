@@ -24,3 +24,7 @@ npm install -g @anthropic-ai/claude-code
 ```
 
 再次进入就好了
+
+## 添加context7 mcp
+
+注册context7 mcp api key https://context7.com/dashboard
