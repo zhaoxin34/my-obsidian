@@ -70,21 +70,22 @@ Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lan
 
 *查看所有事件*
 :h events
+
 *产看当前文件是否支持格式化及其他lsp信息*
 :LspInfo
 :ConformInfo
+
 *查看某个事件的命令，如下示例展示了文件保存后的回调*
 :verbose autocmd BufWritePre
+
 *查看快捷键对应的命令*
-<<<<<<< HEAD
-```
-:verbose map <leader>.
-```
-=======
 :verbose map \<leader>.
->>>>>>> a773bf89df9c1a7e3754ae373ea8adb84a3da514
-查看某个包有没有被加载
+
+*查看某个包有没有被加载*
 :lua print(vim.inspect(package.loaded["blink.cmp"]))
+
+*查看某个文件的linter*
+:lua print(vim.inspect(require('lint').linters_by_ft[vim.bo.filetype]))
 
 ### 配置overseer.nvim进行任务管理
 
