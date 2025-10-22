@@ -27,10 +27,16 @@ npm install -g @anthropic-ai/claude-code
 
 ## 配置mcp
 
- MCP Config locations (by scope):                                                                                      
-  • User config (available in all your projects):                                                                                          
-    • /Users/zhaoxin/.claude.json                                                                                                                
-  • Project config (shared via .mcp.json):                                                                                                        
+### 配置文件的位置
+
+`~/.claude.json`
+
+### 重要的命令
+
+claude mcp add
+claude mcp add-json -s user '{json}'
+claude mcp remove xxxx
+  
 ### 添加context7 mcp
 
 注册context7 mcp api key https://context7.com/dashboard
@@ -44,20 +50,23 @@ claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "
 ```bash
 claude mcp add -s user mcp-server-starrocks '
 {
-        "command": "uv",
-        "args": [
-          "run",
-          "--with",
-          "mcp-server-starrocks",
-          "mcp-server-starrocks"
-        ],
-        "env": {
-          "STARROCKS_HOST": "127.0.0.1",
-          "STARROCKS_PORT": "9030",
-          "STARROCKS_USER": "root",
-          "STARROCKS_PASSWORD": "abc123"
-        }
-}'
+  "command": "uv",
+  "args": [
+	"run",
+	"--with",
+	"mcp-server-starrocks",
+	"mcp-server-starrocks",
+	"--mode",
+	"streamable-http"
+  ],
+  "env": {
+	"STARROCKS_HOST": "127.0.0.1",
+	"STARROCKS_PORT": "9030",
+	"STARROCKS_USER": "root",
+	"STARROCKS_PASSWORD": "abc123"
+  }
+}
+'
 ```
 
 ## Tip
