@@ -69,6 +69,9 @@ claude mcp add -s user mcp-server-starrocks '
 '
 ```
 
+###  playwright
+
+claude mcp add playwright npx @playwright/mcp@latest
 ## Tip
 
 * Run claude --debug to see logs inline, or view log files i  /Users/zhaoxin/Library/Caches/claude-cli-nodejs/-Volumes-data-working-docker 
