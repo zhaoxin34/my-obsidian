@@ -26,6 +26,11 @@ npm install -g @anthropic-ai/claude-code
 再次进入就好了
 
 ## 配置mcp
+
+ MCP Config locations (by scope):                                                                                      
+  • User config (available in all your projects):                                                                                          
+    • /Users/zhaoxin/.claude.json                                                                                                                
+  • Project config (shared via .mcp.json):                                                                                                        
 ### 添加context7 mcp
 
 注册context7 mcp api key https://context7.com/dashboard
@@ -54,3 +59,7 @@ claude mcp add -s user mcp-server-starrocks '
         }
 }'
 ```
+
+## Tip
+
+* Run claude --debug to see logs inline, or view log files i  /Users/zhaoxin/Library/Caches/claude-cli-nodejs/-Volumes-data-working-docker 
