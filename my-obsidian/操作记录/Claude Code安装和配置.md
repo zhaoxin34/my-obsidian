@@ -25,10 +25,32 @@ npm install -g @anthropic-ai/claude-code
 
 再次进入就好了
 
-## 添加context7 mcp
+## 配置mcp
+### 添加context7 mcp
 
 注册context7 mcp api key https://context7.com/dashboard
 
 ```bash
 claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "CONTEXT7_API_KEY: ctx7sk-557ec667-d615-488c-891d-0c6fb25d6c31"
+```
+
+### 添加starrocksmcp
+
+```bash
+claude mcp add -s user mcp-server-starrocks '
+{
+        "command": "uv",
+        "args": [
+          "run",
+          "--with",
+          "mcp-server-starrocks",
+          "mcp-server-starrocks"
+        ],
+        "env": {
+          "STARROCKS_HOST": "127.0.0.1",
+          "STARROCKS_PORT": "9030",
+          "STARROCKS_USER": "root",
+          "STARROCKS_PASSWORD": "abc123"
+        }
+}'
 ```
