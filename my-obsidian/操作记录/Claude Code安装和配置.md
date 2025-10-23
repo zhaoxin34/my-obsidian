@@ -47,31 +47,26 @@ claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "
 
 ### 添加starrocksmcp
 
+
 ```bash
-claude mcp add -s user mcp-server-starrocks '
-{
-  "command": "uv",
-  "args": [
-	"run",
-	"--with",
-	"mcp-server-starrocks",
-	"mcp-server-starrocks",
-	"--mode",
-	"streamable-http"
-  ],
-  "env": {
-	"STARROCKS_HOST": "127.0.0.1",
-	"STARROCKS_PORT": "9030",
-	"STARROCKS_USER": "root",
-	"STARROCKS_PASSWORD": "abc123"
-  }
-}
-'
+# 首先用nv启动这个mcp的server
+uv run --with mcp-server-starrocks mcp-server-starrocks --mode streamable-http
+
+# 添加
+claude mcp add -s user --transport http mcp-server-starrocks http://localhost:3000/mcp
 ```
 
 ###  playwright
 
 claude mcp add playwright npx @playwright/mcp@latest
+
+## chrome dev tool
+
+```bash
+claude mcp add -s user chrome-devtools npx chrome-devtools-mcp@latest
+```
+
+
 ## Tip
 
 * Run claude --debug to see logs inline, or view log files i  /Users/zhaoxin/Library/Caches/claude-cli-nodejs/-Volumes-data-working-docker 
