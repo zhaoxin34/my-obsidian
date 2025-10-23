@@ -50,10 +50,18 @@ claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "
 
 ```bash
 # 首先用nv启动这个mcp的server
-uv run --with mcp-server-starrocks mcp-server-starrocks --mode streamable-http
+  STARROCKS_HOST=${STARROCKS_HOST:-localhost} \
+    STARROCKS_PORT=${STARROCKS_PORT:-9030} \
+    STARROCKS_USER=${STARROCKS_USER:-root} \
+    STARROCKS_PASSWORD=$1 \
+    STARROCKS_DB=${STARROCKS_DB:-wolf} \
+    uv run --with mcp-server-starrocks mcp-server-starrocks \
+    --mode streamable-http \
+    --host 0.0.0.0 \
+    --port $port \
 
 # 添加
-claude mcp add -s user --transport http mcp-server-starrocks http://localhost:3000/mcp
+claude mcp add -s user --transport http mcp-server-starrocks http://localhost:9040/mcp
 ```
 
 ###  playwright
