@@ -68,6 +68,26 @@ claude mcp add -s user --transport http mcp-server-starrocks http://localhost:90
 
 claude mcp add playwright npx @playwright/mcp@latest
 
+### mysql
+
+```bash
+claude mcp add mcp_server_mysql \
+  -e MYSQL_HOST="127.0.0.1" \
+  -e MYSQL_PORT="3306" \
+  -e MYSQL_USER="root" \
+  -e MYSQL_PASS="your_password" \
+  -e MYSQL_DB="your_database" \
+  -e MYSQL_POOL_SIZE="10" \
+  -e MYSQL_QUERY_TIMEOUT="30000" \
+  -e MYSQL_CACHE_TTL="60000" \
+  -e MYSQL_RATE_LIMIT="100" \
+  -e MYSQL_SSL="true" \
+  -e ALLOW_INSERT_OPERATION="false" \
+  -e ALLOW_UPDATE_OPERATION="false" \
+  -e ALLOW_DELETE_OPERATION="false" \
+  -e MYSQL_ENABLE_LOGGING="true" \
+  -- npx @benborla29/mcp-server-mysql
+```
 ## chrome dev tool
 
 ```bash
@@ -78,3 +98,20 @@ claude mcp add -s user chrome-devtools npx chrome-devtools-mcp@latest
 ## Tip
 
 * Run claude --debug to see logs inline, or view log files i  /Users/zhaoxin/Library/Caches/claude-cli-nodejs/-Volumes-data-working-docker 
+
+## 使用skills
+
+### 安装市场和示例skills
+
+`claude: /plugin marketplace add anthropics/skills`
+
+ **这个命令可能会由于墙的问题clone不下来，那样的话就手动下载就行，方法如下所示**
+ 
+```bash
+cd ~/.claude/plugins/marketplaces
+git clone https://github.com/anthropics/skills anthropics-skills
+```
+
+`claude: /plugin  marketplace add ~/.claude/plugins/marketplaces/anthropics-skills`
+
+*然后再用/plugin按提示安装skills*
