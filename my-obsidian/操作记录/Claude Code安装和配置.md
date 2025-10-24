@@ -61,7 +61,7 @@ claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "
     --port $port \
 
 # 添加
-claude mcp add -s user --transport http mcp-server-starrocks http://localhost:9040/mcp
+claude mcp add
 ```
 
 ###  playwright
