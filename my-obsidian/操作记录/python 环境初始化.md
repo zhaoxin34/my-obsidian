@@ -29,6 +29,15 @@ pyenv global 3.12.11
 如果想设置某个本地目录的python版本，可以使用
 pyenv local 3.13.7
 
+## 创建目录级别的虚拟环境
+
+进入要创建虚拟环境的目录
+```bash
+python -m venv .venv
+
+# 激活环境
+source .venv/bin/activate
+```
 ### 自动切换venv的zsh插件
 https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv
 
