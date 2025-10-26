@@ -118,3 +118,36 @@ git clone https://github.com/anthropics/skills anthropics-skills
 `claude: /plugin  marketplace add ~/.claude/plugins/marketplaces/anthropics-skills`
 
 *然后再用/plugin按提示安装skills*
+
+## 自定义statusline
+
+使用第三方插件
+
+```bash
+npm install -g @cometix/ccline
+
+# 以下是相关命令，并不需要运行
+# Initialize configuration file
+ccline --init
+
+# Check configuration validity  
+ccline --check
+
+# Print current configuration
+ccline --print
+
+# Enter TUI configuration mode
+ccline --config
+```
+
+修改~/.claude/settings.json 加入下面这段
+
+```json
+{
+  "statusLine": {
+    "type": "command", 
+    "command": "~/.claude/ccline/ccline",
+    "padding": 0
+  }
+}
+```
