@@ -206,4 +206,40 @@ ccline --config
 ⏺ 总计约18种内置工具 + 13种专业技能工具 = 31种主要工具类型。
 ```
 
+```bash
+我想你给我展示当前claude code加载了哪些skills
+
+⏺ 根据当前配置，Claude Code 加载了以下技能：
+
+  网页获取
+
+  - web-fetcher - 获取 URL 对应的内容
+
+  文档处理
+
+  - document-skills:xlsx - 电子表格创建、编辑和分析
+  - document-skills:docx - Word 文档创建、编辑和分析
+  - document-skills:pptx - 演示文稿创建、编辑和分析
+  - document-skills:pdf - PDF 文档处理工具包
+
+  开发指南
+
+  - example-skills:skill-creator - 创建有效技能的指南
+  - example-skills:mcp-builder - 构建高质量 MCP 服务器的指南
+
+  设计创作
+
+  - example-skills:canvas-design - 创建 .png 和 .pdf 格式的视觉艺术设计
+  - example-skills:algorithmic-art - 使用 p5.js 创建算法艺术
+  - example-skills:artifacts-builder - 创建复杂的多组件 HTML artifacts
+  - example-skills:slack-gif-creator - 为 Slack 创建动画 GIF
+  - example-skills:theme-factory - 为 artifacts 设置主题
+  - example-skills:brand-guidelines - 应用 Anthropic 官方品牌风格
+
+  实用工具
+
+  - example-skills:internal-comms - 编写内部交流资料
+  - example-skills:webapp-testing - 使用 Playwright 测试本地 Web 应用
+```
+
 * [web-fetch-tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-fetch-tool)
