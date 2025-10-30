@@ -154,5 +154,56 @@ ccline --config
 
 ## 工具介绍
 
+### 列举当前tools
+
+```bash
+当前claude code有多少种tools，列举一下
+
+⏺ 根据我的配置，Claude Code目前有以下几类工具：
+
+  内置工具 (Built-in Tools)
+
+  1. Task - 启动专门的代理来处理复杂的多步骤任务
+  2. Bash - 执行shell命令
+  3. Glob - 文件模式匹配搜索
+  4. Grep - 基于ripgrep的强大搜索工具
+  5. Read - 读取文件内容
+  6. Edit - 精确的字符串替换编辑
+  7. Write - 写入新文件
+  8. NotebookEdit - 编辑Jupyter笔记本单元格
+  9. WebFetch - 获取网页内容
+  10. WebSearch - 网络搜索
+  11. TodoWrite - 任务列表管理
+  12. ExitPlanMode - 退出计划模式
+  13. AskUserQuestion - 向用户提问
+  14. Skill - 执行专业技能
+  15. SlashCommand - 执行斜杠命令
+  16. BashOutput - 获取后台shell输出
+  17. KillShell - 终止后台shell
+
+  技能工具 (Skills)
+
+  专业技能包括：
+  - document-skills:xlsx - Excel电子表格处理
+  - document-skills:docx - Word文档处理
+  - document-skills:pptx - PowerPoint演示文稿处理
+  - document-skills:pdf - PDF文档处理
+  - example-skills:skill-creator - 创建新技能的指南
+  - example-skills:mcp-builder - MCP服务器构建指南
+  - example-skills:canvas-design - 视觉艺术设计
+  - example-skills:algorithmic-art - 算法艺术生成
+  - example-skills:internal-comms - 内部沟通文档
+  - example-skills:webapp-testing - Web应用测试
+  - example-skills:artifacts-builder - 复杂HTML构建
+  - example-skills:slack-gif-creator - Slack GIF创作
+  - example-skills:theme-factory - 主题样式工具
+  - example-skills:brand-guidelines - 品牌规范工具
+
+  MCP服务器工具 (MCP Server Tools)
+
+  当前没有配置MCP服务器，但可以通过MCP协议扩展更多外部工具。
+
+⏺ 总计约18种内置工具 + 13种专业技能工具 = 31种主要工具类型。
+```
+
 * [web-fetch-tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-fetch-tool)
-* 
