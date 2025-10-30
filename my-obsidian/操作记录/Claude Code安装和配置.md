@@ -97,6 +97,14 @@ claude mcp add mcp_server_mysql \
 claude mcp add -s user chrome-devtools npx chrome-devtools-mcp@latest
 ```
 
+*如果想使用当前浏览器，需要如下命令启动一个浏览器*
+
+```bash
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222 --user-data-dir=/tmp/chrome-profile-stable
+```
+
+> 注意9222是调试端口，user-data-dir是一个新的用户目录，防止冲突
+
 
 ## Tip
 
