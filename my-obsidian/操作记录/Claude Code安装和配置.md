@@ -243,3 +243,8 @@ ccline --config
 ```
 
 * [web-fetch-tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-fetch-tool)
+
+
+## 值得一看
+
+* https://github.com/adenot/mcp-google-search/blob/main/README.md
