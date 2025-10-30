@@ -246,5 +246,3 @@ ccline --config
 
 
 ## 值得一看
-
-* https://github.com/adenot/mcp-google-search/blob/main/README.md
