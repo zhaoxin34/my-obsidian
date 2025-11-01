@@ -48,9 +48,9 @@ https://www.lazyvim.org/keymaps
 | 跳到上一次编辑的位置并进入插入模式 | `gi`              |
 |                   |                   |
 
-|   |
-|---|
-|跳到上一次编辑的位置并进入插入模式|
+|                   |
+| ----------------- |
+| 跳到上一次编辑的位置并进入插入模式 |
 #### [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim.git)
 
 Part of [lazyvim.plugins.extras.lang.markdown](https://www.lazyvim.org/extras/lang/markdown)
