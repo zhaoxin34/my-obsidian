@@ -5,3 +5,4 @@
 wezterm start -- nvim ~/.config
 ```
 
+
