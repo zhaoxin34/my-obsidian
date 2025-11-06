@@ -30,6 +30,8 @@ npm install -g @anthropic-ai/claude-code
 
 ## 配置mcp
 
+*值得一看* [[如何通过curl访问mcp]]
+
 ### 配置文件的位置
 
 `~/.claude.json`
