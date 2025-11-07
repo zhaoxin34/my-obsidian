@@ -67,7 +67,7 @@ Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lan
 | Key          | Description       | Mode  |
 | ------------ | ----------------- | ----- |
 | `<leader>cv` | Select VirtualEnv | **n** |
-
+`<leaer>ql` 可以恢复上次打开的文件
 ### 一些命令
 
 *查看所有事件*
