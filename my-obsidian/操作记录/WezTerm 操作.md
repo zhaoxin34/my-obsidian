@@ -25,3 +25,5 @@ Host w11
 ```bash
 ssh w11
 ```
+
+*在w11安装wezterm
