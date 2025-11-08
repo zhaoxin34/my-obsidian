@@ -45,5 +45,17 @@ wezterm connect w11
 ```
 
 *修改w11的sshd配置，让他支持现代终端特性，即wezterm特性*
-```
+```bash
+sudo vim /etc/ssh/sshd_config
+# 允许 WezTerm 等现代终端传递常用环境变量
+AcceptEnv LANG LC_* TERM TERM_PROGRAM TERM_PROGRAM_VERSION
+AcceptEnv COLORTERM
+AcceptEnv WEZTERM_PANE WEZTERM_UNIX_SOCKET WEZTERM_EXECUTION_DOMAIN
+
+# 然后重启
+sudo systemctl restart sshd
+
+# mac的重启命令
+sudo launchctl stop com.openssh.sshd
+sudo launchctl start com.openssh.sshd
 ```
