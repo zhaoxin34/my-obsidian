@@ -26,4 +26,24 @@ Host w11
 ssh w11
 ```
 
-*在w11安装wezterm
+*配置domains.lua*
+```lua
+  ssh_domains = {
+    {
+      name = 'w11',
+      remote_address = 'w11',
+      username = 'zhaoxin',
+      multiplexing = 'None',
+    }
+  }
+```
+
+*此时执行connect会报错
+```bash
+wezterm connect w11
+23:49:09.891  WARN   wezterm_ssh::pty > ssh: setenv COLORTERM=truecolor failed: RequestDenied: Channel request env failed. Check the AcceptEnv setting on the ssh server side. Additional errors with setting env vars in this session will be logged at debug log level.
+```
+
+*修改w11的sshd配置，让他支持现代终端特性，即wezterm特性*
+```
+```
