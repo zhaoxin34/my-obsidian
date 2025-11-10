@@ -95,3 +95,8 @@ https://github.com/stevearc/overseer.nvim
 ### [[Python Neovim环境创建]]
 
 ### [[NeoVim Copilot安装配置]]
+
+## 使用Snacks.explorer移动或copy文件
+
+按`tab`键选择文件，按jk移动光标到目标文件间，m或c可以移动或copy文件
+ 
