@@ -16,3 +16,10 @@ nvm alias default 20   # 设置默认版本
 node -v   # v20.x.x
 npm -v    # >= 8.x
 ```
+
+## 设定某个目录的node版本
+
+在这个目录下创建.nvmrc
+`echo 16.20 > .nvmrc`
+
+然后执行`nvm use`即可
