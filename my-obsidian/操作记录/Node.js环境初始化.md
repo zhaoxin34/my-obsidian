@@ -3,6 +3,7 @@ brew install nvm
 在zshrc中加入下面两行
 export NVM_DIR="$HOME/.nvm"
 [ -s "$(brew --prefix nvm)/nvm.sh" ] && \. "$(brew --prefix nvm)/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 安装 node 20版本，并设置成默认的
 ```bash
