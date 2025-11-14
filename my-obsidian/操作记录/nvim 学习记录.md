@@ -100,7 +100,8 @@ https://github.com/stevearc/overseer.nvim
 
 按`tab`键选择文件，按jk移动光标到目标文件间，m或c可以移动或copy文件
 
-## 解决http rest问题
+## 解决http rest报错问题
+
 
 :TSUninstall kulala_http  
 :TSInstall kulala_http
