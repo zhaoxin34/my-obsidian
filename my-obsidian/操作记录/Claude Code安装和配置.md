@@ -50,7 +50,7 @@ claude mcp remove xxxx
 claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "CONTEXT7_API_KEY: ctx7sk-557ec667-d615-488c-891d-0c6fb25d6c31"
 ```
 
-### 添加starrocksmcp
+### 添加starrocks mcp
 
 
 ```bash
@@ -66,7 +66,7 @@ claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "
     --port $port \
 
 # 添加
-claude mcp add
+claude mcp add -s user --transport http mcp-server-starrocks http://localhost:9040/mcp
 ```
 
 ###  playwright
