@@ -11,6 +11,9 @@ brew install jenv
 ```bash
 echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.zshrc
 echo 'eval "$(jenv init -)"' >> ~/.zshrc
+
+# 如果JAVA_HOME没有设置，就需要执行下面这行
+jenv enable-plugin export
 ```
 
 将已有的jdk目录添加到 jenv
