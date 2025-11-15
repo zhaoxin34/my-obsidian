@@ -35,3 +35,15 @@ JAVA: /Users/zhaoxin/.jenv/versions/17/bin/java
     http://127.0.0.1:9000           http::addr=127.0.0.1:9000;
 ```
 
+
+## 操作
+
+### 客户端操作
+
+*安装postgres客户端*
+`brew install libpq`
+
+*加入到nvim连接*
+`postgres://admin:quest@127.0.0.1:8812/`
+
+*命令行连接*
