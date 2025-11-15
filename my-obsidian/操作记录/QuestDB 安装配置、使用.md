@@ -20,8 +20,10 @@ jenv local 17
 mkdir ../data
 ./questdb.sh start -d ../data
 
-JAVA: /Users/zhaoxin/.jenv/versions/17/bin/java
+```
 
+输出
+```
      ___                  _   ____  ____
     / _ \ _   _  ___  ___| |_|  _ \| __ )
    | | | | | | |/ _ \/ __| __| | | |  _ \
@@ -47,3 +49,4 @@ JAVA: /Users/zhaoxin/.jenv/versions/17/bin/java
 `postgres://admin:quest@127.0.0.1:8812/`
 
 *命令行连接*
+`psql -h localhost -p 8812 -U admin -d qdb`
