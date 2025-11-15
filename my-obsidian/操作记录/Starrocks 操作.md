@@ -1,13 +1,20 @@
-## 创建新用户，赋予权限
+## 用户操作
 
+*创建用户*
+`ALTER TABLE label_info RENAME  label_info2;`
+
+*只读权限*
+`grant select on wolf.* to 'xin'@'%';`
+
+-- 全部权限
 ```sql
-create user 'xin'@'%' IDENTIFIED by 'abc123';
 
 -- 只读权限 
-grant select on wolf.* to 'xin'@'%';
--- 全部权限
 grant all on wolf.* to 'xin'@'%';
 ```
+
+*修改表名*
+`ALTER TABLE label_info RENAME  label_info2;`
 ## 设置root密码
 
 ```sql
