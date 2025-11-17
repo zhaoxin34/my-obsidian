@@ -50,3 +50,8 @@ mkdir ../data
 
 *命令行连接*
 `psql -h localhost -p 8812 -U admin -d qdb`
+
+### 导入数据
+
+*安装导入客户端*
+`brew install telegraf`
