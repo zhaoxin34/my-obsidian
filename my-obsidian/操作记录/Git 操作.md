@@ -13,3 +13,13 @@ git merge feature-branch
 git switch main
 git merge feature-branch
 ```
+
+## 强制删除一个远程分支
+
+如下演示强制回退一个提交，注意*谨慎操作*
+
+```bash
+git reset --hard HEAD~1
+# 这时，只要不执行下面这行，也只是修改本地提交, feature_reentry是分支名称
+git push --force-with-lease origin feature_reentry
+```
