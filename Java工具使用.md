@@ -2,7 +2,7 @@
 
 ```bash
 # 查看类的实例个数和内存占用情况
-jmap -histo {pid}
+jmap -histo:live {pid}
 ```
 
 ## 导出内存镜像
