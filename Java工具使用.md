@@ -31,3 +31,9 @@ top -p {pid}
   PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
   376 root      20   0   12.1g   1.7g  16028 S  62.3  1.4  76:49.55 java
 ```
+
+## jdk11后的命令
+
+jcmd <pid> VM.flags # 查看 JVM 实际生效的堆参数（比 jmap 更准）
+jcmd <pid> VM.command_line # 查看jvm的命令行
+jcmd <pid> GC.heap_info # 查看jvm的堆信息
