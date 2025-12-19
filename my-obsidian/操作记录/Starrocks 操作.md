@@ -1,7 +1,7 @@
 ## 用户操作
 
 *创建用户*
-`ALTER TABLE label_info RENAME  label_info2;`
+`create user 'xin'@'%' IDENTIFIED WITH mysql_native_password by 'abc123';`
 
 *只读权限*
 `grant select on wolf.* to 'xin'@'%';`
