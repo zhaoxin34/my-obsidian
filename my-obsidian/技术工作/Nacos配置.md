@@ -13,3 +13,9 @@
 CUSTOM_NACOS_MEMORY:- -Xms2g -Xmx2g -Xmn1g -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=320m
 ```
 
+创建nacos数据库
+```sql
+CREATE DATABASE IF NOT EXISTS nacos CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+执行mysql-scehma.sql
