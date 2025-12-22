@@ -1,4 +1,4 @@
-[官方部署文档](!https://nacos.io/docs/v2.5/manual/admin/deployment/deployment-overview/?spm=5238cd80.1b6d9e68.0.0.2280568aeiMHBu)
+[官方部署文档](https://nacos.io/docs/v2.5/manual/admin/deployment/deployment-overview/?spm=5238cd80.1b6d9e68.0.0.2280568aeiMHBu)
 
 ## 集群模式的部署方式
 
