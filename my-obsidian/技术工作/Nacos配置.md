@@ -34,3 +34,5 @@ db.password.0=abc123
 
 management.endpoints.web.exposure.include=prometheus,health
 ```
+
+ 默认的promethues地址http://localhost:8848/nacos/actuator/prometheus
