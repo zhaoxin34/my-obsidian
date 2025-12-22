@@ -6,4 +6,4 @@
 * 使用mysql
 * 暴露promethues监控
 
-官方推荐使用vip,实际
+官方推荐使用vip,实际可以用k8s sts的有头服务
