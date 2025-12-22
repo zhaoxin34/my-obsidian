@@ -19,3 +19,21 @@ CREATE DATABASE IF NOT EXISTS nacos CHARACTER SET utf8mb4 COLLATE utf8mb4_unicod
 ```
 
 执行mysql-scehma.sql
+
+application.properties
+```
+spring.sql.init.platform=mysql
+
+### Count of DB:
+db.num=1
+
+### Connect URL of DB:
+db.url.0=jdbc:mysql://mysql-svc.store.svc.cluster.local:3306/nacos?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai
+db.user.0=root
+db.password.0=abc123
+
+management.endpoints.web.exposure.include=prometheus,health
+
+
+
+```
