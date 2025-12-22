@@ -33,7 +33,4 @@ db.user.0=root
 db.password.0=abc123
 
 management.endpoints.web.exposure.include=prometheus,health
-
-
-
 ```
