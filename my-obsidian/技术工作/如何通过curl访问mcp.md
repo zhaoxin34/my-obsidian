@@ -16,7 +16,7 @@
 首先需要初始化一个 MCP 会话：
 
 ```bash
-curl -v -X POST http://localhost:9040/mcp \
+curl -v -X POST http://localhost:8000/mcp \
   -H "Content-Type: application/json" \
   -H "Accept: application/json, text/event-stream" \
   -d '{
