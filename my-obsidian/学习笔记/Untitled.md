@@ -1,1 +1,0 @@
-https://neovim.getkulala.net/docs/usage/using-environment-variables
