@@ -10,7 +10,6 @@ pytest-demo/
 │       └── calculator.py   # 示例代码
 └── tests/                  # 测试目录
     ├── __init__.py
-    ├── conftest.py         # pytest 配置和共享 fixtures
     └── test_calculator.py  # 测试文件
 ```
 
@@ -76,7 +75,23 @@ exclude_lines = [
 *test_calculator.py*
 ```python
 
+import pytest
+from demo.calculator import Calculator
+
+
+class TestCalculator:
+    """Calculator 类的测试套件。"""
+
+    def test_add_positive_numbers(self, calculator):
+        """测试正数加法。"""
+        assert calculator.add(5, 3) == 8
+
+    def test_divide_by_zero_raises_error(self, calculator):
+        """测试除以零应该抛出异常。"""
+        with pytest.raises(ValueError, match="除数不能为0"):
+            calculator.divide(10, 0)
 ```
+
 ## 安装依赖
 
 使用 uv 安装开发依赖：
