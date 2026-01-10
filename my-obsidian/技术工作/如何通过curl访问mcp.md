@@ -145,15 +145,15 @@ curl -v -X POST http://localhost:9040/mcp \
 
 ## StarRocks MCP 工具列表
 
-| 工具名称 | 功能描述 | 主要参数 |
-|---------|---------|---------|
-| `read_query` | 执行 SELECT 查询 | `query`(必需), `db`(可选) |
-| `write_query` | 执行 DDL/DML 操作 | `query`(必需), `db`(可选) |
-| `analyze_query` | 查询性能分析 | `uuid`, `sql`, `db`(都可选) |
-| `collect_query_dump_and_profile` | 收集查询转储和配置文件 | `query`(必需), `db`(可选) |
-| `query_and_plotly_chart` | 查询并生成图表 | `query`, `plotly_expr`(必需), `format`(可选) |
-| `table_overview` | 获取表概览 | `table`(必需), `refresh`(可选) |
-| `db_summary` | 数据库摘要 | `db`, `limit`, `refresh`(都可选) |
+| 工具名称                             | 功能描述          | 主要参数                                     |
+| -------------------------------- | ------------- | ---------------------------------------- |
+| `read_query`                     | 执行 SELECT 查询  | `query`(必需), `db`(可选)                    |
+| `write_query`                    | 执行 DDL/DML 操作 | `query`(必需), `db`(可选)                    |
+| `analyze_query`                  | 查询性能分析        | `uuid`, `sql`, `db`(都可选)                 |
+| `collect_query_dump_and_profile` | 收集查询转储和配置文件   | `query`(必需), `db`(可选)                    |
+| `query_and_plotly_chart`         | 查询并生成图表       | `query`, `plotly_expr`(必需), `format`(可选) |
+| `table_overview`                 | 获取表概览         | `table`(必需), `refresh`(可选)               |
+| `db_summary`                     | 数据库摘要         | `db`, `limit`, `refresh`(都可选)            |
 
 ## 调试技巧
 
