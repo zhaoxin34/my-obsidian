@@ -1,0 +1,79 @@
+{
+  "id": "4ef4daab-5ea1-4a44-bf81-dbd43cf46f4e",
+  "title": "你好",
+  "messages": [
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "你好",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\n你好\n\n"
+        }
+      ],
+      "id": "5be6263e-1ed2-408c-bf2e-2ef4d40048af",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": null
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "你好！有什么我可以帮你的吗？",
+      "id": "bc3e4eaf-e1a5-4fe8-b87f-6bb3a37e5030",
+      "metadata": {
+        "model": {
+          "providerId": "qwen",
+          "providerType": "openai-compatible",
+          "id": "qwen-plus",
+          "model": "qwen-plus",
+          "promptLevel": 1,
+          "enable": true
+        },
+        "usage": {
+          "prompt_tokens": 396,
+          "completion_tokens": 8,
+          "total_tokens": 404,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        }
+      }
+    }
+  ],
+  "createdAt": 1768211882290,
+  "updatedAt": 1768211883187,
+  "schemaVersion": 1
+}

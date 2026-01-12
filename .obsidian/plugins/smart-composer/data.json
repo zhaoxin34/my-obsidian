@@ -44,6 +44,12 @@
     {
       "type": "morph",
       "id": "morph"
+    },
+    {
+      "type": "openai-compatible",
+      "id": "qwen",
+      "apiKey": "sk-6f01e061d7ac441b90b0efff9205bc57",
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1"
     }
   ],
   "chatModels": [
@@ -51,67 +57,78 @@
       "providerType": "anthropic",
       "providerId": "anthropic",
       "id": "claude-opus-4.1",
-      "model": "claude-opus-4-1"
+      "model": "claude-opus-4-1",
+      "enable": false
     },
     {
       "providerType": "anthropic",
       "providerId": "anthropic",
       "id": "claude-sonnet-4.5",
-      "model": "claude-sonnet-4-5"
+      "model": "claude-sonnet-4-5",
+      "enable": true
     },
     {
       "providerType": "anthropic",
       "providerId": "anthropic",
       "id": "claude-haiku-4.5",
-      "model": "claude-haiku-4-5"
+      "model": "claude-haiku-4-5",
+      "enable": false
     },
     {
       "providerType": "openai",
       "providerId": "openai",
       "id": "gpt-5",
-      "model": "gpt-5"
+      "model": "gpt-5",
+      "enable": false
     },
     {
       "providerType": "openai",
       "providerId": "openai",
       "id": "gpt-5-mini",
-      "model": "gpt-5-mini"
+      "model": "gpt-5-mini",
+      "enable": false
     },
     {
       "providerType": "openai",
       "providerId": "openai",
       "id": "gpt-5-nano",
-      "model": "gpt-5-nano"
+      "model": "gpt-5-nano",
+      "enable": false
     },
     {
       "providerType": "openai",
       "providerId": "openai",
       "id": "gpt-4.1",
-      "model": "gpt-4.1"
+      "model": "gpt-4.1",
+      "enable": false
     },
     {
       "providerType": "openai",
       "providerId": "openai",
       "id": "gpt-4.1-mini",
-      "model": "gpt-4.1-mini"
+      "model": "gpt-4.1-mini",
+      "enable": true
     },
     {
       "providerType": "openai",
       "providerId": "openai",
       "id": "gpt-4.1-nano",
-      "model": "gpt-4.1-nano"
+      "model": "gpt-4.1-nano",
+      "enable": false
     },
     {
       "providerType": "openai",
       "providerId": "openai",
       "id": "gpt-4o",
-      "model": "gpt-4o"
+      "model": "gpt-4o",
+      "enable": false
     },
     {
       "providerType": "openai",
       "providerId": "openai",
       "id": "gpt-4o-mini",
-      "model": "gpt-4o-mini"
+      "model": "gpt-4o-mini",
+      "enable": false
     },
     {
       "providerType": "openai",
@@ -121,7 +138,8 @@
       "reasoning": {
         "enabled": true,
         "reasoning_effort": "medium"
-      }
+      },
+      "enable": false
     },
     {
       "providerType": "openai",
@@ -131,49 +149,57 @@
       "reasoning": {
         "enabled": true,
         "reasoning_effort": "medium"
-      }
+      },
+      "enable": false
     },
     {
       "providerType": "gemini",
       "providerId": "gemini",
       "id": "gemini-2.5-pro",
-      "model": "gemini-2.5-pro"
+      "model": "gemini-2.5-pro",
+      "enable": false
     },
     {
       "providerType": "gemini",
       "providerId": "gemini",
       "id": "gemini-2.5-flash",
-      "model": "gemini-2.5-flash"
+      "model": "gemini-2.5-flash",
+      "enable": false
     },
     {
       "providerType": "gemini",
       "providerId": "gemini",
       "id": "gemini-2.5-flash-lite",
-      "model": "gemini-2.5-flash-lite"
+      "model": "gemini-2.5-flash-lite",
+      "enable": false
     },
     {
       "providerType": "gemini",
       "providerId": "gemini",
       "id": "gemini-2.0-flash",
-      "model": "gemini-2.0-flash"
+      "model": "gemini-2.0-flash",
+      "enable": false
     },
     {
       "providerType": "gemini",
       "providerId": "gemini",
       "id": "gemini-2.0-flash-lite",
-      "model": "gemini-2.0-flash-lite"
+      "model": "gemini-2.0-flash-lite",
+      "enable": false
     },
     {
       "providerType": "deepseek",
       "providerId": "deepseek",
       "id": "deepseek-chat",
-      "model": "deepseek-chat"
+      "model": "deepseek-chat",
+      "enable": false
     },
     {
       "providerType": "deepseek",
       "providerId": "deepseek",
       "id": "deepseek-reasoner",
-      "model": "deepseek-reasoner"
+      "model": "deepseek-reasoner",
+      "enable": false
     },
     {
       "providerType": "perplexity",
@@ -182,7 +208,8 @@
       "model": "sonar",
       "web_search_options": {
         "search_context_size": "low"
-      }
+      },
+      "enable": false
     },
     {
       "providerType": "perplexity",
@@ -191,7 +218,8 @@
       "model": "sonar",
       "web_search_options": {
         "search_context_size": "low"
-      }
+      },
+      "enable": false
     },
     {
       "providerType": "perplexity",
@@ -200,7 +228,8 @@
       "model": "sonar-deep-research",
       "web_search_options": {
         "search_context_size": "low"
-      }
+      },
+      "enable": false
     },
     {
       "providerType": "perplexity",
@@ -209,7 +238,8 @@
       "model": "sonar",
       "web_search_options": {
         "search_context_size": "low"
-      }
+      },
+      "enable": false
     },
     {
       "providerType": "perplexity",
@@ -218,13 +248,23 @@
       "model": "sonar",
       "web_search_options": {
         "search_context_size": "low"
-      }
+      },
+      "enable": false
     },
     {
       "providerType": "morph",
       "providerId": "morph",
       "id": "morph-v0",
-      "model": "morph-v0"
+      "model": "morph-v0",
+      "enable": false
+    },
+    {
+      "providerId": "qwen",
+      "providerType": "openai-compatible",
+      "id": "qwen-plus",
+      "model": "qwen-plus",
+      "promptLevel": 1,
+      "enable": true
     }
   ],
   "embeddingModels": [
@@ -269,10 +309,17 @@
       "id": "ollama/bge-m3",
       "model": "bge-m3",
       "dimension": 1024
+    },
+    {
+      "providerId": "qwen",
+      "providerType": "openai-compatible",
+      "id": "text-embedding-v4",
+      "model": "text-embedding-v4",
+      "dimension": 1024
     }
   ],
-  "chatModelId": "claude-sonnet-4.5",
-  "applyModelId": "gpt-4.1-mini",
+  "chatModelId": "qwen-plus",
+  "applyModelId": "qwen-plus",
   "embeddingModelId": "openai/text-embedding-3-small",
   "systemPrompt": "",
   "ragOptions": {

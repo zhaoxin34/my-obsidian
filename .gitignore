@@ -5,3 +5,9 @@ copilot
 .obsidian/plugins/copilot/data.json
 .obsidian/workspace.json
 
+
+
+
+
+# Ignore Smart Environment folder
+.smart-env
