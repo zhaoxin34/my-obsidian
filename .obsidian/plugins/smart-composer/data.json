@@ -48,8 +48,8 @@
     {
       "type": "openai-compatible",
       "id": "qwen",
-      "apiKey": "sk-6f01e061d7ac441b90b0efff9205bc57",
-      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1"
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "apiKey": "sk-6f01e061d7ac441b90b0efff9205bc57"
     }
   ],
   "chatModels": [
@@ -135,22 +135,22 @@
       "providerId": "openai",
       "id": "o4-mini",
       "model": "o4-mini",
+      "enable": false,
       "reasoning": {
         "enabled": true,
         "reasoning_effort": "medium"
-      },
-      "enable": false
+      }
     },
     {
       "providerType": "openai",
       "providerId": "openai",
       "id": "o3",
       "model": "o3",
+      "enable": false,
       "reasoning": {
         "enabled": true,
         "reasoning_effort": "medium"
-      },
-      "enable": false
+      }
     },
     {
       "providerType": "gemini",
@@ -206,50 +206,50 @@
       "providerId": "perplexity",
       "id": "sonar",
       "model": "sonar",
+      "enable": false,
       "web_search_options": {
         "search_context_size": "low"
-      },
-      "enable": false
+      }
     },
     {
       "providerType": "perplexity",
       "providerId": "perplexity",
       "id": "sonar-pro",
       "model": "sonar",
+      "enable": false,
       "web_search_options": {
         "search_context_size": "low"
-      },
-      "enable": false
+      }
     },
     {
       "providerType": "perplexity",
       "providerId": "perplexity",
       "id": "sonar-deep-research",
       "model": "sonar-deep-research",
+      "enable": false,
       "web_search_options": {
         "search_context_size": "low"
-      },
-      "enable": false
+      }
     },
     {
       "providerType": "perplexity",
       "providerId": "perplexity",
       "id": "sonar-reasoning",
       "model": "sonar",
+      "enable": false,
       "web_search_options": {
         "search_context_size": "low"
-      },
-      "enable": false
+      }
     },
     {
       "providerType": "perplexity",
       "providerId": "perplexity",
       "id": "sonar-reasoning-pro",
       "model": "sonar",
+      "enable": false,
       "web_search_options": {
         "search_context_size": "low"
-      },
-      "enable": false
+      }
     },
     {
       "providerType": "morph",
@@ -259,8 +259,8 @@
       "enable": false
     },
     {
-      "providerId": "qwen",
       "providerType": "openai-compatible",
+      "providerId": "qwen",
       "id": "qwen-plus",
       "model": "qwen-plus",
       "promptLevel": 1,
@@ -311,8 +311,8 @@
       "dimension": 1024
     },
     {
-      "providerId": "qwen",
       "providerType": "openai-compatible",
+      "providerId": "qwen",
       "id": "text-embedding-v4",
       "model": "text-embedding-v4",
       "dimension": 1024
