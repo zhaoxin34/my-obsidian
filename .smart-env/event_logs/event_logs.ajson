@@ -18,6 +18,7 @@
 "event_logs:embed_model:load_failed": {"key":"embed_model:load_failed","ct":1,"first_at":1768223866959,"last_at":1768223866959,"class_name":"EventLog"},
 "event_logs:sources:deleted": {"key":"sources:deleted","ct":3,"first_at":1768289450937,"last_at":1768468962978,"class_name":"EventLog","event_sources":{"obsidian:vault.delete":3}},
 "event_logs:sources:created": {"key":"sources:created","ct":3,"first_at":1768289450505,"last_at":1768487451666,"class_name":"EventLog","event_sources":{"obsidian:vault.create":3}},
+<<<<<<< HEAD
 "event_logs:sources:renamed": {"key":"sources:renamed","ct":2,"first_at":1768486423102,"last_at":1768486442419,"class_name":"EventLog","event_sources":{"obsidian:vault.rename":2}},
 "event_logs:sources:modified": {"key":"sources:modified","ct":235,"first_at":1768486443240,"last_at":1768486587771,"class_name":"EventLog","event_sources":{"obsidian:workspace.editor-change":199,"obsidian:vault.modify":36}},
 "event_logs:event_log:first": {"key":"event_log:first","ct":3,"first_at":1768741973822,"last_at":1768741973824,"class_name":"EventLog"},
@@ -33,3 +34,15 @@
 "event_logs:embed_model:load_failed": {"key":"embed_model:load_failed","ct":2,"first_at":1768223866959,"last_at":1768742352035,"class_name":"EventLog"},
 "event_logs:event_log:first": {"key":"event_log:first","ct":4,"first_at":1768741973822,"last_at":1768742394272,"class_name":"EventLog"},
 "event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":1,"first_at":1768742394271,"last_at":1768742394271,"class_name":"EventLog"},
+=======
+"event_logs:sources:imported": {"key":"sources:imported","ct":222,"first_at":1768211149486,"last_at":1768487464953,"class_name":"EventLog"},
+"event_logs:sources:opened": {"key":"sources:opened","ct":18,"first_at":1768211907782,"last_at":1768555571486,"class_name":"EventLog","event_sources":{"active-leaf-change":16,"open_source method":1,"file-open":1}},
+"event_logs:event_log:first": {"key":"event_log:first","ct":4,"first_at":1768441176965,"last_at":1768700560782,"class_name":"EventLog"},
+"event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":1,"first_at":1768700560778,"last_at":1768700560778,"class_name":"EventLog"},
+"event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":2,"first_at":1768700560778,"last_at":1768711360512,"class_name":"EventLog"},
+"event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":3,"first_at":1768700560778,"last_at":1768722160608,"class_name":"EventLog"},
+"event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":4,"first_at":1768700560778,"last_at":1768732960525,"class_name":"EventLog"},
+>>>>>>> f098aed249b3340dd00e20625e01347098dcb072
+
+"event_logs:sources:created": {"key":"sources:created","ct":4,"first_at":1768289450505,"last_at":1768742580192,"class_name":"EventLog","event_sources":{"obsidian:vault.create":4}},
+"event_logs:settings:changed": {"key":"settings:changed","ct":13,"first_at":1768211146441,"last_at":1768743034131,"class_name":"EventLog"},
