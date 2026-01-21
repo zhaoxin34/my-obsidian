@@ -66,3 +66,5 @@
 "event_logs:sources:renamed": {"key":"sources:renamed","ct":5,"first_at":1768486423102,"last_at":1768990824913,"class_name":"EventLog","event_sources":{"obsidian:vault.rename":5}},
 "event_logs:sources:renamed": {"key":"sources:renamed","ct":6,"first_at":1768486423102,"last_at":1768990827639,"class_name":"EventLog","event_sources":{"obsidian:vault.rename":6}},
 "event_logs:sources:imported": {"key":"sources:imported","ct":383,"first_at":1768211149486,"last_at":1768990841183,"class_name":"EventLog"},
+"event_logs:connections:opened": {"key":"connections:opened","ct":16,"first_at":1768211323305,"last_at":1768991928999,"class_name":"EventLog"},
+"event_logs:sources:opened": {"key":"sources:opened","ct":25,"first_at":1768211907782,"last_at":1768991928741,"class_name":"EventLog","event_sources":{"active-leaf-change":21,"open_source method":2,"file-open":2}},
