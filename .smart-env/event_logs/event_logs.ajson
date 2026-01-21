@@ -244,3 +244,4 @@
 "event_logs:item:embedded": {"key":"item:embedded","ct":343,"first_at":1768211480576,"last_at":1769003351399,"class_name":"EventLog"},
 "event_logs:sources:deleted": {"key":"sources:deleted","ct":5,"first_at":1768289450937,"last_at":1769006056996,"class_name":"EventLog","event_sources":{"obsidian:vault.delete":5}},
 "event_logs:sources:deleted": {"key":"sources:deleted","ct":6,"first_at":1768289450937,"last_at":1769006058763,"class_name":"EventLog","event_sources":{"obsidian:vault.delete":6}},
+"event_logs:sources:deleted": {"key":"sources:deleted","ct":9,"first_at":1768289450937,"last_at":1769006342224,"class_name":"EventLog","event_sources":{"obsidian:vault.delete":9}},
