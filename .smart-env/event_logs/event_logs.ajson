@@ -714,3 +714,6 @@
 >>>>>>> f872f8958c37997d4091f31774c1a2adde8bd895
 
 "event_logs:sources:created": {"key":"sources:created","ct":24,"first_at":1768289450505,"last_at":1769068838643,"class_name":"EventLog","event_sources":{"obsidian:vault.create":24}},
+"event_logs:sources:deleted": {"key":"sources:deleted","ct":17,"first_at":1768289450937,"last_at":1769070517877,"class_name":"EventLog","event_sources":{"obsidian:vault.delete":17}},
+"event_logs:connections:opened": {"key":"connections:opened","ct":40,"first_at":1768211323305,"last_at":1769070533218,"class_name":"EventLog"},
+"event_logs:sources:opened": {"key":"sources:opened","ct":39,"first_at":1768211907782,"last_at":1769070532954,"class_name":"EventLog","event_sources":{"active-leaf-change":35,"open_source method":2,"file-open":2}},
