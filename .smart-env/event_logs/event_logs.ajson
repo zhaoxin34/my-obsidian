@@ -871,3 +871,6 @@
 >>>>>>> 4110721d9a69392c0c9e876c11aa3dc8b1960cac
 
 "event_logs:sources:created": {"key":"sources:created","ct":27,"first_at":1768289450505,"last_at":1769076651297,"class_name":"EventLog","event_sources":{"obsidian:vault.create":27}},
+"event_logs:sources:created": {"key":"sources:created","ct":23,"first_at":1768289450505,"last_at":1769077390571,"class_name":"EventLog","event_sources":{"obsidian:vault.create":23}},
+"event_logs:sources:modified": {"key":"sources:modified","ct":512,"first_at":1768486443240,"last_at":1769077390571,"class_name":"EventLog","event_sources":{"obsidian:workspace.editor-change":408,"obsidian:vault.modify":104}},
+"event_logs:sources:imported": {"key":"sources:imported","ct":319,"first_at":1768211149486,"last_at":1769077403776,"class_name":"EventLog"},
