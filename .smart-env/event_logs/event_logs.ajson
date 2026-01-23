@@ -337,3 +337,4 @@
 "event_logs:sources:imported": {"key":"sources:imported","ct":392,"first_at":1768211149486,"last_at":1769185529605,"class_name":"EventLog"},
 "event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":12,"first_at":1768700560778,"last_at":1769185877180,"class_name":"EventLog"},
 "event_logs:sources:created": {"key":"sources:created","ct":32,"first_at":1768289450505,"last_at":1769186630677,"class_name":"EventLog","event_sources":{"obsidian:vault.create":32}},
+"event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":41,"first_at":1768700560778,"last_at":1769195440908,"class_name":"EventLog"},
