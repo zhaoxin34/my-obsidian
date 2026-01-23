@@ -1163,3 +1163,4 @@
 "event_logs:sources:modified": {"key":"sources:modified","ct":3379,"first_at":1768288460259,"last_at":1769165701848,"class_name":"EventLog","event_sources":{"obsidian:workspace.editor-change":2839,"obsidian:vault.modify":540}},
 "event_logs:sources:imported": {"key":"sources:imported","ct":484,"first_at":1768211149486,"last_at":1769165708724,"class_name":"EventLog"},
 "event_logs:item:embedded": {"key":"item:embedded","ct":559,"first_at":1768211480576,"last_at":1769165708759,"class_name":"EventLog"},
+"event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":39,"first_at":1768700560778,"last_at":1769173840922,"class_name":"EventLog"},
