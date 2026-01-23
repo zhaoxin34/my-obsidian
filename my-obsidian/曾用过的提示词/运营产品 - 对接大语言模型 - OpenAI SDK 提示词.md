@@ -104,29 +104,20 @@ async def edit_document(
 ## 四、环境变量与配置要求
 
 - 使用环境变量读取 API Key，例如：
-    
 
 `OPENAI_API_KEY`
-
 - 不要把 Key 写入代码
-    
 - 若工程已有配置模块，请复用
-    
 
 ---
 
 ## 五、错误处理（最低要求）
 
 - 捕获 OpenAI SDK 异常
-    
 - 抛出清晰的业务异常（如 `LLMServiceError`）
-    
 - 日志中：
-    
     - 不记录 API Key
-        
     - 不打印完整 Prompt（可以只打印 hash / 长度）
-        
 
 ---
 
@@ -135,13 +126,9 @@ async def edit_document(
 请在实现完成后 **明确指出**：
 
 1. 目前哪个接口 / 方法：
-    
     - 已经真正调用了 OpenAI
-        
 2. 从用户输入到模型返回的完整调用路径
-    
 3. 如果我想替换为 Anthropic，需要改哪一个文件
-    
 
 ---
 
