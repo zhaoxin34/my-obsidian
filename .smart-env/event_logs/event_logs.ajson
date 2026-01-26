@@ -30,3 +30,6 @@
 "event_logs:blocks:cleaned": {"key":"blocks:cleaned","ct":7,"first_at":1768211485114,"last_at":1769429434452,"class_name":"EventLog"},
 "event_logs:embed_model:load_failed": {"key":"embed_model:load_failed","ct":5,"first_at":1768223866959,"last_at":1769429434008,"class_name":"EventLog"},
 "event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":16,"first_at":1768700560778,"last_at":1769429439298,"class_name":"EventLog"},
+"event_logs:sources:opened": {"key":"sources:opened","ct":55,"first_at":1768211907782,"last_at":1769429662959,"class_name":"EventLog","event_sources":{"active-leaf-change":50,"open_source method":2,"file-open":3}},
+"event_logs:sources:deleted": {"key":"sources:deleted","ct":19,"first_at":1768289450937,"last_at":1769429665086,"class_name":"EventLog","event_sources":{"obsidian:vault.delete":19}},
+"event_logs:sources:opened": {"key":"sources:opened","ct":56,"first_at":1768211907782,"last_at":1769429673674,"class_name":"EventLog","event_sources":{"active-leaf-change":51,"open_source method":2,"file-open":3}},
