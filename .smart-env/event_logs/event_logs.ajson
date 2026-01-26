@@ -69,3 +69,4 @@
 "event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":64,"first_at":1768700560778,"last_at":1769443840879,"class_name":"EventLog"},
 "event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":17,"first_at":1768700560778,"last_at":1769444427636,"class_name":"EventLog"},
 "event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":65,"first_at":1768700560778,"last_at":1769454641070,"class_name":"EventLog"},
+"event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":18,"first_at":1768700560778,"last_at":1769463616348,"class_name":"EventLog"},
