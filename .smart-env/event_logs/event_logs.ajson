@@ -98,3 +98,4 @@
 "event_logs:sources:created": {"key":"sources:created","ct":35,"first_at":1768289450505,"last_at":1769498278805,"class_name":"EventLog","event_sources":{"obsidian:vault.create":35}},
 "event_logs:sources:created": {"key":"sources:created","ct":34,"first_at":1768289450505,"last_at":1769499141910,"class_name":"EventLog","event_sources":{"obsidian:vault.create":34}},
 "event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":70,"first_at":1768700560778,"last_at":1769508641093,"class_name":"EventLog"},
+"event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":21,"first_at":1768700560778,"last_at":1769515484300,"class_name":"EventLog"},
