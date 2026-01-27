@@ -72,3 +72,6 @@
 "event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":18,"first_at":1768700560778,"last_at":1769463616348,"class_name":"EventLog"},
 "event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":66,"first_at":1768700560778,"last_at":1769465440943,"class_name":"EventLog"},
 "event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":67,"first_at":1768700560778,"last_at":1769476241007,"class_name":"EventLog"},
+"event_logs:sources:opened": {"key":"sources:opened","ct":55,"first_at":1768211907782,"last_at":1769478058054,"class_name":"EventLog","event_sources":{"active-leaf-change":51,"open_source method":2,"file-open":2}},
+"event_logs:sources:opened": {"key":"sources:opened","ct":56,"first_at":1768211907782,"last_at":1769478098092,"class_name":"EventLog","event_sources":{"active-leaf-change":52,"open_source method":2,"file-open":2}},
+"event_logs:sources:created": {"key":"sources:created","ct":33,"first_at":1768289450505,"last_at":1769478098028,"class_name":"EventLog","event_sources":{"obsidian:vault.create":33}},
