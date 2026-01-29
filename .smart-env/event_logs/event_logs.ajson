@@ -30,3 +30,4 @@
 "event_logs:sources:import_completed": {"key":"sources:import_completed","ct":9,"first_at":1768211485112,"last_at":1769678975948,"class_name":"EventLog"},
 "event_logs:blocks:cleaned": {"key":"blocks:cleaned","ct":9,"first_at":1768211485114,"last_at":1769678975949,"class_name":"EventLog"},
 "event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":85,"first_at":1768700560778,"last_at":1769678979763,"class_name":"EventLog"},
+"event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":86,"first_at":1768700560778,"last_at":1769689776954,"class_name":"EventLog"},
