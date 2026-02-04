@@ -42,3 +42,4 @@
 "event_logs:sources:deleted": {"key":"sources:deleted","ct":26,"first_at":1768289450937,"last_at":1770197693862,"class_name":"EventLog","event_sources":{"obsidian:vault.delete":26}},
 "event_logs:sources:opened": {"key":"sources:opened","ct":60,"first_at":1768211907782,"last_at":1770197709499,"class_name":"EventLog","event_sources":{"active-leaf-change":56,"open_source method":2,"file-open":2}},
 "event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":85,"first_at":1768700560778,"last_at":1770213768313,"class_name":"EventLog"},
+"event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":86,"first_at":1768700560778,"last_at":1770226670163,"class_name":"EventLog"},
