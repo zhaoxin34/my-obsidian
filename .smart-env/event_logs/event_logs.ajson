@@ -206,3 +206,4 @@
 "event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":130,"first_at":1768700560778,"last_at":1770164980809,"class_name":"EventLog"},
 "event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":83,"first_at":1768700560778,"last_at":1770166650303,"class_name":"EventLog"},
 "event_logs:sources:deleted": {"key":"sources:deleted","ct":23,"first_at":1768289450937,"last_at":1770169832015,"class_name":"EventLog","event_sources":{"obsidian:vault.delete":23}},
+"event_logs:sources:deleted": {"key":"sources:deleted","ct":25,"first_at":1768289450937,"last_at":1770171615121,"class_name":"EventLog","event_sources":{"obsidian:vault.delete":25}},
