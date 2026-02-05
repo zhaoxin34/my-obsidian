@@ -13,3 +13,9 @@ openspec init
 
 进入claude code后
 1. opsx:new 某个功能
+
+### 查看进度
+
+```bash
+openspec view
+```
