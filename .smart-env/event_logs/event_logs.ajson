@@ -113,3 +113,4 @@
 
 "event_logs:sources:created": {"key":"sources:created","ct":46,"first_at":1768289450505,"last_at":1770306894159,"class_name":"EventLog","event_sources":{"obsidian:vault.create":46}},
 "event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":90,"first_at":1768700560778,"last_at":1770314992902,"class_name":"EventLog"},
+"event_logs:plugin:new_version_available": {"key":"plugin:new_version_available","ct":92,"first_at":1768700560778,"last_at":1770317646974,"class_name":"EventLog"},
