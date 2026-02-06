@@ -45,3 +45,4 @@
 "event_logs:sources:opened": {"key":"sources:opened","ct":75,"first_at":1768211907782,"last_at":1770351789438,"class_name":"EventLog","event_sources":{"active-leaf-change":71,"open_source method":2,"file-open":2}},
 "event_logs:sources:opened": {"key":"sources:opened","ct":76,"first_at":1768211907782,"last_at":1770351805990,"class_name":"EventLog","event_sources":{"active-leaf-change":72,"open_source method":2,"file-open":2}},
 "event_logs:sources:opened": {"key":"sources:opened","ct":77,"first_at":1768211907782,"last_at":1770351815400,"class_name":"EventLog","event_sources":{"active-leaf-change":73,"open_source method":2,"file-open":2}},
+"event_logs:sources:deleted": {"key":"sources:deleted","ct":30,"first_at":1768289450937,"last_at":1770352054603,"class_name":"EventLog","event_sources":{"obsidian:vault.delete":30}},
