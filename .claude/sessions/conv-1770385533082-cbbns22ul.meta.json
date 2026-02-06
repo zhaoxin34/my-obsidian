@@ -1,0 +1,20 @@
+{
+  "id": "conv-1770385533082-cbbns22ul",
+  "title": "Respond to greeting",
+  "titleGenerationStatus": "success",
+  "createdAt": 1770385533082,
+  "updatedAt": 1770385540001,
+  "lastResponseAt": 1770385540001,
+  "sessionId": "11fab61b-5dd4-450c-874a-09b65cbc0b76",
+  "sdkSessionId": "11fab61b-5dd4-450c-874a-09b65cbc0b76",
+  "currentNote": "laop/TDD_v7.0.md",
+  "usage": {
+    "model": "MiniMax-M2",
+    "inputTokens": 99,
+    "cacheCreationInputTokens": 18361,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 18460,
+    "percentage": 9
+  }
+}
