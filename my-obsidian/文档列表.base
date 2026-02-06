@@ -1,0 +1,17 @@
+views:
+  - type: table
+    name: Table
+    filters:
+      and:
+        - '!file.inFolder("copilot")'
+        - '!file.inFolder("laop")'
+    order:
+      - file.name
+      - file.ctime
+      - file.folder
+      - tags
+    sort:
+      - property: file.folder
+        direction: ASC
+    columnSize:
+      file.folder: 311
