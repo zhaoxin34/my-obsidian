@@ -3,17 +3,17 @@
   "title": "I'll search the memory to see if there's any pr...",
   "titleGenerationStatus": "success",
   "createdAt": 1770369883764,
-  "updatedAt": 1770370865166,
-  "lastResponseAt": 1770370865166,
+  "updatedAt": 1770372422257,
+  "lastResponseAt": 1770372422257,
   "sessionId": "236b75d6-fa6f-4c30-8b51-57a646f08b87",
   "sdkSessionId": "236b75d6-fa6f-4c30-8b51-57a646f08b87",
   "usage": {
     "model": "MiniMax-M2",
-    "inputTokens": 166,
-    "cacheCreationInputTokens": 668,
-    "cacheReadInputTokens": 21532,
+    "inputTokens": 1362,
+    "cacheCreationInputTokens": 176,
+    "cacheReadInputTokens": 22691,
     "contextWindow": 200000,
-    "contextTokens": 22366,
-    "percentage": 11
+    "contextTokens": 24229,
+    "percentage": 12
   }
 }
