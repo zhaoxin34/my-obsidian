@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Courier New', monospace; font-size: 24px; font-weight: bold; fill: #333; }
+      .label { font-family: 'Courier New', monospace; font-size: 14px; font-weight: bold; fill: #333; }
+      .sublabel { font-family: 'Courier New', monospace; font-size: 11px; font-weight: bold; fill: #333; }
+      .component-label { font-family: 'Courier New', monospace; font-size: 10px; font-weight: bold; fill: #333; }
+    </style>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#fafafa"/>
+
+  <!-- Title -->
+  <text x="600" y="60" text-anchor="middle" class="title">LangChain Agent Architecture</text>
+
+  <!-- User Input (top left) -->
+  <circle cx="150" cy="150" r="40" fill="#FF8C42" stroke="#333" stroke-width="2" filter="url(#shadow)"/>
+  <text x="150" y="155" text-anchor="middle" font-size="24">👤</text>
+  <text x="150" y="210" text-anchor="middle" class="label">User Input</text>
+
+  <!-- Agent Core (center) -->
+  <rect x="280" y="100" width="240" height="200" rx="20" fill="#4472C4" stroke="#333" stroke-width="2" opacity="0.8" filter="url(#shadow)"/>
+  <text x="400" y="130" text-anchor="middle" class="title" fill="white">Agent Core</text>
+
+  <!-- Agent sub-components -->
+  <rect x="300" y="150" width="100" height="25" rx="5" fill="white" stroke="#4472C4" stroke-width="1"/>
+  <text x="350" y="167" text-anchor="middle" class="component-label">ReAct Loop</text>
+
+  <rect x="410" y="150" width="100" height="25" rx="5" fill="white" stroke="#4472C4" stroke-width="1"/>
+  <text x="460" y="167" text-anchor="middle" class="component-label">Decision Making</text>
+
+  <rect x="300" y="185" width="100" height="25" rx="5" fill="white" stroke="#4472C4" stroke-width="1"/>
+  <text x="350" y="202" text-anchor="middle" class="component-label">Tool Selection</text>
+
+  <rect x="410" y="185" width="100" height="25" rx="5" fill="white" stroke="#4472C4" stroke-width="1"/>
+  <text x="460" y="202" text-anchor="middle" class="component-label">Response Gen</text>
+
+  <!-- Tools (right side) -->
+  <circle cx="800" cy="150" r="35" fill="#70AD47" stroke="#333" stroke-width="2" filter="url(#shadow)"/>
+  <text x="800" y="160" text-anchor="middle" font-size="20">∑</text>
+  <text x="800" y="210" text-anchor="middle" class="sublabel">Calculator</text>
+
+  <circle cx="850" cy="250" r="35" fill="#70AD47" stroke="#333" stroke-width="2" filter="url(#shadow)"/>
+  <text x="850" y="260" text-anchor="middle" font-size="20">🔍</text>
+  <text x="850" y="310" text-anchor="middle" class="sublabel">Search</text>
+
+  <circle cx="800" cy="350" r="35" fill="#70AD47" stroke="#333" stroke-width="2" filter="url(#shadow)"/>
+  <text x="800" y="360" text-anchor="middle" font-size="20">⚡</text>
+  <text x="800" y="410" text-anchor="middle" class="sublabel">API Calls</text>
+
+  <circle cx="850" cy="450" r="35" fill="#70AD47" stroke="#333" stroke-width="2" filter="url(#shadow)"/>
+  <text x="850" y="460" text-anchor="middle" font-size="20">🗃️</text>
+  <text x="850" y="510" text-anchor="middle" class="sublabel">Database</text>
+
+  <!-- LLM (bottom center) -->
+  <ellipse cx="400" cy="550" rx="100" ry="40" fill="#7030A0" stroke="#333" stroke-width="2" opacity="0.8" filter="url(#shadow)"/>
+  <text x="400" y="555" text-anchor="middle" class="title" fill="white">GPT-4/Claude</text>
+
+  <!-- Memory/Context (left side) -->
+  <rect x="80" y="400" width="120" height="120" rx="15" fill="#808080" stroke="#333" stroke-width="2" opacity="0.8" filter="url(#shadow)"/>
+  <text x="140" y="450" text-anchor="middle" font-size="24">💾</text>
+  <text x="140" y="500" text-anchor="middle" class="sublabel" fill="white">Memory/Context</text>
+
+  <!-- Output (top right) -->
+  <circle cx="950" cy="150" r="35" fill="#2E75B6" stroke="#333" stroke-width="2" filter="url(#shadow)"/>
+  <text x="950" y="160" text-anchor="middle" font-size="20" fill="white">✓</text>
+  <text x="950" y="210" text-anchor="middle" class="label">Output</text>
+
+  <!-- Arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- User to Agent -->
+  <line x1="190" y1="150" x2="280" y2="200" stroke="#333" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+  <!-- Agent to Tools -->
+  <line x1="520" y1="180" x2="765" y2="150" stroke="#333" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="520" y1="200" x2="815" y2="250" stroke="#333" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="520" y1="220" x2="765" y2="350" stroke="#333" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="520" y1="240" x2="815" y2="450" stroke="#333" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+  <!-- Agent to LLM -->
+  <line x1="400" y1="300" x2="400" y2="510" stroke="#333" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+  <!-- Memory to Agent -->
+  <line x1="200" y1="460" x2="280" y2="280" stroke="#333" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+  <!-- Agent to Output -->
+  <line x1="520" y1="150" x2="915" y2="150" stroke="#333" stroke-width="3" marker-end="url(#arrowhead)"/>
+</svg>
