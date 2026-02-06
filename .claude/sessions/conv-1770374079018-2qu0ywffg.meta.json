@@ -1,0 +1,19 @@
+{
+  "id": "conv-1770374079018-2qu0ywffg",
+  "title": "Create LangChain学习笔记",
+  "titleGenerationStatus": "success",
+  "createdAt": 1770374079019,
+  "updatedAt": 1770374233775,
+  "lastResponseAt": 1770374233775,
+  "sessionId": "358e6d0e-d47c-467b-9fd0-f14825bf4f56",
+  "sdkSessionId": "358e6d0e-d47c-467b-9fd0-f14825bf4f56",
+  "usage": {
+    "model": "MiniMax-M2",
+    "inputTokens": 779,
+    "cacheCreationInputTokens": 157,
+    "cacheReadInputTokens": 24990,
+    "contextWindow": 200000,
+    "contextTokens": 25926,
+    "percentage": 13
+  }
+}
