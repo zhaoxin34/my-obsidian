@@ -1,0 +1,20 @@
+{
+  "id": "conv-1770480382074-qu9t3gx24",
+  "title": "Create study notes about sub-agents",
+  "titleGenerationStatus": "success",
+  "createdAt": 1770480382075,
+  "updatedAt": 1770480411690,
+  "lastResponseAt": 1770480411690,
+  "sessionId": "1c1c1350-fbab-4bd0-9c10-a2a2aeafe7ac",
+  "sdkSessionId": "1c1c1350-fbab-4bd0-9c10-a2a2aeafe7ac",
+  "currentNote": "学习笔记/claude-code/Claude Code SubAgent.md",
+  "usage": {
+    "model": "MiniMax-M2",
+    "inputTokens": 134,
+    "cacheCreationInputTokens": 1354,
+    "cacheReadInputTokens": 18821,
+    "contextWindow": 200000,
+    "contextTokens": 20309,
+    "percentage": 10
+  }
+}
