@@ -5,6 +5,10 @@
 wezterm start -- nvim ~/.config
 ```
 
+*向某个panel发送一个命令*
+```bash
+echo "ls" | wezterm cli send-text --pane-id=13
+```
 # 使用sshdomain连接我的w11
 
 *首先创建免密登录
