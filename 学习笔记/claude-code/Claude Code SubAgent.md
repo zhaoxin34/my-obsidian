@@ -15,64 +15,6 @@
 
 	Claude Code 包括几个内置子代理，如 **Explore**、**Plan** 和 **general-purpose**。
 
-## 快速开始：创建您的第一个子代理
-
-子代理在带有 YAML 前言的 Markdown 文件中定义。您可以 [手动创建它们](#write-subagent-files) 或使用 `/agents` 命令。
-
-本演练指导您使用 `/agent` 命令创建用户级子代理。子代理审查代码并为代码库建议改进。
-
-<Steps>
-  <Step title="打开子代理界面">
-    在 Claude Code 中，运行：
-
-    ```
-    /agents
-    ```
-  </Step>
-
-  <Step title="创建新的用户级代理">
-    选择 **创建新代理**，然后选择 **用户级**。这会将子代理保存到 `~/.claude/agents/`，因此它在所有项目中都可用。
-  </Step>
-
-  <Step title="用 Claude 生成">
-    选择 **用 Claude 生成**。出现提示时，描述子代理：
-
-    ```
-    一个代码改进代理，扫描文件并建议改进
-    以提高可读性、性能和最佳实践。它应该解释
-    每个问题，显示当前代码，并提供改进的版本。
-    ```
-
-    Claude 生成系统提示和配置。如果您想自定义它，按 `e` 在编辑器中打开它。
-  </Step>
-
-  <Step title="选择工具">
-    对于只读审查器，取消选择除 **只读工具** 之外的所有内容。如果您保持所有工具选择，子代理将继承主对话可用的所有工具。
-  </Step>
-
-  <Step title="选择模型">
-    选择子代理使用的模型。对于此示例代理，选择 **Sonnet**，它在分析代码模式时平衡能力和速度。
-  </Step>
-
-  <Step title="选择颜色">
-    为子代理选择背景颜色。这有助于您识别 UI 中正在运行哪个子代理。
-  </Step>
-
-  <Step title="保存并试用">
-    保存子代理。它立即可用（无需重启）。试用它：
-
-    ```
-    使用 code-improver 代理建议此项目中的改进
-    ```
-
-    Claude 委托给您的新子代理，它扫描代码库并返回改进建议。
-  </Step>
-</Steps>
-
-现在您有了一个子代理，可以在机器上的任何项目中用于分析代码库并建议改进。
-
-您也可以手动创建子代理作为 Markdown 文件，通过 CLI 标志定义它们，或通过插件分发它们。以下部分涵盖所有配置选项。
-
 ## 配置子代理
 
 ### 使用 /agents 命令
@@ -91,12 +33,12 @@
 
 子代理是带有 YAML 前言的 Markdown 文件。根据范围将它们存储在不同位置。当多个子代理共享相同名称时，较高优先级位置获胜。
 
-| 位置                     | 范围                   | 优先级    | 如何创建                         |
-| :--------------------------- | :---------------------- | :---------- | :------------------------------------ |
-| `--agents` CLI 标志          | 当前会话         | 1 (最高) | 启动 Claude Code 时传递 JSON |
-| `.claude/agents/`            | 当前项目         | 2           | 交互式或手动                 |
-| `~/.claude/agents/`          | 所有您的项目       | 3           | 交互式或手动                 |
-| 插件 `agents/` 目录 | 启用插件的位置 | 4 (最低)  | 与 [插件](/en/plugins) 一起安装 |
+| 位置                  | 范围      | 优先级    | 如何创建                     |
+| :------------------ | :------ | :----- | :----------------------- |
+| `--agents` CLI 标志   | 当前会话    | 1 (最高) | 启动 Claude Code 时传递 JSON  |
+| `.claude/agents/`   | 当前项目    | 2      | 交互式或手动                   |
+| `~/.claude/agents/` | 所有您的项目  | 3      | 交互式或手动                   |
+| 插件 `agents/` 目录     | 启用插件的位置 | 4 (最低) | 与 [插件](/en/plugins) 一起安装 |
 
 **项目子代理**（`.claude/agents/`）非常适合特定于代码库的子代理。将它们检入版本控制，以便您的团队可以协作使用和改进它们。
 
@@ -145,109 +87,19 @@ specific, actionable feedback on quality, security, and best practices.
 
 以下字段可用于 YAML 前言。只有 `name` 和 `description` 是必需的。
 
-| 字段             | 必需 | 描述                                                                                                                                                                                                                                                                 |
-| :---------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`            | 是      | 使用小写字母和连字符的唯一标识符                                                                                                                                                                                                                       |
-| `description`     | 是      | Claude 何时应该委托给此子代理                                                                                                                                                                                                                                |
-| `tools`           | 否       | 子代理可以使用的 [工具](#available-tools)。如果省略，继承所有工具                                                                                                                                                                                               |
-| `disallowedTools` | 否       | 要拒绝的工具，从继承或指定列表中移除                                                                                                                                                                                                                     |
-| `model`           | 否       | 要使用的 [模型](#choose-a-model)：`sonnet`、`opus`、`haiku` 或 `inherit`。默认为 `inherit`                                                                                                                                                                             |
-| `permissionMode`  | 否       | [权限模式](#permission-modes)：`default`、`acceptEdits`、`delegate`、`dontAsk`、`bypassPermissions` 或 `plan`                                                                                                                                                       |
-| `maxTurns`        | 否       | 子代理停止前的最大代理轮数                                                                                                                                                                                                                   |
-| `skills`          | 否       | 在启动时加载到子代理上下文中的 [技能](/en/skills)。注入完整的技能内容，而不仅仅是使其可供调用。子代理不继承父对话中的技能                                                                |
-| `mcpServers`      | 否       | 此子代理可用的 [MCP 服务器](/en/mcp)。每个条目要么是引用已配置服务器的服务器名称（例如 `"slack"`），要么是内联定义，以服务器名称为键，以完整的 [MCP 服务器配置](/en/mcp#configure-mcp-servers) 作为值 |
-| `hooks`           | 否       | 作用域到此子代理的 [生命周期钩子](#define-hooks-for-subagents)                                                                                                                                                                                                      |
-| `memory`          | 否       | [持久内存范围](#enable-persistent-memory)：`user`、`project` 或 `local`。启用跨会话学习                                                                                                                                                         |
-
-### 选择模型
-
-`model` 字段控制子代理使用的 [AI 模型](/en/model-config)：
-
-* **模型别名**：使用可用的别名之一：`sonnet`、`opus` 或 `haiku`
-* **inherit**：使用与主对话相同的模型
-* **省略**：如果未指定，默认为 `inherit`（使用与主对话相同的模型）
-
-### 控制子代理能力
-
-您可以通过工具访问、权限模式和条件规则来控制子代理可以做什么。
-
-#### 可用工具
-
-子代理可以使用 Claude Code 的任何 [内部工具](/en/settings#tools-available-to-claude)。默认情况下，子代理从主对话继承所有工具，包括 MCP 工具。
-
-要限制工具，使用 `tools` 字段（允许列表）或 `disallowedTools` 字段（拒绝列表）：
-
-```yaml  theme={null}
----
-name: safe-researcher
-description: Research agent with restricted capabilities
-tools: Read, Grep, Glob, Bash
-disallowedTools: Write, Edit
----
-```
-
-#### 限制可以生成哪些子代理
-
-当代理作为主线程运行并带有 `claude --agent` 时，它可以使用 Task 工具生成子代理。要限制它可以生成哪些子代理类型，在 `tools` 字段中使用 `Task(agent_type)` 语法：
-
-```yaml  theme={null}
----
-name: coordinator
-description: Coordinates work across specialized agents
-tools: Task(worker, researcher), Read, Bash
----
-```
-
-这是一个允许列表：只能生成 `worker` 和 `researcher` 子代理。如果代理尝试生成任何其他类型，请求失败，代理在其提示中只能看到允许的类型。要在允许所有其他类型的同时阻止特定代理，改用 [`permissions.deny`](#disable-specific-subagents)。
-
-要允许不受限制地生成任何子代理，使用不带括号的 `Task`：
-
-```yaml  theme={null}
-tools: Task, Read, Bash
-```
-
-如果 `Task` 完全从 `tools` 列表中省略，代理无法生成任何子代理。此限制仅适用于作为主线程运行并带有 `claude --agent` 的代理。子代理不能生成其他子代理，因此 `Task(agent_type)` 在子代理定义中没有效果。
-
-#### 权限模式
-
-`permissionMode` 字段控制子代理如何处理权限提示。子代理从主对话继承权限上下文，但可以覆盖模式。
-
-| 模式                | 行为                                                                                                             |
-| :------------------ | :------------------------------------------------------------------------------------------------------------------- |
-| `default`           | 标准权限检查和提示                                                                            |
-| `acceptEdits`       | 自动接受文件编辑                                                                                               |
-| `dontAsk`           | 自动拒绝权限提示（明确允许的工具仍然工作）                                                   |
-| `delegate`          | [代理团队](/en/agent-teams#use-delegate-mode) 领导的仅协调模式。限制为团队管理工具 |
-| `bypassPermissions` | 跳过所有权限检查                                                                                           |
-| `plan`              | 计划模式（只读探索）                                                                                    |
-
-<Warning>
-  谨慎使用 `bypassPermissions`。它跳过所有权限检查，允许子代理执行任何操作而无需批准。
-</Warning>
-
-如果父级使用 `bypassPermissions`，这优先于子级且无法覆盖。
-
-#### 预加载技能到子代理
-
-使用 `skills` 字段在启动时将技能内容注入子代理的上下文。这为子代理提供了领域知识，而不需要它在执行期间发现和加载技能。
-
-```yaml  theme={null}
----
-name: api-developer
-description: Implement API endpoints following team conventions
-skills:
-  - api-conventions
-  - error-handling-patterns
----
-
-Implement API endpoints. Follow the conventions and patterns from the preloaded skills.
-```
-
-每个技能的完整内容被注入到子代理的上下文中，而不仅仅是使其可供调用。子代理不从父对话继承技能；您必须显式列出它们。
-
-<Note>
-  这与 [在子代理中运行技能](/en/skills#run-skills-in-a-subagent) 相反。使用子代理中的 `skills`，子代理控制系统提示并加载技能内容。在技能中使用 `context: fork`，技能内容被注入到您指定的代理中。两者使用相同的底层系统。
-</Note>
+| 字段                | 必需  | 描述                                                                                                                                  |
+| :---------------- | :-- | :---------------------------------------------------------------------------------------------------------------------------------- |
+| `name`            | 是   | 使用小写字母和连字符的唯一标识符                                                                                                                    |
+| `description`     | 是   | Claude 何时应该委托给此子代理                                                                                                                  |
+| `tools`           | 否   | 子代理可以使用的 [工具](#available-tools)。如果省略，继承所有工具                                                                                         |
+| `disallowedTools` | 否   | 要拒绝的工具，从继承或指定列表中移除                                                                                                                  |
+| `model`           | 否   | 要使用的 [模型](#choose-a-model)：`sonnet`、`opus`、`haiku` 或 `inherit`。默认为 `inherit`                                                        |
+| `permissionMode`  | 否   | [权限模式](#permission-modes)：`default`、`acceptEdits`、`delegate`、`dontAsk`、`bypassPermissions` 或 `plan`                                 |
+| `maxTurns`        | 否   | 子代理停止前的最大代理轮数                                                                                                                       |
+| `skills`          | 否   | 在启动时加载到子代理上下文中的 [技能](/en/skills)。注入完整的技能内容，而不仅仅是使其可供调用。子代理不继承父对话中的技能                                                                |
+| `mcpServers`      | 否   | 此子代理可用的 [MCP 服务器](/en/mcp)。每个条目要么是引用已配置服务器的服务器名称（例如 `"slack"`），要么是内联定义，以服务器名称为键，以完整的 [MCP 服务器配置](/en/mcp#configure-mcp-servers) 作为值 |
+| `hooks`           | 否   | 作用域到此子代理的 [生命周期钩子](#define-hooks-for-subagents)                                                                                     |
+| `memory`          | 否   | [持久内存范围](#enable-persistent-memory)：`user`、`project` 或 `local`。启用跨会话学习                                                              |
 
 #### 启用持久内存
 
@@ -266,10 +118,10 @@ patterns, conventions, and recurring issues you discover.
 
 根据内存应该应用的广泛程度选择范围：
 
-| 范围     | 位置                                      | 在何时使用                                                                                    |
-| :-------- | :-------------------------------------------- | :------------------------------------------------------------------------------------------ |
-| `user`    | `~/.claude/agent-memory/<name-of-agent>/`     | 子代理应该在所有项目中记住学习                                  |
-| `project` | `.claude/agent-memory/<name-of-agent>/`       | 子代理的知识是特定于项目的，可通过版本控制共享              |
+| 范围        | 位置                                            | 在何时使用                   |
+| :-------- | :-------------------------------------------- | :---------------------- |
+| `user`    | `~/.claude/agent-memory/<name-of-agent>/`     | 子代理应该在所有项目中记住学习         |
+| `project` | `.claude/agent-memory/<name-of-agent>/`       | 子代理的知识是特定于项目的，可通过版本控制共享 |
 | `local`   | `.claude/agent-memory-local/<name-of-agent>/` | 子代理的知识是特定于项目的，但不应检入版本控制 |
 
 当启用内存时：
