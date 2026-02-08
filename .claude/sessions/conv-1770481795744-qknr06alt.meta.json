@@ -3,18 +3,17 @@
   "title": "Translate Claude agent teams documentation to C...",
   "titleGenerationStatus": "success",
   "createdAt": 1770481795745,
-  "updatedAt": 1770481850406,
-  "lastResponseAt": 1770481850406,
+  "updatedAt": 1770560391655,
+  "lastResponseAt": 1770560391655,
   "sessionId": "38326aa8-67d7-4f60-b5b3-ecf8de1d0f53",
   "sdkSessionId": "38326aa8-67d7-4f60-b5b3-ecf8de1d0f53",
-  "currentNote": "学习笔记/claude-code/Claude Code Agent Teams.md",
   "usage": {
     "model": "MiniMax-M2",
-    "inputTokens": 134,
-    "cacheCreationInputTokens": 2181,
-    "cacheReadInputTokens": 19018,
+    "inputTokens": 11039,
+    "cacheCreationInputTokens": 19335,
+    "cacheReadInputTokens": 21331,
     "contextWindow": 200000,
-    "contextTokens": 21333,
-    "percentage": 11
+    "contextTokens": 51705,
+    "percentage": 26
   }
 }
