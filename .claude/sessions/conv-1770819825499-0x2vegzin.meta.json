@@ -3,6 +3,18 @@
   "title": "Translate AST-Grep Pattern Syntax documentation",
   "titleGenerationStatus": "success",
   "createdAt": 1770819825499,
-  "updatedAt": 1770819828440,
-  "sessionId": null
+  "updatedAt": 1770819934808,
+  "lastResponseAt": 1770819934808,
+  "sessionId": "5145c8f0-0f2d-4142-a81f-72eefd3d157c",
+  "sdkSessionId": "5145c8f0-0f2d-4142-a81f-72eefd3d157c",
+  "currentNote": "学习笔记/ast-grep/AST-Grep Pattern Syntax.md",
+  "usage": {
+    "model": "MiniMax-M2",
+    "inputTokens": 164,
+    "cacheCreationInputTokens": 20742,
+    "cacheReadInputTokens": 17223,
+    "contextWindow": 200000,
+    "contextTokens": 38129,
+    "percentage": 19
+  }
 }
