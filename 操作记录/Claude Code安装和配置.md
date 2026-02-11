@@ -108,6 +108,20 @@ claude mcp add -s user chrome-devtools npx chrome-devtools-mcp@latest
 > 注意9222是调试端口，user-data-dir是一个新的用户目录，防止冲突
 
 
+
+## 安装百炼搜索mcp
+
+```js
+    "WebSearch": {
+      "type": "sse",
+      "url": "https://dashscope.aliyuncs.com/api/v1/mcps/WebSearch/sse",
+      "headers": {
+        "Authorization": "Bearer ${BAILIAN_API_KEY}"
+      }
+    }
+```
+
+
 ## Tip
 
 * Run claude --debug to see logs inline, or view log files i  /Users/zhaoxin/Library/Caches/claude-cli-nodejs/-Volumes-data-working-docker 
