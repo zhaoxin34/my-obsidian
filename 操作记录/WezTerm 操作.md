@@ -9,6 +9,11 @@ wezterm start -- nvim ~/.config
 ```bash
 echo "ls" | wezterm cli send-text --pane-id=13
 ```
+
+*返送一个ctrl +c*
+```bash
+echo -n "\003" | wezterm cli send-text --pane-id=98
+```
 # 使用sshdomain连接我的w11
 
 *首先创建免密登录
