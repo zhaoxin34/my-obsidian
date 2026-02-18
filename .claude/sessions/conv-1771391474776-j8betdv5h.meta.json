@@ -1,0 +1,20 @@
+{
+  "id": "conv-1771391474776-j8betdv5h",
+  "title": "List files in current directory",
+  "titleGenerationStatus": "success",
+  "createdAt": 1771391474776,
+  "updatedAt": 1771391528410,
+  "lastResponseAt": 1771391528410,
+  "sessionId": "0d257216-942a-44e9-a50c-e7c51f6ac530",
+  "sdkSessionId": "0d257216-942a-44e9-a50c-e7c51f6ac530",
+  "currentNote": "ai/Slack 风格聊天系统 - 技术产品设计文档.md",
+  "usage": {
+    "model": "MiniMax-M2",
+    "inputTokens": 6382,
+    "cacheCreationInputTokens": 393,
+    "cacheReadInputTokens": 20780,
+    "contextWindow": 200000,
+    "contextTokens": 27555,
+    "percentage": 14
+  }
+}
