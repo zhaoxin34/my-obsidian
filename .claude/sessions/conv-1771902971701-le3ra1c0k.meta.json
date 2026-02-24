@@ -1,0 +1,20 @@
+{
+  "id": "conv-1771902971701-le3ra1c0k",
+  "title": "Extract Claude Code 2.1.39-2.1.51 New Features",
+  "titleGenerationStatus": "success",
+  "createdAt": 1771902971701,
+  "updatedAt": 1771903147987,
+  "lastResponseAt": 1771903147987,
+  "sessionId": "c746afdc-5738-4c6a-aa08-7a77cce3c935",
+  "sdkSessionId": "c746afdc-5738-4c6a-aa08-7a77cce3c935",
+  "currentNote": "学习笔记/claude-code/Claude code 2.1.39 - 2.1.51 变更记录.md",
+  "usage": {
+    "model": "MiniMax-M2",
+    "inputTokens": 176,
+    "cacheCreationInputTokens": 1714,
+    "cacheReadInputTokens": 31332,
+    "contextWindow": 200000,
+    "contextTokens": 33222,
+    "percentage": 17
+  }
+}
