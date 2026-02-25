@@ -17,7 +17,8 @@ echo -n "\003" | wezterm cli send-text --pane-id=98
 
 ## 进入我的win11的方法
 
-cmd+shift+p，然后输入win11, 然后选择Shell: New Tab (Domain w11)
+方法1: cmd+shift+p，然后输入win11, 然后选择Shell: New Tab (Domain w11)
+方法2: 输入wezterm ssh w11, 这会创建一个新的windows
 ## 使用sshdomain连接我的w11
 
 *首先创建免密登录
