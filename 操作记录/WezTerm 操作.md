@@ -1,4 +1,4 @@
-# 使用技巧
+## 使用技巧
 
 *命令行开启一个新窗口，并启动一个命令*
 ```bash
@@ -14,7 +14,11 @@ echo "ls" | wezterm cli send-text --pane-id=13
 ```bash
 echo -n "\003" | wezterm cli send-text --pane-id=98
 ```
-# 使用sshdomain连接我的w11
+
+## 进入我的win11的方法
+
+cmd+shift+p，然后输入win11, 然后选择Shell: New Tab (Domain w11)
+## 使用sshdomain连接我的w11
 
 *首先创建免密登录
 `ssh-keygen`
