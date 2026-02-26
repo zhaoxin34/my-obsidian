@@ -34,3 +34,16 @@ nanobot onboard
   }
 }
 ```
+
+到这步可以对话了
+```bash
+nanobot agent
+🐈 Interactive mode (type exit or Ctrl+C to quit)
+
+You: hello
+
+🐈 nanobot
+你好！有什么我可以帮你的吗？ 😊
+```
+
+---

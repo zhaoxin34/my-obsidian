@@ -3,8 +3,6 @@ title: "OmniWM 快速入门指南"
 description: "通过本教程，你将学会在 macOS 上安装和配置 OmniWM，体验强大的平铺式窗口管理功能"
 ---
 
-# OmniWM 快速入门指南
-
 在本教程中，你将在 macOS 上安装并配置 OmniWM，体验自动窗口平铺、快捷键导航、工作区管理等强大功能，让你的 macOS 桌面焕然一新。
 
 <Note>
