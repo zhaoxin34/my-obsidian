@@ -1,0 +1,19 @@
+{
+  "id": "conv-1772121750987-5pf12kxrs",
+  "title": "Create OmniWM tutorial documentation",
+  "titleGenerationStatus": "success",
+  "createdAt": 1772121750987,
+  "updatedAt": 1772121871801,
+  "lastResponseAt": 1772121871801,
+  "sessionId": "3525ebc4-530d-41aa-8261-669fb78a5b8b",
+  "sdkSessionId": "3525ebc4-530d-41aa-8261-669fb78a5b8b",
+  "usage": {
+    "model": "MiniMax-M2",
+    "inputTokens": 262,
+    "cacheCreationInputTokens": 3849,
+    "cacheReadInputTokens": 24628,
+    "contextWindow": 200000,
+    "contextTokens": 28739,
+    "percentage": 14
+  }
+}
