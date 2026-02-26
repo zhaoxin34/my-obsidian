@@ -1,0 +1,20 @@
+{
+  "id": "conv-1772096484210-0vn858z79",
+  "title": "Optimize document with tutorial-docs skills",
+  "titleGenerationStatus": "success",
+  "createdAt": 1772096484211,
+  "updatedAt": 1772096535914,
+  "lastResponseAt": 1772096535914,
+  "sessionId": "a85ede37-7e73-45ea-bf7a-0b69a527f265",
+  "sdkSessionId": "a85ede37-7e73-45ea-bf7a-0b69a527f265",
+  "currentNote": "操作记录/Skills 仓库.md",
+  "usage": {
+    "model": "MiniMax-M2",
+    "inputTokens": 4794,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 20803,
+    "contextWindow": 200000,
+    "contextTokens": 25597,
+    "percentage": 13
+  }
+}
