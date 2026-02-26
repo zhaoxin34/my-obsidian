@@ -9,3 +9,9 @@ Skills are reusable capabilities for AI agents. Install them with a single comma
 ```bash
 npx skills find
 ```
+
+全局搜索skills, 展示哪个agent用了那些skills，比如claude code用了哪些skills
+
+```bash
+npx skills list -g
+```
