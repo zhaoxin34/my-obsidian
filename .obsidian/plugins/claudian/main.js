@@ -2233,8 +2233,8 @@ var require_resolve = __commonJS({
       }
       return count;
     }
-    function getFullPath(resolver, id = "", normalize2) {
-      if (normalize2 !== false)
+    function getFullPath(resolver, id = "", normalize3) {
+      if (normalize3 !== false)
         id = normalizeId(id);
       const p2 = resolver.parse(id);
       return _getFullPath(resolver, p2);
@@ -2982,7 +2982,7 @@ var require_compile = __commonJS({
       const schOrFunc = root.refs[ref];
       if (schOrFunc)
         return schOrFunc;
-      let _sch = resolve4.call(this, root, ref);
+      let _sch = resolve5.call(this, root, ref);
       if (_sch === void 0) {
         const schema = (_a3 = root.localRefs) === null || _a3 === void 0 ? void 0 : _a3[ref];
         const { schemaId } = this.opts;
@@ -3009,7 +3009,7 @@ var require_compile = __commonJS({
     function sameSchemaEnv(s12, s2) {
       return s12.schema === s2.schema && s12.root === s2.root && s12.baseId === s2.baseId;
     }
-    function resolve4(root, ref) {
+    function resolve5(root, ref) {
       let sch;
       while (typeof (sch = this.refs[ref]) == "string")
         ref = sch;
@@ -3574,7 +3574,7 @@ var require_fast_uri = __commonJS({
     "use strict";
     var { normalizeIPv6, removeDotSegments, recomposeAuthority, normalizeComponentEncoding, isIPv4, nonSimpleDomain } = require_utils();
     var { SCHEMES, getSchemeHandler } = require_schemes();
-    function normalize2(uri, options) {
+    function normalize3(uri, options) {
       if (typeof uri === "string") {
         uri = /** @type {T} */
         serialize(parse3(uri, options), options);
@@ -3584,7 +3584,7 @@ var require_fast_uri = __commonJS({
       }
       return uri;
     }
-    function resolve4(baseURI, relativeURI, options) {
+    function resolve5(baseURI, relativeURI, options) {
       const schemelessOptions = options ? Object.assign({ scheme: "null" }, options) : { scheme: "null" };
       const resolved = resolveComponent(parse3(baseURI, schemelessOptions), parse3(relativeURI, schemelessOptions), schemelessOptions, true);
       schemelessOptions.skipEscape = true;
@@ -3810,8 +3810,8 @@ var require_fast_uri = __commonJS({
     }
     var fastUri = {
       SCHEMES,
-      normalize: normalize2,
-      resolve: resolve4,
+      normalize: normalize3,
+      resolve: resolve5,
       resolveComponent,
       equal,
       serialize,
@@ -8844,8 +8844,8 @@ var require_resolve2 = __commonJS({
       }
       return count;
     }
-    function getFullPath(resolver, id = "", normalize2) {
-      if (normalize2 !== false)
+    function getFullPath(resolver, id = "", normalize3) {
+      if (normalize3 !== false)
         id = normalizeId(id);
       const p2 = resolver.parse(id);
       return _getFullPath(resolver, p2);
@@ -9593,7 +9593,7 @@ var require_compile2 = __commonJS({
       const schOrFunc = root.refs[ref];
       if (schOrFunc)
         return schOrFunc;
-      let _sch = resolve4.call(this, root, ref);
+      let _sch = resolve5.call(this, root, ref);
       if (_sch === void 0) {
         const schema = (_a3 = root.localRefs) === null || _a3 === void 0 ? void 0 : _a3[ref];
         const { schemaId } = this.opts;
@@ -9620,7 +9620,7 @@ var require_compile2 = __commonJS({
     function sameSchemaEnv(s12, s2) {
       return s12.schema === s2.schema && s12.root === s2.root && s12.baseId === s2.baseId;
     }
-    function resolve4(root, ref) {
+    function resolve5(root, ref) {
       let sch;
       while (typeof (sch = this.refs[ref]) == "string")
         ref = sch;
@@ -12571,12 +12571,12 @@ var require_isexe = __commonJS({
         if (typeof Promise !== "function") {
           throw new TypeError("callback not provided");
         }
-        return new Promise(function(resolve4, reject) {
+        return new Promise(function(resolve5, reject) {
           isexe(path11, options || {}, function(er, is) {
             if (er) {
               reject(er);
             } else {
-              resolve4(is);
+              resolve5(is);
             }
           });
         });
@@ -12642,27 +12642,27 @@ var require_which = __commonJS({
         opt = {};
       const { pathEnv, pathExt, pathExtExe } = getPathInfo(cmd, opt);
       const found = [];
-      const step = (i2) => new Promise((resolve4, reject) => {
+      const step = (i2) => new Promise((resolve5, reject) => {
         if (i2 === pathEnv.length)
-          return opt.all && found.length ? resolve4(found) : reject(getNotFoundError(cmd));
+          return opt.all && found.length ? resolve5(found) : reject(getNotFoundError(cmd));
         const ppRaw = pathEnv[i2];
         const pathPart = /^".*"$/.test(ppRaw) ? ppRaw.slice(1, -1) : ppRaw;
         const pCmd = path11.join(pathPart, cmd);
         const p2 = !pathPart && /^\.[\\\/]/.test(cmd) ? cmd.slice(0, 2) + pCmd : pCmd;
-        resolve4(subStep(p2, i2, 0));
+        resolve5(subStep(p2, i2, 0));
       });
-      const subStep = (p2, i2, ii) => new Promise((resolve4, reject) => {
+      const subStep = (p2, i2, ii) => new Promise((resolve5, reject) => {
         if (ii === pathExt.length)
-          return resolve4(step(i2 + 1));
+          return resolve5(step(i2 + 1));
         const ext = pathExt[ii];
         isexe(p2 + ext, { pathExt: pathExtExe }, (er, is) => {
           if (!er && is) {
             if (opt.all)
               found.push(p2 + ext);
             else
-              return resolve4(p2 + ext);
+              return resolve5(p2 + ext);
           }
-          return resolve4(subStep(p2, i2, ii + 1));
+          return resolve5(subStep(p2, i2, ii + 1));
         });
       });
       return cb ? step(0).then((res) => cb(null, res), cb) : step(0);
@@ -12980,7 +12980,7 @@ __export(main_exports, {
   default: () => ClaudianPlugin
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian34 = require("obsidian");
+var import_obsidian38 = require("obsidian");
 
 // src/core/agents/AgentManager.ts
 var fs3 = __toESM(require("fs"));
@@ -13707,7 +13707,17 @@ function getPathAccessType(candidatePath, allowedContextPaths, allowedExportPath
   }
   const claudeDir = normalizePathForComparison(resolveRealPath(path.join(os.homedir(), ".claude")));
   if (resolvedCandidate === claudeDir || resolvedCandidate.startsWith(claudeDir + "/")) {
-    return "vault";
+    const safeSubdirs = ["sessions", "projects", "commands", "agents", "skills", "plans"];
+    const safeFiles = ["mcp.json", "settings.json", "settings.local.json", "claudian-settings.json"];
+    const relativeToClaude = resolvedCandidate.slice(claudeDir.length + 1);
+    if (!relativeToClaude) {
+      return "context";
+    }
+    const topSegment = relativeToClaude.split("/")[0];
+    if (safeSubdirs.includes(topSegment) || safeFiles.includes(topSegment)) {
+      return "vault";
+    }
+    return "context";
   }
   const roots = /* @__PURE__ */ new Map();
   const addRoot = (rawPath, kind) => {
@@ -13864,9 +13874,9 @@ function findNodeDirectory(additionalPaths) {
   for (const dir of allPaths) {
     if (!dir) continue;
     try {
-      const nodePath = path2.join(dir, NODE_EXECUTABLE);
-      if (fs2.existsSync(nodePath)) {
-        const stat = fs2.statSync(nodePath);
+      const nodePath2 = path2.join(dir, NODE_EXECUTABLE);
+      if (fs2.existsSync(nodePath2)) {
+        const stat = fs2.statSync(nodePath2);
         if (stat.isFile()) {
           return dir;
         }
@@ -13920,8 +13930,8 @@ function getMissingNodeError(cliPath, enhancedPath) {
   if (!cliPathRequiresNode(cliPath)) {
     return null;
   }
-  const nodePath = findNodeExecutable(enhancedPath);
-  if (nodePath) {
+  const nodePath2 = findNodeExecutable(enhancedPath);
+  if (nodePath2) {
     return null;
   }
   return "Claude Code CLI requires Node.js, but Node was not found on PATH. Install Node.js or use the native Claude Code binary, then restart Obsidian.";
@@ -33872,7 +33882,7 @@ var Protocol = class {
           return;
         }
         const pollInterval = (_c = (_b = task2.pollInterval) != null ? _b : (_a3 = this._options) == null ? void 0 : _a3.defaultTaskPollInterval) != null ? _c : 1e3;
-        await new Promise((resolve4) => setTimeout(resolve4, pollInterval));
+        await new Promise((resolve5) => setTimeout(resolve5, pollInterval));
         (_d = options == null ? void 0 : options.signal) == null ? void 0 : _d.throwIfAborted();
       }
     } catch (error48) {
@@ -33889,7 +33899,7 @@ var Protocol = class {
    */
   request(request, resultSchema, options) {
     const { relatedRequestId, resumptionToken, onresumptiontoken, task, relatedTask } = options != null ? options : {};
-    return new Promise((resolve4, reject) => {
+    return new Promise((resolve5, reject) => {
       var _a3, _b, _c, _d, _e, _f, _g;
       const earlyReject = (error48) => {
         reject(error48);
@@ -33970,7 +33980,7 @@ var Protocol = class {
           if (!parseResult.success) {
             reject(parseResult.error);
           } else {
-            resolve4(parseResult.data);
+            resolve5(parseResult.data);
           }
         } catch (error48) {
           reject(error48);
@@ -34236,12 +34246,12 @@ var Protocol = class {
       }
     } catch (e2) {
     }
-    return new Promise((resolve4, reject) => {
+    return new Promise((resolve5, reject) => {
       if (signal.aborted) {
         reject(new McpError(ErrorCode.InvalidRequest, "Request cancelled"));
         return;
       }
-      const timeoutId = setTimeout(resolve4, interval);
+      const timeoutId = setTimeout(resolve5, interval);
       signal.addEventListener("abort", () => {
         clearTimeout(timeoutId);
         reject(new McpError(ErrorCode.InvalidRequest, "Request cancelled"));
@@ -36414,7 +36424,7 @@ var SSEClientTransport = class {
   _startOrAuth() {
     var _a3, _b, _c;
     const fetchImpl = (_c = (_b = (_a3 = this == null ? void 0 : this._eventSourceInit) == null ? void 0 : _a3.fetch) != null ? _b : this._fetch) != null ? _c : fetch;
-    return new Promise((resolve4, reject) => {
+    return new Promise((resolve5, reject) => {
       this._eventSource = new EventSource(this._url.href, {
         ...this._eventSourceInit,
         fetch: async (url2, init) => {
@@ -36436,7 +36446,7 @@ var SSEClientTransport = class {
       this._eventSource.onerror = (event) => {
         var _a4;
         if (event.code === 401 && this._authProvider) {
-          this._authThenStart().then(resolve4, reject);
+          this._authThenStart().then(resolve5, reject);
           return;
         }
         const error48 = new SseError(event.code, event.message, event);
@@ -36459,7 +36469,7 @@ var SSEClientTransport = class {
           void this.close();
           return;
         }
-        resolve4();
+        resolve5();
       });
       this._eventSource.onmessage = (event) => {
         var _a4, _b2;
@@ -36632,7 +36642,7 @@ var StdioClientTransport = class {
     if (this._process) {
       throw new Error("StdioClientTransport already started! If using Client class, note that connect() calls start() automatically.");
     }
-    return new Promise((resolve4, reject) => {
+    return new Promise((resolve5, reject) => {
       var _a3, _b, _c, _d, _e;
       this._process = (0, import_cross_spawn.default)(this._serverParams.command, (_a3 = this._serverParams.args) != null ? _a3 : [], {
         // merge default env with server env because mcp server needs some env vars
@@ -36651,7 +36661,7 @@ var StdioClientTransport = class {
         (_a4 = this.onerror) == null ? void 0 : _a4.call(this, error48);
       });
       this._process.on("spawn", () => {
-        resolve4();
+        resolve5();
       });
       this._process.on("close", (_code) => {
         var _a4;
@@ -36717,22 +36727,22 @@ var StdioClientTransport = class {
     if (this._process) {
       const processToClose = this._process;
       this._process = void 0;
-      const closePromise = new Promise((resolve4) => {
+      const closePromise = new Promise((resolve5) => {
         processToClose.once("close", () => {
-          resolve4();
+          resolve5();
         });
       });
       try {
         (_a3 = processToClose.stdin) == null ? void 0 : _a3.end();
       } catch (e2) {
       }
-      await Promise.race([closePromise, new Promise((resolve4) => setTimeout(resolve4, 2e3).unref())]);
+      await Promise.race([closePromise, new Promise((resolve5) => setTimeout(resolve5, 2e3).unref())]);
       if (processToClose.exitCode === null) {
         try {
           processToClose.kill("SIGTERM");
         } catch (e2) {
         }
-        await Promise.race([closePromise, new Promise((resolve4) => setTimeout(resolve4, 2e3).unref())]);
+        await Promise.race([closePromise, new Promise((resolve5) => setTimeout(resolve5, 2e3).unref())]);
       }
       if (processToClose.exitCode === null) {
         try {
@@ -36744,16 +36754,16 @@ var StdioClientTransport = class {
     this._readBuffer.clear();
   }
   send(message) {
-    return new Promise((resolve4) => {
+    return new Promise((resolve5) => {
       var _a3;
       if (!((_a3 = this._process) == null ? void 0 : _a3.stdin)) {
         throw new Error("Not connected");
       }
       const json2 = serializeMessage(message);
       if (this._process.stdin.write(json2)) {
-        resolve4();
+        resolve5();
       } else {
-        this._process.stdin.once("drain", resolve4);
+        this._process.stdin.once("drain", resolve5);
       }
     });
   }
@@ -37577,6 +37587,25 @@ var AgentVaultStorage = class {
     }
     return agents;
   }
+  async load(agent) {
+    const filePath = this.resolvePath(agent);
+    try {
+      const content = await this.adapter.read(filePath);
+      const parsed = parseAgentFile(content);
+      if (!parsed) return null;
+      const { frontmatter, body } = parsed;
+      return buildAgentFromFrontmatter(frontmatter, body, {
+        id: frontmatter.name,
+        source: agent.source,
+        filePath
+      });
+    } catch (error48) {
+      if (this.isFileNotFoundError(error48)) {
+        return null;
+      }
+      throw error48;
+    }
+  }
   async save(agent) {
     await this.adapter.write(this.resolvePath(agent), serializeAgent(agent));
   }
@@ -37584,8 +37613,32 @@ var AgentVaultStorage = class {
     await this.adapter.delete(this.resolvePath(agent));
   }
   resolvePath(agent) {
-    var _a3;
-    return (_a3 = agent.filePath) != null ? _a3 : `${AGENTS_PATH}/${agent.name}.md`;
+    if (!agent.filePath) {
+      return `${AGENTS_PATH}/${agent.name}.md`;
+    }
+    const normalized = agent.filePath.replace(/\\/g, "/");
+    const idx = normalized.lastIndexOf(`${AGENTS_PATH}/`);
+    if (idx !== -1) {
+      return normalized.slice(idx);
+    }
+    return `${AGENTS_PATH}/${agent.name}.md`;
+  }
+  isFileNotFoundError(error48) {
+    if (!error48) return false;
+    if (typeof error48 === "string") {
+      return /enoent|not found|no such file/i.test(error48);
+    }
+    if (typeof error48 === "object") {
+      const maybeCode = error48.code;
+      if (typeof maybeCode === "string" && /enoent|not.?found/i.test(maybeCode)) {
+        return true;
+      }
+      const maybeMessage = error48.message;
+      if (typeof maybeMessage === "string" && /enoent|not found|no such file/i.test(maybeMessage)) {
+        return true;
+      }
+    }
+    return false;
   }
 };
 
@@ -38148,6 +38201,70 @@ var McpStorage = class _McpStorage {
   }
 };
 
+// src/core/tools/toolNames.ts
+var TOOL_AGENT_OUTPUT = "TaskOutput";
+var TOOL_ASK_USER_QUESTION = "AskUserQuestion";
+var TOOL_BASH = "Bash";
+var TOOL_BASH_OUTPUT = "BashOutput";
+var TOOL_EDIT = "Edit";
+var TOOL_GLOB = "Glob";
+var TOOL_GREP = "Grep";
+var TOOL_KILL_SHELL = "KillShell";
+var TOOL_LS = "LS";
+var TOOL_LIST_MCP_RESOURCES = "ListMcpResources";
+var TOOL_MCP = "Mcp";
+var TOOL_NOTEBOOK_EDIT = "NotebookEdit";
+var TOOL_READ = "Read";
+var TOOL_READ_MCP_RESOURCE = "ReadMcpResource";
+var TOOL_SKILL = "Skill";
+var TOOL_TASK = "Task";
+var TOOL_TODO_WRITE = "TodoWrite";
+var TOOL_WEB_FETCH = "WebFetch";
+var TOOL_WEB_SEARCH = "WebSearch";
+var TOOL_WRITE = "Write";
+var TOOL_ENTER_PLAN_MODE = "EnterPlanMode";
+var TOOL_EXIT_PLAN_MODE = "ExitPlanMode";
+var TOOLS_SKIP_BLOCKED_DETECTION = [
+  TOOL_ENTER_PLAN_MODE,
+  TOOL_EXIT_PLAN_MODE,
+  TOOL_ASK_USER_QUESTION
+];
+function skipsBlockedDetection(name) {
+  return TOOLS_SKIP_BLOCKED_DETECTION.includes(name);
+}
+var EDIT_TOOLS = [TOOL_WRITE, TOOL_EDIT, TOOL_NOTEBOOK_EDIT];
+var WRITE_EDIT_TOOLS = [TOOL_WRITE, TOOL_EDIT];
+var FILE_TOOLS = [
+  TOOL_READ,
+  TOOL_WRITE,
+  TOOL_EDIT,
+  TOOL_GLOB,
+  TOOL_GREP,
+  TOOL_LS,
+  TOOL_NOTEBOOK_EDIT,
+  TOOL_BASH
+];
+var READ_ONLY_TOOLS = [
+  TOOL_READ,
+  TOOL_GREP,
+  TOOL_GLOB,
+  TOOL_LS,
+  TOOL_WEB_SEARCH,
+  TOOL_WEB_FETCH
+];
+function isEditTool(toolName) {
+  return EDIT_TOOLS.includes(toolName);
+}
+function isWriteEditTool(toolName) {
+  return WRITE_EDIT_TOOLS.includes(toolName);
+}
+function isFileTool(toolName) {
+  return FILE_TOOLS.includes(toolName);
+}
+function isReadOnlyTool(toolName) {
+  return READ_ONLY_TOOLS.includes(toolName);
+}
+
 // src/core/storage/SessionStorage.ts
 var SESSIONS_PATH = ".claude/sessions";
 var SessionStorage = class {
@@ -38435,14 +38552,17 @@ var SessionStorage = class {
   }
   /**
    * Extracts subagentData from messages for persistence.
-   * Collects subagent info from all assistant messages.
+   * Collects subagent info from Task tool calls.
    */
   extractSubagentData(messages) {
     const result = {};
     for (const msg of messages) {
-      if (msg.role !== "assistant" || !msg.subagents) continue;
-      for (const subagent of msg.subagents) {
-        result[subagent.id] = subagent;
+      if (msg.role !== "assistant") continue;
+      if (msg.toolCalls) {
+        for (const toolCall of msg.toolCalls) {
+          if (toolCall.name !== TOOL_TASK || !toolCall.subagent) continue;
+          result[toolCall.subagent.id] = toolCall.subagent;
+        }
       }
     }
     return result;
@@ -38559,10 +38679,14 @@ var SlashCommandStorage = class {
   }
 };
 
+// src/core/storage/StorageService.ts
+var import_obsidian2 = require("obsidian");
+
 // src/core/storage/VaultFileAdapter.ts
 var VaultFileAdapter = class {
   constructor(app) {
     this.app = app;
+    this.writeQueue = Promise.resolve();
   }
   async exists(path11) {
     return this.app.vault.adapter.exists(path11);
@@ -38576,12 +38700,16 @@ var VaultFileAdapter = class {
   }
   async append(path11, content) {
     await this.ensureParentFolder(path11);
-    if (await this.exists(path11)) {
-      const existing = await this.read(path11);
-      await this.app.vault.adapter.write(path11, existing + content);
-    } else {
-      await this.app.vault.adapter.write(path11, content);
-    }
+    this.writeQueue = this.writeQueue.then(async () => {
+      if (await this.exists(path11)) {
+        const existing = await this.read(path11);
+        await this.app.vault.adapter.write(path11, existing + content);
+      } else {
+        await this.app.vault.adapter.write(path11, content);
+      }
+    }).catch(() => {
+    });
+    await this.writeQueue;
   }
   async delete(path11) {
     if (await this.exists(path11)) {
@@ -38979,12 +39107,13 @@ var StorageService = class {
       data.tabManagerState = state;
       await this.plugin.saveData(data);
     } catch (e2) {
+      new import_obsidian2.Notice("Failed to save tab layout");
     }
   }
 };
 
 // src/features/chat/ClaudianView.ts
-var import_obsidian24 = require("obsidian");
+var import_obsidian28 = require("obsidian");
 
 // src/features/chat/constants.ts
 var LOGO_SVG = {
@@ -39026,6 +39155,7 @@ var FLAVOR_TEXTS = [
   "Analyzing...",
   "Considering...",
   "Working on it...",
+  "Vibing...",
   "One moment...",
   "On it...",
   // Thoughtful
@@ -39106,7 +39236,7 @@ var FLAVOR_TEXTS = [
 ];
 
 // src/features/chat/tabs/Tab.ts
-var import_obsidian21 = require("obsidian");
+var import_obsidian25 = require("obsidian");
 
 // node_modules/@anthropic-ai/claude-agent-sdk/sdk.mjs
 var import_path2 = require("path");
@@ -47959,13 +48089,14 @@ function u_({ prompt: X, options: Q }) {
 // src/core/agent/ClaudianService.ts
 var import_crypto4 = require("crypto");
 var fs5 = __toESM(require("fs"));
+var import_obsidian4 = require("obsidian");
 var os5 = __toESM(require("os"));
 var path6 = __toESM(require("path"));
 
 // src/utils/context.ts
 var CURRENT_NOTE_PREFIX_REGEX = /^<current_note>\n[\s\S]*?<\/current_note>\n\n/;
 var CURRENT_NOTE_SUFFIX_REGEX = /\n\n<current_note>\n[\s\S]*?<\/current_note>$/;
-var XML_CONTEXT_PATTERN = /\n\n<(?:current_note|editor_selection|editor_cursor|context_files)[\s>]/;
+var XML_CONTEXT_PATTERN = /\n\n<(?:current_note|editor_selection|editor_cursor|context_files|canvas_selection)[\s>]/;
 function formatCurrentNote(notePath) {
   return `<current_note>
 ${notePath}
@@ -48001,7 +48132,7 @@ function extractUserQuery(prompt) {
   if (extracted !== void 0) {
     return extracted;
   }
-  return prompt.replace(/<current_note>[\s\S]*?<\/current_note>\s*/g, "").replace(/<editor_selection[\s\S]*?<\/editor_selection>\s*/g, "").replace(/<editor_cursor[\s\S]*?<\/editor_cursor>\s*/g, "").replace(/<context_files>[\s\S]*?<\/context_files>\s*/g, "").trim();
+  return prompt.replace(/<current_note>[\s\S]*?<\/current_note>\s*/g, "").replace(/<editor_selection[\s\S]*?<\/editor_selection>\s*/g, "").replace(/<editor_cursor[\s\S]*?<\/editor_cursor>\s*/g, "").replace(/<context_files>[\s\S]*?<\/context_files>\s*/g, "").replace(/<canvas_selection[\s\S]*?<\/canvas_selection>\s*/g, "").trim();
 }
 function formatContextFilesLine(files) {
   return `<context_files>
@@ -48170,14 +48301,14 @@ User: ${prompt}` : historyContext;
 }
 
 // src/core/hooks/SecurityHooks.ts
-var import_obsidian2 = require("obsidian");
+var import_obsidian3 = require("obsidian");
 
 // src/core/security/BashPathValidator.ts
 var path5 = __toESM(require("path"));
 function tokenizeBashCommand(command) {
   var _a3;
   const tokens = [];
-  const tokenRegex = /(['"`])(.*?)\1|[^\s]+/g;
+  const tokenRegex = /(['"])(.*?)\1|[^\s]+/g;
   let match;
   while ((match = tokenRegex.exec(command)) !== null) {
     const token = (_a3 = match[2]) != null ? _a3 : match[0];
@@ -48240,9 +48371,8 @@ function isBashOutputOptionExpectingValue(token) {
 function cleanPathToken(raw) {
   let token = raw.trim();
   if (!token) return null;
-  if (token.startsWith('"') && token.endsWith('"') || token.startsWith("'") && token.endsWith("'") || token.startsWith("`") && token.endsWith("`")) {
-    token = token.slice(1, -1).trim();
-  }
+  token = stripQuoteChars(token);
+  if (!token) return null;
   while (token.startsWith("(") || token.startsWith("[") || token.startsWith("{")) {
     token = token.slice(1).trim();
   }
@@ -48250,12 +48380,23 @@ function cleanPathToken(raw) {
     token = token.slice(0, -1).trim();
   }
   if (!token) return null;
-  if (token.startsWith('"') && token.endsWith('"') || token.startsWith("'") && token.endsWith("'") || token.startsWith("`") && token.endsWith("`")) {
-    token = token.slice(1, -1).trim();
-  }
+  token = stripQuoteChars(token);
   if (!token) return null;
   if (token === "." || token === "/" || token === "\\" || token === "--") return null;
   return token;
+}
+var QUOTE_CHARS = /* @__PURE__ */ new Set(["'", '"', "`"]);
+function stripQuoteChars(token) {
+  if (token.length >= 2 && QUOTE_CHARS.has(token[0]) && token[0] === token[token.length - 1]) {
+    return token.slice(1, -1).trim();
+  }
+  while (token.length > 0 && QUOTE_CHARS.has(token[0])) {
+    token = token.slice(1);
+  }
+  while (token.length > 0 && QUOTE_CHARS.has(token[token.length - 1])) {
+    token = token.slice(0, -1);
+  }
+  return token.trim();
 }
 function isPathLikeToken(token) {
   const cleaned = token.trim();
@@ -48371,8 +48512,41 @@ function findBashPathViolationInSegment(segment, context) {
   }
   return null;
 }
+function extractSubshellCommands(command) {
+  const results = [];
+  let i2 = 0;
+  while (i2 < command.length) {
+    if (command[i2] === "$" && command[i2 + 1] === "(") {
+      let depth = 1;
+      const start = i2 + 2;
+      let j3 = start;
+      while (j3 < command.length && depth > 0) {
+        if (command[j3] === "(") depth++;
+        else if (command[j3] === ")") depth--;
+        j3++;
+      }
+      if (depth === 0) {
+        results.push(command.slice(start, j3 - 1));
+      }
+      i2 = j3;
+    } else {
+      i2++;
+    }
+  }
+  const backtickRegex = /`([^`]+)`/g;
+  let match;
+  while ((match = backtickRegex.exec(command)) !== null) {
+    results.push(match[1]);
+  }
+  return results;
+}
 function findBashCommandPathViolation(command, context) {
   if (!command) return null;
+  const subshellCommands = extractSubshellCommands(command);
+  for (const subCmd of subshellCommands) {
+    const violation = findBashCommandPathViolation(subCmd, context);
+    if (violation) return violation;
+  }
   const tokens = tokenizeBashCommand(command);
   const segments = splitBashTokensIntoSegments(tokens);
   for (const segment of segments) {
@@ -48385,11 +48559,15 @@ function findBashCommandPathViolation(command, context) {
 }
 
 // src/core/security/BlocklistChecker.ts
+var MAX_PATTERN_LENGTH = 500;
 function isCommandBlocked(command, patterns, enableBlocklist) {
   if (!enableBlocklist) {
     return false;
   }
   return patterns.some((pattern) => {
+    if (pattern.length > MAX_PATTERN_LENGTH) {
+      return command.toLowerCase().includes(pattern.toLowerCase());
+    }
     try {
       return new RegExp(pattern, "i").test(command);
     } catch (e2) {
@@ -48398,76 +48576,56 @@ function isCommandBlocked(command, patterns, enableBlocklist) {
   });
 }
 
-// src/core/tools/toolNames.ts
-var TOOL_AGENT_OUTPUT = "TaskOutput";
-var TOOL_ASK_USER_QUESTION = "AskUserQuestion";
-var TOOL_BASH = "Bash";
-var TOOL_BASH_OUTPUT = "BashOutput";
-var TOOL_EDIT = "Edit";
-var TOOL_GLOB = "Glob";
-var TOOL_GREP = "Grep";
-var TOOL_KILL_SHELL = "KillShell";
-var TOOL_LS = "LS";
-var TOOL_LIST_MCP_RESOURCES = "ListMcpResources";
-var TOOL_MCP = "Mcp";
-var TOOL_NOTEBOOK_EDIT = "NotebookEdit";
-var TOOL_READ = "Read";
-var TOOL_READ_MCP_RESOURCE = "ReadMcpResource";
-var TOOL_SKILL = "Skill";
-var TOOL_TASK = "Task";
-var TOOL_TODO_WRITE = "TodoWrite";
-var TOOL_WEB_FETCH = "WebFetch";
-var TOOL_WEB_SEARCH = "WebSearch";
-var TOOL_WRITE = "Write";
-var TOOL_ENTER_PLAN_MODE = "EnterPlanMode";
-var TOOL_EXIT_PLAN_MODE = "ExitPlanMode";
-var TOOLS_SKIP_BLOCKED_DETECTION = [
-  TOOL_ENTER_PLAN_MODE,
-  TOOL_EXIT_PLAN_MODE,
-  TOOL_ASK_USER_QUESTION
-];
-function skipsBlockedDetection(name) {
-  return TOOLS_SKIP_BLOCKED_DETECTION.includes(name);
-}
-var EDIT_TOOLS = [TOOL_WRITE, TOOL_EDIT, TOOL_NOTEBOOK_EDIT];
-var WRITE_EDIT_TOOLS = [TOOL_WRITE, TOOL_EDIT];
-var FILE_TOOLS = [
-  TOOL_READ,
-  TOOL_WRITE,
-  TOOL_EDIT,
-  TOOL_GLOB,
-  TOOL_GREP,
-  TOOL_LS,
-  TOOL_NOTEBOOK_EDIT,
-  TOOL_BASH
-];
-var READ_ONLY_TOOLS = [
-  TOOL_READ,
-  TOOL_GREP,
-  TOOL_GLOB,
-  TOOL_LS,
-  TOOL_WEB_SEARCH,
-  TOOL_WEB_FETCH
-];
-function isEditTool(toolName) {
-  return EDIT_TOOLS.includes(toolName);
-}
-function isWriteEditTool(toolName) {
-  return WRITE_EDIT_TOOLS.includes(toolName);
-}
-function isFileTool(toolName) {
-  return FILE_TOOLS.includes(toolName);
-}
-function isReadOnlyTool(toolName) {
-  return READ_ONLY_TOOLS.includes(toolName);
-}
-
 // src/core/tools/toolInput.ts
 function extractResolvedAnswers(toolUseResult) {
   if (typeof toolUseResult !== "object" || toolUseResult === null) return void 0;
   const r2 = toolUseResult;
   if (!r2.answers || typeof r2.answers !== "object") return void 0;
   return r2.answers;
+}
+function normalizeAnswerValue(value) {
+  if (typeof value === "string") return value;
+  if (Array.isArray(value)) {
+    const normalized = value.map((item) => typeof item === "string" ? item : String(item)).filter(Boolean).join(", ");
+    return normalized || void 0;
+  }
+  if (typeof value === "number" || typeof value === "boolean") return String(value);
+  return void 0;
+}
+function parseAnswersFromJsonObject(resultText) {
+  const start = resultText.indexOf("{");
+  const end = resultText.lastIndexOf("}");
+  if (start < 0 || end <= start) return void 0;
+  try {
+    const parsed = JSON.parse(resultText.slice(start, end + 1));
+    if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) return void 0;
+    const answers = {};
+    for (const [question, value] of Object.entries(parsed)) {
+      const normalized = normalizeAnswerValue(value);
+      if (normalized) answers[question] = normalized;
+    }
+    return Object.keys(answers).length > 0 ? answers : void 0;
+  } catch (e2) {
+    return void 0;
+  }
+}
+function parseAnswersFromQuotedPairs(resultText) {
+  var _a3, _b;
+  const answers = {};
+  const pattern = /"([^"]+)"="([^"]*)"/g;
+  for (const match of resultText.matchAll(pattern)) {
+    const question = (_a3 = match[1]) == null ? void 0 : _a3.trim();
+    if (!question) continue;
+    answers[question] = (_b = match[2]) != null ? _b : "";
+  }
+  return Object.keys(answers).length > 0 ? answers : void 0;
+}
+function extractResolvedAnswersFromResultText(result) {
+  var _a3;
+  if (typeof result !== "string") return void 0;
+  const trimmed = result.trim();
+  if (!trimmed) return void 0;
+  return (_a3 = parseAnswersFromJsonObject(trimmed)) != null ? _a3 : parseAnswersFromQuotedPairs(trimmed);
 }
 function getPathFromToolInput(toolName, toolInput) {
   switch (toolName) {
@@ -48499,7 +48657,7 @@ function createBlocklistHook(getContext) {
         const context = getContext();
         const bashToolCommands = getBashToolBlockedCommands(context.blockedCommands);
         if (isCommandBlocked(command, bashToolCommands, context.enableBlocklist)) {
-          new import_obsidian2.Notice("Command blocked by security policy");
+          new import_obsidian3.Notice("Command blocked by security policy");
           return {
             continue: false,
             hookSpecificOutput: {
@@ -48721,22 +48879,23 @@ function getActionPattern(toolName, input) {
     case TOOL_READ:
     case TOOL_WRITE:
     case TOOL_EDIT:
-      return typeof input.file_path === "string" && input.file_path ? input.file_path : "*";
+      return typeof input.file_path === "string" && input.file_path ? input.file_path : null;
     case TOOL_NOTEBOOK_EDIT:
       if (typeof input.notebook_path === "string" && input.notebook_path) {
         return input.notebook_path;
       }
-      return typeof input.file_path === "string" && input.file_path ? input.file_path : "*";
+      return typeof input.file_path === "string" && input.file_path ? input.file_path : null;
     case TOOL_GLOB:
-      return typeof input.pattern === "string" && input.pattern ? input.pattern : "*";
+      return typeof input.pattern === "string" && input.pattern ? input.pattern : null;
     case TOOL_GREP:
-      return typeof input.pattern === "string" && input.pattern ? input.pattern : "*";
+      return typeof input.pattern === "string" && input.pattern ? input.pattern : null;
     default:
       return JSON.stringify(input);
   }
 }
 function getActionDescription(toolName, input) {
-  const pattern = getActionPattern(toolName, input);
+  var _a3;
+  const pattern = (_a3 = getActionPattern(toolName, input)) != null ? _a3 : "(unknown)";
   switch (toolName) {
     case TOOL_BASH:
       return `Run command: ${pattern}`;
@@ -48771,7 +48930,7 @@ function buildPermissionUpdates(toolName, input, decision, suggestions) {
   if (!hasRuleUpdate) {
     const pattern = getActionPattern(toolName, input);
     const ruleValue = { toolName };
-    if (pattern && pattern !== "*" && !pattern.startsWith("{")) {
+    if (pattern && !pattern.startsWith("{")) {
       ruleValue.ruleContent = pattern;
     }
     processed.unshift({
@@ -48869,9 +49028,9 @@ var MessageChannel = class {
     if (!this.turnActive) {
       if (this.resolveNext) {
         this.turnActive = true;
-        const resolve4 = this.resolveNext;
+        const resolve5 = this.resolveNext;
         this.resolveNext = null;
-        resolve4({ value: message, done: false });
+        resolve5({ value: message, done: false });
       } else {
         if (this.queue.length >= MESSAGE_CHANNEL_CONFIG.MAX_QUEUED_MESSAGES) {
           this.onWarning(`[MessageChannel] Queue full (${MESSAGE_CHANNEL_CONFIG.MAX_QUEUED_MESSAGES}), dropping newest`);
@@ -48918,18 +49077,18 @@ var MessageChannel = class {
     if (this.queue.length > 0 && this.resolveNext) {
       const pending = this.queue.shift();
       this.turnActive = true;
-      const resolve4 = this.resolveNext;
+      const resolve5 = this.resolveNext;
       this.resolveNext = null;
-      resolve4({ value: this.pendingToMessage(pending), done: false });
+      resolve5({ value: this.pendingToMessage(pending), done: false });
     }
   }
   close() {
     this.closed = true;
     this.queue = [];
     if (this.resolveNext) {
-      const resolve4 = this.resolveNext;
+      const resolve5 = this.resolveNext;
       this.resolveNext = null;
-      resolve4({ value: void 0, done: true });
+      resolve5({ value: void 0, done: true });
     }
   }
   reset() {
@@ -48952,8 +49111,8 @@ var MessageChannel = class {
           this.turnActive = true;
           return Promise.resolve({ value: this.pendingToMessage(pending), done: false });
         }
-        return new Promise((resolve4) => {
-          this.resolveNext = resolve4;
+        return new Promise((resolve5) => {
+          this.resolveNext = resolve5;
         });
       }
     };
@@ -49617,6 +49776,7 @@ var ClaudianService = class {
     this.queryAbortController = null;
     this.responseHandlers = [];
     this.responseConsumerRunning = false;
+    this.responseConsumerPromise = null;
     this.shuttingDown = false;
     // Tracked configuration for detecting changes that require restart
     this.currentConfig = null;
@@ -49801,17 +49961,18 @@ var ClaudianService = class {
         handler.onDone();
       }
     }
+    this.shuttingDown = false;
+    this.notifyReadyStateChange();
     this.persistentQuery = null;
     this.messageChannel = null;
     this.queryAbortController = null;
     this.responseConsumerRunning = false;
+    this.responseConsumerPromise = null;
     this.currentConfig = null;
     if (!preserveHandlers) {
       this.responseHandlers = [];
       this.currentAllowedTools = null;
     }
-    this.shuttingDown = false;
-    this.notifyReadyStateChange();
   }
   /**
    * Checks if the persistent query needs to be restarted based on configuration changes.
@@ -49899,7 +50060,7 @@ var ClaudianService = class {
     }
     this.responseConsumerRunning = true;
     const queryForThisConsumer = this.persistentQuery;
-    void (async () => {
+    this.responseConsumerPromise = (async () => {
       var _a3;
       if (!this.persistentQuery) return;
       try {
@@ -50255,8 +50416,8 @@ var ClaudianService = class {
         if (state.chunks.length > 0) {
           yield state.chunks.shift();
         } else {
-          const chunk = await new Promise((resolve4) => {
-            state.resolveChunk = resolve4;
+          const chunk = await new Promise((resolve5) => {
+            state.resolveChunk = resolve5;
           });
           if (chunk) {
             yield chunk;
@@ -50347,6 +50508,7 @@ var ClaudianService = class {
         await this.persistentQuery.setModel(resolved.model);
         this.currentConfig.model = selectedModel;
       } catch (e2) {
+        new import_obsidian4.Notice("Failed to update model");
       }
     }
     const currentThinking = (_c = (_b = this.currentConfig) == null ? void 0 : _b.thinkingTokens) != null ? _c : null;
@@ -50357,6 +50519,7 @@ var ClaudianService = class {
           this.currentConfig.thinkingTokens = thinkingTokens;
         }
       } catch (e2) {
+        new import_obsidian4.Notice("Failed to update thinking budget");
       }
     }
     if (this.currentConfig && permissionMode !== this.currentConfig.permissionMode) {
@@ -50365,6 +50528,7 @@ var ClaudianService = class {
         await this.persistentQuery.setPermissionMode(sdkMode);
         this.currentConfig.permissionMode = permissionMode;
       } catch (e2) {
+        new import_obsidian4.Notice("Failed to update permission mode");
       }
     }
     const mcpMentions = (queryOptions == null ? void 0 : queryOptions.mcpMentions) || /* @__PURE__ */ new Set();
@@ -50381,6 +50545,7 @@ var ClaudianService = class {
         await this.persistentQuery.setMcpServers(serverConfigs);
         this.currentConfig.mcpServersKey = mcpServersKey;
       } catch (e2) {
+        new import_obsidian4.Notice("Failed to update MCP servers");
       }
     }
     const newExternalContextPaths = (queryOptions == null ? void 0 : queryOptions.externalContextPaths) || [];
@@ -50881,6 +51046,7 @@ var common = {
   enabled: "Aktiviert",
   disabled: "Deaktiviert",
   platform: "Plattform",
+  refresh: "Aktualisieren",
   rewind: "Zur\xFCckspulen"
 };
 var chat = {
@@ -51017,6 +51183,7 @@ var settings = {
     noAgents: "No subagents configured. Click + to create one.",
     deleteConfirm: 'Delete subagent "{name}"?',
     saveFailed: "Failed to save subagent: {message}",
+    refreshFailed: "Subagents konnten nicht aktualisiert werden: {message}",
     deleteFailed: "Failed to delete subagent: {message}",
     renameCleanupFailed: 'Warning: could not remove old file for "{name}"',
     saved: 'Subagent "{name}" {action}',
@@ -51178,6 +51345,7 @@ var common2 = {
   enabled: "Enabled",
   disabled: "Disabled",
   platform: "Platform",
+  refresh: "Refresh",
   rewind: "Rewind"
 };
 var chat2 = {
@@ -51314,6 +51482,7 @@ var settings2 = {
     noAgents: "No subagents configured. Click + to create one.",
     deleteConfirm: 'Delete subagent "{name}"?',
     saveFailed: "Failed to save subagent: {message}",
+    refreshFailed: "Failed to refresh subagents: {message}",
     deleteFailed: "Failed to delete subagent: {message}",
     renameCleanupFailed: 'Warning: could not remove old file for "{name}"',
     saved: 'Subagent "{name}" {action}',
@@ -51475,6 +51644,7 @@ var common3 = {
   enabled: "Habilitado",
   disabled: "Deshabilitado",
   platform: "Plataforma",
+  refresh: "Actualizar",
   rewind: "Rebobinar"
 };
 var chat3 = {
@@ -51611,6 +51781,7 @@ var settings3 = {
     noAgents: "No subagents configured. Click + to create one.",
     deleteConfirm: 'Delete subagent "{name}"?',
     saveFailed: "Failed to save subagent: {message}",
+    refreshFailed: "No se pudieron actualizar los subagentes: {message}",
     deleteFailed: "Failed to delete subagent: {message}",
     renameCleanupFailed: 'Warning: could not remove old file for "{name}"',
     saved: 'Subagent "{name}" {action}',
@@ -51772,6 +51943,7 @@ var common4 = {
   enabled: "Activ\xE9",
   disabled: "D\xE9sactiv\xE9",
   platform: "Plateforme",
+  refresh: "Actualiser",
   rewind: "Rembobiner"
 };
 var chat4 = {
@@ -51908,6 +52080,7 @@ var settings4 = {
     noAgents: "No subagents configured. Click + to create one.",
     deleteConfirm: 'Delete subagent "{name}"?',
     saveFailed: "Failed to save subagent: {message}",
+    refreshFailed: "\xC9chec de l\u2019actualisation des subagents : {message}",
     deleteFailed: "Failed to delete subagent: {message}",
     renameCleanupFailed: 'Warning: could not remove old file for "{name}"',
     saved: 'Subagent "{name}" {action}',
@@ -52069,6 +52242,7 @@ var common5 = {
   enabled: "\u6709\u52B9",
   disabled: "\u7121\u52B9",
   platform: "\u30D7\u30E9\u30C3\u30C8\u30D5\u30A9\u30FC\u30E0",
+  refresh: "\u66F4\u65B0",
   rewind: "\u5DFB\u304D\u623B\u3057"
 };
 var chat5 = {
@@ -52205,6 +52379,7 @@ var settings5 = {
     noAgents: "No subagents configured. Click + to create one.",
     deleteConfirm: 'Delete subagent "{name}"?',
     saveFailed: "Failed to save subagent: {message}",
+    refreshFailed: "\u30B5\u30D6\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8\u3092\u66F4\u65B0\u3067\u304D\u307E\u305B\u3093\u3067\u3057\u305F: {message}",
     deleteFailed: "Failed to delete subagent: {message}",
     renameCleanupFailed: 'Warning: could not remove old file for "{name}"',
     saved: 'Subagent "{name}" {action}',
@@ -52366,6 +52541,7 @@ var common6 = {
   enabled: "\uD65C\uC131\uD654",
   disabled: "\uBE44\uD65C\uC131\uD654",
   platform: "\uD50C\uB7AB\uD3FC",
+  refresh: "\uC0C8\uB85C\uACE0\uCE68",
   rewind: "\uB418\uAC10\uAE30"
 };
 var chat6 = {
@@ -52502,6 +52678,7 @@ var settings6 = {
     noAgents: "No subagents configured. Click + to create one.",
     deleteConfirm: 'Delete subagent "{name}"?',
     saveFailed: "Failed to save subagent: {message}",
+    refreshFailed: "\uC11C\uBE0C\uC5D0\uC774\uC804\uD2B8\uB97C \uC0C8\uB85C\uACE0\uCE68\uD558\uC9C0 \uBABB\uD588\uC2B5\uB2C8\uB2E4: {message}",
     deleteFailed: "Failed to delete subagent: {message}",
     renameCleanupFailed: 'Warning: could not remove old file for "{name}"',
     saved: 'Subagent "{name}" {action}',
@@ -52663,6 +52840,7 @@ var common7 = {
   enabled: "Ativado",
   disabled: "Desativado",
   platform: "Plataforma",
+  refresh: "Atualizar",
   rewind: "Retroceder"
 };
 var chat7 = {
@@ -52799,6 +52977,7 @@ var settings7 = {
     noAgents: "No subagents configured. Click + to create one.",
     deleteConfirm: 'Delete subagent "{name}"?',
     saveFailed: "Failed to save subagent: {message}",
+    refreshFailed: "Falha ao atualizar subagentes: {message}",
     deleteFailed: "Failed to delete subagent: {message}",
     renameCleanupFailed: 'Warning: could not remove old file for "{name}"',
     saved: 'Subagent "{name}" {action}',
@@ -52960,6 +53139,7 @@ var common8 = {
   enabled: "\u0412\u043A\u043B\u044E\u0447\u0435\u043D\u043E",
   disabled: "\u041E\u0442\u043A\u043B\u044E\u0447\u0435\u043D\u043E",
   platform: "\u041F\u043B\u0430\u0442\u0444\u043E\u0440\u043C\u0430",
+  refresh: "\u041E\u0431\u043D\u043E\u0432\u0438\u0442\u044C",
   rewind: "\u041E\u0442\u043A\u0430\u0442\u0438\u0442\u044C"
 };
 var chat8 = {
@@ -53096,6 +53276,7 @@ var settings8 = {
     noAgents: "No subagents configured. Click + to create one.",
     deleteConfirm: 'Delete subagent "{name}"?',
     saveFailed: "Failed to save subagent: {message}",
+    refreshFailed: "\u041D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u043E\u0431\u043D\u043E\u0432\u0438\u0442\u044C \u0441\u0443\u0431\u0430\u0433\u0435\u043D\u0442\u043E\u0432: {message}",
     deleteFailed: "Failed to delete subagent: {message}",
     renameCleanupFailed: 'Warning: could not remove old file for "{name}"',
     saved: 'Subagent "{name}" {action}',
@@ -53257,6 +53438,7 @@ var common9 = {
   enabled: "\u5DF2\u542F\u7528",
   disabled: "\u5DF2\u7981\u7528",
   platform: "\u5E73\u53F0",
+  refresh: "\u5237\u65B0",
   rewind: "\u56DE\u9000"
 };
 var chat9 = {
@@ -53393,6 +53575,7 @@ var settings9 = {
     noAgents: "No subagents configured. Click + to create one.",
     deleteConfirm: 'Delete subagent "{name}"?',
     saveFailed: "Failed to save subagent: {message}",
+    refreshFailed: "\u5237\u65B0\u5B50\u4EE3\u7406\u5931\u8D25\uFF1A{message}",
     deleteFailed: "Failed to delete subagent: {message}",
     renameCleanupFailed: 'Warning: could not remove old file for "{name}"',
     saved: 'Subagent "{name}" {action}',
@@ -53554,6 +53737,7 @@ var common10 = {
   enabled: "\u5DF2\u555F\u7528",
   disabled: "\u5DF2\u7981\u7528",
   platform: "\u5E73\u53F0",
+  refresh: "\u91CD\u65B0\u6574\u7406",
   rewind: "\u56DE\u9000"
 };
 var chat10 = {
@@ -53690,6 +53874,7 @@ var settings10 = {
     noAgents: "No subagents configured. Click + to create one.",
     deleteConfirm: 'Delete subagent "{name}"?',
     saveFailed: "Failed to save subagent: {message}",
+    refreshFailed: "\u91CD\u65B0\u6574\u7406\u5B50\u4EE3\u7406\u5931\u6557\uFF1A{message}",
     deleteFailed: "Failed to delete subagent: {message}",
     renameCleanupFailed: 'Warning: could not remove old file for "{name}"',
     saved: 'Subagent "{name}" {action}',
@@ -54241,34 +54426,141 @@ var SlashCommandDropdown = class {
   }
 };
 
+// src/features/chat/controllers/contextRowVisibility.ts
+function updateContextRowHasContent(contextRowEl) {
+  const editorIndicator = contextRowEl.querySelector(".claudian-selection-indicator");
+  const canvasIndicator = contextRowEl.querySelector(".claudian-canvas-indicator");
+  const fileIndicator = contextRowEl.querySelector(".claudian-file-indicator");
+  const imagePreview = contextRowEl.querySelector(".claudian-image-preview");
+  const hasEditorSelection = (editorIndicator == null ? void 0 : editorIndicator.style.display) === "block";
+  const hasCanvasSelection = (canvasIndicator == null ? void 0 : canvasIndicator.style.display) === "block";
+  const hasFileChips = (fileIndicator == null ? void 0 : fileIndicator.style.display) === "flex";
+  const hasImageChips = (imagePreview == null ? void 0 : imagePreview.style.display) === "flex";
+  contextRowEl.classList.toggle(
+    "has-content",
+    hasEditorSelection || hasCanvasSelection || hasFileChips || hasImageChips
+  );
+}
+
+// src/features/chat/controllers/CanvasSelectionController.ts
+var CANVAS_POLL_INTERVAL = 250;
+var CanvasSelectionController = class {
+  constructor(app, indicatorEl, inputEl, contextRowEl, onVisibilityChange) {
+    this.storedSelection = null;
+    this.pollInterval = null;
+    this.app = app;
+    this.indicatorEl = indicatorEl;
+    this.inputEl = inputEl;
+    this.contextRowEl = contextRowEl;
+    this.onVisibilityChange = onVisibilityChange != null ? onVisibilityChange : null;
+  }
+  start() {
+    if (this.pollInterval) return;
+    this.pollInterval = setInterval(() => this.poll(), CANVAS_POLL_INTERVAL);
+  }
+  stop() {
+    if (this.pollInterval) {
+      clearInterval(this.pollInterval);
+      this.pollInterval = null;
+    }
+    this.clear();
+  }
+  poll() {
+    var _a3;
+    const canvasView = this.getCanvasView();
+    if (!canvasView) return;
+    const canvas = canvasView.canvas;
+    if (!(canvas == null ? void 0 : canvas.selection)) return;
+    const selection = canvas.selection;
+    const canvasPath = (_a3 = canvasView.file) == null ? void 0 : _a3.path;
+    if (!canvasPath) return;
+    const nodeIds = [...selection].map((node) => node.id).filter(Boolean);
+    if (nodeIds.length > 0) {
+      const sameSelection = this.storedSelection && this.storedSelection.canvasPath === canvasPath && this.storedSelection.nodeIds.length === nodeIds.length && this.storedSelection.nodeIds.every((id) => nodeIds.includes(id));
+      if (!sameSelection) {
+        this.storedSelection = { canvasPath, nodeIds };
+        this.updateIndicator();
+      }
+    } else if (document.activeElement !== this.inputEl) {
+      if (this.storedSelection) {
+        this.storedSelection = null;
+        this.updateIndicator();
+      }
+    }
+  }
+  getCanvasView() {
+    var _a3, _b, _c, _d;
+    const activeLeaf = (_c = this.app.workspace.activeLeaf) != null ? _c : (_b = (_a3 = this.app.workspace).getMostRecentLeaf) == null ? void 0 : _b.call(_a3);
+    const activeView = activeLeaf == null ? void 0 : activeLeaf.view;
+    if (((_d = activeView == null ? void 0 : activeView.getViewType) == null ? void 0 : _d.call(activeView)) === "canvas" && activeView.file) {
+      return activeView;
+    }
+    const leaves = this.app.workspace.getLeavesOfType("canvas");
+    if (leaves.length === 0) return null;
+    const leaf = leaves.find((l3) => l3.view.file);
+    return leaf ? leaf.view : null;
+  }
+  updateIndicator() {
+    if (!this.indicatorEl) return;
+    if (this.storedSelection) {
+      const { nodeIds } = this.storedSelection;
+      this.indicatorEl.textContent = nodeIds.length === 1 ? `node "${nodeIds[0]}" selected` : `${nodeIds.length} nodes selected`;
+      this.indicatorEl.style.display = "block";
+    } else {
+      this.indicatorEl.style.display = "none";
+    }
+    this.updateContextRowVisibility();
+  }
+  updateContextRowVisibility() {
+    var _a3;
+    if (!this.contextRowEl) return;
+    updateContextRowHasContent(this.contextRowEl);
+    (_a3 = this.onVisibilityChange) == null ? void 0 : _a3.call(this);
+  }
+  getContext() {
+    if (!this.storedSelection) return null;
+    return {
+      canvasPath: this.storedSelection.canvasPath,
+      nodeIds: [...this.storedSelection.nodeIds]
+    };
+  }
+  hasSelection() {
+    return this.storedSelection !== null;
+  }
+  clear() {
+    this.storedSelection = null;
+    this.updateIndicator();
+  }
+};
+
 // src/features/chat/controllers/ConversationController.ts
-var import_obsidian9 = require("obsidian");
+var import_obsidian11 = require("obsidian");
 
 // src/shared/modals/ConfirmModal.ts
-var import_obsidian3 = require("obsidian");
+var import_obsidian5 = require("obsidian");
 function confirmDelete(app, message) {
-  return new Promise((resolve4) => {
-    new ConfirmModal(app, message, resolve4).open();
+  return new Promise((resolve5) => {
+    new ConfirmModal(app, message, resolve5).open();
   });
 }
 function confirm2(app, message, confirmText) {
-  return new Promise((resolve4) => {
-    new ConfirmModal(app, message, resolve4, confirmText).open();
+  return new Promise((resolve5) => {
+    new ConfirmModal(app, message, resolve5, confirmText).open();
   });
 }
-var ConfirmModal = class extends import_obsidian3.Modal {
-  constructor(app, message, resolve4, confirmText) {
+var ConfirmModal = class extends import_obsidian5.Modal {
+  constructor(app, message, resolve5, confirmText) {
     super(app);
     this.resolved = false;
     this.message = message;
-    this.resolve = resolve4;
+    this.resolve = resolve5;
     this.confirmText = confirmText != null ? confirmText : t("common.delete");
   }
   onOpen() {
     this.setTitle(t("common.confirm"));
     this.modalEl.addClass("claudian-confirm-modal");
     this.contentEl.createEl("p", { text: this.message });
-    new import_obsidian3.Setting(this.contentEl).addButton(
+    new import_obsidian5.Setting(this.contentEl).addButton(
       (btn) => btn.setButtonText(t("common.cancel")).onClick(() => this.close())
     ).addButton(
       (btn) => btn.setButtonText(this.confirmText).setWarning().onClick(() => {
@@ -54287,7 +54579,7 @@ var ConfirmModal = class extends import_obsidian3.Modal {
 };
 
 // src/features/chat/rendering/MessageRenderer.ts
-var import_obsidian8 = require("obsidian");
+var import_obsidian10 = require("obsidian");
 
 // src/utils/fileLink.ts
 var WIKILINK_PATTERN_SOURCE = "(?<!!)\\[\\[([^\\]|#^]+)(?:#[^\\]|]+)?(?:\\^[^\\]|]+)?(?:\\|[^\\]]+)?\\]\\]";
@@ -54423,6 +54715,14 @@ function processFileLinks(app, container) {
   }
 }
 
+// src/utils/inlineEdit.ts
+function normalizeInsertionText(text) {
+  return text.replace(/^(?:\r?\n)+|(?:\r?\n)+$/g, "");
+}
+function escapeHtml(text) {
+  return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
 // src/utils/imageEmbed.ts
 var IMAGE_EXTENSIONS = /* @__PURE__ */ new Set([
   "png",
@@ -54451,9 +54751,6 @@ function resolveImageFile(app, imagePath, mediaFolder) {
   const resolved = app.metadataCache.getFirstLinkpathDest(imagePath, "");
   if (resolved) return resolved;
   return null;
-}
-function escapeHtml(str) {
-  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 function buildStyleAttribute(altText) {
   if (!altText) return "";
@@ -54520,7 +54817,7 @@ function findRewindContext(messages, userIndex) {
 }
 
 // src/features/chat/rendering/SubagentRenderer.ts
-var import_obsidian6 = require("obsidian");
+var import_obsidian8 = require("obsidian");
 
 // src/core/tools/todo.ts
 function isValidTodoItem(item) {
@@ -54623,14 +54920,14 @@ function collapseElement(wrapperEl, headerEl, contentEl, state) {
 }
 
 // src/features/chat/rendering/ToolCallRenderer.ts
-var import_obsidian5 = require("obsidian");
+var import_obsidian7 = require("obsidian");
 
 // src/shared/icons.ts
 var MCP_ICON_SVG = `<svg fill="currentColor" fill-rule="evenodd" height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><title>MCP</title><path d="M15.688 2.343a2.588 2.588 0 00-3.61 0l-9.626 9.44a.863.863 0 01-1.203 0 .823.823 0 010-1.18l9.626-9.44a4.313 4.313 0 016.016 0 4.116 4.116 0 011.204 3.54 4.3 4.3 0 013.609 1.18l.05.05a4.115 4.115 0 010 5.9l-8.706 8.537a.274.274 0 000 .393l1.788 1.754a.823.823 0 010 1.18.863.863 0 01-1.203 0l-1.788-1.753a1.92 1.92 0 010-2.754l8.706-8.538a2.47 2.47 0 000-3.54l-.05-.049a2.588 2.588 0 00-3.607-.003l-7.172 7.034-.002.002-.098.097a.863.863 0 01-1.204 0 .823.823 0 010-1.18l7.273-7.133a2.47 2.47 0 00-.003-3.537z"></path><path d="M14.485 4.703a.823.823 0 000-1.18.863.863 0 00-1.204 0l-7.119 6.982a4.115 4.115 0 000 5.9 4.314 4.314 0 006.016 0l7.12-6.982a.823.823 0 000-1.18.863.863 0 00-1.204 0l-7.119 6.982a2.588 2.588 0 01-3.61 0 2.47 2.47 0 010-3.54l7.12-6.982z"></path></svg>`;
 var CHECK_ICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
 
 // src/features/chat/rendering/todoUtils.ts
-var import_obsidian4 = require("obsidian");
+var import_obsidian6 = require("obsidian");
 function getTodoStatusIcon(status) {
   return status === "completed" ? "check" : "dot";
 }
@@ -54643,7 +54940,7 @@ function renderTodoItems(container, todos) {
     const item = container.createDiv({ cls: `claudian-todo-item claudian-todo-${todo.status}` });
     const icon = item.createSpan({ cls: "claudian-todo-status-icon" });
     icon.setAttribute("aria-hidden", "true");
-    (0, import_obsidian4.setIcon)(icon, getTodoStatusIcon(todo.status));
+    (0, import_obsidian6.setIcon)(icon, getTodoStatusIcon(todo.status));
     const text = item.createSpan({ cls: "claudian-todo-text" });
     text.setText(getTodoDisplayText(todo));
   }
@@ -54655,7 +54952,54 @@ function setToolIcon(el, name) {
   if (icon === MCP_ICON_MARKER) {
     el.innerHTML = MCP_ICON_SVG;
   } else {
-    (0, import_obsidian5.setIcon)(el, icon);
+    (0, import_obsidian7.setIcon)(el, icon);
+  }
+}
+function getToolName(name, input) {
+  switch (name) {
+    case TOOL_TODO_WRITE: {
+      const todos = input.todos;
+      if (todos && Array.isArray(todos) && todos.length > 0) {
+        const completed = todos.filter((t2) => t2.status === "completed").length;
+        return `Tasks ${completed}/${todos.length}`;
+      }
+      return "Tasks";
+    }
+    case TOOL_ENTER_PLAN_MODE:
+      return "Entering plan mode";
+    case TOOL_EXIT_PLAN_MODE:
+      return "Plan complete";
+    default:
+      return name;
+  }
+}
+function getToolSummary(name, input) {
+  switch (name) {
+    case TOOL_READ:
+    case TOOL_WRITE:
+    case TOOL_EDIT: {
+      const filePath = input.file_path || "";
+      return fileNameOnly(filePath);
+    }
+    case TOOL_BASH: {
+      const cmd = input.command || "";
+      return truncateText(cmd, 60);
+    }
+    case TOOL_GLOB:
+    case TOOL_GREP:
+      return input.pattern || "";
+    case TOOL_WEB_SEARCH:
+      return truncateText(input.query || "", 60);
+    case TOOL_WEB_FETCH:
+      return truncateText(input.url || "", 60);
+    case TOOL_LS:
+      return fileNameOnly(input.path || ".");
+    case TOOL_SKILL:
+      return input.skill || "";
+    case TOOL_TODO_WRITE:
+      return "";
+    default:
+      return "";
   }
 }
 function getToolLabel(name, input) {
@@ -54704,6 +55048,12 @@ function getToolLabel(name, input) {
       return name;
   }
 }
+function fileNameOnly(filePath) {
+  var _a3;
+  if (!filePath) return "";
+  const normalized = filePath.replace(/\\/g, "/");
+  return (_a3 = normalized.split("/").pop()) != null ? _a3 : normalized;
+}
 function shortenPath(filePath) {
   if (!filePath) return "";
   const normalized = filePath.replace(/\\/g, "/");
@@ -54711,37 +55061,113 @@ function shortenPath(filePath) {
   if (parts.length <= 3) return normalized;
   return ".../" + parts.slice(-2).join("/");
 }
+function truncateText(text, maxLength) {
+  if (text.length <= maxLength) return text;
+  return text.substring(0, maxLength) + "...";
+}
 function parseWebSearchResult(result) {
-  const linksMatch = result.match(/Links:\s*(\[[\s\S]*\])/);
+  const linksMatch = result.match(/Links:\s*(\[[\s\S]*?\])(?:\n|$)/);
   if (!linksMatch) return null;
   try {
-    const links = JSON.parse(linksMatch[1]);
-    if (!Array.isArray(links) || links.length === 0) return null;
-    return links;
+    const parsed = JSON.parse(linksMatch[1]);
+    if (!Array.isArray(parsed) || parsed.length === 0) return null;
+    const linksEndIndex = result.indexOf(linksMatch[0]) + linksMatch[0].length;
+    const summary = result.slice(linksEndIndex).trim();
+    return { links: parsed.filter((l3) => l3.title && l3.url), summary };
   } catch (e2) {
     return null;
   }
 }
-function renderWebSearchResult(container, result, maxItems = 3) {
-  const links = parseWebSearchResult(result);
-  if (!links) return false;
-  container.empty();
-  const displayItems = links.slice(0, maxItems);
-  displayItems.forEach((link) => {
-    const item = container.createSpan({ cls: "claudian-tool-result-bullet" });
-    item.setText(`\u2022 ${link.title}`);
-  });
-  if (links.length > maxItems) {
-    const more = container.createSpan({ cls: "claudian-tool-result-item" });
-    more.setText(`${links.length - maxItems} more results`);
+function renderWebSearchExpanded(container, result) {
+  const parsed = parseWebSearchResult(result);
+  if (!parsed || parsed.links.length === 0) {
+    renderLinesExpanded(container, result, 20);
+    return;
   }
-  return true;
+  const linksEl = container.createDiv({ cls: "claudian-tool-lines" });
+  for (const link of parsed.links) {
+    const linkEl = linksEl.createEl("a", { cls: "claudian-tool-link" });
+    linkEl.setAttribute("href", link.url);
+    linkEl.setAttribute("target", "_blank");
+    linkEl.setAttribute("rel", "noopener noreferrer");
+    const iconEl = linkEl.createSpan({ cls: "claudian-tool-link-icon" });
+    (0, import_obsidian7.setIcon)(iconEl, "external-link");
+    linkEl.createSpan({ cls: "claudian-tool-link-title", text: link.title });
+  }
+  if (parsed.summary) {
+    const summaryEl = container.createDiv({ cls: "claudian-tool-web-summary" });
+    summaryEl.setText(parsed.summary.length > 800 ? parsed.summary.slice(0, 800) + "..." : parsed.summary);
+  }
 }
-function renderReadResult(container, result) {
-  container.empty();
-  const lines = result.split(/\r?\n/).filter((line) => line.trim() !== "");
-  const item = container.createSpan({ cls: "claudian-tool-result-item" });
-  item.setText(`${lines.length} lines read`);
+function renderFileSearchExpanded(container, result) {
+  const lines = result.split(/\r?\n/).filter((line) => line.trim());
+  if (lines.length === 0) {
+    container.createDiv({ cls: "claudian-tool-empty", text: "No matches found" });
+    return;
+  }
+  renderLinesExpanded(container, result, 15, true);
+}
+function renderLinesExpanded(container, result, maxLines, hoverable = false) {
+  const lines = result.split(/\r?\n/);
+  const truncated = lines.length > maxLines;
+  const displayLines = truncated ? lines.slice(0, maxLines) : lines;
+  const linesEl = container.createDiv({ cls: "claudian-tool-lines" });
+  for (const line of displayLines) {
+    const stripped = line.replace(/^\s*\d+→/, "");
+    const lineEl = linesEl.createDiv({ cls: "claudian-tool-line" });
+    if (hoverable) lineEl.addClass("hoverable");
+    lineEl.setText(stripped || " ");
+  }
+  if (truncated) {
+    linesEl.createDiv({
+      cls: "claudian-tool-truncated",
+      text: `... ${lines.length - maxLines} more lines`
+    });
+  }
+}
+function renderWebFetchExpanded(container, result) {
+  const maxChars = 500;
+  const linesEl = container.createDiv({ cls: "claudian-tool-lines" });
+  const lineEl = linesEl.createDiv({ cls: "claudian-tool-line" });
+  lineEl.style.whiteSpace = "pre-wrap";
+  lineEl.style.wordBreak = "break-word";
+  if (result.length > maxChars) {
+    lineEl.setText(result.slice(0, maxChars));
+    linesEl.createDiv({
+      cls: "claudian-tool-truncated",
+      text: `... ${result.length - maxChars} more characters`
+    });
+  } else {
+    lineEl.setText(result);
+  }
+}
+function renderExpandedContent(container, toolName, result) {
+  if (!result) {
+    container.createDiv({ cls: "claudian-tool-empty", text: "No result" });
+    return;
+  }
+  switch (toolName) {
+    case TOOL_BASH:
+      renderLinesExpanded(container, result, 20);
+      break;
+    case TOOL_READ:
+      renderLinesExpanded(container, result, 15);
+      break;
+    case TOOL_GLOB:
+    case TOOL_GREP:
+    case TOOL_LS:
+      renderFileSearchExpanded(container, result);
+      break;
+    case TOOL_WEB_SEARCH:
+      renderWebSearchExpanded(container, result);
+      break;
+    case TOOL_WEB_FETCH:
+      renderWebFetchExpanded(container, result);
+      break;
+    default:
+      renderLinesExpanded(container, result, 20);
+      break;
+  }
 }
 function getTodos(input) {
   const todos = input.todos;
@@ -54774,27 +55200,93 @@ function setTodoWriteStatus(statusEl, input) {
   const status = isComplete ? "completed" : "running";
   const ariaLabel = isComplete ? "Status: completed" : "Status: in progress";
   resetStatusElement(statusEl, `status-${status}`, ariaLabel);
-  if (isComplete) (0, import_obsidian5.setIcon)(statusEl, "check");
+  if (isComplete) (0, import_obsidian7.setIcon)(statusEl, "check");
 }
 function setToolStatus(statusEl, status) {
   resetStatusElement(statusEl, `status-${status}`, `Status: ${status}`);
   const icon = STATUS_ICONS[status];
-  if (icon) (0, import_obsidian5.setIcon)(statusEl, icon);
+  if (icon) (0, import_obsidian7.setIcon)(statusEl, icon);
 }
-function renderToolResultContent(container, toolName, result) {
-  if (!result) {
-    container.setText("No result");
+function renderTodoWriteResult(container, input) {
+  container.empty();
+  container.addClass("claudian-todo-panel-content");
+  container.addClass("claudian-todo-list-container");
+  const todos = input.todos;
+  if (!todos || !Array.isArray(todos)) {
+    const item = container.createSpan({ cls: "claudian-tool-result-item" });
+    item.setText("Tasks updated");
     return;
   }
-  if (toolName === TOOL_WEB_SEARCH) {
-    if (!renderWebSearchResult(container, result, 3)) {
-      renderResultLines(container, result, 3);
-    }
-  } else if (toolName === TOOL_READ) {
-    renderReadResult(container, result);
-  } else {
-    renderResultLines(container, result, 3);
+  renderTodoItems(container, todos);
+}
+function isBlockedToolResult(content, isError) {
+  const lower = content.toLowerCase();
+  if (lower.includes("blocked by blocklist")) return true;
+  if (lower.includes("outside the vault")) return true;
+  if (lower.includes("access denied")) return true;
+  if (lower.includes("user denied")) return true;
+  if (lower.includes("approval")) return true;
+  if (isError && lower.includes("deny")) return true;
+  return false;
+}
+function createToolElementStructure(parentEl, toolCall) {
+  const toolEl = parentEl.createDiv({ cls: "claudian-tool-call" });
+  const header = toolEl.createDiv({ cls: "claudian-tool-header" });
+  header.setAttribute("tabindex", "0");
+  header.setAttribute("role", "button");
+  const iconEl = header.createSpan({ cls: "claudian-tool-icon" });
+  iconEl.setAttribute("aria-hidden", "true");
+  setToolIcon(iconEl, toolCall.name);
+  const nameEl = header.createSpan({ cls: "claudian-tool-name" });
+  nameEl.setText(getToolName(toolCall.name, toolCall.input));
+  const summaryEl = header.createSpan({ cls: "claudian-tool-summary" });
+  summaryEl.setText(getToolSummary(toolCall.name, toolCall.input));
+  const currentTaskEl = toolCall.name === TOOL_TODO_WRITE ? createCurrentTaskPreview(header, toolCall.input) : null;
+  const statusEl = header.createSpan({ cls: "claudian-tool-status" });
+  const content = toolEl.createDiv({ cls: "claudian-tool-content" });
+  return { toolEl, header, iconEl, nameEl, summaryEl, statusEl, content, currentTaskEl };
+}
+function formatAnswer(raw) {
+  if (Array.isArray(raw)) return raw.join(", ");
+  if (typeof raw === "string") return raw;
+  return "";
+}
+function resolveAskUserAnswers(toolCall) {
+  if (toolCall.resolvedAnswers) return toolCall.resolvedAnswers;
+  const parsed = extractResolvedAnswersFromResultText(toolCall.result);
+  if (parsed) {
+    toolCall.resolvedAnswers = parsed;
+    return parsed;
   }
+  return void 0;
+}
+function renderAskUserQuestionResult(container, toolCall) {
+  container.empty();
+  const questions = toolCall.input.questions;
+  const answers = resolveAskUserAnswers(toolCall);
+  if (!questions || !Array.isArray(questions) || !answers) return false;
+  const reviewEl = container.createDiv({ cls: "claudian-ask-review" });
+  for (let i2 = 0; i2 < questions.length; i2++) {
+    const q = questions[i2];
+    const answer = formatAnswer(answers[q.question]);
+    const pairEl = reviewEl.createDiv({ cls: "claudian-ask-review-pair" });
+    pairEl.createDiv({ text: `${i2 + 1}.`, cls: "claudian-ask-review-num" });
+    const bodyEl = pairEl.createDiv({ cls: "claudian-ask-review-body" });
+    bodyEl.createDiv({ text: q.question, cls: "claudian-ask-review-q-text" });
+    bodyEl.createDiv({
+      text: answer || "Not answered",
+      cls: answer ? "claudian-ask-review-a-text" : "claudian-ask-review-empty"
+    });
+  }
+  return true;
+}
+function renderAskUserQuestionFallback(container, toolCall, initialText) {
+  contentFallback(container, initialText || toolCall.result || "Waiting for answer...");
+}
+function contentFallback(container, text) {
+  const resultRow = container.createDiv({ cls: "claudian-tool-result-row" });
+  const resultText = resultRow.createSpan({ cls: "claudian-tool-result-text" });
+  resultText.setText(text);
 }
 function createCurrentTaskPreview(header, input) {
   const currentTaskEl = header.createSpan({ cls: "claudian-tool-current" });
@@ -54815,101 +55307,21 @@ function createTodoToggleHandler(currentTaskEl, statusEl, onExpandChange) {
     }
   };
 }
-function renderTodoWriteResult(container, input) {
-  container.empty();
-  container.addClass("claudian-todo-panel-content");
-  container.addClass("claudian-todo-list-container");
-  const todos = input.todos;
-  if (!todos || !Array.isArray(todos)) {
-    const item = container.createSpan({ cls: "claudian-tool-result-item" });
-    item.setText("Tasks updated");
-    return;
-  }
-  renderTodoItems(container, todos);
-}
-function renderResultLines(container, result, maxLines = 3) {
-  container.empty();
-  const lines = result.split(/\r?\n/);
-  const displayLines = lines.slice(0, maxLines);
-  displayLines.forEach((line) => {
-    const stripped = line.replace(/^\s*\d+→/, "");
-    const item = container.createSpan({ cls: "claudian-tool-result-item" });
-    item.setText(stripped);
-  });
-  if (lines.length > maxLines) {
-    const more = container.createSpan({ cls: "claudian-tool-result-item" });
-    more.setText(`${lines.length - maxLines} more lines`);
-  }
-}
-function isBlockedToolResult(content, isError) {
-  const lower = content.toLowerCase();
-  if (lower.includes("blocked by blocklist")) return true;
-  if (lower.includes("outside the vault")) return true;
-  if (lower.includes("access denied")) return true;
-  if (lower.includes("user denied")) return true;
-  if (lower.includes("approval")) return true;
-  if (isError && lower.includes("deny")) return true;
-  return false;
-}
-function createToolElementStructure(parentEl, toolCall) {
-  const toolEl = parentEl.createDiv({ cls: "claudian-tool-call" });
-  const header = toolEl.createDiv({ cls: "claudian-tool-header" });
-  header.setAttribute("tabindex", "0");
-  header.setAttribute("role", "button");
-  const iconEl = header.createSpan({ cls: "claudian-tool-icon" });
-  iconEl.setAttribute("aria-hidden", "true");
-  setToolIcon(iconEl, toolCall.name);
-  const labelEl = header.createSpan({ cls: "claudian-tool-label" });
-  labelEl.setText(getToolLabel(toolCall.name, toolCall.input));
-  const currentTaskEl = toolCall.name === TOOL_TODO_WRITE ? createCurrentTaskPreview(header, toolCall.input) : null;
-  const statusEl = header.createSpan({ cls: "claudian-tool-status" });
-  const content = toolEl.createDiv({ cls: "claudian-tool-content" });
-  return { toolEl, header, labelEl, statusEl, content, currentTaskEl };
-}
-function formatAnswer(raw) {
-  if (Array.isArray(raw)) return raw.join(", ");
-  if (typeof raw === "string") return raw;
-  return "";
-}
-function renderAskUserQuestionResult(container, toolCall) {
-  container.empty();
-  const questions = toolCall.input.questions;
-  const answers = toolCall.resolvedAnswers;
-  if (!questions || !Array.isArray(questions) || !answers) return;
-  const reviewEl = container.createDiv({ cls: "claudian-ask-review" });
-  for (const q of questions) {
-    const answer = formatAnswer(answers[q.question]);
-    const qLine = reviewEl.createDiv({ cls: "claudian-ask-review-q" });
-    qLine.createSpan({ text: q.question, cls: "claudian-ask-review-q-text" });
-    const aLine = reviewEl.createDiv({ cls: "claudian-ask-review-a" });
-    aLine.createSpan({ text: "\u2192 ", cls: "claudian-ask-review-arrow" });
-    aLine.createSpan({
-      text: answer || "Not answered",
-      cls: answer ? "claudian-ask-review-a-text" : "claudian-ask-review-empty"
-    });
-  }
-}
 function renderToolContent(content, toolCall, initialText) {
   if (toolCall.name === TOOL_TODO_WRITE) {
     content.addClass("claudian-tool-content-todo");
     renderTodoWriteResult(content, toolCall.input);
   } else if (toolCall.name === TOOL_ASK_USER_QUESTION) {
     content.addClass("claudian-tool-content-ask");
-    if (initialText || !toolCall.resolvedAnswers) {
-      const resultRow = content.createDiv({ cls: "claudian-tool-result-row" });
-      const resultText = resultRow.createSpan({ cls: "claudian-tool-result-text" });
-      resultText.setText("Waiting for answer...");
-    } else {
-      renderAskUserQuestionResult(content, toolCall);
-    }
-  } else {
-    const resultRow = content.createDiv({ cls: "claudian-tool-result-row" });
-    const resultText = resultRow.createSpan({ cls: "claudian-tool-result-text" });
     if (initialText) {
-      resultText.setText(initialText);
-    } else {
-      renderToolResultContent(resultText, toolCall.name, toolCall.result);
+      renderAskUserQuestionFallback(content, toolCall, "Waiting for answer...");
+    } else if (!renderAskUserQuestionResult(content, toolCall)) {
+      renderAskUserQuestionFallback(content, toolCall);
     }
+  } else if (initialText) {
+    contentFallback(content, initialText);
+  } else {
+    renderExpandedContent(content, toolCall.name, toolCall.result);
   }
 }
 function renderToolCall(parentEl, toolCall, toolCallElements) {
@@ -54939,13 +55351,13 @@ function updateToolCallResult(toolId, toolCall, toolCallElements) {
     if (statusEl2) {
       setTodoWriteStatus(statusEl2, toolCall.input);
     }
-    const content = toolEl.querySelector(".claudian-tool-content");
-    if (content) {
-      renderTodoWriteResult(content, toolCall.input);
+    const content2 = toolEl.querySelector(".claudian-tool-content");
+    if (content2) {
+      renderTodoWriteResult(content2, toolCall.input);
     }
-    const labelEl = toolEl.querySelector(".claudian-tool-label");
-    if (labelEl) {
-      labelEl.setText(getToolLabel(toolCall.name, toolCall.input));
+    const nameEl = toolEl.querySelector(".claudian-tool-name");
+    if (nameEl) {
+      nameEl.setText(getToolName(toolCall.name, toolCall.input));
     }
     const currentTaskEl = toolEl.querySelector(".claudian-tool-current");
     if (currentTaskEl) {
@@ -54959,16 +55371,19 @@ function updateToolCallResult(toolId, toolCall, toolCallElements) {
     setToolStatus(statusEl, toolCall.status);
   }
   if (toolCall.name === TOOL_ASK_USER_QUESTION) {
-    const content = toolEl.querySelector(".claudian-tool-content");
-    if (content) {
-      content.addClass("claudian-tool-content-ask");
-      renderAskUserQuestionResult(content, toolCall);
+    const content2 = toolEl.querySelector(".claudian-tool-content");
+    if (content2) {
+      content2.addClass("claudian-tool-content-ask");
+      if (!renderAskUserQuestionResult(content2, toolCall)) {
+        renderAskUserQuestionFallback(content2, toolCall);
+      }
     }
     return;
   }
-  const resultText = toolEl.querySelector(".claudian-tool-result-text");
-  if (resultText) {
-    renderToolResultContent(resultText, toolCall.name, toolCall.result);
+  const content = toolEl.querySelector(".claudian-tool-content");
+  if (content) {
+    content.empty();
+    renderExpandedContent(content, toolCall.name, toolCall.result);
   }
 }
 function renderStoredToolCall(parentEl, toolCall) {
@@ -54990,48 +55405,171 @@ function renderStoredToolCall(parentEl, toolCall) {
 }
 
 // src/features/chat/rendering/SubagentRenderer.ts
+var SUBAGENT_TOOL_STATUS_ICONS = {
+  completed: "check",
+  error: "x",
+  blocked: "shield-off"
+};
 function extractTaskDescription(input) {
   return input.description || "Subagent task";
+}
+function extractTaskPrompt(input) {
+  return input.prompt || "";
 }
 function truncateDescription(description, maxLength = 40) {
   if (description.length <= maxLength) return description;
   return description.substring(0, maxLength) + "...";
 }
-function truncateResult(result) {
-  const lines = result.split(/\r?\n/).filter((line) => line.trim());
-  if (lines.length <= 2) {
-    return lines.join("\n");
-  }
-  return lines.slice(0, 2).join("\n") + "...";
+function createSection(parentEl, title, bodyClass) {
+  const wrapperEl = parentEl.createDiv({ cls: "claudian-subagent-section" });
+  const headerEl = wrapperEl.createDiv({ cls: "claudian-subagent-section-header" });
+  headerEl.setAttribute("tabindex", "0");
+  headerEl.setAttribute("role", "button");
+  const titleEl = headerEl.createDiv({ cls: "claudian-subagent-section-title" });
+  titleEl.setText(title);
+  const bodyEl = wrapperEl.createDiv({ cls: "claudian-subagent-section-body" });
+  if (bodyClass) bodyEl.addClass(bodyClass);
+  const state = { isExpanded: false };
+  setupCollapsible(wrapperEl, headerEl, bodyEl, state, {
+    baseAriaLabel: title
+  });
+  return { wrapperEl, bodyEl };
 }
-function createStatusRow(parentEl, text, options) {
-  const rowEl = parentEl.createDiv({ cls: "claudian-subagent-done" });
-  if (options == null ? void 0 : options.rowClass) rowEl.addClass(options.rowClass);
-  const textEl = rowEl.createDiv({ cls: "claudian-subagent-done-text" });
-  if (options == null ? void 0 : options.textClass) textEl.addClass(options.textClass);
-  textEl.setText(text);
-  return rowEl;
+function setPromptText(promptBodyEl, prompt) {
+  promptBodyEl.empty();
+  const textEl = promptBodyEl.createDiv({ cls: "claudian-subagent-prompt-text" });
+  textEl.setText(prompt || "No prompt provided");
+}
+function updateSyncHeaderAria(state) {
+  const toolCount = state.info.toolCalls.length;
+  state.headerEl.setAttribute(
+    "aria-label",
+    `Subagent task: ${truncateDescription(state.info.description)} - ${toolCount} tool uses - Status: ${state.info.status} - click to expand`
+  );
+  state.statusEl.setAttribute("aria-label", `Status: ${state.info.status}`);
+}
+function renderSubagentToolContent(contentEl, toolCall) {
+  contentEl.empty();
+  if (!toolCall.result) {
+    const emptyEl = contentEl.createDiv({ cls: "claudian-subagent-tool-empty" });
+    emptyEl.setText(toolCall.status === "running" ? "Running..." : "No output recorded");
+    return;
+  }
+  renderExpandedContent(contentEl, toolCall.name, toolCall.result);
+}
+function setSubagentToolStatus(view, status) {
+  view.statusEl.className = "claudian-subagent-tool-status";
+  view.statusEl.addClass(`status-${status}`);
+  view.statusEl.empty();
+  view.statusEl.setAttribute("aria-label", `Status: ${status}`);
+  const statusIcon = SUBAGENT_TOOL_STATUS_ICONS[status];
+  if (statusIcon) {
+    (0, import_obsidian8.setIcon)(view.statusEl, statusIcon);
+  }
+}
+function updateSubagentToolView(view, toolCall) {
+  view.wrapperEl.className = `claudian-subagent-tool-item claudian-subagent-tool-${toolCall.status}`;
+  view.nameEl.setText(getToolName(toolCall.name, toolCall.input));
+  view.summaryEl.setText(getToolSummary(toolCall.name, toolCall.input));
+  setSubagentToolStatus(view, toolCall.status);
+  renderSubagentToolContent(view.contentEl, toolCall);
+}
+function createSubagentToolView(parentEl, toolCall) {
+  var _a3, _b;
+  const wrapperEl = parentEl.createDiv({
+    cls: `claudian-subagent-tool-item claudian-subagent-tool-${toolCall.status}`
+  });
+  wrapperEl.dataset.toolId = toolCall.id;
+  const headerEl = wrapperEl.createDiv({ cls: "claudian-subagent-tool-header" });
+  headerEl.setAttribute("tabindex", "0");
+  headerEl.setAttribute("role", "button");
+  const iconEl = headerEl.createDiv({ cls: "claudian-subagent-tool-icon" });
+  iconEl.setAttribute("aria-hidden", "true");
+  setToolIcon(iconEl, toolCall.name);
+  const nameEl = headerEl.createDiv({ cls: "claudian-subagent-tool-name" });
+  const summaryEl = headerEl.createDiv({ cls: "claudian-subagent-tool-summary" });
+  const statusEl = headerEl.createDiv({ cls: "claudian-subagent-tool-status" });
+  const contentEl = wrapperEl.createDiv({ cls: "claudian-subagent-tool-content" });
+  const collapseState = { isExpanded: (_a3 = toolCall.isExpanded) != null ? _a3 : false };
+  setupCollapsible(wrapperEl, headerEl, contentEl, collapseState, {
+    initiallyExpanded: (_b = toolCall.isExpanded) != null ? _b : false,
+    onToggle: (expanded) => {
+      toolCall.isExpanded = expanded;
+    },
+    baseAriaLabel: getToolLabel(toolCall.name, toolCall.input)
+  });
+  const view = {
+    wrapperEl,
+    nameEl,
+    summaryEl,
+    statusEl,
+    contentEl
+  };
+  updateSubagentToolView(view, toolCall);
+  return view;
+}
+function ensureResultSection(state) {
+  if (state.resultSectionEl && state.resultBodyEl) {
+    return { wrapperEl: state.resultSectionEl, bodyEl: state.resultBodyEl };
+  }
+  const section = createSection(state.contentEl, "Result", "claudian-subagent-result-body");
+  section.wrapperEl.addClass("claudian-subagent-section-result");
+  state.resultSectionEl = section.wrapperEl;
+  state.resultBodyEl = section.bodyEl;
+  return section;
+}
+function setResultText(state, text) {
+  const section = ensureResultSection(state);
+  section.bodyEl.empty();
+  const resultEl = section.bodyEl.createDiv({ cls: "claudian-subagent-result-output" });
+  resultEl.setText(text);
+}
+function hydrateSyncSubagentStateFromStored(state, subagent) {
+  state.info.description = subagent.description;
+  state.info.prompt = subagent.prompt;
+  state.info.mode = subagent.mode;
+  state.info.status = subagent.status;
+  state.info.result = subagent.result;
+  state.labelEl.setText(truncateDescription(subagent.description));
+  setPromptText(state.promptBodyEl, subagent.prompt || "");
+  for (const originalToolCall of subagent.toolCalls) {
+    const toolCall = {
+      ...originalToolCall,
+      input: { ...originalToolCall.input }
+    };
+    addSubagentToolCall(state, toolCall);
+    if (toolCall.status !== "running" || toolCall.result) {
+      updateSubagentToolResult(state, toolCall.id, toolCall);
+    }
+  }
+  if (subagent.status === "completed" || subagent.status === "error") {
+    const fallback = subagent.status === "error" ? "ERROR" : "DONE";
+    finalizeSubagentBlock(state, subagent.result || fallback, subagent.status === "error");
+  } else {
+    state.statusEl.className = "claudian-subagent-status status-running";
+    state.statusEl.empty();
+    updateSyncHeaderAria(state);
+  }
 }
 function createSubagentBlock(parentEl, taskToolId, taskInput) {
   const description = extractTaskDescription(taskInput);
+  const prompt = extractTaskPrompt(taskInput);
   const info = {
     id: taskToolId,
     description,
+    prompt,
     status: "running",
     toolCalls: [],
     isExpanded: false
-    // Collapsed by default
   };
   const wrapperEl = parentEl.createDiv({ cls: "claudian-subagent-list" });
   wrapperEl.dataset.subagentId = taskToolId;
   const headerEl = wrapperEl.createDiv({ cls: "claudian-subagent-header" });
   headerEl.setAttribute("tabindex", "0");
   headerEl.setAttribute("role", "button");
-  headerEl.setAttribute("aria-expanded", "false");
-  headerEl.setAttribute("aria-label", `Subagent task: ${truncateDescription(description)} - click to expand`);
   const iconEl = headerEl.createDiv({ cls: "claudian-subagent-icon" });
   iconEl.setAttribute("aria-hidden", "true");
-  (0, import_obsidian6.setIcon)(iconEl, getToolIcon(TOOL_TASK));
+  (0, import_obsidian8.setIcon)(iconEl, getToolIcon(TOOL_TASK));
   const labelEl = headerEl.createDiv({ cls: "claudian-subagent-label" });
   labelEl.setText(truncateDescription(description));
   const countEl = headerEl.createDiv({ cls: "claudian-subagent-count" });
@@ -55039,132 +55577,76 @@ function createSubagentBlock(parentEl, taskToolId, taskInput) {
   const statusEl = headerEl.createDiv({ cls: "claudian-subagent-status status-running" });
   statusEl.setAttribute("aria-label", "Status: running");
   const contentEl = wrapperEl.createDiv({ cls: "claudian-subagent-content" });
+  const promptSection = createSection(contentEl, "Prompt", "claudian-subagent-prompt-body");
+  promptSection.wrapperEl.addClass("claudian-subagent-section-prompt");
+  setPromptText(promptSection.bodyEl, prompt);
+  const toolsContainerEl = contentEl.createDiv({ cls: "claudian-subagent-tools" });
   setupCollapsible(wrapperEl, headerEl, contentEl, info);
-  return {
+  const state = {
     wrapperEl,
     contentEl,
     headerEl,
     labelEl,
     countEl,
     statusEl,
-    info,
-    currentToolEl: null,
-    currentResultEl: null
+    promptSectionEl: promptSection.wrapperEl,
+    promptBodyEl: promptSection.bodyEl,
+    toolsContainerEl,
+    resultSectionEl: null,
+    resultBodyEl: null,
+    toolElements: /* @__PURE__ */ new Map(),
+    info
   };
+  updateSyncHeaderAria(state);
+  return state;
 }
 function addSubagentToolCall(state, toolCall) {
   state.info.toolCalls.push(toolCall);
   const toolCount = state.info.toolCalls.length;
   state.countEl.setText(`${toolCount} tool uses`);
-  state.contentEl.empty();
-  state.currentResultEl = null;
-  const itemEl = state.contentEl.createDiv({
-    cls: `claudian-subagent-tool-item claudian-subagent-tool-${toolCall.status}`
-  });
-  itemEl.dataset.toolId = toolCall.id;
-  state.currentToolEl = itemEl;
-  const toolRowEl = itemEl.createDiv({ cls: "claudian-subagent-tool-row" });
-  const labelEl = toolRowEl.createDiv({ cls: "claudian-subagent-tool-text" });
-  labelEl.setText(getToolLabel(toolCall.name, toolCall.input));
+  const toolView = createSubagentToolView(state.toolsContainerEl, toolCall);
+  state.toolElements.set(toolCall.id, toolView);
+  updateSyncHeaderAria(state);
 }
 function updateSubagentToolResult(state, toolId, toolCall) {
   const idx = state.info.toolCalls.findIndex((tc) => tc.id === toolId);
   if (idx !== -1) {
     state.info.toolCalls[idx] = toolCall;
   }
-  if (state.currentToolEl && state.currentToolEl.dataset.toolId === toolId) {
-    state.currentToolEl.className = `claudian-subagent-tool-item claudian-subagent-tool-${toolCall.status}`;
-    if (toolCall.result) {
-      if (!state.currentResultEl) {
-        state.currentResultEl = state.currentToolEl.createDiv({ cls: "claudian-subagent-tool-result" });
-        const bulletEl = state.currentResultEl.createDiv({ cls: "claudian-subagent-bullet" });
-        bulletEl.setText("\u2022");
-        const textEl = state.currentResultEl.createDiv({ cls: "claudian-subagent-result-text" });
-        textEl.setText(truncateResult(toolCall.result));
-      } else {
-        const textEl = state.currentResultEl.querySelector(".claudian-subagent-result-text");
-        if (textEl) {
-          textEl.setText(truncateResult(toolCall.result));
-        }
-      }
-    }
+  const toolView = state.toolElements.get(toolId);
+  if (!toolView) {
+    return;
   }
+  updateSubagentToolView(toolView, toolCall);
 }
 function finalizeSubagentBlock(state, result, isError) {
   state.info.status = isError ? "error" : "completed";
   state.info.result = result;
   state.labelEl.setText(truncateDescription(state.info.description));
-  const toolCount = state.info.toolCalls.length;
-  state.countEl.setText(`${toolCount} tool uses`);
+  state.countEl.setText(`${state.info.toolCalls.length} tool uses`);
   state.statusEl.className = "claudian-subagent-status";
   state.statusEl.addClass(`status-${state.info.status}`);
   state.statusEl.empty();
   if (state.info.status === "completed") {
-    (0, import_obsidian6.setIcon)(state.statusEl, "check");
-  } else {
-    (0, import_obsidian6.setIcon)(state.statusEl, "x");
-  }
-  if (state.info.status === "completed") {
+    (0, import_obsidian8.setIcon)(state.statusEl, "check");
+    state.wrapperEl.removeClass("error");
     state.wrapperEl.addClass("done");
-  } else if (state.info.status === "error") {
+  } else {
+    (0, import_obsidian8.setIcon)(state.statusEl, "x");
+    state.wrapperEl.removeClass("done");
     state.wrapperEl.addClass("error");
   }
-  state.contentEl.empty();
-  state.currentToolEl = null;
-  state.currentResultEl = null;
-  createStatusRow(state.contentEl, isError ? "ERROR" : "DONE");
+  const finalText = (result == null ? void 0 : result.trim()) ? result : isError ? "ERROR" : "DONE";
+  setResultText(state, finalText);
+  updateSyncHeaderAria(state);
 }
 function renderStoredSubagent(parentEl, subagent) {
-  const wrapperEl = parentEl.createDiv({ cls: "claudian-subagent-list" });
-  if (subagent.status === "completed") {
-    wrapperEl.addClass("done");
-  } else if (subagent.status === "error") {
-    wrapperEl.addClass("error");
-  }
-  wrapperEl.dataset.subagentId = subagent.id;
-  const toolCount = subagent.toolCalls.length;
-  const headerEl = wrapperEl.createDiv({ cls: "claudian-subagent-header" });
-  headerEl.setAttribute("tabindex", "0");
-  headerEl.setAttribute("role", "button");
-  headerEl.setAttribute("aria-label", `Subagent task: ${truncateDescription(subagent.description)} - ${toolCount} tool uses - Status: ${subagent.status}`);
-  const iconEl = headerEl.createDiv({ cls: "claudian-subagent-icon" });
-  iconEl.setAttribute("aria-hidden", "true");
-  (0, import_obsidian6.setIcon)(iconEl, getToolIcon(TOOL_TASK));
-  const labelEl = headerEl.createDiv({ cls: "claudian-subagent-label" });
-  labelEl.setText(truncateDescription(subagent.description));
-  const countEl = headerEl.createDiv({ cls: "claudian-subagent-count" });
-  countEl.setText(`${toolCount} tool uses`);
-  const statusEl = headerEl.createDiv({ cls: `claudian-subagent-status status-${subagent.status}` });
-  statusEl.setAttribute("aria-label", `Status: ${subagent.status}`);
-  if (subagent.status === "completed") {
-    (0, import_obsidian6.setIcon)(statusEl, "check");
-  } else if (subagent.status === "error") {
-    (0, import_obsidian6.setIcon)(statusEl, "x");
-  }
-  const contentEl = wrapperEl.createDiv({ cls: "claudian-subagent-content" });
-  if (subagent.status === "completed" || subagent.status === "error") {
-    createStatusRow(contentEl, subagent.status === "error" ? "ERROR" : "DONE");
-  } else {
-    const lastTool = subagent.toolCalls[subagent.toolCalls.length - 1];
-    if (lastTool) {
-      const itemEl = contentEl.createDiv({
-        cls: `claudian-subagent-tool-item claudian-subagent-tool-${lastTool.status}`
-      });
-      const toolRowEl = itemEl.createDiv({ cls: "claudian-subagent-tool-row" });
-      const toolLabelEl = toolRowEl.createDiv({ cls: "claudian-subagent-tool-text" });
-      toolLabelEl.setText(getToolLabel(lastTool.name, lastTool.input));
-      if (lastTool.result) {
-        const resultEl = itemEl.createDiv({ cls: "claudian-subagent-tool-result" });
-        const bulletEl = resultEl.createDiv({ cls: "claudian-subagent-bullet" });
-        bulletEl.setText("\u2022");
-        const textEl = resultEl.createDiv({ cls: "claudian-subagent-result-text" });
-        textEl.setText(truncateResult(lastTool.result));
-      }
-    }
-  }
-  const state = { isExpanded: false };
-  setupCollapsible(wrapperEl, headerEl, contentEl, state);
-  return wrapperEl;
+  const state = createSubagentBlock(parentEl, subagent.id, {
+    description: subagent.description,
+    prompt: subagent.prompt
+  });
+  hydrateSyncSubagentStateFromStored(state, subagent);
+  return state.wrapperEl;
 }
 function setAsyncWrapperStatus(wrapperEl, status) {
   const classes = ["pending", "running", "awaiting", "completed", "error", "orphaned", "async"];
@@ -55215,11 +55697,43 @@ function getAsyncStatusAriaLabel(asyncStatus) {
 }
 function updateAsyncLabel(state) {
   state.labelEl.setText(truncateDescription(state.info.description));
+  const isFinished = state.info.asyncStatus === "completed" || state.info.asyncStatus === "error" || state.info.asyncStatus === "orphaned";
+  const countText = isFinished ? `${state.info.toolCalls.length} tool uses` : "";
+  state.countEl.setText(countText);
+  const statusLabel = getAsyncStatusAriaLabel(state.info.asyncStatus);
+  const ariaCount = isFinished ? `${state.info.toolCalls.length} tool uses - ` : "";
+  state.headerEl.setAttribute(
+    "aria-label",
+    `Background task: ${truncateDescription(state.info.description)} - ${ariaCount}${statusLabel} - click to expand`
+  );
 }
-function truncatePrompt(prompt, maxLength = 200) {
-  if (!prompt) return "";
-  if (prompt.length <= maxLength) return prompt;
-  return prompt.substring(0, maxLength) + "...";
+function renderAsyncContentLikeSync(contentEl, subagent, displayStatus) {
+  var _a3;
+  contentEl.empty();
+  const promptSection = createSection(contentEl, "Prompt", "claudian-subagent-prompt-body");
+  promptSection.wrapperEl.addClass("claudian-subagent-section-prompt");
+  setPromptText(promptSection.bodyEl, subagent.prompt || "");
+  const toolsContainerEl = contentEl.createDiv({ cls: "claudian-subagent-tools" });
+  for (const originalToolCall of subagent.toolCalls) {
+    const toolCall = {
+      ...originalToolCall,
+      input: { ...originalToolCall.input }
+    };
+    createSubagentToolView(toolsContainerEl, toolCall);
+  }
+  if (displayStatus === "running") {
+    return;
+  }
+  const resultSection = createSection(contentEl, "Result", "claudian-subagent-result-body");
+  resultSection.wrapperEl.addClass("claudian-subagent-section-result");
+  const resultEl = resultSection.bodyEl.createDiv({ cls: "claudian-subagent-result-output" });
+  if (displayStatus === "orphaned") {
+    resultEl.setText(subagent.result || "Conversation ended before task completed");
+    return;
+  }
+  const fallback = displayStatus === "error" ? "ERROR" : "DONE";
+  const finalText = ((_a3 = subagent.result) == null ? void 0 : _a3.trim()) ? subagent.result : fallback;
+  resultEl.setText(finalText);
 }
 function createAsyncSubagentBlock(parentEl, taskToolId, taskInput) {
   const description = taskInput.description || "Background task";
@@ -55241,24 +55755,26 @@ function createAsyncSubagentBlock(parentEl, taskToolId, taskInput) {
   headerEl.setAttribute("tabindex", "0");
   headerEl.setAttribute("role", "button");
   headerEl.setAttribute("aria-expanded", "false");
-  headerEl.setAttribute("aria-label", `Background task: ${description} - click to expand`);
+  headerEl.setAttribute("aria-label", `Background task: ${description} - Initializing - click to expand`);
   const iconEl = headerEl.createDiv({ cls: "claudian-subagent-icon" });
   iconEl.setAttribute("aria-hidden", "true");
-  (0, import_obsidian6.setIcon)(iconEl, getToolIcon(TOOL_TASK));
+  (0, import_obsidian8.setIcon)(iconEl, getToolIcon(TOOL_TASK));
   const labelEl = headerEl.createDiv({ cls: "claudian-subagent-label" });
   labelEl.setText(truncateDescription(description));
+  const countEl = headerEl.createDiv({ cls: "claudian-subagent-count" });
   const statusTextEl = headerEl.createDiv({ cls: "claudian-subagent-status-text" });
   statusTextEl.setText("Initializing");
   const statusEl = headerEl.createDiv({ cls: "claudian-subagent-status status-running" });
   statusEl.setAttribute("aria-label", "Status: running");
   const contentEl = wrapperEl.createDiv({ cls: "claudian-subagent-content" });
-  createStatusRow(contentEl, truncatePrompt(prompt) || "Background task", { textClass: "claudian-async-prompt" });
+  renderAsyncContentLikeSync(contentEl, info, "running");
   setupCollapsible(wrapperEl, headerEl, contentEl, info);
   return {
     wrapperEl,
     contentEl,
     headerEl,
     labelEl,
+    countEl,
     statusTextEl,
     statusEl,
     info
@@ -55270,8 +55786,7 @@ function updateAsyncSubagentRunning(state, agentId) {
   setAsyncWrapperStatus(state.wrapperEl, "running");
   updateAsyncLabel(state);
   state.statusTextEl.setText("Running in background");
-  state.contentEl.empty();
-  createStatusRow(state.contentEl, truncatePrompt(state.info.prompt || "") || "Background task", { textClass: "claudian-async-prompt" });
+  renderAsyncContentLikeSync(state.contentEl, state.info, "running");
 }
 function finalizeAsyncSubagent(state, result, isError) {
   state.info.asyncStatus = isError ? "error" : "completed";
@@ -55284,24 +55799,16 @@ function finalizeAsyncSubagent(state, result, isError) {
   state.statusEl.addClass(`status-${isError ? "error" : "completed"}`);
   state.statusEl.empty();
   if (isError) {
-    (0, import_obsidian6.setIcon)(state.statusEl, "x");
+    (0, import_obsidian8.setIcon)(state.statusEl, "x");
   } else {
-    (0, import_obsidian6.setIcon)(state.statusEl, "check");
+    (0, import_obsidian8.setIcon)(state.statusEl, "check");
   }
   if (isError) {
     state.wrapperEl.addClass("error");
   } else {
     state.wrapperEl.addClass("done");
   }
-  state.contentEl.empty();
-  let displayText;
-  if (isError && result) {
-    const truncated = result.length > 80 ? result.substring(0, 80) + "..." : result;
-    displayText = `ERROR: ${truncated}`;
-  } else {
-    displayText = isError ? "ERROR" : "DONE";
-  }
-  createStatusRow(state.contentEl, displayText);
+  renderAsyncContentLikeSync(state.contentEl, state.info, isError ? "error" : "completed");
 }
 function markAsyncSubagentOrphaned(state) {
   state.info.asyncStatus = "orphaned";
@@ -55312,11 +55819,10 @@ function markAsyncSubagentOrphaned(state) {
   state.statusTextEl.setText("Orphaned");
   state.statusEl.className = "claudian-subagent-status status-error";
   state.statusEl.empty();
-  (0, import_obsidian6.setIcon)(state.statusEl, "alert-circle");
+  (0, import_obsidian8.setIcon)(state.statusEl, "alert-circle");
   state.wrapperEl.addClass("error");
   state.wrapperEl.addClass("orphaned");
-  state.contentEl.empty();
-  createStatusRow(state.contentEl, "\u26A0\uFE0F Task orphaned", { rowClass: "claudian-async-orphaned" });
+  renderAsyncContentLikeSync(state.contentEl, state.info, "orphaned");
 }
 function renderStoredAsyncSubagent(parentEl, subagent) {
   const wrapperEl = parentEl.createDiv({ cls: "claudian-subagent-list" });
@@ -55334,12 +55840,21 @@ function renderStoredAsyncSubagent(parentEl, subagent) {
   headerEl.setAttribute("tabindex", "0");
   headerEl.setAttribute("role", "button");
   headerEl.setAttribute("aria-expanded", "false");
-  headerEl.setAttribute("aria-label", `Background task: ${subagent.description} - ${statusAriaLabel} - click to expand`);
+  const isFinished = displayStatus === "completed" || displayStatus === "error" || displayStatus === "orphaned";
+  const ariaCount = isFinished ? `${subagent.toolCalls.length} tool uses - ` : "";
+  headerEl.setAttribute(
+    "aria-label",
+    `Background task: ${subagent.description} - ${ariaCount}${statusAriaLabel} - click to expand`
+  );
   const iconEl = headerEl.createDiv({ cls: "claudian-subagent-icon" });
   iconEl.setAttribute("aria-hidden", "true");
-  (0, import_obsidian6.setIcon)(iconEl, getToolIcon(TOOL_TASK));
+  (0, import_obsidian8.setIcon)(iconEl, getToolIcon(TOOL_TASK));
   const labelEl = headerEl.createDiv({ cls: "claudian-subagent-label" });
   labelEl.setText(truncateDescription(subagent.description));
+  const countEl = headerEl.createDiv({ cls: "claudian-subagent-count" });
+  if (isFinished) {
+    countEl.setText(`${subagent.toolCalls.length} tool uses`);
+  }
   const statusTextEl = headerEl.createDiv({ cls: "claudian-subagent-status-text" });
   statusTextEl.setText(statusText);
   let statusIconClass;
@@ -55358,29 +55873,17 @@ function renderStoredAsyncSubagent(parentEl, subagent) {
   statusEl.setAttribute("aria-label", `Status: ${statusAriaLabel}`);
   switch (displayStatus) {
     case "completed":
-      (0, import_obsidian6.setIcon)(statusEl, "check");
+      (0, import_obsidian8.setIcon)(statusEl, "check");
       break;
     case "error":
-      (0, import_obsidian6.setIcon)(statusEl, "x");
+      (0, import_obsidian8.setIcon)(statusEl, "x");
       break;
     case "orphaned":
-      (0, import_obsidian6.setIcon)(statusEl, "alert-circle");
+      (0, import_obsidian8.setIcon)(statusEl, "alert-circle");
       break;
   }
   const contentEl = wrapperEl.createDiv({ cls: "claudian-subagent-content" });
-  switch (displayStatus) {
-    case "completed":
-      createStatusRow(contentEl, "DONE");
-      break;
-    case "error":
-      createStatusRow(contentEl, "ERROR");
-      break;
-    case "orphaned":
-      createStatusRow(contentEl, "\u26A0\uFE0F Task orphaned");
-      break;
-    default:
-      createStatusRow(contentEl, truncatePrompt(subagent.prompt || "") || "Background task", { textClass: "claudian-async-prompt" });
-  }
+  renderAsyncContentLikeSync(contentEl, subagent, displayStatus);
   const state = { isExpanded: false };
   setupCollapsible(wrapperEl, headerEl, contentEl, state);
   return wrapperEl;
@@ -55453,7 +55956,7 @@ function renderStoredThinkingBlock(parentEl, content, durationSeconds, renderCon
 }
 
 // src/features/chat/rendering/WriteEditRenderer.ts
-var import_obsidian7 = require("obsidian");
+var import_obsidian9 = require("obsidian");
 
 // src/features/chat/rendering/DiffRenderer.ts
 function splitIntoHunks(diffLines, contextLines = 3) {
@@ -55571,9 +56074,11 @@ function createWriteEditBlock(parentEl, toolCall) {
   headerEl.setAttribute("aria-label", `${toolName}: ${shortenPath2(filePath)} - click to expand`);
   const iconEl = headerEl.createDiv({ cls: "claudian-write-edit-icon" });
   iconEl.setAttribute("aria-hidden", "true");
-  (0, import_obsidian7.setIcon)(iconEl, getToolIcon(toolName));
-  const labelEl = headerEl.createDiv({ cls: "claudian-write-edit-label" });
-  labelEl.setText(`${toolName}: ${shortenPath2(filePath)}`);
+  (0, import_obsidian9.setIcon)(iconEl, getToolIcon(toolName));
+  const nameEl = headerEl.createDiv({ cls: "claudian-write-edit-name" });
+  nameEl.setText(toolName);
+  const summaryEl = headerEl.createDiv({ cls: "claudian-write-edit-summary" });
+  summaryEl.setText(fileNameOnly(filePath) || "file");
   const statsEl = headerEl.createDiv({ cls: "claudian-write-edit-stats" });
   const statusEl = headerEl.createDiv({ cls: "claudian-write-edit-status status-running" });
   statusEl.setAttribute("aria-label", "Status: running");
@@ -55585,7 +56090,8 @@ function createWriteEditBlock(parentEl, toolCall) {
     wrapperEl,
     contentEl,
     headerEl,
-    labelEl,
+    nameEl,
+    summaryEl,
     statsEl,
     statusEl,
     toolCall,
@@ -55609,7 +56115,7 @@ function finalizeWriteEditBlock(state, isError) {
   state.statusEl.empty();
   if (isError) {
     state.statusEl.addClass("status-error");
-    (0, import_obsidian7.setIcon)(state.statusEl, "x");
+    (0, import_obsidian9.setIcon)(state.statusEl, "x");
     state.statusEl.setAttribute("aria-label", "Status: error");
     if (!state.diffLines) {
       state.contentEl.empty();
@@ -55645,9 +56151,11 @@ function renderStoredWriteEdit(parentEl, toolCall) {
   headerEl.setAttribute("role", "button");
   const iconEl = headerEl.createDiv({ cls: "claudian-write-edit-icon" });
   iconEl.setAttribute("aria-hidden", "true");
-  (0, import_obsidian7.setIcon)(iconEl, getToolIcon(toolName));
-  const labelEl = headerEl.createDiv({ cls: "claudian-write-edit-label" });
-  labelEl.setText(`${toolName}: ${shortenPath2(filePath)}`);
+  (0, import_obsidian9.setIcon)(iconEl, getToolIcon(toolName));
+  const nameEl = headerEl.createDiv({ cls: "claudian-write-edit-name" });
+  nameEl.setText(toolName);
+  const summaryEl = headerEl.createDiv({ cls: "claudian-write-edit-summary" });
+  summaryEl.setText(fileNameOnly(filePath) || "file");
   const statsEl = headerEl.createDiv({ cls: "claudian-write-edit-stats" });
   if (toolCall.diffData) {
     renderDiffStats(statsEl, toolCall.diffData.stats);
@@ -55655,7 +56163,7 @@ function renderStoredWriteEdit(parentEl, toolCall) {
   const statusEl = headerEl.createDiv({ cls: "claudian-write-edit-status" });
   if (isError) {
     statusEl.addClass("status-error");
-    (0, import_obsidian7.setIcon)(statusEl, "x");
+    (0, import_obsidian9.setIcon)(statusEl, "x");
   }
   const contentEl = wrapperEl.createDiv({ cls: "claudian-write-edit-content" });
   const row = contentEl.createDiv({ cls: "claudian-write-edit-diff-row" });
@@ -55711,7 +56219,11 @@ var _MessageRenderer = class _MessageRenderer {
       }
     }
     const msgEl = this.messagesEl.createDiv({
-      cls: `claudian-message claudian-message-${msg.role}`
+      cls: `claudian-message claudian-message-${msg.role}`,
+      attr: {
+        "data-message-id": msg.id,
+        "data-role": msg.role
+      }
     });
     const contentEl = msgEl.createDiv({ cls: "claudian-message-content", attr: { dir: "auto" } });
     if (msg.role === "user") {
@@ -55767,7 +56279,11 @@ var _MessageRenderer = class _MessageRenderer {
       }
     }
     const msgEl = this.messagesEl.createDiv({
-      cls: `claudian-message claudian-message-${msg.role}`
+      cls: `claudian-message claudian-message-${msg.role}`,
+      attr: {
+        "data-message-id": msg.id,
+        "data-role": msg.role
+      }
     });
     const contentEl = msgEl.createDiv({ cls: "claudian-message-content", attr: { dir: "auto" } });
     if (msg.role === "user") {
@@ -55810,6 +56326,7 @@ var _MessageRenderer = class _MessageRenderer {
   renderAssistantContent(msg, contentEl) {
     var _a3, _b, _c;
     if (msg.contentBlocks && msg.contentBlocks.length > 0) {
+      const renderedToolIds = /* @__PURE__ */ new Set();
       for (const block of msg.contentBlocks) {
         if (block.type === "thinking") {
           renderStoredThinkingBlock(
@@ -55829,20 +56346,25 @@ var _MessageRenderer = class _MessageRenderer {
           const toolCall = (_a3 = msg.toolCalls) == null ? void 0 : _a3.find((tc) => tc.id === block.toolId);
           if (toolCall) {
             this.renderToolCall(contentEl, toolCall);
+            renderedToolIds.add(toolCall.id);
           }
         } else if (block.type === "compact_boundary") {
           const boundaryEl = contentEl.createDiv({ cls: "claudian-compact-boundary" });
           boundaryEl.createSpan({ cls: "claudian-compact-boundary-label", text: "Conversation compacted" });
         } else if (block.type === "subagent") {
-          const subagent = (_b = msg.subagents) == null ? void 0 : _b.find((s) => s.id === block.subagentId);
-          if (subagent) {
-            const mode = block.mode || subagent.mode || "sync";
-            if (mode === "async") {
-              renderStoredAsyncSubagent(contentEl, subagent);
-            } else {
-              renderStoredSubagent(contentEl, subagent);
-            }
-          }
+          const taskToolCall = (_b = msg.toolCalls) == null ? void 0 : _b.find(
+            (tc) => tc.id === block.subagentId && tc.name === TOOL_TASK
+          );
+          if (!taskToolCall) continue;
+          this.renderTaskSubagent(contentEl, taskToolCall, block.mode);
+          renderedToolIds.add(taskToolCall.id);
+        }
+      }
+      if (msg.toolCalls && msg.toolCalls.length > 0) {
+        for (const toolCall of msg.toolCalls) {
+          if (renderedToolIds.has(toolCall.id)) continue;
+          this.renderToolCall(contentEl, toolCall);
+          renderedToolIds.add(toolCall.id);
         }
       }
     } else {
@@ -55872,36 +56394,82 @@ var _MessageRenderer = class _MessageRenderer {
    * TaskOutput is hidden as it's an internal tool for async subagent communication.
    */
   renderToolCall(contentEl, toolCall) {
-    var _a3;
     if (toolCall.name === TOOL_AGENT_OUTPUT) {
       return;
     }
     if (isWriteEditTool(toolCall.name)) {
       renderStoredWriteEdit(contentEl, toolCall);
     } else if (toolCall.name === TOOL_TASK) {
-      let status;
-      switch (toolCall.status) {
-        case "completed":
-          status = "completed";
-          break;
-        case "error":
-          status = "error";
-          break;
-        default:
-          status = "running";
+      this.renderTaskSubagent(contentEl, toolCall);
+    } else {
+      renderStoredToolCall(contentEl, toolCall);
+    }
+  }
+  renderTaskSubagent(contentEl, toolCall, modeHint) {
+    const subagentInfo = this.resolveTaskSubagent(toolCall, modeHint);
+    if (subagentInfo.mode === "async") {
+      renderStoredAsyncSubagent(contentEl, subagentInfo);
+      return;
+    }
+    renderStoredSubagent(contentEl, subagentInfo);
+  }
+  resolveTaskSubagent(toolCall, modeHint) {
+    var _a3, _b, _c;
+    if (toolCall.subagent) {
+      if (!modeHint || toolCall.subagent.mode === modeHint) {
+        return toolCall.subagent;
       }
-      const subagentInfo = {
+      return {
+        ...toolCall.subagent,
+        mode: modeHint
+      };
+    }
+    const description = ((_a3 = toolCall.input) == null ? void 0 : _a3.description) || "Subagent task";
+    const prompt = ((_b = toolCall.input) == null ? void 0 : _b.prompt) || "";
+    const mode = modeHint != null ? modeHint : ((_c = toolCall.input) == null ? void 0 : _c.run_in_background) === true ? "async" : "sync";
+    if (mode !== "async") {
+      return {
         id: toolCall.id,
-        description: ((_a3 = toolCall.input) == null ? void 0 : _a3.description) || "Subagent task",
-        status,
+        description,
+        prompt,
+        status: this.mapToolStatusToSubagentStatus(toolCall.status),
         toolCalls: [],
         isExpanded: false,
         result: toolCall.result
       };
-      renderStoredSubagent(contentEl, subagentInfo);
-    } else {
-      renderStoredToolCall(contentEl, toolCall);
     }
+    const asyncStatus = this.inferAsyncStatusFromTaskTool(toolCall);
+    return {
+      id: toolCall.id,
+      description,
+      prompt,
+      mode: "async",
+      status: asyncStatus,
+      asyncStatus,
+      toolCalls: [],
+      isExpanded: false,
+      result: toolCall.result
+    };
+  }
+  mapToolStatusToSubagentStatus(status) {
+    switch (status) {
+      case "completed":
+        return "completed";
+      case "error":
+      case "blocked":
+        return "error";
+      default:
+        return "running";
+    }
+  }
+  inferAsyncStatusFromTaskTool(toolCall) {
+    if (toolCall.status === "error" || toolCall.status === "blocked") return "error";
+    if (toolCall.status === "running") return "running";
+    const lowerResult = (toolCall.result || "").toLowerCase();
+    if (lowerResult.includes("not_ready") || lowerResult.includes("not ready") || lowerResult.includes('"status":"running"') || lowerResult.includes('"status":"pending"') || lowerResult.includes('"retrieval_status":"running"') || lowerResult.includes('"retrieval_status":"not_ready"')) {
+      return "running";
+    }
+    return "completed";
   }
   // ============================================
   // Image Rendering
@@ -55975,7 +56543,7 @@ var _MessageRenderer = class _MessageRenderer {
         this.app,
         this.plugin.settings.mediaFolder
       );
-      await import_obsidian8.MarkdownRenderer.renderMarkdown(processedMarkdown, el, "", this.component);
+      await import_obsidian10.MarkdownRenderer.renderMarkdown(processedMarkdown, el, "", this.component);
       el.querySelectorAll("pre").forEach((pre) => {
         var _a3, _b;
         if ((_a3 = pre.parentElement) == null ? void 0 : _a3.classList.contains("claudian-code-wrapper")) return;
@@ -56106,7 +56674,7 @@ var _MessageRenderer = class _MessageRenderer {
       try {
         await ((_a3 = this.rewindCallback) == null ? void 0 : _a3.call(this, messageId));
       } catch (err) {
-        new import_obsidian8.Notice(t("chat.rewind.failed", { error: err instanceof Error ? err.message : "Unknown error" }));
+        new import_obsidian10.Notice(t("chat.rewind.failed", { error: err instanceof Error ? err.message : "Unknown error" }));
       }
     });
   }
@@ -56122,7 +56690,7 @@ var _MessageRenderer = class _MessageRenderer {
       try {
         await ((_a3 = this.forkCallback) == null ? void 0 : _a3.call(this, messageId));
       } catch (err) {
-        new import_obsidian8.Notice(t("chat.fork.failed", { error: err instanceof Error ? err.message : "Unknown error" }));
+        new import_obsidian10.Notice(t("chat.fork.failed", { error: err instanceof Error ? err.message : "Unknown error" }));
       }
     });
   }
@@ -56370,23 +56938,23 @@ var ConversationController = class {
     var _a3, _b, _c;
     const { plugin, state, renderer } = this.deps;
     if (state.isStreaming) {
-      new import_obsidian9.Notice(t("chat.rewind.unavailableStreaming"));
+      new import_obsidian11.Notice(t("chat.rewind.unavailableStreaming"));
       return;
     }
     const msgs = state.messages;
     const userIdx = msgs.findIndex((m) => m.id === userMessageId);
     if (userIdx === -1) {
-      new import_obsidian9.Notice(t("chat.rewind.failed", { error: "Message not found" }));
+      new import_obsidian11.Notice(t("chat.rewind.failed", { error: "Message not found" }));
       return;
     }
     const userMsg = msgs[userIdx];
     if (!userMsg.sdkUserUuid) {
-      new import_obsidian9.Notice(t("chat.rewind.unavailableNoUuid"));
+      new import_obsidian11.Notice(t("chat.rewind.unavailableNoUuid"));
       return;
     }
     const rewindCtx = findRewindContext(msgs, userIdx);
     if (!rewindCtx.hasResponse || !rewindCtx.prevAssistantUuid) {
-      new import_obsidian9.Notice(t("chat.rewind.unavailableNoUuid"));
+      new import_obsidian11.Notice(t("chat.rewind.unavailableNoUuid"));
       return;
     }
     const prevAssistantUuid = rewindCtx.prevAssistantUuid;
@@ -56397,23 +56965,23 @@ var ConversationController = class {
     );
     if (!confirmed) return;
     if (state.isStreaming) {
-      new import_obsidian9.Notice(t("chat.rewind.unavailableStreaming"));
+      new import_obsidian11.Notice(t("chat.rewind.unavailableStreaming"));
       return;
     }
     const agentService = this.getAgentService();
     if (!agentService) {
-      new import_obsidian9.Notice(t("chat.rewind.failed", { error: "Agent service not available" }));
+      new import_obsidian11.Notice(t("chat.rewind.failed", { error: "Agent service not available" }));
       return;
     }
     let result;
     try {
       result = await agentService.rewind(userMsg.sdkUserUuid, prevAssistantUuid);
     } catch (e2) {
-      new import_obsidian9.Notice(t("chat.rewind.failed", { error: e2 instanceof Error ? e2.message : "Unknown error" }));
+      new import_obsidian11.Notice(t("chat.rewind.failed", { error: e2 instanceof Error ? e2.message : "Unknown error" }));
       return;
     }
     if (!result.canRewind) {
-      new import_obsidian9.Notice(t("chat.rewind.cannot", { error: (_a3 = result.error) != null ? _a3 : "Unknown error" }));
+      new import_obsidian11.Notice(t("chat.rewind.cannot", { error: (_a3 = result.error) != null ? _a3 : "Unknown error" }));
       return;
     }
     state.truncateAt(userMessageId);
@@ -56431,10 +56999,10 @@ var ConversationController = class {
       saveError = e2 instanceof Error ? e2.message : "Failed to save";
     }
     if (saveError) {
-      new import_obsidian9.Notice(t("chat.rewind.noticeSaveFailed", { count: String(filesChanged), error: saveError }));
+      new import_obsidian11.Notice(t("chat.rewind.noticeSaveFailed", { count: String(filesChanged), error: saveError }));
       return;
     }
-    new import_obsidian9.Notice(t("chat.rewind.notice", { count: String(filesChanged) }));
+    new import_obsidian11.Notice(t("chat.rewind.notice", { count: String(filesChanged) }));
   }
   /**
    * Saves the current conversation.
@@ -56573,7 +57141,7 @@ var ConversationController = class {
         cls: `claudian-history-item${isCurrent ? " active" : ""}`
       });
       const iconEl = item.createDiv({ cls: "claudian-history-item-icon" });
-      (0, import_obsidian9.setIcon)(iconEl, isCurrent ? "message-square-dot" : "message-square");
+      (0, import_obsidian11.setIcon)(iconEl, isCurrent ? "message-square-dot" : "message-square");
       const content = item.createDiv({ cls: "claudian-history-item-content" });
       const titleEl = content.createDiv({ cls: "claudian-history-item-title", text: conv.title });
       titleEl.setAttribute("title", conv.title);
@@ -56587,35 +57155,37 @@ var ConversationController = class {
           try {
             await options.onSelectConversation(conv.id);
           } catch (e3) {
+            new import_obsidian11.Notice("Failed to load conversation");
           }
         });
       }
       const actions = item.createDiv({ cls: "claudian-history-item-actions" });
       if (conv.titleGenerationStatus === "pending") {
         const loadingEl = actions.createEl("span", { cls: "claudian-action-btn claudian-action-loading" });
-        (0, import_obsidian9.setIcon)(loadingEl, "loader-2");
+        (0, import_obsidian11.setIcon)(loadingEl, "loader-2");
         loadingEl.setAttribute("aria-label", "Generating title...");
       } else if (conv.titleGenerationStatus === "failed") {
         const regenerateBtn = actions.createEl("button", { cls: "claudian-action-btn" });
-        (0, import_obsidian9.setIcon)(regenerateBtn, "refresh-cw");
+        (0, import_obsidian11.setIcon)(regenerateBtn, "refresh-cw");
         regenerateBtn.setAttribute("aria-label", "Regenerate title");
         regenerateBtn.addEventListener("click", async (e2) => {
           e2.stopPropagation();
           try {
             await this.regenerateTitle(conv.id);
           } catch (e3) {
+            new import_obsidian11.Notice("Failed to regenerate response");
           }
         });
       }
       const renameBtn = actions.createEl("button", { cls: "claudian-action-btn" });
-      (0, import_obsidian9.setIcon)(renameBtn, "pencil");
+      (0, import_obsidian11.setIcon)(renameBtn, "pencil");
       renameBtn.setAttribute("aria-label", "Rename");
       renameBtn.addEventListener("click", (e2) => {
         e2.stopPropagation();
         this.showRenameInput(item, conv.id, conv.title);
       });
       const deleteBtn = actions.createEl("button", { cls: "claudian-action-btn claudian-delete-btn" });
-      (0, import_obsidian9.setIcon)(deleteBtn, "trash-2");
+      (0, import_obsidian11.setIcon)(deleteBtn, "trash-2");
       deleteBtn.setAttribute("aria-label", "Delete");
       deleteBtn.addEventListener("click", async (e2) => {
         e2.stopPropagation();
@@ -56627,6 +57197,7 @@ var ConversationController = class {
             await this.loadActive();
           }
         } catch (e3) {
+          new import_obsidian11.Notice("Failed to delete conversation");
         }
       });
     }
@@ -56648,6 +57219,7 @@ var ConversationController = class {
         await this.deps.plugin.renameConversation(convId, newTitle);
         this.updateHistoryDropdown();
       } catch (e2) {
+        new import_obsidian11.Notice("Failed to rename conversation");
       }
     };
     input.addEventListener("blur", finishRename);
@@ -56800,10 +57372,10 @@ var ConversationController = class {
 };
 
 // src/features/chat/controllers/InputController.ts
-var import_obsidian12 = require("obsidian");
+var import_obsidian14 = require("obsidian");
 
 // src/shared/components/ResumeSessionDropdown.ts
-var import_obsidian10 = require("obsidian");
+var import_obsidian12 = require("obsidian");
 var ResumeSessionDropdown = class {
   constructor(containerEl, inputEl, conversations, currentConversationId, callbacks) {
     this.selectedIndex = 0;
@@ -56906,7 +57478,7 @@ var ResumeSessionDropdown = class {
       if (isCurrent) item.addClass("current");
       if (i2 === this.selectedIndex) item.addClass("selected");
       const iconEl = item.createDiv({ cls: "claudian-resume-item-icon" });
-      (0, import_obsidian10.setIcon)(iconEl, isCurrent ? "message-square-dot" : "message-square");
+      (0, import_obsidian12.setIcon)(iconEl, isCurrent ? "message-square-dot" : "message-square");
       const content = item.createDiv({ cls: "claudian-resume-item-content" });
       const titleEl = content.createDiv({ cls: "claudian-resume-item-title", text: conv.title });
       titleEl.setAttribute("title", conv.title);
@@ -56938,8 +57510,8 @@ var ResumeSessionDropdown = class {
 };
 
 // src/shared/modals/InstructionConfirmModal.ts
-var import_obsidian11 = require("obsidian");
-var InstructionModal = class extends import_obsidian11.Modal {
+var import_obsidian13 = require("obsidian");
+var InstructionModal = class extends import_obsidian13.Modal {
   constructor(app, rawInstruction, callbacks) {
     super(app);
     this.state = "loading";
@@ -56983,7 +57555,7 @@ var InstructionModal = class extends import_obsidian11.Modal {
     const responseSection = this.clarificationEl.createDiv({ cls: "claudian-instruction-section" });
     const responseLabel = responseSection.createDiv({ cls: "claudian-instruction-label" });
     responseLabel.setText("Your response:");
-    this.responseTextarea = new import_obsidian11.TextAreaComponent(responseSection);
+    this.responseTextarea = new import_obsidian13.TextAreaComponent(responseSection);
     this.responseTextarea.inputEl.addClass("claudian-instruction-response-textarea");
     this.responseTextarea.inputEl.rows = 3;
     this.responseTextarea.inputEl.placeholder = "Provide more details...";
@@ -57001,7 +57573,7 @@ var InstructionModal = class extends import_obsidian11.Modal {
     this.refinedDisplayEl = refinedSection.createDiv({ cls: "claudian-instruction-refined" });
     this.editContainerEl = refinedSection.createDiv({ cls: "claudian-instruction-edit-container" });
     this.editContainerEl.style.display = "none";
-    this.editTextarea = new import_obsidian11.TextAreaComponent(this.editContainerEl);
+    this.editTextarea = new import_obsidian13.TextAreaComponent(this.editContainerEl);
     this.editTextarea.inputEl.addClass("claudian-instruction-edit-textarea");
     this.editTextarea.inputEl.rows = 4;
     this.buttonsEl = contentEl.createDiv({ cls: "claudian-instruction-buttons" });
@@ -57142,6 +57714,20 @@ var InstructionModal = class extends import_obsidian11.Modal {
   }
 };
 
+// src/utils/canvas.ts
+function formatCanvasContext(context) {
+  if (context.nodeIds.length === 0) return "";
+  return `<canvas_selection path="${context.canvasPath}">
+${context.nodeIds.join(", ")}
+</canvas_selection>`;
+}
+function appendCanvasContext(prompt, context) {
+  const formatted = formatCanvasContext(context);
+  return formatted ? `${prompt}
+
+${formatted}` : prompt;
+}
+
 // src/utils/editor.ts
 function getEditorView(editor) {
   return editor.cm;
@@ -57220,7 +57806,7 @@ function appendMarkdownSnippet(existingPrompt, snippet) {
 var HINTS_TEXT = "Enter to select \xB7 Tab/Arrow keys to navigate \xB7 Esc to cancel";
 var HINTS_TEXT_IMMEDIATE = "Enter to select \xB7 Arrow keys to navigate \xB7 Esc to cancel";
 var InlineAskUserQuestion = class {
-  constructor(containerEl, input, resolve4, signal, config2) {
+  constructor(containerEl, input, resolve5, signal, config2) {
     this.resolved = false;
     this.questions = [];
     this.answers = /* @__PURE__ */ new Map();
@@ -57234,7 +57820,7 @@ var InlineAskUserQuestion = class {
     var _a3, _b, _c;
     this.containerEl = containerEl;
     this.input = input;
-    this.resolveCallback = resolve4;
+    this.resolveCallback = resolve5;
     this.signal = signal;
     this.config = {
       title: (_a3 = config2 == null ? void 0 : config2.title) != null ? _a3 : "Claude has a question",
@@ -57454,17 +58040,15 @@ var InlineAskUserQuestion = class {
     for (let idx = 0; idx < this.questions.length; idx++) {
       const q = this.questions[idx];
       const answerText = this.getAnswerText(idx);
-      const qLine = reviewEl.createDiv({ cls: "claudian-ask-review-q" });
-      qLine.createSpan({ text: "\u25CF ", cls: "claudian-ask-review-bullet" });
-      qLine.createSpan({ text: q.question, cls: "claudian-ask-review-q-text" });
-      qLine.addEventListener("click", () => this.switchTab(idx));
-      const aLine = reviewEl.createDiv({ cls: "claudian-ask-review-a" });
-      aLine.createSpan({ text: "  \u2192 ", cls: "claudian-ask-review-arrow" });
-      aLine.createSpan({
+      const pairEl = reviewEl.createDiv({ cls: "claudian-ask-review-pair" });
+      pairEl.createDiv({ text: `${idx + 1}.`, cls: "claudian-ask-review-num" });
+      const bodyEl = pairEl.createDiv({ cls: "claudian-ask-review-body" });
+      bodyEl.createDiv({ text: q.question, cls: "claudian-ask-review-q-text" });
+      bodyEl.createDiv({
         text: answerText || "Not answered",
         cls: answerText ? "claudian-ask-review-a-text" : "claudian-ask-review-empty"
       });
-      aLine.addEventListener("click", () => this.switchTab(idx));
+      pairEl.addEventListener("click", () => this.switchTab(idx));
     }
     this.contentArea.createDiv({
       text: "Ready to submit your answers?",
@@ -57744,9 +58328,10 @@ var InlineAskUserQuestion = class {
 };
 
 // src/features/chat/rendering/InlineExitPlanMode.ts
+var nodePath = __toESM(require("path"));
 var HINTS_TEXT2 = "Arrow keys to navigate \xB7 Enter to select \xB7 Esc to cancel";
 var InlineExitPlanMode = class {
-  constructor(containerEl, input, resolve4, signal, renderContent) {
+  constructor(containerEl, input, resolve5, signal, renderContent) {
     this.resolved = false;
     this.planContent = null;
     this.planReadError = null;
@@ -57756,7 +58341,7 @@ var InlineExitPlanMode = class {
     this.abortHandler = null;
     this.containerEl = containerEl;
     this.input = input;
-    this.resolveCallback = resolve4;
+    this.resolveCallback = resolve5;
     this.signal = signal;
     this.renderContent = renderContent;
     this.boundKeyDown = this.handleKeyDown.bind(this);
@@ -57850,6 +58435,11 @@ var InlineExitPlanMode = class {
   readPlanContent() {
     const planFilePath = this.input.planFilePath;
     if (!planFilePath) return null;
+    const resolved = nodePath.resolve(planFilePath).replace(/\\/g, "/");
+    if (!resolved.includes("/.claude/plans/")) {
+      this.planReadError = "path outside allowed plan directory";
+      return null;
+    }
     try {
       const fs11 = require("fs");
       const content = fs11.readFileSync(planFilePath, "utf-8");
@@ -57993,7 +58583,7 @@ var InputController = class {
   // ============================================
   async sendMessage(options) {
     var _a3, _b, _c, _d, _e;
-    const { plugin, state, renderer, streamController, selectionController, conversationController } = this.deps;
+    const { plugin, state, renderer, streamController, selectionController, canvasSelectionController, conversationController } = this.deps;
     if (state.isCreatingConversation || state.isSwitchingConversation) return;
     const inputEl = this.deps.getInputEl();
     const imageContextManager = this.deps.getImageContextManager();
@@ -58018,17 +58608,20 @@ var InputController = class {
     if (state.isStreaming) {
       const images2 = hasImages ? [...(imageContextManager == null ? void 0 : imageContextManager.getAttachedImages()) || []] : void 0;
       const editorContext2 = selectionController.getContext();
+      const canvasContext = canvasSelectionController.getContext();
       if (state.queuedMessage) {
         state.queuedMessage.content += "\n\n" + content;
         if (images2 && images2.length > 0) {
           state.queuedMessage.images = [...state.queuedMessage.images || [], ...images2];
         }
         state.queuedMessage.editorContext = editorContext2;
+        state.queuedMessage.canvasContext = canvasContext;
       } else {
         state.queuedMessage = {
           content,
           images: images2,
-          editorContext: editorContext2
+          editorContext: editorContext2,
+          canvasContext
         };
       }
       if (shouldUseInput) {
@@ -58076,6 +58669,11 @@ var InputController = class {
       }
       if (editorContext) {
         promptToSend = appendEditorContext(promptToSend, editorContext);
+      }
+      const canvasContextOverride = options == null ? void 0 : options.canvasContextOverride;
+      const canvasContext = canvasContextOverride !== void 0 ? canvasContextOverride : canvasSelectionController.getContext();
+      if (canvasContext) {
+        promptToSend = appendCanvasContext(promptToSend, canvasContext);
       }
       if (fileContextManager) {
         promptToSend = fileContextManager.transformContextMentions(promptToSend);
@@ -58138,7 +58736,7 @@ var InputController = class {
     if (this.deps.ensureServiceInitialized) {
       const ready = await this.deps.ensureServiceInitialized();
       if (!ready) {
-        new import_obsidian12.Notice("Failed to initialize agent service. Please try again.");
+        new import_obsidian14.Notice("Failed to initialize agent service. Please try again.");
         streamController.hideThinkingIndicator();
         state.isStreaming = false;
         return;
@@ -58146,7 +58744,7 @@ var InputController = class {
     }
     const agentService = this.getAgentService();
     if (!agentService) {
-      new import_obsidian12.Notice("Agent service not available. Please reload the plugin.");
+      new import_obsidian14.Notice("Agent service not available. Please reload the plugin.");
       return;
     }
     const conversationIdForSend = state.currentConversationId;
@@ -58192,14 +58790,15 @@ var InputController = class {
     } finally {
       state.clearFlavorTimerInterval();
       if (!wasInvalidated && state.streamGeneration === streamGeneration) {
-        if (wasInterrupted && !state.pendingNewSessionPlan) {
+        const didCancelThisTurn = wasInterrupted || state.cancelRequested;
+        if (didCancelThisTurn && !state.pendingNewSessionPlan) {
           await streamController.appendText('\n\n<span class="claudian-interrupted">Interrupted</span> <span class="claudian-interrupted-hint">\xB7 What should Claudian do instead?</span>');
         }
         streamController.hideThinkingIndicator();
         state.isStreaming = false;
         state.cancelRequested = false;
         const hasCompactBoundary = (_e = assistantMsg.contentBlocks) == null ? void 0 : _e.some((b3) => b3.type === "compact_boundary");
-        if (!wasInterrupted && !hasCompactBoundary) {
+        if (!didCancelThisTurn && !hasCompactBoundary) {
           const durationSeconds = state.responseStartTime ? Math.floor((performance.now() - state.responseStartTime) / 1e3) : 0;
           if (durationSeconds > 0) {
             const flavorWord = COMPLETION_FLAVOR_WORDS[Math.floor(Math.random() * COMPLETION_FLAVOR_WORDS.length)];
@@ -58225,6 +58824,7 @@ var InputController = class {
         if (statusPanel == null ? void 0 : statusPanel.areAllSubagentsCompleted()) {
           statusPanel.clearTerminalSubagents();
         }
+        this.syncScrollToBottomAfterRenderUpdates();
         if (state.pendingNewSessionPlan && assistantMsg.toolCalls) {
           for (const tc of assistantMsg.toolCalls) {
             if (tc.name === TOOL_EXIT_PLAN_MODE && !tc.result) {
@@ -58294,7 +58894,7 @@ var InputController = class {
     var _a3;
     const { state } = this.deps;
     if (!state.queuedMessage) return;
-    const { content, images, editorContext } = state.queuedMessage;
+    const { content, images, editorContext, canvasContext } = state.queuedMessage;
     state.queuedMessage = null;
     this.updateQueueIndicator();
     const inputEl = this.deps.getInputEl();
@@ -58302,7 +58902,7 @@ var InputController = class {
     if (images && images.length > 0) {
       (_a3 = this.deps.getImageContextManager()) == null ? void 0 : _a3.setImages(images);
     }
-    setTimeout(() => this.sendMessage({ editorContextOverride: editorContext }), 0);
+    setTimeout(() => this.sendMessage({ editorContextOverride: editorContext, canvasContextOverride: canvasContext }), 0);
   }
   // ============================================
   // Title Generation
@@ -58372,6 +58972,19 @@ var InputController = class {
     (_a3 = this.getAgentService()) == null ? void 0 : _a3.cancel();
     streamController.hideThinkingIndicator();
   }
+  syncScrollToBottomAfterRenderUpdates() {
+    var _a3;
+    const { plugin, state } = this.deps;
+    if (!((_a3 = plugin.settings.enableAutoScroll) != null ? _a3 : true)) return;
+    if (!state.autoScrollEnabled) return;
+    requestAnimationFrame(() => {
+      var _a4;
+      if (!((_a4 = this.deps.plugin.settings.enableAutoScroll) != null ? _a4 : true)) return;
+      if (!this.deps.state.autoScrollEnabled) return;
+      const messagesEl = this.deps.getMessagesEl();
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    });
+  }
   // ============================================
   // Instruction Mode
   // ============================================
@@ -58392,7 +59005,7 @@ var InputController = class {
             const currentPrompt = plugin.settings.systemPrompt;
             plugin.settings.systemPrompt = appendMarkdownSnippet(currentPrompt, finalInstruction);
             await plugin.saveSettings();
-            new import_obsidian12.Notice("Instruction added to custom system prompt");
+            new import_obsidian14.Notice("Instruction added to custom system prompt");
             instructionModeManager == null ? void 0 : instructionModeManager.clear();
           },
           onReject: () => {
@@ -58409,7 +59022,7 @@ var InputController = class {
               if (result2.error === "Cancelled") {
                 return;
               }
-              new import_obsidian12.Notice(result2.error || "Failed to process response");
+              new import_obsidian14.Notice(result2.error || "Failed to process response");
               modal == null ? void 0 : modal.showError(result2.error || "Failed to process response");
               return;
             }
@@ -58435,7 +59048,7 @@ var InputController = class {
           instructionModeManager == null ? void 0 : instructionModeManager.clear();
           return;
         }
-        new import_obsidian12.Notice(result.error || "Failed to refine instruction");
+        new import_obsidian14.Notice(result.error || "Failed to refine instruction");
         modal.showError(result.error || "Failed to refine instruction");
         instructionModeManager == null ? void 0 : instructionModeManager.clear();
         return;
@@ -58445,13 +59058,13 @@ var InputController = class {
       } else if (result.refinedInstruction) {
         modal.showConfirmation(result.refinedInstruction);
       } else {
-        new import_obsidian12.Notice("No instruction received");
+        new import_obsidian14.Notice("No instruction received");
         modal.showError("No instruction received");
         instructionModeManager == null ? void 0 : instructionModeManager.clear();
       }
     } catch (error48) {
       const errorMsg = error48 instanceof Error ? error48.message : "Unknown error";
-      new import_obsidian12.Notice(`Error: ${errorMsg}`);
+      new import_obsidian14.Notice(`Error: ${errorMsg}`);
       modal == null ? void 0 : modal.showError(errorMsg);
       instructionModeManager == null ? void 0 : instructionModeManager.clear();
     }
@@ -58498,7 +59111,7 @@ var InputController = class {
     const selected = Object.values(result)[0];
     const decision = APPROVAL_OPTION_MAP[selected];
     if (!decision) {
-      new import_obsidian12.Notice(`Unexpected approval selection: "${selected}"`);
+      new import_obsidian14.Notice(`Unexpected approval selection: "${selected}"`);
       return "cancel";
     }
     return decision;
@@ -58523,14 +59136,14 @@ var InputController = class {
     this.deps.streamController.hideThinkingIndicator();
     const previousDisplay = inputContainerEl.style.display;
     inputContainerEl.style.display = "none";
-    return new Promise((resolve4, reject) => {
+    return new Promise((resolve5, reject) => {
       const inline = new InlineAskUserQuestion(
         parentEl,
         input,
         (result) => {
           setPending(null);
           inputContainerEl.style.display = previousDisplay;
-          resolve4(result);
+          resolve5(result);
         },
         signal,
         config2
@@ -58556,14 +59169,14 @@ var InputController = class {
     inputContainerEl.style.display = "none";
     const enrichedInput = state.planFilePath ? { ...input, planFilePath: state.planFilePath } : input;
     const renderContent = (el, markdown) => this.deps.renderer.renderContent(el, markdown);
-    return new Promise((resolve4, reject) => {
+    return new Promise((resolve5, reject) => {
       const inline = new InlineExitPlanMode(
         parentEl,
         enrichedInput,
         (decision) => {
           this.pendingExitPlanModeInline = null;
           inputContainerEl.style.display = "";
-          resolve4(decision);
+          resolve5(decision);
         },
         signal,
         renderContent
@@ -58604,14 +59217,14 @@ var InputController = class {
       case "add-dir": {
         const externalContextSelector = this.deps.getExternalContextSelector();
         if (!externalContextSelector) {
-          new import_obsidian12.Notice("External context selector not available.");
+          new import_obsidian14.Notice("External context selector not available.");
           return;
         }
         const result = externalContextSelector.addExternalContext(args);
         if (result.success) {
-          new import_obsidian12.Notice(`Added external context: ${result.normalizedPath}`);
+          new import_obsidian14.Notice(`Added external context: ${result.normalizedPath}`);
         } else {
-          new import_obsidian12.Notice(result.error);
+          new import_obsidian14.Notice(result.error);
         }
         break;
       }
@@ -58620,14 +59233,14 @@ var InputController = class {
         break;
       case "fork": {
         if (!this.deps.onForkAll) {
-          new import_obsidian12.Notice("Fork not available.");
+          new import_obsidian14.Notice("Fork not available.");
           return;
         }
         await this.deps.onForkAll();
         break;
       }
       default:
-        new import_obsidian12.Notice(`Unknown command: ${action}`);
+        new import_obsidian14.Notice(`Unknown command: ${action}`);
     }
   }
   // ============================================
@@ -58654,7 +59267,7 @@ var InputController = class {
     this.destroyResumeDropdown();
     const conversations = plugin.getConversationList();
     if (conversations.length === 0) {
-      new import_obsidian12.Notice("No conversations to resume");
+      new import_obsidian14.Notice("No conversations to resume");
       return;
     }
     const openConversation = (_a3 = this.deps.openConversation) != null ? _a3 : ((id) => conversationController.switchTo(id));
@@ -58668,7 +59281,7 @@ var InputController = class {
           this.destroyResumeDropdown();
           openConversation(id).catch((err) => {
             const msg = err instanceof Error ? err.message : String(err);
-            new import_obsidian12.Notice(`Failed to open conversation: ${msg}`);
+            new import_obsidian14.Notice(`Failed to open conversation: ${msg}`);
           });
         },
         onDismiss: () => {
@@ -58806,7 +59419,7 @@ var NavigationController = class {
 };
 
 // src/features/chat/controllers/SelectionController.ts
-var import_obsidian13 = require("obsidian");
+var import_obsidian15 = require("obsidian");
 
 // src/shared/components/SelectionHighlight.ts
 var import_state = require("@codemirror/state");
@@ -58895,7 +59508,7 @@ var SelectionController = class {
   // ============================================
   poll() {
     var _a3, _b, _c, _d;
-    const view = this.app.workspace.getActiveViewOfType(import_obsidian13.MarkdownView);
+    const view = this.app.workspace.getActiveViewOfType(import_obsidian15.MarkdownView);
     if (!view) return;
     const editor = view.editor;
     const editorView = getEditorView(editor);
@@ -58955,12 +59568,7 @@ var SelectionController = class {
   updateContextRowVisibility() {
     var _a3;
     if (!this.contextRowEl) return;
-    const hasSelection = this.storedSelection !== null;
-    const fileIndicator = this.contextRowEl.querySelector(".claudian-file-indicator");
-    const imagePreview = this.contextRowEl.querySelector(".claudian-image-preview");
-    const hasFileChips = (fileIndicator == null ? void 0 : fileIndicator.style.display) === "flex";
-    const hasImageChips = (imagePreview == null ? void 0 : imagePreview.style.display) === "flex";
-    this.contextRowEl.classList.toggle("has-content", hasSelection || hasFileChips || hasImageChips);
+    updateContextRowHasContent(this.contextRowEl);
     (_a3 = this.onVisibilityChange) == null ? void 0 : _a3.call(this);
   }
   // ============================================
@@ -59066,6 +59674,752 @@ function diffFromToolInput(toolCall, filePath) {
   return void 0;
 }
 
+// src/utils/sdkSession.ts
+var import_fs3 = require("fs");
+var fs6 = __toESM(require("fs/promises"));
+var os6 = __toESM(require("os"));
+var path7 = __toESM(require("path"));
+
+// src/utils/interrupt.ts
+var INTERRUPT_MARKERS = /* @__PURE__ */ new Set([
+  "[Request interrupted by user]",
+  "[Request interrupted by user for tool use]"
+]);
+var COMPACTION_CANCELED_STDERR_PATTERN = /^<local-command-stderr>\s*Error:\s*Compaction canceled\.?\s*<\/local-command-stderr>$/i;
+function normalize2(text) {
+  return text.trim();
+}
+function isBracketInterruptText(text) {
+  return INTERRUPT_MARKERS.has(normalize2(text));
+}
+function isCompactionCanceledStderr(text) {
+  return COMPACTION_CANCELED_STDERR_PATTERN.test(normalize2(text));
+}
+function isInterruptSignalText(text) {
+  return isBracketInterruptText(text) || isCompactionCanceledStderr(text);
+}
+
+// src/utils/subagentJsonl.ts
+function extractFinalResultFromSubagentJsonl(content) {
+  var _a3;
+  const lines = content.split("\n").map((line) => line.trim()).filter((line) => line.length > 0 && line.startsWith("{"));
+  let lastAssistantText = null;
+  let lastResultText = null;
+  for (const line of lines) {
+    let raw;
+    try {
+      raw = JSON.parse(line);
+    } catch (e2) {
+      continue;
+    }
+    if (!raw || typeof raw !== "object") {
+      continue;
+    }
+    const record2 = raw;
+    if (typeof record2.result === "string" && record2.result.trim().length > 0) {
+      lastResultText = record2.result.trim();
+    }
+    if (((_a3 = record2.message) == null ? void 0 : _a3.role) !== "assistant" || !Array.isArray(record2.message.content)) {
+      continue;
+    }
+    for (const blockRaw of record2.message.content) {
+      if (!blockRaw || typeof blockRaw !== "object") {
+        continue;
+      }
+      const block = blockRaw;
+      if (block.type === "text" && typeof block.text === "string" && block.text.trim().length > 0) {
+        lastAssistantText = block.text.trim();
+      }
+    }
+  }
+  return lastAssistantText != null ? lastAssistantText : lastResultText;
+}
+
+// src/utils/sdkSession.ts
+function encodeVaultPathForSDK(vaultPath) {
+  const absolutePath = path7.resolve(vaultPath);
+  return absolutePath.replace(/[^a-zA-Z0-9]/g, "-");
+}
+function getSDKProjectsPath() {
+  return path7.join(os6.homedir(), ".claude", "projects");
+}
+function isValidAgentId(agentId) {
+  if (!agentId || agentId.length > 128) {
+    return false;
+  }
+  if (agentId.includes("..") || agentId.includes("/") || agentId.includes("\\")) {
+    return false;
+  }
+  return /^[a-zA-Z0-9_-]+$/.test(agentId);
+}
+function parseTimestampMs(raw) {
+  if (typeof raw !== "string") return Date.now();
+  const parsed = Date.parse(raw);
+  return Number.isNaN(parsed) ? Date.now() : parsed;
+}
+function parseSubagentEvents(entry) {
+  var _a3;
+  if (!entry || typeof entry !== "object") return [];
+  const record2 = entry;
+  const content = (_a3 = record2.message) == null ? void 0 : _a3.content;
+  if (!Array.isArray(content)) return [];
+  const timestamp = parseTimestampMs(record2.timestamp);
+  const events = [];
+  for (const blockRaw of content) {
+    if (!blockRaw || typeof blockRaw !== "object") continue;
+    const block = blockRaw;
+    if (block.type === "tool_use") {
+      if (typeof block.id !== "string" || typeof block.name !== "string") continue;
+      events.push({
+        type: "tool_use",
+        toolUseId: block.id,
+        toolName: block.name,
+        toolInput: block.input && typeof block.input === "object" ? block.input : {},
+        timestamp
+      });
+      continue;
+    }
+    if (block.type === "tool_result") {
+      if (typeof block.tool_use_id !== "string") continue;
+      const contentText = typeof block.content === "string" ? block.content : block.content === void 0 ? "" : JSON.stringify(block.content);
+      events.push({
+        type: "tool_result",
+        toolUseId: block.tool_use_id,
+        content: contentText,
+        isError: block.is_error === true,
+        timestamp
+      });
+    }
+  }
+  return events;
+}
+function buildToolCallsFromSubagentEvents(events) {
+  const toolsById = /* @__PURE__ */ new Map();
+  for (const event of events) {
+    const existing = toolsById.get(event.toolUseId);
+    if (event.type === "tool_use") {
+      if (!existing) {
+        toolsById.set(event.toolUseId, {
+          toolCall: {
+            id: event.toolUseId,
+            name: event.toolName,
+            input: { ...event.toolInput },
+            status: "running",
+            isExpanded: false
+          },
+          hasToolUse: true,
+          hasToolResult: false,
+          timestamp: event.timestamp
+        });
+      } else {
+        existing.toolCall.name = event.toolName;
+        existing.toolCall.input = { ...event.toolInput };
+        existing.hasToolUse = true;
+        existing.timestamp = event.timestamp;
+      }
+      continue;
+    }
+    if (!existing) {
+      toolsById.set(event.toolUseId, {
+        toolCall: {
+          id: event.toolUseId,
+          name: "Unknown",
+          input: {},
+          status: event.isError ? "error" : "completed",
+          result: event.content,
+          isExpanded: false
+        },
+        hasToolUse: false,
+        hasToolResult: true,
+        timestamp: event.timestamp
+      });
+      continue;
+    }
+    existing.toolCall.status = event.isError ? "error" : "completed";
+    existing.toolCall.result = event.content;
+    existing.hasToolResult = true;
+  }
+  return Array.from(toolsById.values()).filter((entry) => entry.hasToolUse).sort((a, b3) => a.timestamp - b3.timestamp).map((entry) => entry.toolCall);
+}
+function getSubagentSidecarPath(vaultPath, sessionId, agentId) {
+  if (!isValidSessionId(sessionId) || !isValidAgentId(agentId)) {
+    return null;
+  }
+  const encodedVault = encodeVaultPathForSDK(vaultPath);
+  return path7.join(
+    getSDKProjectsPath(),
+    encodedVault,
+    sessionId,
+    "subagents",
+    `agent-${agentId}.jsonl`
+  );
+}
+async function loadSubagentToolCalls(vaultPath, sessionId, agentId) {
+  const subagentFilePath = getSubagentSidecarPath(vaultPath, sessionId, agentId);
+  if (!subagentFilePath) return [];
+  try {
+    if (!(0, import_fs3.existsSync)(subagentFilePath)) return [];
+    const content = await fs6.readFile(subagentFilePath, "utf-8");
+    const lines = content.split("\n").filter((line) => line.trim());
+    const events = [];
+    const seen = /* @__PURE__ */ new Set();
+    for (const line of lines) {
+      let raw;
+      try {
+        raw = JSON.parse(line);
+      } catch (e2) {
+        continue;
+      }
+      for (const event of parseSubagentEvents(raw)) {
+        const key = `${event.type}:${event.toolUseId}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        events.push(event);
+      }
+    }
+    if (events.length === 0) return [];
+    return buildToolCallsFromSubagentEvents(events);
+  } catch (e2) {
+    return [];
+  }
+}
+async function loadSubagentFinalResult(vaultPath, sessionId, agentId) {
+  const subagentFilePath = getSubagentSidecarPath(vaultPath, sessionId, agentId);
+  if (!subagentFilePath) return null;
+  try {
+    if (!(0, import_fs3.existsSync)(subagentFilePath)) return null;
+    const content = await fs6.readFile(subagentFilePath, "utf-8");
+    return extractFinalResultFromSubagentJsonl(content);
+  } catch (e2) {
+    return null;
+  }
+}
+function isValidSessionId(sessionId) {
+  if (!sessionId || sessionId.length === 0 || sessionId.length > 128) {
+    return false;
+  }
+  if (sessionId.includes("..") || sessionId.includes("/") || sessionId.includes("\\")) {
+    return false;
+  }
+  return /^[a-zA-Z0-9_-]+$/.test(sessionId);
+}
+function getSDKSessionPath(vaultPath, sessionId) {
+  if (!isValidSessionId(sessionId)) {
+    throw new Error(`Invalid session ID: ${sessionId}`);
+  }
+  const projectsPath = getSDKProjectsPath();
+  const encodedVault = encodeVaultPathForSDK(vaultPath);
+  return path7.join(projectsPath, encodedVault, `${sessionId}.jsonl`);
+}
+function sdkSessionExists(vaultPath, sessionId) {
+  try {
+    const sessionPath = getSDKSessionPath(vaultPath, sessionId);
+    return (0, import_fs3.existsSync)(sessionPath);
+  } catch (e2) {
+    return false;
+  }
+}
+async function deleteSDKSession(vaultPath, sessionId) {
+  try {
+    const sessionPath = getSDKSessionPath(vaultPath, sessionId);
+    if (!(0, import_fs3.existsSync)(sessionPath)) return;
+    await fs6.unlink(sessionPath);
+  } catch (e2) {
+  }
+}
+async function readSDKSession(vaultPath, sessionId) {
+  try {
+    const sessionPath = getSDKSessionPath(vaultPath, sessionId);
+    if (!(0, import_fs3.existsSync)(sessionPath)) {
+      return { messages: [], skippedLines: 0 };
+    }
+    const content = await fs6.readFile(sessionPath, "utf-8");
+    const lines = content.split("\n").filter((line) => line.trim());
+    const messages = [];
+    let skippedLines = 0;
+    for (const line of lines) {
+      try {
+        const msg = JSON.parse(line);
+        messages.push(msg);
+      } catch (e2) {
+        skippedLines++;
+      }
+    }
+    return { messages, skippedLines };
+  } catch (error48) {
+    const errorMsg = error48 instanceof Error ? error48.message : String(error48);
+    return { messages: [], skippedLines: 0, error: errorMsg };
+  }
+}
+function extractTextContent(content) {
+  if (!content) return "";
+  if (typeof content === "string") return content;
+  return content.filter(
+    (block) => block.type === "text" && typeof block.text === "string" && block.text.trim() !== "(no content)"
+  ).map((block) => block.text).join("\n");
+}
+function isRebuiltContextContent(textContent) {
+  if (!/^(User|Assistant):\s/.test(textContent)) return false;
+  return textContent.includes("\n\nUser:") || textContent.includes("\n\nAssistant:") || textContent.includes("\n\nA:");
+}
+function extractDisplayContent(textContent) {
+  return extractContentBeforeXmlContext(textContent);
+}
+function extractImages(content) {
+  if (!content || typeof content === "string") return void 0;
+  const imageBlocks = content.filter(
+    (block) => {
+      var _a3;
+      return block.type === "image" && !!((_a3 = block.source) == null ? void 0 : _a3.data);
+    }
+  );
+  if (imageBlocks.length === 0) return void 0;
+  return imageBlocks.map((block, index) => ({
+    id: `sdk-img-${Date.now()}-${index}`,
+    name: `image-${index + 1}`,
+    mediaType: block.source.media_type,
+    data: block.source.data,
+    size: Math.ceil(block.source.data.length * 0.75),
+    // Approximate original size from base64
+    source: "paste"
+  }));
+}
+function extractToolCalls(content, toolResults) {
+  var _a3;
+  if (!content || typeof content === "string") return void 0;
+  const toolUses = content.filter(
+    (block) => block.type === "tool_use" && !!block.id && !!block.name
+  );
+  if (toolUses.length === 0) return void 0;
+  const results = toolResults != null ? toolResults : /* @__PURE__ */ new Map();
+  if (!toolResults) {
+    for (const block of content) {
+      if (block.type === "tool_result" && block.tool_use_id) {
+        const resultContent = typeof block.content === "string" ? block.content : JSON.stringify(block.content);
+        results.set(block.tool_use_id, {
+          content: resultContent,
+          isError: (_a3 = block.is_error) != null ? _a3 : false
+        });
+      }
+    }
+  }
+  return toolUses.map((block) => {
+    var _a4;
+    const result = results.get(block.id);
+    return {
+      id: block.id,
+      name: block.name,
+      input: (_a4 = block.input) != null ? _a4 : {},
+      status: result ? result.isError ? "error" : "completed" : "completed",
+      result: result == null ? void 0 : result.content,
+      isExpanded: false
+    };
+  });
+}
+function mapContentBlocks(content) {
+  var _a3;
+  if (!content || typeof content === "string") return void 0;
+  const blocks = [];
+  for (const block of content) {
+    switch (block.type) {
+      case "text": {
+        const trimmed = (_a3 = block.text) == null ? void 0 : _a3.trim();
+        if (trimmed && trimmed !== "(no content)") {
+          blocks.push({ type: "text", content: trimmed });
+        }
+        break;
+      }
+      case "thinking":
+        if (block.thinking) {
+          blocks.push({ type: "thinking", content: block.thinking });
+        }
+        break;
+      case "tool_use":
+        if (block.id) {
+          blocks.push({ type: "tool_use", toolId: block.id });
+        }
+        break;
+    }
+  }
+  return blocks.length > 0 ? blocks : void 0;
+}
+function parseSDKMessageToChat(sdkMsg, toolResults) {
+  var _a3;
+  if (sdkMsg.type === "file-history-snapshot") return null;
+  if (sdkMsg.type === "system") {
+    if (sdkMsg.subtype === "compact_boundary") {
+      const timestamp2 = sdkMsg.timestamp ? new Date(sdkMsg.timestamp).getTime() : Date.now();
+      return {
+        id: sdkMsg.uuid || `compact-${timestamp2}-${Math.random().toString(36).slice(2)}`,
+        role: "assistant",
+        content: "",
+        timestamp: timestamp2,
+        contentBlocks: [{ type: "compact_boundary" }]
+      };
+    }
+    return null;
+  }
+  if (sdkMsg.type === "result") return null;
+  if (sdkMsg.type !== "user" && sdkMsg.type !== "assistant") return null;
+  const content = (_a3 = sdkMsg.message) == null ? void 0 : _a3.content;
+  const textContent = extractTextContent(content);
+  const images = sdkMsg.type === "user" ? extractImages(content) : void 0;
+  const hasToolUse = Array.isArray(content) && content.some((b3) => b3.type === "tool_use");
+  const hasImages = images && images.length > 0;
+  if (!textContent && !hasToolUse && !hasImages && (!content || typeof content === "string")) return null;
+  const timestamp = sdkMsg.timestamp ? new Date(sdkMsg.timestamp).getTime() : Date.now();
+  const commandNameMatch = sdkMsg.type === "user" ? textContent.match(/<command-name>(\/[^<]+)<\/command-name>/) : null;
+  let displayContent;
+  if (sdkMsg.type === "user") {
+    displayContent = commandNameMatch ? commandNameMatch[1] : extractDisplayContent(textContent);
+  }
+  const isInterrupt = sdkMsg.type === "user" && isInterruptSignalText(textContent);
+  const isRebuiltContext = sdkMsg.type === "user" && isRebuiltContextContent(textContent);
+  return {
+    id: sdkMsg.uuid || `sdk-${timestamp}-${Math.random().toString(36).slice(2)}`,
+    role: sdkMsg.type,
+    content: textContent,
+    displayContent,
+    timestamp,
+    toolCalls: sdkMsg.type === "assistant" ? extractToolCalls(content, toolResults) : void 0,
+    contentBlocks: sdkMsg.type === "assistant" ? mapContentBlocks(content) : void 0,
+    images,
+    ...sdkMsg.type === "user" && sdkMsg.uuid && { sdkUserUuid: sdkMsg.uuid },
+    ...sdkMsg.type === "assistant" && sdkMsg.uuid && { sdkAssistantUuid: sdkMsg.uuid },
+    ...isInterrupt && { isInterrupt: true },
+    ...isRebuiltContext && { isRebuiltContext: true }
+  };
+}
+function collectToolResults(sdkMessages) {
+  var _a3, _b;
+  const results = /* @__PURE__ */ new Map();
+  for (const sdkMsg of sdkMessages) {
+    const content = (_a3 = sdkMsg.message) == null ? void 0 : _a3.content;
+    if (!content || typeof content === "string") continue;
+    for (const block of content) {
+      if (block.type === "tool_result" && block.tool_use_id) {
+        const resultContent = typeof block.content === "string" ? block.content : JSON.stringify(block.content);
+        results.set(block.tool_use_id, {
+          content: resultContent,
+          isError: (_b = block.is_error) != null ? _b : false
+        });
+      }
+    }
+  }
+  return results;
+}
+function collectStructuredPatchResults(sdkMessages) {
+  var _a3;
+  const results = /* @__PURE__ */ new Map();
+  for (const sdkMsg of sdkMessages) {
+    if (sdkMsg.type !== "user" || !sdkMsg.toolUseResult) continue;
+    const content = (_a3 = sdkMsg.message) == null ? void 0 : _a3.content;
+    if (!content || typeof content === "string") continue;
+    for (const block of content) {
+      if (block.type === "tool_result" && block.tool_use_id) {
+        results.set(block.tool_use_id, sdkMsg.toolUseResult);
+      }
+    }
+  }
+  return results;
+}
+function collectAsyncSubagentResults(sdkMessages) {
+  const results = /* @__PURE__ */ new Map();
+  for (const sdkMsg of sdkMessages) {
+    if (sdkMsg.type !== "queue-operation") continue;
+    if (sdkMsg.operation !== "enqueue") continue;
+    if (typeof sdkMsg.content !== "string") continue;
+    if (!sdkMsg.content.includes("<task-notification>")) continue;
+    const taskId = extractXmlTag(sdkMsg.content, "task-id");
+    const status = extractXmlTag(sdkMsg.content, "status");
+    const result = extractXmlTag(sdkMsg.content, "result");
+    if (!taskId || !result) continue;
+    results.set(taskId, {
+      result,
+      status: status != null ? status : "completed"
+    });
+  }
+  return results;
+}
+function extractXmlTag(content, tagName) {
+  const regex = new RegExp(`<${tagName}>\\s*([\\s\\S]*?)\\s*</${tagName}>`, "i");
+  const match = content.match(regex);
+  if (!match || !match[1]) return null;
+  const trimmed = match[1].trim();
+  return trimmed.length > 0 ? trimmed : null;
+}
+function isSystemInjectedMessage(sdkMsg) {
+  var _a3;
+  if (sdkMsg.type !== "user") return false;
+  if ("toolUseResult" in sdkMsg || "sourceToolUseID" in sdkMsg || !!sdkMsg.isMeta) {
+    return true;
+  }
+  const text = extractTextContent((_a3 = sdkMsg.message) == null ? void 0 : _a3.content);
+  if (!text) return false;
+  if (text.includes("<command-name>") && text.includes("<command-message>")) return false;
+  if (isCompactionCanceledStderr(text)) return false;
+  if (text.startsWith("This session is being continued from a previous conversation")) return true;
+  if (text.includes("<command-name>")) return true;
+  if (text.includes("<local-command-stdout>") || text.includes("<local-command-stderr>")) return true;
+  return false;
+}
+function filterActiveBranch(entries, resumeSessionAt) {
+  if (entries.length === 0) return [];
+  const seen = /* @__PURE__ */ new Set();
+  const deduped = [];
+  for (const entry of entries) {
+    if (entry.uuid) {
+      if (seen.has(entry.uuid)) continue;
+      seen.add(entry.uuid);
+    }
+    deduped.push(entry);
+  }
+  const byUuid = /* @__PURE__ */ new Map();
+  const childrenOf = /* @__PURE__ */ new Map();
+  for (const entry of deduped) {
+    if (entry.uuid) {
+      byUuid.set(entry.uuid, entry);
+    }
+    if (entry.parentUuid && entry.uuid) {
+      let children = childrenOf.get(entry.parentUuid);
+      if (!children) {
+        children = /* @__PURE__ */ new Set();
+        childrenOf.set(entry.parentUuid, children);
+      }
+      children.add(entry.uuid);
+    }
+  }
+  const hasBranching = [...childrenOf.values()].some((children) => children.size > 1);
+  let leaf;
+  if (hasBranching) {
+    for (let i2 = deduped.length - 1; i2 >= 0; i2--) {
+      const uuid3 = deduped[i2].uuid;
+      if (uuid3 && !childrenOf.has(uuid3)) {
+        leaf = deduped[i2];
+        break;
+      }
+    }
+    if (resumeSessionAt && (leaf == null ? void 0 : leaf.uuid) && byUuid.has(resumeSessionAt)) {
+      let current2 = leaf;
+      while (current2 == null ? void 0 : current2.uuid) {
+        if (current2.uuid === resumeSessionAt) {
+          leaf = current2;
+          break;
+        }
+        if (current2.parentUuid) {
+          current2 = byUuid.get(current2.parentUuid);
+        } else {
+          break;
+        }
+      }
+    }
+  } else if (resumeSessionAt) {
+    leaf = byUuid.get(resumeSessionAt);
+  } else {
+    return deduped;
+  }
+  if (!leaf || !leaf.uuid) return deduped;
+  const activeUuids = /* @__PURE__ */ new Set();
+  let current = leaf;
+  while (current == null ? void 0 : current.uuid) {
+    activeUuids.add(current.uuid);
+    if (current.parentUuid) {
+      current = byUuid.get(current.parentUuid);
+    } else {
+      break;
+    }
+  }
+  const n2 = deduped.length;
+  const prevIsActive = new Array(n2);
+  const nextIsActive = new Array(n2);
+  let lastPrevActive = false;
+  for (let i2 = 0; i2 < n2; i2++) {
+    if (deduped[i2].uuid) {
+      lastPrevActive = activeUuids.has(deduped[i2].uuid);
+    }
+    prevIsActive[i2] = lastPrevActive;
+  }
+  let lastNextActive = false;
+  for (let i2 = n2 - 1; i2 >= 0; i2--) {
+    if (deduped[i2].uuid) {
+      lastNextActive = activeUuids.has(deduped[i2].uuid);
+    }
+    nextIsActive[i2] = lastNextActive;
+  }
+  return deduped.filter((entry, idx) => {
+    if (entry.uuid) return activeUuids.has(entry.uuid);
+    return prevIsActive[idx] && nextIsActive[idx];
+  });
+}
+function mergeAssistantMessage(target, source) {
+  if (source.content) {
+    if (target.content) {
+      target.content = target.content + "\n\n" + source.content;
+    } else {
+      target.content = source.content;
+    }
+  }
+  if (source.toolCalls) {
+    target.toolCalls = [...target.toolCalls || [], ...source.toolCalls];
+  }
+  if (source.contentBlocks) {
+    target.contentBlocks = [...target.contentBlocks || [], ...source.contentBlocks];
+  }
+  if (source.sdkAssistantUuid) {
+    target.sdkAssistantUuid = source.sdkAssistantUuid;
+  }
+}
+function extractAgentIdFromToolUseResult(toolUseResult) {
+  var _a3, _b;
+  if (!toolUseResult || typeof toolUseResult !== "object") return null;
+  const record2 = toolUseResult;
+  const directAgentId = (_a3 = record2.agentId) != null ? _a3 : record2.agent_id;
+  if (typeof directAgentId === "string" && directAgentId.length > 0) {
+    return directAgentId;
+  }
+  const data = record2.data;
+  if (data && typeof data === "object") {
+    const nested = data;
+    const nestedAgentId = (_b = nested.agent_id) != null ? _b : nested.agentId;
+    if (typeof nestedAgentId === "string" && nestedAgentId.length > 0) {
+      return nestedAgentId;
+    }
+  }
+  return null;
+}
+function buildAsyncSubagentInfo(toolCall, toolUseResult, asyncResults) {
+  var _a3, _b, _c;
+  const agentId = extractAgentIdFromToolUseResult(toolUseResult);
+  if (!agentId) return null;
+  const queueResult = asyncResults.get(agentId);
+  const description = ((_a3 = toolCall.input) == null ? void 0 : _a3.description) || "Background task";
+  const prompt = ((_b = toolCall.input) == null ? void 0 : _b.prompt) || "";
+  const finalResult = (_c = queueResult == null ? void 0 : queueResult.result) != null ? _c : toolCall.result;
+  const isCompleted = (queueResult == null ? void 0 : queueResult.status) === "completed" || toolCall.status === "completed";
+  const isError = (queueResult == null ? void 0 : queueResult.status) === "error" || toolCall.status === "error";
+  const status = isError ? "error" : isCompleted ? "completed" : "running";
+  return {
+    id: toolCall.id,
+    description,
+    prompt,
+    mode: "async",
+    isExpanded: false,
+    status,
+    toolCalls: [],
+    asyncStatus: status === "running" ? "running" : status === "error" ? "error" : "completed",
+    agentId,
+    result: finalResult
+  };
+}
+async function loadSDKSessionMessages(vaultPath, sessionId, resumeSessionAt) {
+  var _a3, _b, _c, _d;
+  const result = await readSDKSession(vaultPath, sessionId);
+  if (result.error) {
+    return { messages: [], skippedLines: result.skippedLines, error: result.error };
+  }
+  const filteredEntries = filterActiveBranch(result.messages, resumeSessionAt);
+  const toolResults = collectToolResults(filteredEntries);
+  const toolUseResults = collectStructuredPatchResults(filteredEntries);
+  const asyncSubagentResults = collectAsyncSubagentResults(filteredEntries);
+  const chatMessages = [];
+  let pendingAssistant = null;
+  for (const sdkMsg of filteredEntries) {
+    if (isSystemInjectedMessage(sdkMsg)) continue;
+    if (sdkMsg.type === "assistant" && ((_a3 = sdkMsg.message) == null ? void 0 : _a3.model) === "<synthetic>") continue;
+    const chatMsg = parseSDKMessageToChat(sdkMsg, toolResults);
+    if (!chatMsg) continue;
+    if (chatMsg.role === "assistant") {
+      const isCompactBoundary = (_b = chatMsg.contentBlocks) == null ? void 0 : _b.some((b3) => b3.type === "compact_boundary");
+      if (isCompactBoundary) {
+        if (pendingAssistant) {
+          chatMessages.push(pendingAssistant);
+        }
+        chatMessages.push(chatMsg);
+        pendingAssistant = null;
+      } else if (pendingAssistant) {
+        mergeAssistantMessage(pendingAssistant, chatMsg);
+      } else {
+        pendingAssistant = chatMsg;
+      }
+    } else {
+      if (pendingAssistant) {
+        chatMessages.push(pendingAssistant);
+        pendingAssistant = null;
+      }
+      chatMessages.push(chatMsg);
+    }
+  }
+  if (pendingAssistant) {
+    chatMessages.push(pendingAssistant);
+  }
+  if (toolUseResults.size > 0) {
+    for (const msg of chatMessages) {
+      if (msg.role !== "assistant" || !msg.toolCalls) continue;
+      for (const toolCall of msg.toolCalls) {
+        const toolUseResult = toolUseResults.get(toolCall.id);
+        if (!toolUseResult) continue;
+        if (!toolCall.diffData) {
+          toolCall.diffData = extractDiffData(toolUseResult, toolCall);
+        }
+        if (toolCall.name === TOOL_ASK_USER_QUESTION) {
+          const answers = (_c = extractResolvedAnswers(toolUseResult)) != null ? _c : extractResolvedAnswersFromResultText(toolCall.result);
+          if (answers) toolCall.resolvedAnswers = answers;
+        }
+      }
+    }
+  }
+  for (const msg of chatMessages) {
+    if (msg.role !== "assistant" || !msg.toolCalls) continue;
+    for (const toolCall of msg.toolCalls) {
+      if (toolCall.name !== TOOL_ASK_USER_QUESTION || toolCall.resolvedAnswers) continue;
+      const answers = extractResolvedAnswersFromResultText(toolCall.result);
+      if (answers) toolCall.resolvedAnswers = answers;
+    }
+  }
+  if (toolUseResults.size > 0 || asyncSubagentResults.size > 0) {
+    const sidecarLoads = [];
+    for (const msg of chatMessages) {
+      if (msg.role !== "assistant" || !msg.toolCalls) continue;
+      for (const toolCall of msg.toolCalls) {
+        if (toolCall.name !== TOOL_TASK) continue;
+        if (toolCall.subagent) continue;
+        if (((_d = toolCall.input) == null ? void 0 : _d.run_in_background) !== true) continue;
+        const toolUseResult = toolUseResults.get(toolCall.id);
+        const subagent = buildAsyncSubagentInfo(
+          toolCall,
+          toolUseResult,
+          asyncSubagentResults
+        );
+        if (subagent) {
+          toolCall.subagent = subagent;
+          if (subagent.result !== void 0) {
+            toolCall.result = subagent.result;
+          }
+          if (subagent.status === "completed") toolCall.status = "completed";
+          else if (subagent.status === "error") toolCall.status = "error";
+          if (subagent.agentId && isValidAgentId(subagent.agentId)) {
+            sidecarLoads.push({
+              subagent,
+              promise: loadSubagentToolCalls(vaultPath, sessionId, subagent.agentId)
+            });
+          }
+        }
+      }
+    }
+    if (sidecarLoads.length > 0) {
+      const results = await Promise.all(sidecarLoads.map((s) => s.promise));
+      for (let i2 = 0; i2 < sidecarLoads.length; i2++) {
+        const toolCalls = results[i2];
+        if (toolCalls.length > 0) {
+          sidecarLoads[i2].subagent.toolCalls = toolCalls;
+        }
+      }
+    }
+  }
+  chatMessages.sort((a, b3) => a.timestamp - b3.timestamp);
+  return { messages: chatMessages, skippedLines: result.skippedLines };
+}
+
 // src/features/chat/controllers/StreamController.ts
 var _StreamController = class _StreamController {
   constructor(deps) {
@@ -59116,7 +60470,7 @@ var _StreamController = class _StreamController {
         break;
       }
       case "tool_result": {
-        this.handleToolResult(chunk, msg);
+        await this.handleToolResult(chunk, msg);
         break;
       }
       case "blocked":
@@ -59176,7 +60530,7 @@ var _StreamController = class _StreamController {
    * Tools are rendered when flushPendingTools is called (on next content type or tool_result).
    */
   handleRegularToolUse(chunk, msg) {
-    var _a3, _b;
+    var _a3, _b, _c;
     const { state } = this.deps;
     const existingToolCall = (_a3 = msg.toolCalls) == null ? void 0 : _a3.find((tc) => tc.id === chunk.id);
     if (existingToolCall) {
@@ -59194,9 +60548,13 @@ var _StreamController = class _StreamController {
         }
         const toolEl = state.toolCallElements.get(chunk.id);
         if (toolEl) {
-          const labelEl = (_b = toolEl.querySelector(".claudian-tool-label")) != null ? _b : toolEl.querySelector(".claudian-write-edit-label");
-          if (labelEl) {
-            labelEl.setText(getToolLabel(existingToolCall.name, existingToolCall.input));
+          const nameEl = (_b = toolEl.querySelector(".claudian-tool-name")) != null ? _b : toolEl.querySelector(".claudian-write-edit-name");
+          if (nameEl) {
+            nameEl.setText(getToolName(existingToolCall.name, existingToolCall.input));
+          }
+          const summaryEl = (_c = toolEl.querySelector(".claudian-tool-summary")) != null ? _c : toolEl.querySelector(".claudian-write-edit-summary");
+          if (summaryEl) {
+            summaryEl.setText(getToolSummary(existingToolCall.name, existingToolCall.input));
           }
         }
       }
@@ -59268,11 +60626,11 @@ var _StreamController = class _StreamController {
     }
     state.pendingTools.delete(toolId);
   }
-  handleToolResult(chunk, msg) {
-    var _a3;
+  async handleToolResult(chunk, msg) {
+    var _a3, _b;
     const { state, subagentManager } = this.deps;
     if (subagentManager.hasPendingTask(chunk.id)) {
-      this.renderPendingTaskViaManager(chunk.id, msg);
+      this.renderPendingTaskFromTaskResultViaManager(chunk, msg);
     }
     const subagentState = subagentManager.getSyncSubagent(chunk.id);
     if (subagentState) {
@@ -59283,7 +60641,7 @@ var _StreamController = class _StreamController {
       this.showThinkingIndicator();
       return;
     }
-    if (this.handleAgentOutputToolResult(chunk)) {
+    if (await this.handleAgentOutputToolResult(chunk)) {
       this.showThinkingIndicator();
       return;
     }
@@ -59301,8 +60659,8 @@ var _StreamController = class _StreamController {
         existingToolCall.status = "completed";
       }
       existingToolCall.result = chunk.content;
-      if (existingToolCall.name === TOOL_ASK_USER_QUESTION && chunk.toolUseResult) {
-        const answers = extractResolvedAnswers(chunk.toolUseResult);
+      if (existingToolCall.name === TOOL_ASK_USER_QUESTION) {
+        const answers = (_b = extractResolvedAnswers(chunk.toolUseResult)) != null ? _b : extractResolvedAnswersFromResultText(chunk.content);
         if (answers) existingToolCall.resolvedAnswers = answers;
       }
       const writeEditState = state.writeEditStates.get(chunk.id);
@@ -59382,6 +60740,7 @@ var _StreamController = class _StreamController {
   /** Delegates Task tool_use to SubagentManager and updates message based on result. */
   handleTaskToolUseViaManager(chunk, msg) {
     const { state, subagentManager } = this.deps;
+    this.ensureTaskToolCall(msg, chunk.id, chunk.input);
     const result = subagentManager.handleTaskToolUse(chunk.id, chunk.input, state.currentContentEl);
     switch (result.action) {
       case "created_sync":
@@ -59409,13 +60768,36 @@ var _StreamController = class _StreamController {
       this.recordSubagentInMessage(msg, result.info, toolId, "async");
     }
   }
-  recordSubagentInMessage(msg, info, toolId, mode) {
-    msg.subagents = msg.subagents || [];
-    msg.subagents.push(info);
-    msg.contentBlocks = msg.contentBlocks || [];
-    msg.contentBlocks.push(
-      mode ? { type: "subagent", subagentId: toolId, mode } : { type: "subagent", subagentId: toolId }
+  /** Resolves a pending Task when its own tool_result arrives. */
+  renderPendingTaskFromTaskResultViaManager(chunk, msg) {
+    const result = this.deps.subagentManager.renderPendingTaskFromTaskResult(
+      chunk.id,
+      chunk.content,
+      chunk.isError || false,
+      this.deps.state.currentContentEl,
+      chunk.toolUseResult
     );
+    if (!result) return;
+    if (result.mode === "sync") {
+      this.recordSubagentInMessage(msg, result.subagentState.info, chunk.id);
+    } else {
+      this.recordSubagentInMessage(msg, result.info, chunk.id, "async");
+    }
+  }
+  recordSubagentInMessage(msg, info, toolId, mode) {
+    const taskToolCall = this.ensureTaskToolCall(msg, toolId);
+    this.applySubagentToTaskToolCall(taskToolCall, info);
+    msg.contentBlocks = msg.contentBlocks || [];
+    const existingBlock = msg.contentBlocks.find(
+      (block) => block.type === "subagent" && block.subagentId === toolId
+    );
+    if (existingBlock && mode && existingBlock.type === "subagent") {
+      existingBlock.mode = mode;
+    } else if (!existingBlock) {
+      msg.contentBlocks.push(
+        mode ? { type: "subagent", subagentId: toolId, mode } : { type: "subagent", subagentId: toolId }
+      );
+    }
   }
   async handleSubagentChunk(chunk, msg) {
     if (!("parentToolUseId" in chunk) || !chunk.parentToolUseId) {
@@ -59462,11 +60844,22 @@ var _StreamController = class _StreamController {
   finalizeSubagent(chunk, msg) {
     var _a3;
     const isError = chunk.isError || false;
-    this.deps.subagentManager.finalizeSyncSubagent(chunk.id, chunk.content, isError);
-    const subagentInfo = (_a3 = msg.subagents) == null ? void 0 : _a3.find((s) => s.id === chunk.id);
-    if (subagentInfo) {
-      subagentInfo.status = isError ? "error" : "completed";
-      subagentInfo.result = chunk.content;
+    const finalized = this.deps.subagentManager.finalizeSyncSubagent(
+      chunk.id,
+      chunk.content,
+      isError,
+      chunk.toolUseResult
+    );
+    const extractedResult = (_a3 = finalized == null ? void 0 : finalized.result) != null ? _a3 : chunk.content;
+    const taskToolCall = this.ensureTaskToolCall(msg, chunk.id);
+    taskToolCall.status = isError ? "error" : "completed";
+    taskToolCall.result = extractedResult;
+    if (taskToolCall.subagent) {
+      taskToolCall.subagent.status = isError ? "error" : "completed";
+      taskToolCall.subagent.result = extractedResult;
+    }
+    if (finalized) {
+      this.applySubagentToTaskToolCall(taskToolCall, finalized);
     }
     this.showThinkingIndicator();
   }
@@ -59490,19 +60883,103 @@ var _StreamController = class _StreamController {
     if (!subagentManager.isPendingAsyncTask(chunk.id)) {
       return false;
     }
-    subagentManager.handleTaskToolResult(chunk.id, chunk.content, chunk.isError);
+    subagentManager.handleTaskToolResult(chunk.id, chunk.content, chunk.isError, chunk.toolUseResult);
     return true;
   }
   /** Handles TaskOutput result to finalize async subagent. */
-  handleAgentOutputToolResult(chunk) {
+  async handleAgentOutputToolResult(chunk) {
     const { subagentManager } = this.deps;
     const isLinked = subagentManager.isLinkedAgentOutputTool(chunk.id);
     const handled = subagentManager.handleAgentOutputToolResult(
       chunk.id,
       chunk.content,
-      chunk.isError || false
+      chunk.isError || false,
+      chunk.toolUseResult
     );
+    await this.hydrateAsyncSubagentToolCalls(handled);
     return isLinked || handled !== void 0;
+  }
+  async hydrateAsyncSubagentToolCalls(subagent) {
+    var _a3, _b, _c, _d;
+    if (!subagent) return;
+    if (subagent.mode !== "async") return;
+    if (!subagent.agentId) return;
+    const asyncStatus = (_a3 = subagent.asyncStatus) != null ? _a3 : subagent.status;
+    if (asyncStatus !== "completed" && asyncStatus !== "error") return;
+    const sessionId = (_d = (_c = (_b = this.deps).getAgentService) == null ? void 0 : _c.call(_b)) == null ? void 0 : _d.getSessionId();
+    if (!sessionId) return;
+    const vaultPath = getVaultPath(this.deps.plugin.app);
+    if (!vaultPath) return;
+    const { hasHydrated, finalResultHydrated } = await this.tryHydrateAsyncSubagent(
+      subagent,
+      vaultPath,
+      sessionId,
+      true
+    );
+    if (hasHydrated) {
+      this.deps.subagentManager.refreshAsyncSubagent(subagent);
+    }
+    if (!finalResultHydrated) {
+      this.scheduleAsyncSubagentResultRetry(subagent, vaultPath, sessionId, 0);
+    }
+  }
+  async tryHydrateAsyncSubagent(subagent, vaultPath, sessionId, hydrateToolCalls) {
+    var _a3;
+    let hasHydrated = false;
+    let finalResultHydrated = false;
+    if (hydrateToolCalls && !((_a3 = subagent.toolCalls) == null ? void 0 : _a3.length)) {
+      const recoveredToolCalls = await loadSubagentToolCalls(
+        vaultPath,
+        sessionId,
+        subagent.agentId || ""
+      );
+      if (recoveredToolCalls.length > 0) {
+        subagent.toolCalls = recoveredToolCalls.map((toolCall) => ({
+          ...toolCall,
+          input: { ...toolCall.input }
+        }));
+        hasHydrated = true;
+      }
+    }
+    const recoveredFinalResult = await loadSubagentFinalResult(
+      vaultPath,
+      sessionId,
+      subagent.agentId || ""
+    );
+    if (recoveredFinalResult && recoveredFinalResult.trim().length > 0) {
+      finalResultHydrated = true;
+      if (recoveredFinalResult !== subagent.result) {
+        subagent.result = recoveredFinalResult;
+        hasHydrated = true;
+      }
+    }
+    return { hasHydrated, finalResultHydrated };
+  }
+  scheduleAsyncSubagentResultRetry(subagent, vaultPath, sessionId, attempt) {
+    if (!subagent.agentId) return;
+    if (attempt >= _StreamController.ASYNC_SUBAGENT_RESULT_RETRY_DELAYS_MS.length) return;
+    const delay = _StreamController.ASYNC_SUBAGENT_RESULT_RETRY_DELAYS_MS[attempt];
+    setTimeout(() => {
+      void this.retryAsyncSubagentResult(subagent, vaultPath, sessionId, attempt);
+    }, delay);
+  }
+  async retryAsyncSubagentResult(subagent, vaultPath, sessionId, attempt) {
+    var _a3;
+    if (!subagent.agentId) return;
+    const asyncStatus = (_a3 = subagent.asyncStatus) != null ? _a3 : subagent.status;
+    if (asyncStatus !== "completed" && asyncStatus !== "error") return;
+    const { hasHydrated, finalResultHydrated } = await this.tryHydrateAsyncSubagent(
+      subagent,
+      vaultPath,
+      sessionId,
+      false
+    );
+    if (hasHydrated) {
+      this.deps.subagentManager.refreshAsyncSubagent(subagent);
+    }
+    if (!finalResultHydrated) {
+      this.scheduleAsyncSubagentResultRetry(subagent, vaultPath, sessionId, attempt + 1);
+    }
   }
   /** Callback from SubagentManager when async state changes. Updates messages only (DOM handled by manager). */
   onAsyncSubagentStateChange(subagent) {
@@ -59513,14 +60990,50 @@ var _StreamController = class _StreamController {
     const { state } = this.deps;
     for (let i2 = state.messages.length - 1; i2 >= 0; i2--) {
       const msg = state.messages[i2];
-      if (msg.role === "assistant" && msg.subagents) {
-        const idx = msg.subagents.findIndex((s) => s.id === subagent.id);
-        if (idx !== -1) {
-          msg.subagents[idx] = subagent;
-          return;
-        }
+      if (msg.role !== "assistant") continue;
+      if (this.linkTaskToolCallToSubagent(msg, subagent)) {
+        return;
       }
     }
+  }
+  ensureTaskToolCall(msg, toolId, input) {
+    msg.toolCalls = msg.toolCalls || [];
+    const existing = msg.toolCalls.find(
+      (tc) => tc.id === toolId && tc.name === TOOL_TASK
+    );
+    if (existing) {
+      if (input && Object.keys(input).length > 0) {
+        existing.input = { ...existing.input, ...input };
+      }
+      return existing;
+    }
+    const taskToolCall = {
+      id: toolId,
+      name: TOOL_TASK,
+      input: input ? { ...input } : {},
+      status: "running",
+      isExpanded: false
+    };
+    msg.toolCalls.push(taskToolCall);
+    return taskToolCall;
+  }
+  applySubagentToTaskToolCall(taskToolCall, subagent) {
+    taskToolCall.subagent = subagent;
+    if (subagent.status === "completed") taskToolCall.status = "completed";
+    else if (subagent.status === "error") taskToolCall.status = "error";
+    else taskToolCall.status = "running";
+    if (subagent.result !== void 0) {
+      taskToolCall.result = subagent.result;
+    }
+  }
+  linkTaskToolCallToSubagent(msg, subagent) {
+    var _a3;
+    const taskToolCall = (_a3 = msg.toolCalls) == null ? void 0 : _a3.find(
+      (tc) => tc.id === subagent.id && tc.name === TOOL_TASK
+    );
+    if (!taskToolCall) return false;
+    this.applySubagentToTaskToolCall(taskToolCall, subagent);
+    return true;
   }
   /**
    * Schedules showing the thinking indicator after a delay.
@@ -59620,6 +61133,7 @@ var _StreamController = class _StreamController {
     state.responseStartTime = null;
   }
 };
+_StreamController.ASYNC_SUBAGENT_RESULT_RETRY_DELAYS_MS = [200, 600, 1500];
 // ============================================
 // Thinking Indicator
 // ============================================
@@ -59637,7 +61151,7 @@ var BangBashService = class {
     this.enhancedPath = enhancedPath;
   }
   execute(command) {
-    return new Promise((resolve4) => {
+    return new Promise((resolve5) => {
       (0, import_child_process3.exec)(command, {
         cwd: this.cwd,
         env: { ...process.env, PATH: this.enhancedPath },
@@ -59647,7 +61161,7 @@ var BangBashService = class {
       }, (error48, stdout, stderr) => {
         if (error48 && "killed" in error48 && error48.killed) {
           const isMaxBuffer = "code" in error48 && error48.code === "ERR_CHILD_PROCESS_STDIO_MAXBUFFER";
-          resolve4({
+          resolve5({
             command,
             stdout: stdout != null ? stdout : "",
             stderr: stderr != null ? stderr : "",
@@ -59656,7 +61170,7 @@ var BangBashService = class {
           });
           return;
         }
-        resolve4({
+        resolve5({
           command,
           stdout: stdout != null ? stdout : "",
           stderr: stderr != null ? stderr : "",
@@ -59851,7 +61365,10 @@ var InstructionRefineService = class {
 };
 
 // src/features/chat/services/SubagentManager.ts
-var SubagentManager = class {
+var import_fs4 = require("fs");
+var import_os2 = require("os");
+var import_path10 = require("path");
+var _SubagentManager = class _SubagentManager {
   constructor(onStateChange) {
     this.syncSubagents = /* @__PURE__ */ new Map();
     this.pendingTasks = /* @__PURE__ */ new Map();
@@ -59898,8 +61415,7 @@ var SubagentManager = class {
       if (currentContentEl) {
         pending.parentEl = currentContentEl;
       }
-      const runInBackground2 = pending.toolCall.input.run_in_background;
-      if (runInBackground2 !== void 0) {
+      if (this.resolveTaskMode(pending.toolCall.input)) {
         const result = this.renderPendingTask(taskToolId, currentContentEl);
         if (result) {
           return result.mode === "sync" ? { action: "created_sync", subagentState: result.subagentState } : { action: "created_async", info: result.info, domState: result.domState };
@@ -59908,37 +61424,33 @@ var SubagentManager = class {
       return { action: "buffered" };
     }
     if (!currentContentEl) {
-      const toolCall2 = {
+      const toolCall = {
         id: taskToolId,
         name: "Task",
         input: taskInput || {},
         status: "running",
         isExpanded: false
       };
-      this.pendingTasks.set(taskToolId, { toolCall: toolCall2, parentEl: null });
+      this.pendingTasks.set(taskToolId, { toolCall, parentEl: null });
       return { action: "buffered" };
     }
-    const runInBackground = taskInput == null ? void 0 : taskInput.run_in_background;
-    if (runInBackground !== void 0) {
-      this._spawnedThisStream++;
-      if (runInBackground === true) {
-        return this.createAsyncTask(taskToolId, taskInput, currentContentEl);
-      } else {
-        return this.createSyncTask(taskToolId, taskInput, currentContentEl);
-      }
+    const mode = this.resolveTaskMode(taskInput);
+    if (!mode) {
+      const toolCall = {
+        id: taskToolId,
+        name: "Task",
+        input: taskInput || {},
+        status: "running",
+        isExpanded: false
+      };
+      this.pendingTasks.set(taskToolId, { toolCall, parentEl: currentContentEl });
+      return { action: "buffered" };
     }
-    const toolCall = {
-      id: taskToolId,
-      name: "Task",
-      input: taskInput || {},
-      status: "running",
-      isExpanded: false
-    };
-    this.pendingTasks.set(taskToolId, {
-      toolCall,
-      parentEl: currentContentEl
-    });
-    return { action: "buffered" };
+    this._spawnedThisStream++;
+    if (mode === "async") {
+      return this.createAsyncTask(taskToolId, taskInput, currentContentEl);
+    }
+    return this.createSyncTask(taskToolId, taskInput, currentContentEl);
   }
   // ============================================
   // Pending Task Resolution
@@ -59976,6 +61488,38 @@ var SubagentManager = class {
     }
     return null;
   }
+  /**
+   * Resolves a pending Task when its own tool_result arrives.
+   * If mode is still unknown, infer async from task result shape (agent_id/agentId),
+   * otherwise fall back to sync so it never remains pending indefinitely.
+   */
+  renderPendingTaskFromTaskResult(toolId, taskResult, isError, parentElOverride, taskToolUseResult) {
+    const pending = this.pendingTasks.get(toolId);
+    if (!pending) return null;
+    const input = pending.toolCall.input;
+    const targetEl = parentElOverride != null ? parentElOverride : pending.parentEl;
+    if (!targetEl) return null;
+    const explicitMode = this.resolveTaskMode(input);
+    const inferredMode = explicitMode != null ? explicitMode : this.inferModeFromTaskResult(taskResult, isError, taskToolUseResult);
+    this.pendingTasks.delete(toolId);
+    try {
+      if (inferredMode === "async") {
+        const result = this.createAsyncTask(pending.toolCall.id, input, targetEl);
+        if (result.action === "created_async") {
+          this._spawnedThisStream++;
+          return { mode: "async", info: result.info, domState: result.domState };
+        }
+      } else {
+        const result = this.createSyncTask(pending.toolCall.id, input, targetEl);
+        if (result.action === "created_sync") {
+          this._spawnedThisStream++;
+          return { mode: "sync", subagentState: result.subagentState };
+        }
+      }
+    } catch (e2) {
+    }
+    return null;
+  }
   // ============================================
   // Sync Subagent Operations
   // ============================================
@@ -59992,27 +61536,26 @@ var SubagentManager = class {
     if (!subagentState) return;
     updateSubagentToolResult(subagentState, toolId, toolCall);
   }
-  finalizeSyncSubagent(toolId, result, isError) {
+  finalizeSyncSubagent(toolId, result, isError, toolUseResult) {
     const subagentState = this.syncSubagents.get(toolId);
     if (!subagentState) return null;
-    finalizeSubagentBlock(subagentState, result, isError);
+    const extractedResult = this.extractAgentResult(result, "", toolUseResult);
+    finalizeSubagentBlock(subagentState, extractedResult, isError);
     this.syncSubagents.delete(toolId);
     return subagentState.info;
   }
   // ============================================
   // Async Subagent Lifecycle
   // ============================================
-  isAsyncTask(taskInput) {
-    return taskInput.run_in_background === true;
-  }
-  handleTaskToolResult(taskToolId, result, isError) {
+  handleTaskToolResult(taskToolId, result, isError, toolUseResult) {
+    var _a3;
     const subagent = this.pendingAsyncSubagents.get(taskToolId);
     if (!subagent) return;
     if (isError) {
       this.transitionToError(subagent, taskToolId, result || "Task failed to start");
       return;
     }
-    const agentId = this.parseAgentId(result);
+    const agentId = (_a3 = this.extractAgentIdFromTaskToolUseResult(toolUseResult)) != null ? _a3 : this.parseAgentId(result);
     if (!agentId) {
       const truncatedResult = result.length > 100 ? result.substring(0, 100) + "..." : result;
       this.transitionToError(subagent, taskToolId, `Failed to parse agent_id. Result: ${truncatedResult}`);
@@ -60035,7 +61578,7 @@ var SubagentManager = class {
     subagent.outputToolId = toolCall.id;
     this.outputToolIdToAgentId.set(toolCall.id, agentId);
   }
-  handleAgentOutputToolResult(toolId, result, isError) {
+  handleAgentOutputToolResult(toolId, result, isError, toolUseResult) {
     let agentId = this.outputToolIdToAgentId.get(toolId);
     let subagent = agentId ? this.activeAsyncSubagents.get(agentId) : void 0;
     if (!subagent) {
@@ -60058,7 +61601,7 @@ var SubagentManager = class {
       this.outputToolIdToAgentId.delete(toolId);
       return subagent;
     }
-    const extractedResult = this.extractAgentResult(result, agentId != null ? agentId : "");
+    const extractedResult = this.extractAgentResult(result, agentId != null ? agentId : "", toolUseResult);
     subagent.asyncStatus = isError ? "error" : "completed";
     subagent.status = isError ? "error" : "completed";
     subagent.result = extractedResult;
@@ -60075,9 +61618,6 @@ var SubagentManager = class {
   isLinkedAgentOutputTool(toolId) {
     return this.outputToolIdToAgentId.has(toolId);
   }
-  getByAgentId(agentId) {
-    return this.activeAsyncSubagents.get(agentId);
-  }
   getByTaskId(taskToolId) {
     const pending = this.pendingAsyncSubagents.get(taskToolId);
     if (pending) return pending;
@@ -60087,8 +61627,13 @@ var SubagentManager = class {
     }
     return void 0;
   }
-  getAsyncDomState(taskToolId) {
-    return this.asyncDomStates.get(taskToolId);
+  /**
+   * Re-renders an async subagent after data-only updates (for example,
+   * hydrating tool calls from SDK sidecar files) without changing lifecycle state.
+   */
+  refreshAsyncSubagent(subagent) {
+    this.updateAsyncDomState(subagent);
+    this.onStateChange(subagent);
   }
   // ============================================
   // Lifecycle
@@ -60129,15 +61674,6 @@ var SubagentManager = class {
     this.taskIdToAgentId.clear();
     this.outputToolIdToAgentId.clear();
     this.asyncDomStates.clear();
-  }
-  getAllActive() {
-    return [
-      ...this.pendingAsyncSubagents.values(),
-      ...this.activeAsyncSubagents.values()
-    ];
-  }
-  hasActiveAsync() {
-    return this.pendingAsyncSubagents.size > 0 || this.activeAsyncSubagents.size > 0;
   }
   // ============================================
   // Private: State Transitions
@@ -60202,7 +61738,116 @@ var SubagentManager = class {
     const prompt = newInput.prompt || "";
     if (prompt) {
       info.prompt = prompt;
+      const promptEl = wrapperEl.querySelector(".claudian-subagent-prompt-text");
+      if (promptEl) {
+        promptEl.setText(prompt);
+      }
     }
+  }
+  resolveTaskMode(taskInput) {
+    if (!Object.prototype.hasOwnProperty.call(taskInput, "run_in_background")) {
+      return null;
+    }
+    if (taskInput.run_in_background === true) {
+      return "async";
+    }
+    if (taskInput.run_in_background === false) {
+      return "sync";
+    }
+    return null;
+  }
+  inferModeFromTaskResult(taskResult, isError, taskToolUseResult) {
+    if (isError) {
+      return "sync";
+    }
+    if (this.hasAsyncMarkerInToolUseResult(taskToolUseResult)) {
+      return "async";
+    }
+    return this.parseAgentIdStrict(taskResult) ? "async" : "sync";
+  }
+  parseAgentIdStrict(result) {
+    var _a3;
+    const fromRaw = this.extractAgentIdFromString(result);
+    if (fromRaw) return fromRaw;
+    const payload = this.unwrapTextPayload(result);
+    const fromPayload = this.extractAgentIdFromString(payload);
+    if (fromPayload) return fromPayload;
+    try {
+      const parsed = JSON.parse(result);
+      if (Array.isArray(parsed)) {
+        for (const block of parsed) {
+          if (block && typeof block === "object" && typeof block.text === "string") {
+            const fromText = this.extractAgentIdFromString(block.text);
+            if (fromText) return fromText;
+          }
+        }
+      }
+      const agentId = parsed.agent_id || parsed.agentId || ((_a3 = parsed == null ? void 0 : parsed.data) == null ? void 0 : _a3.agent_id);
+      if (typeof agentId === "string" && agentId.length > 0) {
+        return agentId;
+      }
+    } catch (e2) {
+    }
+    return null;
+  }
+  extractAgentIdFromString(value) {
+    const regexPatterns = [
+      /"agent_id"\s*:\s*"([^"]+)"/,
+      /"agentId"\s*:\s*"([^"]+)"/,
+      /agent_id[=:]\s*"?([a-zA-Z0-9_-]+)"?/i,
+      /agentId[=:]\s*"?([a-zA-Z0-9_-]+)"?/i
+    ];
+    for (const pattern of regexPatterns) {
+      const match = value.match(pattern);
+      if (match && match[1]) {
+        return match[1];
+      }
+    }
+    return null;
+  }
+  hasAsyncMarkerInToolUseResult(taskToolUseResult) {
+    var _a3, _b;
+    if (!taskToolUseResult || typeof taskToolUseResult !== "object") {
+      return false;
+    }
+    const record2 = taskToolUseResult;
+    if (record2.isAsync === true) {
+      return true;
+    }
+    const directAgentId = (_a3 = record2.agentId) != null ? _a3 : record2.agent_id;
+    if (typeof directAgentId === "string" && directAgentId.length > 0) {
+      return true;
+    }
+    const data = record2.data;
+    if (data && typeof data === "object") {
+      const nestedRecord = data;
+      const nestedAgentId = (_b = nestedRecord.agent_id) != null ? _b : nestedRecord.agentId;
+      if (typeof nestedAgentId === "string" && nestedAgentId.length > 0) {
+        return true;
+      }
+    }
+    if (typeof record2.status === "string" && record2.status.toLowerCase() === "async_launched") {
+      return true;
+    }
+    if (typeof record2.outputFile === "string" && record2.outputFile.length > 0) {
+      return true;
+    }
+    if (Array.isArray(record2.content)) {
+      for (const block of record2.content) {
+        if (block && typeof block === "object") {
+          const text = block.text;
+          if (typeof text === "string" && this.extractAgentIdFromString(text)) {
+            return true;
+          }
+        } else if (typeof block === "string" && this.extractAgentIdFromString(block)) {
+          return true;
+        }
+      }
+    }
+    if (typeof record2.content === "string" && this.extractAgentIdFromString(record2.content)) {
+      return true;
+    }
+    return false;
   }
   // ============================================
   // Private: Async DOM State Updates
@@ -60248,7 +61893,7 @@ var SubagentManager = class {
         return true;
       }
       if (hasAgents) {
-        const agentStatuses = Object.values(parsed.agents).map((a) => a && typeof a.status === "string" ? a.status.toLowerCase() : "");
+        const agentStatuses = Object.values(parsed.agents).map((a) => a && typeof a === "object" && "status" in a && typeof a.status === "string" ? a.status.toLowerCase() : "");
         const anyRunning = agentStatuses.some(
           (s) => s === "running" || s === "pending" || s === "not_ready"
         );
@@ -60274,14 +61919,27 @@ var SubagentManager = class {
     }
     return false;
   }
-  extractAgentResult(result, agentId) {
+  extractAgentResult(result, agentId, toolUseResult) {
+    const structuredResult = this.extractResultFromToolUseResult(toolUseResult);
+    if (structuredResult) {
+      return structuredResult;
+    }
     const payload = this.unwrapTextPayload(result);
     try {
       const parsed = JSON.parse(payload);
+      const taskResult = this.extractResultFromTaskObject(parsed.task);
+      if (taskResult) {
+        return taskResult;
+      }
       if (parsed.agents && agentId && parsed.agents[agentId]) {
         const agentData = parsed.agents[agentId];
-        if (agentData.result) {
-          return agentData.result;
+        const parsedResult2 = this.extractResultFromCandidateString(agentData == null ? void 0 : agentData.result);
+        if (parsedResult2) {
+          return parsedResult2;
+        }
+        const parsedOutput2 = this.extractResultFromCandidateString(agentData == null ? void 0 : agentData.output);
+        if (parsedOutput2) {
+          return parsedOutput2;
         }
         return JSON.stringify(agentData, null, 2);
       }
@@ -60289,15 +61947,79 @@ var SubagentManager = class {
         const agentIds = Object.keys(parsed.agents);
         if (agentIds.length > 0) {
           const firstAgent = parsed.agents[agentIds[0]];
-          if (firstAgent.result) {
-            return firstAgent.result;
+          const parsedResult2 = this.extractResultFromCandidateString(firstAgent == null ? void 0 : firstAgent.result);
+          if (parsedResult2) {
+            return parsedResult2;
+          }
+          const parsedOutput2 = this.extractResultFromCandidateString(firstAgent == null ? void 0 : firstAgent.output);
+          if (parsedOutput2) {
+            return parsedOutput2;
           }
           return JSON.stringify(firstAgent, null, 2);
         }
       }
+      const parsedResult = this.extractResultFromCandidateString(parsed.result);
+      if (parsedResult) {
+        return parsedResult;
+      }
+      const parsedOutput = this.extractResultFromCandidateString(parsed.output);
+      if (parsedOutput) {
+        return parsedOutput;
+      }
     } catch (e2) {
     }
+    const taggedResult = this.extractResultFromTaggedPayload(payload);
+    if (taggedResult) {
+      return taggedResult;
+    }
     return payload;
+  }
+  extractResultFromToolUseResult(toolUseResult) {
+    var _a3, _b;
+    if (!toolUseResult || typeof toolUseResult !== "object") {
+      return null;
+    }
+    const record2 = toolUseResult;
+    if (record2.retrieval_status === "error") {
+      const errorMsg = typeof record2.error === "string" ? record2.error : "Task retrieval failed";
+      return `Error: ${errorMsg}`;
+    }
+    const result = (_b = (_a3 = this.extractResultFromTaskObject(record2.task)) != null ? _a3 : this.extractResultFromCandidateString(record2.result)) != null ? _b : this.extractResultFromCandidateString(record2.output);
+    if (result) return result;
+    if (Array.isArray(record2.content)) {
+      const firstText = record2.content.find((b3) => b3 && typeof b3 === "object" && b3.type === "text" && typeof b3.text === "string");
+      if (firstText) {
+        const text = firstText.text.trim();
+        if (text.length > 0) return text;
+      }
+    }
+    return null;
+  }
+  extractResultFromTaskObject(task) {
+    var _a3;
+    if (!task || typeof task !== "object") {
+      return null;
+    }
+    const taskRecord = task;
+    return (_a3 = this.extractResultFromCandidateString(taskRecord.result)) != null ? _a3 : this.extractResultFromCandidateString(taskRecord.output);
+  }
+  extractResultFromCandidateString(candidate) {
+    if (typeof candidate !== "string") {
+      return null;
+    }
+    const trimmed = candidate.trim();
+    if (!trimmed) {
+      return null;
+    }
+    const taggedResult = this.extractResultFromTaggedPayload(trimmed);
+    if (taggedResult) {
+      return taggedResult;
+    }
+    const jsonlResult = this.extractResultFromOutputJsonl(trimmed);
+    if (jsonlResult) {
+      return jsonlResult;
+    }
+    return trimmed;
   }
   parseAgentId(result) {
     var _a3;
@@ -60330,6 +62052,46 @@ var SubagentManager = class {
     }
     return null;
   }
+  extractAgentIdFromTaskToolUseResult(toolUseResult) {
+    var _a3, _b;
+    if (!toolUseResult || typeof toolUseResult !== "object") {
+      return null;
+    }
+    const record2 = toolUseResult;
+    const directAgentId = (_a3 = record2.agent_id) != null ? _a3 : record2.agentId;
+    if (typeof directAgentId === "string" && directAgentId.length > 0) {
+      return directAgentId;
+    }
+    const data = record2.data;
+    if (data && typeof data === "object") {
+      const nested = data;
+      const nestedAgentId = (_b = nested.agent_id) != null ? _b : nested.agentId;
+      if (typeof nestedAgentId === "string" && nestedAgentId.length > 0) {
+        return nestedAgentId;
+      }
+    }
+    if (Array.isArray(record2.content)) {
+      for (const block of record2.content) {
+        if (typeof block === "string") {
+          const extracted = this.extractAgentIdFromString(block);
+          if (extracted) return extracted;
+          continue;
+        }
+        if (!block || typeof block !== "object") {
+          continue;
+        }
+        const blockRecord = block;
+        if (typeof blockRecord.text === "string") {
+          const extracted = this.extractAgentIdFromString(blockRecord.text);
+          if (extracted) return extracted;
+        }
+      }
+    } else if (typeof record2.content === "string") {
+      const extracted = this.extractAgentIdFromString(record2.content);
+      if (extracted) return extracted;
+    }
+    return null;
+  }
   inferAgentIdFromResult(result) {
     try {
       const parsed = JSON.parse(result);
@@ -60356,11 +62118,100 @@ var SubagentManager = class {
     }
     return raw;
   }
+  extractResultFromTaggedPayload(payload) {
+    const directResult = this.extractTagContent(payload, "result");
+    if (directResult) return directResult;
+    const outputContent = this.extractTagContent(payload, "output");
+    if (!outputContent) return null;
+    const extractedFromJsonl = this.extractResultFromOutputJsonl(outputContent);
+    if (extractedFromJsonl) return extractedFromJsonl;
+    const nestedResult = this.extractTagContent(outputContent, "result");
+    if (nestedResult) return nestedResult;
+    const trimmed = outputContent.trim();
+    return trimmed.length > 0 ? trimmed : null;
+  }
+  extractTagContent(payload, tagName) {
+    const tagRegex = new RegExp(`<${tagName}>\\s*([\\s\\S]*?)\\s*</${tagName}>`, "i");
+    const match = payload.match(tagRegex);
+    if (!match || !match[1]) return null;
+    const content = match[1].trim();
+    return content.length > 0 ? content : null;
+  }
+  extractResultFromOutputJsonl(outputContent) {
+    const inlineResult = extractFinalResultFromSubagentJsonl(outputContent);
+    if (inlineResult) {
+      return inlineResult;
+    }
+    const fullOutputPath = this.extractFullOutputPath(outputContent);
+    if (!fullOutputPath) {
+      return null;
+    }
+    const fullOutput = this.readFullOutputFile(fullOutputPath);
+    if (!fullOutput) {
+      return null;
+    }
+    return extractFinalResultFromSubagentJsonl(fullOutput);
+  }
+  extractFullOutputPath(content) {
+    const truncatedPattern = /\[Truncated\.\s*Full output:\s*([^\]\n]+)\]/i;
+    const match = content.match(truncatedPattern);
+    if (!match || !match[1]) {
+      return null;
+    }
+    const outputPath = match[1].trim();
+    return outputPath.length > 0 ? outputPath : null;
+  }
+  readFullOutputFile(fullOutputPath) {
+    try {
+      if (!this.isTrustedOutputPath(fullOutputPath)) {
+        return null;
+      }
+      if (!(0, import_fs4.existsSync)(fullOutputPath)) {
+        return null;
+      }
+      const fileContent = (0, import_fs4.readFileSync)(fullOutputPath, "utf-8");
+      const trimmed = fileContent.trim();
+      return trimmed.length > 0 ? trimmed : null;
+    } catch (e2) {
+      return null;
+    }
+  }
   extractAgentIdFromInput(input) {
     const agentId = input.task_id || input.agentId || input.agent_id;
     return agentId || null;
   }
+  static resolveTrustedTmpRoots() {
+    const roots = /* @__PURE__ */ new Set();
+    const candidates = [(0, import_os2.tmpdir)(), "/tmp", "/private/tmp"];
+    for (const candidate of candidates) {
+      try {
+        roots.add((0, import_fs4.realpathSync)(candidate));
+      } catch (e2) {
+      }
+    }
+    return Array.from(roots);
+  }
+  isTrustedOutputPath(fullOutputPath) {
+    if (!(0, import_path10.isAbsolute)(fullOutputPath)) {
+      return false;
+    }
+    if (!fullOutputPath.toLowerCase().endsWith(_SubagentManager.TRUSTED_OUTPUT_EXT)) {
+      return false;
+    }
+    let resolvedPath;
+    try {
+      resolvedPath = (0, import_fs4.realpathSync)(fullOutputPath);
+    } catch (e2) {
+      return false;
+    }
+    return _SubagentManager.TRUSTED_TMP_ROOTS.some(
+      (root) => resolvedPath === root || resolvedPath.startsWith(`${root}${import_path10.sep}`)
+    );
+  }
 };
+_SubagentManager.TRUSTED_OUTPUT_EXT = ".output";
+_SubagentManager.TRUSTED_TMP_ROOTS = _SubagentManager.resolveTrustedTmpRoots();
+var SubagentManager = _SubagentManager;
 
 // src/core/prompts/titleGeneration.ts
 var TITLE_GENERATION_SYSTEM_PROMPT = `You are a specialist in summarizing user intent.
@@ -60842,7 +62693,7 @@ var ChatState = class {
 };
 
 // src/features/chat/ui/BangBashModeManager.ts
-var import_obsidian14 = require("obsidian");
+var import_obsidian16 = require("obsidian");
 var BangBashModeManager = class {
   constructor(inputEl, callbacks) {
     this.state = { active: false, rawCommand: "" };
@@ -60912,7 +62763,7 @@ var BangBashModeManager = class {
       this.clear();
       await this.callbacks.onSubmit(rawCommand);
     } catch (e2) {
-      new import_obsidian14.Notice(`Command failed: ${e2 instanceof Error ? e2.message : String(e2)}`);
+      new import_obsidian16.Notice(`Command failed: ${e2 instanceof Error ? e2.message : String(e2)}`);
     } finally {
       this.isSubmitting = false;
     }
@@ -60929,13 +62780,13 @@ var BangBashModeManager = class {
 };
 
 // src/features/chat/ui/FileContext.ts
-var import_obsidian17 = require("obsidian");
+var import_obsidian20 = require("obsidian");
 
 // src/shared/mention/MentionDropdownController.ts
-var import_obsidian15 = require("obsidian");
+var import_obsidian17 = require("obsidian");
 
 // src/utils/externalContext.ts
-var fs6 = __toESM(require("fs"));
+var fs7 = __toESM(require("fs"));
 function normalizePathForComparison3(p2) {
   return normalizePathForComparison(p2);
 }
@@ -60963,7 +62814,7 @@ function getFolderName(p2) {
 }
 function validateDirectoryPath(p2) {
   try {
-    const stats = fs6.statSync(p2);
+    const stats = fs7.statSync(p2);
     if (!stats.isDirectory()) {
       return { valid: false, error: "Path exists but is not a directory" };
     }
@@ -60991,8 +62842,8 @@ function isDuplicatePath(newPath, existingPaths) {
 }
 
 // src/utils/externalContextScanner.ts
-var fs7 = __toESM(require("fs"));
-var path7 = __toESM(require("path"));
+var fs8 = __toESM(require("fs"));
+var path8 = __toESM(require("path"));
 var CACHE_TTL_MS = 3e4;
 var MAX_FILES_PER_PATH = 1e3;
 var MAX_DEPTH = 10;
@@ -61037,25 +62888,25 @@ var ExternalContextScanner = class {
     if (depth > MAX_DEPTH) return [];
     const files = [];
     try {
-      if (!fs7.existsSync(dir)) return [];
-      const stat = fs7.statSync(dir);
+      if (!fs8.existsSync(dir)) return [];
+      const stat = fs8.statSync(dir);
       if (!stat.isDirectory()) return [];
-      const entries = fs7.readdirSync(dir, { withFileTypes: true });
+      const entries = fs8.readdirSync(dir, { withFileTypes: true });
       for (const entry of entries) {
         if (entry.name.startsWith(".")) continue;
         if (SKIP_DIRECTORIES.has(entry.name)) continue;
         if (entry.isSymbolicLink()) continue;
-        const fullPath = path7.join(dir, entry.name);
+        const fullPath = path8.join(dir, entry.name);
         if (entry.isDirectory()) {
           const subFiles = this.scanDirectory(fullPath, contextRoot, depth + 1);
           files.push(...subFiles);
         } else if (entry.isFile()) {
           try {
-            const fileStat = fs7.statSync(fullPath);
+            const fileStat = fs8.statSync(fullPath);
             files.push({
               path: fullPath,
               name: entry.name,
-              relativePath: path7.relative(contextRoot, fullPath),
+              relativePath: path8.relative(contextRoot, fullPath),
               contextRoot,
               mtime: fileStat.mtimeMs
             });
@@ -61201,6 +63052,7 @@ var MentionDropdownController = class {
     this.activeAgentFilter = false;
     this.mcpManager = null;
     this.agentService = null;
+    this.debounceTimer = null;
     var _a3;
     this.containerEl = containerEl;
     this.inputEl = inputEl;
@@ -61242,6 +63094,9 @@ var MentionDropdownController = class {
     return (_b = (_a3 = this.dropdown.getElement()) == null ? void 0 : _a3.contains(el)) != null ? _b : false;
   }
   destroy() {
+    if (this.debounceTimer !== null) {
+      clearTimeout(this.debounceTimer);
+    }
     this.dropdown.destroy();
   }
   updateMcpMentionsFromText(text) {
@@ -61257,27 +63112,32 @@ var MentionDropdownController = class {
     }
   }
   handleInputChange() {
-    const text = this.inputEl.value;
-    this.updateMcpMentionsFromText(text);
-    const cursorPos = this.inputEl.selectionStart || 0;
-    const textBeforeCursor = text.substring(0, cursorPos);
-    const lastAtIndex = textBeforeCursor.lastIndexOf("@");
-    if (lastAtIndex === -1) {
-      this.hide();
-      return;
+    if (this.debounceTimer !== null) {
+      clearTimeout(this.debounceTimer);
     }
-    const charBeforeAt = lastAtIndex > 0 ? textBeforeCursor[lastAtIndex - 1] : " ";
-    if (!/\s/.test(charBeforeAt) && lastAtIndex !== 0) {
-      this.hide();
-      return;
-    }
-    const searchText = textBeforeCursor.substring(lastAtIndex + 1);
-    if (/\s/.test(searchText)) {
-      this.hide();
-      return;
-    }
-    this.mentionStartIndex = lastAtIndex;
-    this.showMentionDropdown(searchText);
+    this.debounceTimer = setTimeout(() => {
+      const text = this.inputEl.value;
+      this.updateMcpMentionsFromText(text);
+      const cursorPos = this.inputEl.selectionStart || 0;
+      const textBeforeCursor = text.substring(0, cursorPos);
+      const lastAtIndex = textBeforeCursor.lastIndexOf("@");
+      if (lastAtIndex === -1) {
+        this.hide();
+        return;
+      }
+      const charBeforeAt = lastAtIndex > 0 ? textBeforeCursor[lastAtIndex - 1] : " ";
+      if (!/\s/.test(charBeforeAt) && lastAtIndex !== 0) {
+        this.hide();
+        return;
+      }
+      const searchText = textBeforeCursor.substring(lastAtIndex + 1);
+      if (/\s/.test(searchText)) {
+        this.hide();
+        return;
+      }
+      this.mentionStartIndex = lastAtIndex;
+      this.showMentionDropdown(searchText);
+    }, 200);
   }
   handleKeydown(e2) {
     if (!this.dropdown.isVisible()) return false;
@@ -61401,7 +63261,13 @@ var MentionDropdownController = class {
           folderName: this.activeContextFilter.folderName
         });
       }
-      this.selectedMentionIndex = 0;
+      const firstVaultItemIndex2 = this.filteredMentionItems.length;
+      const vaultItemCount2 = this.appendVaultItems(searchLower);
+      if (this.filteredContextFiles.length === 0 && vaultItemCount2 > 0) {
+        this.selectedMentionIndex = firstVaultItemIndex2;
+      } else {
+        this.selectedMentionIndex = 0;
+      }
       this.renderMentionDropdown();
       return;
     }
@@ -61441,33 +63307,45 @@ var MentionDropdownController = class {
         }
       }
     }
-    const firstVaultFileIndex = this.filteredMentionItems.length;
-    const allFiles = this.callbacks.getCachedMarkdownFiles();
-    const vaultFiles = allFiles.filter((file2) => {
-      const pathLower = file2.path.toLowerCase();
-      const nameLower = file2.name.toLowerCase();
-      return pathLower.includes(searchLower) || nameLower.includes(searchLower);
-    }).sort((a, b3) => {
-      const aNameMatch = a.name.toLowerCase().startsWith(searchLower);
-      const bNameMatch = b3.name.toLowerCase().startsWith(searchLower);
-      if (aNameMatch && !bNameMatch) return -1;
-      if (!aNameMatch && bNameMatch) return 1;
-      return b3.stat.mtime - a.stat.mtime;
-    });
-    for (const file2 of vaultFiles) {
-      this.filteredMentionItems.push({
-        type: "file",
-        name: file2.name,
-        path: file2.path,
-        file: file2
-      });
-    }
-    if (vaultFiles.length > 0) {
-      this.selectedMentionIndex = firstVaultFileIndex;
-    } else {
-      this.selectedMentionIndex = 0;
-    }
+    const firstVaultItemIndex = this.filteredMentionItems.length;
+    const vaultItemCount = this.appendVaultItems(searchLower);
+    this.selectedMentionIndex = vaultItemCount > 0 ? firstVaultItemIndex : 0;
     this.renderMentionDropdown();
+  }
+  appendVaultItems(searchLower) {
+    const compare = (a, b3) => {
+      if (a.startsWithQuery !== b3.startsWithQuery) return a.startsWithQuery ? -1 : 1;
+      return a.path.localeCompare(b3.path);
+    };
+    const scoredFolders = this.callbacks.getCachedVaultFolders().map((f3) => ({
+      name: f3.name,
+      path: f3.path.replace(/\\/g, "/").replace(/\/+$/, "")
+    })).filter(
+      (f3) => f3.path.length > 0 && (f3.path.toLowerCase().includes(searchLower) || f3.name.toLowerCase().includes(searchLower))
+    ).map((f3) => ({
+      type: "folder",
+      name: f3.name,
+      path: f3.path,
+      startsWithQuery: f3.name.toLowerCase().startsWith(searchLower)
+    })).sort(compare).slice(0, 50);
+    const scoredFiles = this.callbacks.getCachedMarkdownFiles().filter(
+      (f3) => f3.path.toLowerCase().includes(searchLower) || f3.name.toLowerCase().includes(searchLower)
+    ).map((f3) => ({
+      type: "file",
+      name: f3.name,
+      path: f3.path,
+      file: f3,
+      startsWithQuery: f3.name.toLowerCase().startsWith(searchLower)
+    })).sort(compare).slice(0, 100);
+    const merged = [...scoredFolders, ...scoredFiles].sort(compare);
+    for (const item of merged) {
+      if (item.type === "folder") {
+        this.filteredMentionItems.push({ type: "folder", name: item.name, path: item.path });
+      } else {
+        this.filteredMentionItems.push({ type: "file", name: item.name, path: item.path, file: item.file });
+      }
+    }
+    return merged.length;
   }
   renderMentionDropdown() {
     this.dropdown.render({
@@ -61476,6 +63354,7 @@ var MentionDropdownController = class {
       emptyText: "No matches",
       getItemClass: (item) => {
         if (item.type === "mcp-server") return "mcp-server";
+        if (item.type === "folder") return "vault-folder";
         if (item.type === "agent") return "agent";
         if (item.type === "agent-folder") return "agent-folder";
         if (item.type === "context-file") return "context-file";
@@ -61486,14 +63365,16 @@ var MentionDropdownController = class {
         const iconEl = itemEl.createSpan({ cls: "claudian-mention-icon" });
         if (item.type === "mcp-server") {
           iconEl.innerHTML = MCP_ICON_SVG;
+        } else if (item.type === "folder") {
+          (0, import_obsidian17.setIcon)(iconEl, "folder");
         } else if (item.type === "agent" || item.type === "agent-folder") {
-          (0, import_obsidian15.setIcon)(iconEl, "bot");
+          (0, import_obsidian17.setIcon)(iconEl, "bot");
         } else if (item.type === "context-file") {
-          (0, import_obsidian15.setIcon)(iconEl, "folder-open");
+          (0, import_obsidian17.setIcon)(iconEl, "folder-open");
         } else if (item.type === "context-folder") {
-          (0, import_obsidian15.setIcon)(iconEl, "folder");
+          (0, import_obsidian17.setIcon)(iconEl, "folder");
         } else {
-          (0, import_obsidian15.setIcon)(iconEl, "file-text");
+          (0, import_obsidian17.setIcon)(iconEl, "file-text");
         }
         const textEl = itemEl.createSpan({ cls: "claudian-mention-text" });
         if (item.type === "mcp-server") {
@@ -61521,6 +63402,11 @@ var MentionDropdownController = class {
             cls: "claudian-mention-name claudian-mention-name-context"
           });
           nameEl.setText(item.name);
+        } else if (item.type === "folder") {
+          const nameEl = textEl.createSpan({
+            cls: "claudian-mention-name claudian-mention-name-folder"
+          });
+          nameEl.setText(`@${item.path}/`);
         } else {
           const pathEl = textEl.createSpan({ cls: "claudian-mention-path" });
           pathEl.setText(item.path || item.name);
@@ -61607,6 +63493,11 @@ var MentionDropdownController = class {
         }
       }
       const replacement = `${displayName} `;
+      this.inputEl.value = beforeAt + replacement + afterCursor;
+      this.inputEl.selectionStart = this.inputEl.selectionEnd = beforeAt.length + replacement.length;
+    } else if (selectedItem.type === "folder") {
+      const normalizedPath = this.callbacks.normalizePathForVault(selectedItem.path);
+      const replacement = `@${normalizedPath != null ? normalizedPath : selectedItem.path}/ `;
       this.inputEl.value = beforeAt + replacement + afterCursor;
       this.inputEl.selectionStart = this.inputEl.selectionEnd = beforeAt.length + replacement.length;
     } else {
@@ -61719,22 +63610,86 @@ var MarkdownFileCache = class {
   constructor(app) {
     this.cachedFiles = [];
     this.dirty = true;
+    this.isInitialized = false;
     this.app = app;
+  }
+  initializeInBackground() {
+    if (this.isInitialized) return;
+    setTimeout(() => {
+      this.tryRefreshFiles();
+    }, 0);
   }
   markDirty() {
     this.dirty = true;
   }
   getFiles() {
-    if (this.dirty || this.cachedFiles.length === 0) {
+    if (this.dirty || !this.isInitialized) {
+      this.tryRefreshFiles();
+    }
+    return this.cachedFiles;
+  }
+  tryRefreshFiles() {
+    try {
       this.cachedFiles = this.app.vault.getMarkdownFiles();
       this.dirty = false;
+    } catch (e2) {
+      if (this.cachedFiles.length > 0) {
+        this.dirty = false;
+      }
+    } finally {
+      this.isInitialized = true;
     }
-    return [...this.cachedFiles];
+  }
+};
+
+// src/features/chat/ui/file-context/state/VaultFolderCache.ts
+var import_obsidian18 = require("obsidian");
+function isVisibleFolder(folder) {
+  const normalizedPath = folder.path.replace(/\\/g, "/").replace(/\/+$/, "");
+  if (!normalizedPath) return false;
+  return !normalizedPath.split("/").some((segment) => segment.startsWith("."));
+}
+var VaultFolderCache = class {
+  constructor(app) {
+    this.cachedFolders = [];
+    this.dirty = true;
+    this.isInitialized = false;
+    this.app = app;
+  }
+  initializeInBackground() {
+    if (this.isInitialized) return;
+    setTimeout(() => {
+      this.tryRefreshFolders();
+    }, 0);
+  }
+  markDirty() {
+    this.dirty = true;
+  }
+  getFolders() {
+    if (this.dirty || !this.isInitialized) {
+      this.tryRefreshFolders();
+    }
+    return this.cachedFolders;
+  }
+  tryRefreshFolders() {
+    try {
+      this.cachedFolders = this.loadFolders();
+      this.dirty = false;
+    } catch (e2) {
+      if (this.cachedFolders.length > 0) {
+        this.dirty = false;
+      }
+    } finally {
+      this.isInitialized = true;
+    }
+  }
+  loadFolders() {
+    return this.app.vault.getAllLoadedFiles().filter((file2) => file2 instanceof import_obsidian18.TFolder).filter((folder) => isVisibleFolder(folder));
   }
 };
 
 // src/features/chat/ui/file-context/view/FileChipsView.ts
-var import_obsidian16 = require("obsidian");
+var import_obsidian19 = require("obsidian");
 var FileChipsView = class {
   constructor(containerEl, callbacks) {
     this.containerEl = containerEl;
@@ -61762,7 +63717,7 @@ var FileChipsView = class {
   renderFileChip(filePath, onRemove) {
     const chipEl = this.fileIndicatorEl.createDiv({ cls: "claudian-file-chip" });
     const iconEl = chipEl.createSpan({ cls: "claudian-file-chip-icon" });
-    (0, import_obsidian16.setIcon)(iconEl, "file-text");
+    (0, import_obsidian19.setIcon)(iconEl, "file-text");
     const normalizedPath = filePath.replace(/\\/g, "/");
     const filename = normalizedPath.split("/").pop() || filePath;
     const nameEl = chipEl.createSpan({ cls: "claudian-file-chip-name" });
@@ -61798,6 +63753,9 @@ var FileContextManager = class {
     this.callbacks = callbacks;
     this.state = new FileContextState();
     this.fileCache = new MarkdownFileCache(this.app);
+    this.fileCache.initializeInBackground();
+    this.folderCache = new VaultFolderCache(this.app);
+    this.folderCache.initializeInBackground();
     this.chipsView = new FileChipsView(this.chipsContainerEl, {
       onRemoveAttachment: (filePath) => {
         if (filePath === this.currentNotePath) {
@@ -61808,14 +63766,14 @@ var FileContextManager = class {
       },
       onOpenFile: async (filePath) => {
         const file2 = this.app.vault.getAbstractFileByPath(filePath);
-        if (!(file2 instanceof import_obsidian17.TFile)) {
-          new import_obsidian17.Notice(`Could not open file: ${filePath}`);
+        if (!(file2 instanceof import_obsidian20.TFile)) {
+          new import_obsidian20.Notice(`Could not open file: ${filePath}`);
           return;
         }
         try {
           await this.app.workspace.getLeaf().openFile(file2);
         } catch (error48) {
-          new import_obsidian17.Notice(`Failed to open file: ${error48 instanceof Error ? error48.message : String(error48)}`);
+          new import_obsidian20.Notice(`Failed to open file: ${error48 instanceof Error ? error48.message : String(error48)}`);
         }
       }
     });
@@ -61840,15 +63798,16 @@ var FileContextManager = class {
           var _a3, _b;
           return ((_b = (_a3 = this.callbacks).getExternalContexts) == null ? void 0 : _b.call(_a3)) || [];
         },
+        getCachedVaultFolders: () => this.folderCache.getFolders().map((folder) => ({ name: folder.name, path: folder.path })),
         getCachedMarkdownFiles: () => this.fileCache.getFiles(),
         normalizePathForVault: (rawPath) => this.normalizePathForVault(rawPath)
       }
     );
     this.deleteEventRef = this.app.vault.on("delete", (file2) => {
-      if (file2 instanceof import_obsidian17.TFile) this.handleFileDeleted(file2.path);
+      if (file2 instanceof import_obsidian20.TFile) this.handleFileDeleted(file2.path);
     });
     this.renameEventRef = this.app.vault.on("rename", (file2, oldPath) => {
-      if (file2 instanceof import_obsidian17.TFile) this.handleFileRenamed(oldPath, file2.path);
+      if (file2 instanceof import_obsidian20.TFile) this.handleFileRenamed(oldPath, file2.path);
     });
   }
   /** Returns the current note path (shown as chip). */
@@ -61920,8 +63879,11 @@ var FileContextManager = class {
       this.refreshCurrentNoteChip();
     }
   }
-  markFilesCacheDirty() {
+  markFileCacheDirty() {
     this.fileCache.markDirty();
+  }
+  markFolderCacheDirty() {
+    this.folderCache.markDirty();
   }
   /** Handles input changes to detect @ mentions. */
   handleInputChange() {
@@ -62047,8 +64009,8 @@ var FileContextManager = class {
 };
 
 // src/features/chat/ui/ImageContext.ts
-var import_obsidian18 = require("obsidian");
-var path8 = __toESM(require("path"));
+var import_obsidian21 = require("obsidian");
+var path9 = __toESM(require("path"));
 var MAX_IMAGE_SIZE = 5 * 1024 * 1024;
 var IMAGE_EXTENSIONS2 = {
   ".jpg": "image/jpeg",
@@ -62187,7 +64149,7 @@ var ImageContextManager = class {
     return file2.type.startsWith("image/") && this.getMediaType(file2.name) !== null;
   }
   getMediaType(filename) {
-    const ext = path8.extname(filename).toLowerCase();
+    const ext = path9.extname(filename).toLowerCase();
     return IMAGE_EXTENSIONS2[ext] || null;
   }
   async addImageFromFile(file2, source) {
@@ -62297,7 +64259,7 @@ var ImageContextManager = class {
   }
   truncateName(name, maxLen) {
     if (name.length <= maxLen) return name;
-    const ext = path8.extname(name);
+    const ext = path9.extname(name);
     const base = name.slice(0, name.length - ext.length);
     const truncatedBase = base.slice(0, maxLen - ext.length - 3);
     return `${truncatedBase}...${ext}`;
@@ -62316,13 +64278,13 @@ var ImageContextManager = class {
         userMessage = `${message} (Permission denied)`;
       }
     }
-    new import_obsidian18.Notice(userMessage);
+    new import_obsidian21.Notice(userMessage);
   }
 };
 
 // src/features/chat/ui/InputToolbar.ts
-var import_obsidian19 = require("obsidian");
-var path9 = __toESM(require("path"));
+var import_obsidian22 = require("obsidian");
+var path10 = __toESM(require("path"));
 var ModelSelector = class {
   constructor(parentEl, callbacks) {
     this.buttonEl = null;
@@ -62523,7 +64485,7 @@ var ExternalContextSelector = class {
     this.renderDropdown();
     if (invalidPaths.length > 0) {
       const pathNames = invalidPaths.map((p2) => this.shortenPath(p2)).join(", ");
-      new import_obsidian19.Notice(`Removed ${invalidPaths.length} invalid external context path(s): ${pathNames}`, 5e3);
+      new import_obsidian22.Notice(`Removed ${invalidPaths.length} invalid external context path(s): ${pathNames}`, 5e3);
       (_a3 = this.onPersistenceChangeCallback) == null ? void 0 : _a3.call(this, [...this.persistentPaths]);
     }
   }
@@ -62533,7 +64495,7 @@ var ExternalContextSelector = class {
       this.persistentPaths.delete(path11);
     } else {
       if (!isValidDirectoryPath(path11)) {
-        new import_obsidian19.Notice(`Cannot persist "${this.shortenPath(path11)}" - directory no longer exists`, 4e3);
+        new import_obsidian22.Notice(`Cannot persist "${this.shortenPath(path11)}" - directory no longer exists`, 4e3);
         return;
       }
       this.persistentPaths.add(path11);
@@ -62591,7 +64553,7 @@ var ExternalContextSelector = class {
     }
     const expandedPath = expandHomePath(cleanPath);
     const normalizedPath = normalizePathForFilesystem(expandedPath);
-    if (!path9.isAbsolute(normalizedPath)) {
+    if (!path10.isAbsolute(normalizedPath)) {
       return { success: false, error: "Path must be absolute. Usage: /add-dir /absolute/path" };
     }
     const validation = validateDirectoryPath(normalizedPath);
@@ -62629,7 +64591,7 @@ var ExternalContextSelector = class {
     this.container.empty();
     const iconWrapper = this.container.createDiv({ cls: "claudian-external-context-icon-wrapper" });
     this.iconEl = iconWrapper.createDiv({ cls: "claudian-external-context-icon" });
-    (0, import_obsidian19.setIcon)(this.iconEl, "folder");
+    (0, import_obsidian22.setIcon)(this.iconEl, "folder");
     this.badgeEl = iconWrapper.createDiv({ cls: "claudian-external-context-badge" });
     this.updateDisplay();
     iconWrapper.addEventListener("click", (e2) => {
@@ -62650,12 +64612,12 @@ var ExternalContextSelector = class {
       if (!result.canceled && result.filePaths.length > 0) {
         const selectedPath = result.filePaths[0];
         if (isDuplicatePath(selectedPath, this.externalContextPaths)) {
-          new import_obsidian19.Notice("This folder is already added as an external context.", 3e3);
+          new import_obsidian22.Notice("This folder is already added as an external context.", 3e3);
           return;
         }
         const conflict = findConflictingPath(selectedPath, this.externalContextPaths);
         if (conflict) {
-          new import_obsidian19.Notice(this.formatConflictMessage(selectedPath, conflict), 5e3);
+          new import_obsidian22.Notice(this.formatConflictMessage(selectedPath, conflict), 5e3);
           return;
         }
         this.externalContextPaths = [...this.externalContextPaths, selectedPath];
@@ -62664,7 +64626,7 @@ var ExternalContextSelector = class {
         this.renderDropdown();
       }
     } catch (e2) {
-      new import_obsidian19.Notice("Unable to open folder picker.", 5e3);
+      new import_obsidian22.Notice("Unable to open folder picker.", 5e3);
     }
   }
   /** Formats a conflict error message for display. */
@@ -62694,14 +64656,14 @@ var ExternalContextSelector = class {
         if (isPersistent) {
           lockBtn.addClass("locked");
         }
-        (0, import_obsidian19.setIcon)(lockBtn, isPersistent ? "lock" : "unlock");
+        (0, import_obsidian22.setIcon)(lockBtn, isPersistent ? "lock" : "unlock");
         lockBtn.setAttribute("title", isPersistent ? "Persistent (click to make session-only)" : "Session-only (click to persist)");
         lockBtn.addEventListener("click", (e2) => {
           e2.stopPropagation();
           this.togglePersistence(pathStr);
         });
         const removeBtn = itemEl.createSpan({ cls: "claudian-external-context-remove" });
-        (0, import_obsidian19.setIcon)(removeBtn, "x");
+        (0, import_obsidian22.setIcon)(removeBtn, "x");
         removeBtn.setAttribute("title", "Remove path");
         removeBtn.addEventListener("click", (e2) => {
           e2.stopPropagation();
@@ -62715,9 +64677,9 @@ var ExternalContextSelector = class {
     try {
       const os7 = require("os");
       const homeDir = os7.homedir();
-      const normalize2 = (value) => value.replace(/\\/g, "/");
-      const normalizedFull = normalize2(fullPath);
-      const normalizedHome = normalize2(homeDir);
+      const normalize3 = (value) => value.replace(/\\/g, "/");
+      const normalizedFull = normalize3(fullPath);
+      const normalizedHome = normalize3(homeDir);
       const compareFull = process.platform === "win32" ? normalizedFull.toLowerCase() : normalizedFull;
       const compareHome = process.platform === "win32" ? normalizedHome.toLowerCase() : normalizedHome;
       if (compareFull.startsWith(compareHome)) {
@@ -63112,8 +65074,81 @@ var InstructionModeManager = class {
   }
 };
 
+// src/features/chat/ui/NavigationSidebar.ts
+var import_obsidian23 = require("obsidian");
+var NavigationSidebar = class {
+  constructor(parentEl, messagesEl) {
+    this.parentEl = parentEl;
+    this.messagesEl = messagesEl;
+    this.container = this.parentEl.createDiv({ cls: "claudian-nav-sidebar" });
+    this.topBtn = this.createButton("claudian-nav-btn-top", "chevrons-up", "Scroll to top");
+    this.prevBtn = this.createButton("claudian-nav-btn-prev", "chevron-up", "Previous message");
+    this.nextBtn = this.createButton("claudian-nav-btn-next", "chevron-down", "Next message");
+    this.bottomBtn = this.createButton("claudian-nav-btn-bottom", "chevrons-down", "Scroll to bottom");
+    this.setupEventListeners();
+    this.updateVisibility();
+  }
+  createButton(cls, icon, label) {
+    const btn = this.container.createDiv({ cls: `claudian-nav-btn ${cls}` });
+    (0, import_obsidian23.setIcon)(btn, icon);
+    btn.setAttribute("aria-label", label);
+    return btn;
+  }
+  setupEventListeners() {
+    this.scrollHandler = () => this.updateVisibility();
+    this.messagesEl.addEventListener("scroll", this.scrollHandler, { passive: true });
+    this.topBtn.addEventListener("click", () => {
+      this.messagesEl.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    this.bottomBtn.addEventListener("click", () => {
+      this.messagesEl.scrollTo({ top: this.messagesEl.scrollHeight, behavior: "smooth" });
+    });
+    this.prevBtn.addEventListener("click", () => this.scrollToMessage("prev"));
+    this.nextBtn.addEventListener("click", () => this.scrollToMessage("next"));
+  }
+  /**
+   * Updates visibility of the sidebar based on scroll state.
+   * Visible if content overflows.
+   */
+  updateVisibility() {
+    const { scrollHeight, clientHeight } = this.messagesEl;
+    const isScrollable = scrollHeight > clientHeight + 50;
+    this.container.classList.toggle("visible", isScrollable);
+  }
+  /**
+   * Scrolls to previous or next user message, skipping assistant messages.
+   */
+  scrollToMessage(direction) {
+    const messages = Array.from(this.messagesEl.querySelectorAll(".claudian-message-user"));
+    if (messages.length === 0) return;
+    const scrollTop = this.messagesEl.scrollTop;
+    const threshold = 30;
+    if (direction === "prev") {
+      for (let i2 = messages.length - 1; i2 >= 0; i2--) {
+        if (messages[i2].offsetTop < scrollTop - threshold) {
+          this.messagesEl.scrollTo({ top: messages[i2].offsetTop - 10, behavior: "smooth" });
+          return;
+        }
+      }
+      this.messagesEl.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      for (let i2 = 0; i2 < messages.length; i2++) {
+        if (messages[i2].offsetTop > scrollTop + threshold) {
+          this.messagesEl.scrollTo({ top: messages[i2].offsetTop - 10, behavior: "smooth" });
+          return;
+        }
+      }
+      this.messagesEl.scrollTo({ top: this.messagesEl.scrollHeight, behavior: "smooth" });
+    }
+  }
+  destroy() {
+    this.messagesEl.removeEventListener("scroll", this.scrollHandler);
+    this.container.remove();
+  }
+};
+
 // src/features/chat/ui/StatusPanel.ts
-var import_obsidian20 = require("obsidian");
+var import_obsidian24 = require("obsidian");
 var TERMINAL_STATES = ["completed", "error", "orphaned"];
 var MAX_BASH_OUTPUTS = 50;
 var StatusPanel = class {
@@ -63287,7 +65322,7 @@ var StatusPanel = class {
     this.todoHeaderEl.empty();
     const icon = document.createElement("span");
     icon.className = "claudian-status-panel-icon";
-    (0, import_obsidian20.setIcon)(icon, getToolIcon(TOOL_TODO_WRITE));
+    (0, import_obsidian24.setIcon)(icon, getToolIcon(TOOL_TODO_WRITE));
     this.todoHeaderEl.appendChild(icon);
     const label = document.createElement("span");
     label.className = "claudian-status-panel-label";
@@ -63297,7 +65332,7 @@ var StatusPanel = class {
       if (completedCount === totalCount && totalCount > 0) {
         const status = document.createElement("span");
         status.className = "claudian-status-panel-status status-completed";
-        (0, import_obsidian20.setIcon)(status, "check");
+        (0, import_obsidian24.setIcon)(status, "check");
         this.todoHeaderEl.appendChild(status);
       }
       if (currentTask) {
@@ -63456,7 +65491,7 @@ var StatusPanel = class {
       rowEl.className = showRunningOnThisRow ? "claudian-status-panel-done-row claudian-status-panel-combined-row" : "claudian-status-panel-done-row";
       const botIconEl = document.createElement("span");
       botIconEl.className = "claudian-status-panel-icon claudian-status-panel-bot-icon";
-      (0, import_obsidian20.setIcon)(botIconEl, getToolIcon(TOOL_TASK));
+      (0, import_obsidian24.setIcon)(botIconEl, getToolIcon(TOOL_TASK));
       rowEl.appendChild(botIconEl);
       const textEl = document.createElement("span");
       textEl.className = "claudian-status-panel-done-text";
@@ -63464,7 +65499,7 @@ var StatusPanel = class {
       rowEl.appendChild(textEl);
       const iconEl = document.createElement("span");
       iconEl.className = "claudian-status-panel-icon claudian-status-panel-done-icon";
-      (0, import_obsidian20.setIcon)(iconEl, "check");
+      (0, import_obsidian24.setIcon)(iconEl, "check");
       rowEl.appendChild(iconEl);
       if (showRunningOnThisRow) {
         const runningEl = document.createElement("span");
@@ -63523,7 +65558,7 @@ var StatusPanel = class {
     const headerIconEl = document.createElement("span");
     headerIconEl.className = "claudian-tool-icon";
     headerIconEl.setAttribute("aria-hidden", "true");
-    (0, import_obsidian20.setIcon)(headerIconEl, "terminal");
+    (0, import_obsidian24.setIcon)(headerIconEl, "terminal");
     this.bashHeaderEl.appendChild(headerIconEl);
     const latest = Array.from(this.currentBashOutputs.values()).at(-1);
     const headerLabelEl = document.createElement("span");
@@ -63543,8 +65578,8 @@ var StatusPanel = class {
     if (!this.isBashExpanded && latest) {
       summaryStatusEl.classList.add(`status-${latest.status}`);
       summaryStatusEl.setAttribute("aria-label", t("chat.bangBash.statusLabel", { status: latest.status }));
-      if (latest.status === "completed") (0, import_obsidian20.setIcon)(summaryStatusEl, "check");
-      if (latest.status === "error") (0, import_obsidian20.setIcon)(summaryStatusEl, "x");
+      if (latest.status === "completed") (0, import_obsidian24.setIcon)(summaryStatusEl, "check");
+      if (latest.status === "error") (0, import_obsidian24.setIcon)(summaryStatusEl, "x");
     } else {
       summaryStatusEl.style.display = "none";
     }
@@ -63582,7 +65617,7 @@ var StatusPanel = class {
     const entryIconEl = document.createElement("span");
     entryIconEl.className = "claudian-tool-icon";
     entryIconEl.setAttribute("aria-hidden", "true");
-    (0, import_obsidian20.setIcon)(entryIconEl, "dollar-sign");
+    (0, import_obsidian24.setIcon)(entryIconEl, "dollar-sign");
     entryHeaderEl.appendChild(entryIconEl);
     const entryLabelEl = document.createElement("span");
     entryLabelEl.className = "claudian-tool-label";
@@ -63592,8 +65627,8 @@ var StatusPanel = class {
     entryStatusEl.className = "claudian-tool-status";
     entryStatusEl.classList.add(`status-${info.status}`);
     entryStatusEl.setAttribute("aria-label", t("chat.bangBash.statusLabel", { status: info.status }));
-    if (info.status === "completed") (0, import_obsidian20.setIcon)(entryStatusEl, "check");
-    if (info.status === "error") (0, import_obsidian20.setIcon)(entryStatusEl, "x");
+    if (info.status === "completed") (0, import_obsidian24.setIcon)(entryStatusEl, "check");
+    if (info.status === "error") (0, import_obsidian24.setIcon)(entryStatusEl, "x");
     entryHeaderEl.appendChild(entryStatusEl);
     entryEl.appendChild(entryHeaderEl);
     const contentEl = document.createElement("div");
@@ -63637,7 +65672,7 @@ ${output}` : `$ ${latest.command}`;
     try {
       await navigator.clipboard.writeText(text);
     } catch (e2) {
-      new import_obsidian20.Notice(t("chat.bangBash.copyFailed"));
+      new import_obsidian24.Notice(t("chat.bangBash.copyFailed"));
     }
   }
   appendActionButton(parent, name, ariaLabel, icon, action) {
@@ -63646,7 +65681,7 @@ ${output}` : `$ ${latest.command}`;
     el.setAttribute("role", "button");
     el.setAttribute("tabindex", "0");
     el.setAttribute("aria-label", ariaLabel);
-    (0, import_obsidian20.setIcon)(el, icon);
+    (0, import_obsidian24.setIcon)(el, icon);
     el.addEventListener("click", (e2) => {
       e2.stopPropagation();
       action();
@@ -63755,6 +65790,7 @@ function createTab(options) {
     state,
     controllers: {
       selectionController: null,
+      canvasSelectionController: null,
       conversationController: null,
       streamController: null,
       inputController: null,
@@ -63777,7 +65813,8 @@ function createTab(options) {
       instructionModeManager: null,
       bangBashModeManager: null,
       contextUsageMeter: null,
-      statusPanel: null
+      statusPanel: null,
+      navigationSidebar: null
     },
     dom,
     renderer: null
@@ -63800,14 +65837,6 @@ function buildTabDOM(contentEl) {
   const messagesWrapperEl = contentEl.createDiv({ cls: "claudian-messages-wrapper" });
   const messagesEl = messagesWrapperEl.createDiv({ cls: "claudian-messages" });
   const welcomeEl = messagesEl.createDiv({ cls: "claudian-welcome" });
-  const scrollToBottomEl = messagesWrapperEl.createEl("button", {
-    cls: "claudian-scroll-to-bottom",
-    attr: {
-      "aria-label": "Scroll to bottom",
-      type: "button"
-    }
-  });
-  scrollToBottomEl.textContent = "Scroll to bottom";
   const statusPanelContainerEl = contentEl.createDiv({ cls: "claudian-status-panel-container" });
   const inputContainerEl = contentEl.createDiv({ cls: "claudian-input-container" });
   const navRowEl = inputContainerEl.createDiv({ cls: "claudian-input-nav-row" });
@@ -63832,7 +65861,7 @@ function buildTabDOM(contentEl) {
     navRowEl,
     contextRowEl,
     selectionIndicatorEl: null,
-    scrollToBottomEl,
+    canvasIndicatorEl: null,
     eventCleanups: []
   };
 }
@@ -63885,10 +65914,11 @@ function initializeContextManagers(tab, plugin) {
     {
       getExcludedTags: () => plugin.settings.excludedTags,
       onChipsChanged: () => {
-        var _a3, _b;
+        var _a3, _b, _c;
         (_a3 = tab.controllers.selectionController) == null ? void 0 : _a3.updateContextRowVisibility();
+        (_b = tab.controllers.canvasSelectionController) == null ? void 0 : _b.updateContextRowVisibility();
         autoResizeTextarea(dom.inputEl);
-        (_b = tab.renderer) == null ? void 0 : _b.scrollToBottomIfNeeded();
+        (_c = tab.renderer) == null ? void 0 : _c.scrollToBottomIfNeeded();
       },
       getExternalContexts: () => {
         var _a3;
@@ -63904,10 +65934,11 @@ function initializeContextManagers(tab, plugin) {
     dom.inputEl,
     {
       onImagesChanged: () => {
-        var _a3, _b;
+        var _a3, _b, _c;
         (_a3 = tab.controllers.selectionController) == null ? void 0 : _a3.updateContextRowVisibility();
+        (_b = tab.controllers.canvasSelectionController) == null ? void 0 : _b.updateContextRowVisibility();
         autoResizeTextarea(dom.inputEl);
-        (_b = tab.renderer) == null ? void 0 : _b.scrollToBottomIfNeeded();
+        (_c = tab.renderer) == null ? void 0 : _c.scrollToBottomIfNeeded();
       }
     },
     dom.contextRowEl
@@ -64048,21 +66079,21 @@ function initializeTabUI(tab, plugin, options = {}) {
   initializeContextManagers(tab, plugin);
   dom.selectionIndicatorEl = dom.contextRowEl.createDiv({ cls: "claudian-selection-indicator" });
   dom.selectionIndicatorEl.style.display = "none";
+  dom.canvasIndicatorEl = dom.contextRowEl.createDiv({ cls: "claudian-canvas-indicator" });
+  dom.canvasIndicatorEl.style.display = "none";
   initializeSlashCommands(
     tab,
     options.getSdkCommands,
     () => new Set((plugin.settings.hiddenSlashCommands || []).map((c3) => c3.toLowerCase()))
   );
+  if (dom.messagesEl.parentElement) {
+    tab.ui.navigationSidebar = new NavigationSidebar(
+      dom.messagesEl.parentElement,
+      dom.messagesEl
+    );
+  }
   initializeInstructionAndTodo(tab, plugin);
   initializeInputToolbar(tab, plugin);
-  const updateScrollToBottomVisibility = () => {
-    if (dom.scrollToBottomEl) {
-      const hasOverflow = dom.messagesEl.scrollHeight > dom.messagesEl.clientHeight;
-      const shouldShow = !state.autoScrollEnabled && hasOverflow;
-      dom.scrollToBottomEl.classList.toggle("visible", shouldShow);
-    }
-  };
-  dom.updateScrollVisibility = updateScrollToBottomVisibility;
   state.callbacks = {
     ...state.callbacks,
     onUsageChanged: (usage) => {
@@ -64073,14 +66104,17 @@ function initializeTabUI(tab, plugin, options = {}) {
       var _a3;
       return (_a3 = tab.ui.statusPanel) == null ? void 0 : _a3.updateTodos(todos);
     },
-    onAutoScrollChanged: () => updateScrollToBottomVisibility()
+    onAutoScrollChanged: () => {
+      var _a3;
+      return (_a3 = tab.ui.navigationSidebar) == null ? void 0 : _a3.updateVisibility();
+    }
   };
   const resizeObserver = new ResizeObserver(() => {
-    updateScrollToBottomVisibility();
+    var _a3;
+    (_a3 = tab.ui.navigationSidebar) == null ? void 0 : _a3.updateVisibility();
   });
   resizeObserver.observe(dom.messagesEl);
   dom.eventCleanups.push(() => resizeObserver.disconnect());
-  updateScrollToBottomVisibility();
 }
 function deepCloneMessages(messages) {
   const sc = globalThis.structuredClone;
@@ -64100,7 +66134,7 @@ function resolveForkSource(tab, plugin) {
     sourceSessionId = (_f = (_e = (_c = conversation == null ? void 0 : conversation.sdkSessionId) != null ? _c : conversation == null ? void 0 : conversation.sessionId) != null ? _e : (_d = conversation == null ? void 0 : conversation.forkSource) == null ? void 0 : _d.sessionId) != null ? _f : null;
   }
   if (!sourceSessionId) {
-    new import_obsidian21.Notice(t("chat.fork.failed", { error: t("chat.fork.errorNoSession") }));
+    new import_obsidian25.Notice(t("chat.fork.failed", { error: t("chat.fork.errorNoSession") }));
     return null;
   }
   const sourceConversation = tab.conversationId ? plugin.getConversationSync(tab.conversationId) : void 0;
@@ -64113,22 +66147,22 @@ function resolveForkSource(tab, plugin) {
 async function handleForkRequest(tab, plugin, userMessageId, forkRequestCallback) {
   const { state } = tab;
   if (state.isStreaming) {
-    new import_obsidian21.Notice(t("chat.fork.unavailableStreaming"));
+    new import_obsidian25.Notice(t("chat.fork.unavailableStreaming"));
     return;
   }
   const msgs = state.messages;
   const userIdx = msgs.findIndex((m) => m.id === userMessageId);
   if (userIdx === -1) {
-    new import_obsidian21.Notice(t("chat.fork.failed", { error: t("chat.fork.errorMessageNotFound") }));
+    new import_obsidian25.Notice(t("chat.fork.failed", { error: t("chat.fork.errorMessageNotFound") }));
     return;
   }
   if (!msgs[userIdx].sdkUserUuid) {
-    new import_obsidian21.Notice(t("chat.fork.unavailableNoUuid"));
+    new import_obsidian25.Notice(t("chat.fork.unavailableNoUuid"));
     return;
   }
   const rewindCtx = findRewindContext(msgs, userIdx);
   if (!rewindCtx.hasResponse || !rewindCtx.prevAssistantUuid) {
-    new import_obsidian21.Notice(t("chat.fork.unavailableNoResponse"));
+    new import_obsidian25.Notice(t("chat.fork.unavailableNoResponse"));
     return;
   }
   const source = resolveForkSource(tab, plugin);
@@ -64145,12 +66179,12 @@ async function handleForkRequest(tab, plugin, userMessageId, forkRequestCallback
 async function handleForkAll(tab, plugin, forkRequestCallback) {
   const { state } = tab;
   if (state.isStreaming) {
-    new import_obsidian21.Notice(t("chat.fork.unavailableStreaming"));
+    new import_obsidian25.Notice(t("chat.fork.unavailableStreaming"));
     return;
   }
   const msgs = state.messages;
   if (msgs.length === 0) {
-    new import_obsidian21.Notice(t("chat.fork.commandNoMessages"));
+    new import_obsidian25.Notice(t("chat.fork.commandNoMessages"));
     return;
   }
   let lastAssistantUuid;
@@ -64161,7 +66195,7 @@ async function handleForkAll(tab, plugin, forkRequestCallback) {
     }
   }
   if (!lastAssistantUuid) {
-    new import_obsidian21.Notice(t("chat.fork.commandNoAssistantUuid"));
+    new import_obsidian25.Notice(t("chat.fork.commandNoAssistantUuid"));
     return;
   }
   const source = resolveForkSource(tab, plugin);
@@ -64191,6 +66225,13 @@ function initializeTabControllers(tab, plugin, component, mcpManager, forkReques
     dom.contextRowEl,
     () => autoResizeTextarea(dom.inputEl)
   );
+  tab.controllers.canvasSelectionController = new CanvasSelectionController(
+    plugin.app,
+    dom.canvasIndicatorEl,
+    dom.inputEl,
+    dom.contextRowEl,
+    () => autoResizeTextarea(dom.inputEl)
+  );
   tab.controllers.streamController = new StreamController({
     plugin,
     state,
@@ -64206,8 +66247,12 @@ function initializeTabControllers(tab, plugin, component, mcpManager, forkReques
   });
   services.subagentManager.setCallback(
     (subagent) => {
-      var _a3;
+      var _a3, _b;
       (_a3 = tab.controllers.streamController) == null ? void 0 : _a3.onAsyncSubagentStateChange(subagent);
+      if (!tab.state.isStreaming && tab.state.currentConversationId) {
+        void ((_b = tab.controllers.conversationController) == null ? void 0 : _b.save(false).catch(() => {
+        }));
+      }
       if (subagent.mode === "async" && ui.statusPanel) {
         ui.statusPanel.updateSubagent({
           id: subagent.id,
@@ -64255,6 +66300,7 @@ function initializeTabControllers(tab, plugin, component, mcpManager, forkReques
     renderer: tab.renderer,
     streamController: tab.controllers.streamController,
     selectionController: tab.controllers.selectionController,
+    canvasSelectionController: tab.controllers.canvasSelectionController,
     conversationController: tab.controllers.conversationController,
     getInputEl: () => dom.inputEl,
     getInputContainerEl: () => dom.inputContainerEl,
@@ -64419,59 +66465,52 @@ function wireTabInputEvents(tab, plugin) {
     dom.messagesEl.removeEventListener("scroll", scrollHandler);
     if (reEnableTimeout) clearTimeout(reEnableTimeout);
   });
-  if (dom.scrollToBottomEl) {
-    const scrollToBottomHandler = () => {
-      dom.messagesEl.scrollTop = dom.messagesEl.scrollHeight;
-      if (isAutoScrollAllowed()) {
-        state.autoScrollEnabled = true;
-      }
-    };
-    dom.scrollToBottomEl.addEventListener("click", scrollToBottomHandler);
-    dom.eventCleanups.push(() => {
-      var _a4;
-      return (_a4 = dom.scrollToBottomEl) == null ? void 0 : _a4.removeEventListener("click", scrollToBottomHandler);
-    });
-  }
 }
 function activateTab(tab) {
   var _a3, _b, _c;
   tab.dom.contentEl.style.display = "flex";
   (_a3 = tab.controllers.selectionController) == null ? void 0 : _a3.start();
-  (_c = (_b = tab.dom).updateScrollVisibility) == null ? void 0 : _c.call(_b);
+  (_b = tab.controllers.canvasSelectionController) == null ? void 0 : _b.start();
+  (_c = tab.ui.navigationSidebar) == null ? void 0 : _c.updateVisibility();
 }
 function deactivateTab(tab) {
-  var _a3;
+  var _a3, _b;
   tab.dom.contentEl.style.display = "none";
   (_a3 = tab.controllers.selectionController) == null ? void 0 : _a3.stop();
+  (_b = tab.controllers.canvasSelectionController) == null ? void 0 : _b.stop();
 }
 async function destroyTab(tab) {
-  var _a3, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l;
+  var _a3, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o;
   (_a3 = tab.controllers.selectionController) == null ? void 0 : _a3.stop();
   (_b = tab.controllers.selectionController) == null ? void 0 : _b.clear();
-  (_c = tab.controllers.navigationController) == null ? void 0 : _c.dispose();
+  (_c = tab.controllers.canvasSelectionController) == null ? void 0 : _c.stop();
+  (_d = tab.controllers.canvasSelectionController) == null ? void 0 : _d.clear();
+  (_e = tab.controllers.navigationController) == null ? void 0 : _e.dispose();
   cleanupThinkingBlock(tab.state.currentThinkingState);
   tab.state.currentThinkingState = null;
-  (_d = tab.controllers.inputController) == null ? void 0 : _d.destroyResumeDropdown();
-  (_e = tab.ui.fileContextManager) == null ? void 0 : _e.destroy();
-  (_f = tab.ui.slashCommandDropdown) == null ? void 0 : _f.destroy();
+  (_f = tab.controllers.inputController) == null ? void 0 : _f.destroyResumeDropdown();
+  (_g = tab.ui.fileContextManager) == null ? void 0 : _g.destroy();
+  (_h = tab.ui.slashCommandDropdown) == null ? void 0 : _h.destroy();
   tab.ui.slashCommandDropdown = null;
-  (_g = tab.ui.instructionModeManager) == null ? void 0 : _g.destroy();
+  (_i = tab.ui.instructionModeManager) == null ? void 0 : _i.destroy();
   tab.ui.instructionModeManager = null;
-  (_h = tab.ui.bangBashModeManager) == null ? void 0 : _h.destroy();
+  (_j = tab.ui.bangBashModeManager) == null ? void 0 : _j.destroy();
   tab.ui.bangBashModeManager = null;
-  (_i = tab.services.instructionRefineService) == null ? void 0 : _i.cancel();
+  (_k = tab.services.instructionRefineService) == null ? void 0 : _k.cancel();
   tab.services.instructionRefineService = null;
-  (_j = tab.services.titleGenerationService) == null ? void 0 : _j.cancel();
+  (_l = tab.services.titleGenerationService) == null ? void 0 : _l.cancel();
   tab.services.titleGenerationService = null;
-  (_k = tab.ui.statusPanel) == null ? void 0 : _k.destroy();
+  (_m = tab.ui.statusPanel) == null ? void 0 : _m.destroy();
   tab.ui.statusPanel = null;
+  (_n = tab.ui.navigationSidebar) == null ? void 0 : _n.destroy();
+  tab.ui.navigationSidebar = null;
   tab.services.subagentManager.orphanAllActive();
   tab.services.subagentManager.clear();
   for (const cleanup of tab.dom.eventCleanups) {
     cleanup();
   }
   tab.dom.eventCleanups.length = 0;
-  (_l = tab.service) == null ? void 0 : _l.closePersistentQuery("tab closed");
+  (_o = tab.service) == null ? void 0 : _o.closePersistentQuery("tab closed");
   tab.service = null;
   tab.dom.contentEl.remove();
 }
@@ -64599,20 +66638,20 @@ var TabBar = class {
 };
 
 // src/features/chat/tabs/TabManager.ts
-var import_obsidian23 = require("obsidian");
+var import_obsidian27 = require("obsidian");
 
 // src/shared/modals/ForkTargetModal.ts
-var import_obsidian22 = require("obsidian");
+var import_obsidian26 = require("obsidian");
 function chooseForkTarget(app) {
-  return new Promise((resolve4) => {
-    new ForkTargetModal(app, resolve4).open();
+  return new Promise((resolve5) => {
+    new ForkTargetModal(app, resolve5).open();
   });
 }
-var ForkTargetModal = class extends import_obsidian22.Modal {
-  constructor(app, resolve4) {
+var ForkTargetModal = class extends import_obsidian26.Modal {
+  constructor(app, resolve5) {
     super(app);
     this.resolved = false;
-    this.resolve = resolve4;
+    this.resolve = resolve5;
   }
   onOpen() {
     this.setTitle(t("chat.fork.chooseTarget"));
@@ -64901,17 +66940,17 @@ var TabManager = class {
       const tab = await this.forkToNewTab(context);
       if (!tab) {
         const maxTabs = this.getMaxTabs();
-        new import_obsidian23.Notice(t("chat.fork.maxTabsReached", { count: String(maxTabs) }));
+        new import_obsidian27.Notice(t("chat.fork.maxTabsReached", { count: String(maxTabs) }));
         return;
       }
-      new import_obsidian23.Notice(t("chat.fork.notice"));
+      new import_obsidian27.Notice(t("chat.fork.notice"));
     } else {
       const success2 = await this.forkInCurrentTab(context);
       if (!success2) {
-        new import_obsidian23.Notice(t("chat.fork.failed", { error: t("chat.fork.errorNoActiveTab") }));
+        new import_obsidian27.Notice(t("chat.fork.failed", { error: t("chat.fork.errorNoActiveTab") }));
         return;
       }
-      new import_obsidian23.Notice(t("chat.fork.noticeCurrentTab"));
+      new import_obsidian27.Notice(t("chat.fork.noticeCurrentTab"));
     }
   }
   async forkToNewTab(context) {
@@ -65076,7 +67115,7 @@ var TabManager = class {
 };
 
 // src/features/chat/ClaudianView.ts
-var ClaudianView = class extends import_obsidian24.ItemView {
+var ClaudianView = class extends import_obsidian28.ItemView {
   constructor(leaf, plugin) {
     super(leaf);
     // Tab management
@@ -65246,13 +67285,13 @@ var ClaudianView = class extends import_obsidian24.ItemView {
     this.headerActionsContent = document.createElement("div");
     this.headerActionsContent.className = "claudian-header-actions";
     const newTabBtn = this.headerActionsContent.createDiv({ cls: "claudian-header-btn claudian-new-tab-btn" });
-    (0, import_obsidian24.setIcon)(newTabBtn, "square-plus");
+    (0, import_obsidian28.setIcon)(newTabBtn, "square-plus");
     newTabBtn.setAttribute("aria-label", "New tab");
     newTabBtn.addEventListener("click", async () => {
       await this.handleNewTab();
     });
     const newBtn = this.headerActionsContent.createDiv({ cls: "claudian-header-btn" });
-    (0, import_obsidian24.setIcon)(newBtn, "square-pen");
+    (0, import_obsidian28.setIcon)(newBtn, "square-pen");
     newBtn.setAttribute("aria-label", "New conversation");
     newBtn.addEventListener("click", async () => {
       var _a3;
@@ -65261,7 +67300,7 @@ var ClaudianView = class extends import_obsidian24.ItemView {
     });
     const historyContainer = this.headerActionsContent.createDiv({ cls: "claudian-history-container" });
     const historyBtn = historyContainer.createDiv({ cls: "claudian-header-btn" });
-    (0, import_obsidian24.setIcon)(historyBtn, "history");
+    (0, import_obsidian28.setIcon)(historyBtn, "history");
     historyBtn.setAttribute("aria-label", "Chat history");
     this.historyDropdown = historyContainer.createDiv({ cls: "claudian-history-menu" });
     historyBtn.addEventListener("click", (e2) => {
@@ -65333,7 +67372,7 @@ var ClaudianView = class extends import_obsidian24.ItemView {
     const tab = await ((_a3 = this.tabManager) == null ? void 0 : _a3.createTab());
     if (!tab) {
       const maxTabs = (_b = this.plugin.settings.maxTabs) != null ? _b : 3;
-      new import_obsidian24.Notice(`Maximum ${maxTabs} tabs allowed`);
+      new import_obsidian28.Notice(`Maximum ${maxTabs} tabs allowed`);
       return;
     }
     this.updateTabBarVisibility();
@@ -65437,7 +67476,7 @@ var ClaudianView = class extends import_obsidian24.ItemView {
         }
       }
     });
-    this.registerDomEvent(document, "keydown", (e2) => {
+    this.registerDomEvent(this.containerEl, "keydown", (e2) => {
       var _a3, _b;
       if (e2.key === "Escape" && !e2.isComposing) {
         const activeTab = (_a3 = this.tabManager) == null ? void 0 : _a3.getActiveTab();
@@ -65447,15 +67486,18 @@ var ClaudianView = class extends import_obsidian24.ItemView {
         }
       }
     });
-    const markDirty = () => {
-      var _a3, _b, _c;
-      (_c = (_b = (_a3 = this.tabManager) == null ? void 0 : _a3.getActiveTab()) == null ? void 0 : _b.ui.fileContextManager) == null ? void 0 : _c.markFilesCacheDirty();
+    const markCacheDirty = (includesFolders) => {
+      var _a3, _b;
+      const mgr = (_b = (_a3 = this.tabManager) == null ? void 0 : _a3.getActiveTab()) == null ? void 0 : _b.ui.fileContextManager;
+      if (!mgr) return;
+      mgr.markFileCacheDirty();
+      if (includesFolders) mgr.markFolderCacheDirty();
     };
     this.eventRefs.push(
-      this.plugin.app.vault.on("create", markDirty),
-      this.plugin.app.vault.on("delete", markDirty),
-      this.plugin.app.vault.on("rename", markDirty),
-      this.plugin.app.vault.on("modify", markDirty)
+      this.plugin.app.vault.on("create", () => markCacheDirty(true)),
+      this.plugin.app.vault.on("delete", () => markCacheDirty(true)),
+      this.plugin.app.vault.on("rename", () => markCacheDirty(true)),
+      this.plugin.app.vault.on("modify", () => markCacheDirty(false))
     );
     this.registerEvent(
       this.plugin.app.workspace.on("file-open", (file2) => {
@@ -65538,15 +67580,7 @@ var ClaudianView = class extends import_obsidian24.ItemView {
 };
 
 // src/features/inline-edit/ui/InlineEditModal.ts
-var import_obsidian25 = require("obsidian");
-
-// src/utils/inlineEdit.ts
-function normalizeInsertionText(text) {
-  return text.replace(/^(?:\r?\n)+|(?:\r?\n)+$/g, "");
-}
-function escapeHtml2(text) {
-  return text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}
+var import_obsidian29 = require("obsidian");
 
 // src/core/prompts/inlineEdit.ts
 function getInlineEditSystemPrompt() {
@@ -66105,7 +68139,7 @@ function computeDiff(oldText, newText) {
 }
 function diffToHtml(ops) {
   return ops.map((op) => {
-    const escaped = escapeHtml2(op.text);
+    const escaped = escapeHtml(op.text);
     switch (op.type) {
       case "delete":
         return `<span class="claudian-diff-del">${escaped}</span>`;
@@ -66117,9 +68151,11 @@ function diffToHtml(ops) {
   }).join("");
 }
 var InlineEditModal = class {
-  constructor(app, plugin, editContext, notePath) {
+  constructor(app, plugin, editor, view, editContext, notePath) {
     this.app = app;
     this.plugin = plugin;
+    this.editor = editor;
+    this.view = view;
     this.editContext = editContext;
     this.notePath = notePath;
     this.controller = null;
@@ -66129,12 +68165,17 @@ var InlineEditModal = class {
       activeController.reject();
       return { decision: "reject" };
     }
-    const view = this.app.workspace.getActiveViewOfType(import_obsidian25.MarkdownView);
-    if (!view) return { decision: "reject" };
-    const editor = view.editor;
-    const editorView = getEditorView(editor);
-    if (!editorView) return { decision: "reject" };
-    return new Promise((resolve4) => {
+    let editor = this.editor;
+    let editorView = getEditorView(editor);
+    if (!editorView) {
+      editor = this.view.editor;
+      editorView = getEditorView(editor);
+    }
+    if (!editorView) {
+      new import_obsidian29.Notice("Inline edit unavailable: could not access the active editor. Try reopening the note.");
+      return { decision: "reject" };
+    }
+    return new Promise((resolve5) => {
       this.controller = new InlineEditController(
         this.app,
         this.plugin,
@@ -66142,7 +68183,7 @@ var InlineEditModal = class {
         editor,
         this.editContext,
         this.notePath,
-        resolve4
+        resolve5
       );
       activeController = this.controller;
       this.controller.show();
@@ -66150,13 +68191,13 @@ var InlineEditModal = class {
   }
 };
 var InlineEditController = class {
-  constructor(app, plugin, editorView, editor, editContext, notePath, resolve4) {
+  constructor(app, plugin, editorView, editor, editContext, notePath, resolve5) {
     this.app = app;
     this.plugin = plugin;
     this.editorView = editorView;
     this.editor = editor;
     this.notePath = notePath;
-    this.resolve = resolve4;
+    this.resolve = resolve5;
     this.inputEl = null;
     this.spinnerEl = null;
     this.agentReplyEl = null;
@@ -66171,6 +68212,7 @@ var InlineEditController = class {
     this.slashCommandDropdown = null;
     this.mentionDropdown = null;
     this.attachedFiles = /* @__PURE__ */ new Set();
+    this.folderCache = null;
     this.inlineEditService = new InlineEditService(plugin);
     this.mode = editContext.mode;
     if (editContext.mode === "cursor") {
@@ -66297,6 +68339,7 @@ var InlineEditController = class {
         hiddenCommands: new Set((this.plugin.settings.hiddenSlashCommands || []).map((c3) => c3.toLowerCase()))
       }
     );
+    this.folderCache = new VaultFolderCache(this.app);
     this.mentionDropdown = new MentionDropdownController(
       document.body,
       this.inputEl,
@@ -66309,6 +68352,10 @@ var InlineEditController = class {
         addMentionedMcpServer: () => {
         },
         getExternalContexts: () => [],
+        getCachedVaultFolders: () => {
+          var _a3, _b;
+          return (_b = (_a3 = this.folderCache) == null ? void 0 : _a3.getFolders().map((f3) => ({ name: f3.name, path: f3.path }))) != null ? _b : [];
+        },
         getCachedMarkdownFiles: () => {
           try {
             return this.app.vault.getMarkdownFiles();
@@ -66432,7 +68479,7 @@ var InlineEditController = class {
     hideSelectionHighlight(this.editorView);
     const trimmedText = normalizeInsertionText(this.insertedText);
     this.insertedText = trimmedText;
-    const escaped = escapeHtml2(trimmedText);
+    const escaped = escapeHtml(trimmedText);
     const diffHtml = `<span class="claudian-diff-ins">${escaped}</span>`;
     this.editorView.dispatch({
       effects: showInsertion.of({
@@ -66496,6 +68543,7 @@ var InlineEditController = class {
     (_b = this.mentionDropdown) == null ? void 0 : _b.destroy();
     this.mentionDropdown = null;
     this.attachedFiles.clear();
+    this.folderCache = null;
     if (activeController === this) {
       activeController = null;
     }
@@ -66530,15 +68578,15 @@ var InlineEditController = class {
       const vaultPath = getVaultPath(this.app);
       return normalizePathForVault(rawPath, vaultPath);
     } catch (e2) {
-      new import_obsidian25.Notice("Failed to attach file: invalid path");
+      new import_obsidian29.Notice("Failed to attach file: invalid path");
       return null;
     }
   }
 };
 
 // src/features/settings/ClaudianSettings.ts
-var fs8 = __toESM(require("fs"));
-var import_obsidian33 = require("obsidian");
+var fs9 = __toESM(require("fs"));
+var import_obsidian37 = require("obsidian");
 
 // src/features/settings/keyboardNavigation.ts
 var NAV_ACTIONS = ["scrollUp", "scrollDown", "focusInput"];
@@ -66586,14 +68634,14 @@ var parseNavMappings = (value) => {
 };
 
 // src/features/settings/ui/AgentSettings.ts
-var import_obsidian26 = require("obsidian");
+var import_obsidian30 = require("obsidian");
 var MODEL_OPTIONS = [
   { value: "inherit", label: "Inherit" },
   { value: "sonnet", label: "Sonnet" },
   { value: "opus", label: "Opus" },
   { value: "haiku", label: "Haiku" }
 ];
-var AgentModal = class extends import_obsidian26.Modal {
+var AgentModal = class extends import_obsidian30.Modal {
   constructor(app, plugin, existingAgent, onSave) {
     super(app);
     this.plugin = plugin;
@@ -66613,12 +68661,12 @@ var AgentModal = class extends import_obsidian26.Modal {
     let toolsInput;
     let disallowedToolsInput;
     let skillsInput;
-    new import_obsidian26.Setting(contentEl).setName(t("settings.subagents.modal.name")).setDesc(t("settings.subagents.modal.nameDesc")).addText((text) => {
+    new import_obsidian30.Setting(contentEl).setName(t("settings.subagents.modal.name")).setDesc(t("settings.subagents.modal.nameDesc")).addText((text) => {
       var _a4;
       nameInput = text.inputEl;
       text.setValue(((_a4 = this.existingAgent) == null ? void 0 : _a4.name) || "").setPlaceholder(t("settings.subagents.modal.namePlaceholder"));
     });
-    new import_obsidian26.Setting(contentEl).setName(t("settings.subagents.modal.description")).setDesc(t("settings.subagents.modal.descriptionDesc")).addText((text) => {
+    new import_obsidian30.Setting(contentEl).setName(t("settings.subagents.modal.description")).setDesc(t("settings.subagents.modal.descriptionDesc")).addText((text) => {
       var _a4;
       descInput = text.inputEl;
       text.setValue(((_a4 = this.existingAgent) == null ? void 0 : _a4.description) || "").setPlaceholder(t("settings.subagents.modal.descriptionPlaceholder"));
@@ -66631,7 +68679,7 @@ var AgentModal = class extends import_obsidian26.Modal {
     if (((_c = this.existingAgent) == null ? void 0 : _c.model) && this.existingAgent.model !== "inherit" || ((_e = (_d = this.existingAgent) == null ? void 0 : _d.tools) == null ? void 0 : _e.length) || ((_g = (_f = this.existingAgent) == null ? void 0 : _f.disallowedTools) == null ? void 0 : _g.length) || ((_i = (_h = this.existingAgent) == null ? void 0 : _h.skills) == null ? void 0 : _i.length)) {
       details.open = true;
     }
-    new import_obsidian26.Setting(details).setName(t("settings.subagents.modal.model")).setDesc(t("settings.subagents.modal.modelDesc")).addDropdown((dropdown) => {
+    new import_obsidian30.Setting(details).setName(t("settings.subagents.modal.model")).setDesc(t("settings.subagents.modal.modelDesc")).addDropdown((dropdown) => {
       for (const opt of MODEL_OPTIONS) {
         dropdown.addOption(opt.value, opt.label);
       }
@@ -66639,22 +68687,22 @@ var AgentModal = class extends import_obsidian26.Modal {
         modelValue = value;
       });
     });
-    new import_obsidian26.Setting(details).setName(t("settings.subagents.modal.tools")).setDesc(t("settings.subagents.modal.toolsDesc")).addText((text) => {
+    new import_obsidian30.Setting(details).setName(t("settings.subagents.modal.tools")).setDesc(t("settings.subagents.modal.toolsDesc")).addText((text) => {
       var _a4, _b2;
       toolsInput = text.inputEl;
       text.setValue(((_b2 = (_a4 = this.existingAgent) == null ? void 0 : _a4.tools) == null ? void 0 : _b2.join(", ")) || "");
     });
-    new import_obsidian26.Setting(details).setName(t("settings.subagents.modal.disallowedTools")).setDesc(t("settings.subagents.modal.disallowedToolsDesc")).addText((text) => {
+    new import_obsidian30.Setting(details).setName(t("settings.subagents.modal.disallowedTools")).setDesc(t("settings.subagents.modal.disallowedToolsDesc")).addText((text) => {
       var _a4, _b2;
       disallowedToolsInput = text.inputEl;
       text.setValue(((_b2 = (_a4 = this.existingAgent) == null ? void 0 : _a4.disallowedTools) == null ? void 0 : _b2.join(", ")) || "");
     });
-    new import_obsidian26.Setting(details).setName(t("settings.subagents.modal.skills")).setDesc(t("settings.subagents.modal.skillsDesc")).addText((text) => {
+    new import_obsidian30.Setting(details).setName(t("settings.subagents.modal.skills")).setDesc(t("settings.subagents.modal.skillsDesc")).addText((text) => {
       var _a4, _b2;
       skillsInput = text.inputEl;
       text.setValue(((_b2 = (_a4 = this.existingAgent) == null ? void 0 : _a4.skills) == null ? void 0 : _b2.join(", ")) || "");
     });
-    new import_obsidian26.Setting(contentEl).setName(t("settings.subagents.modal.prompt")).setDesc(t("settings.subagents.modal.promptDesc"));
+    new import_obsidian30.Setting(contentEl).setName(t("settings.subagents.modal.prompt")).setDesc(t("settings.subagents.modal.promptDesc"));
     const contentArea = contentEl.createEl("textarea", {
       cls: "claudian-sp-content-area",
       attr: {
@@ -66674,21 +68722,21 @@ var AgentModal = class extends import_obsidian26.Modal {
       cls: "claudian-save-btn"
     });
     saveBtn.addEventListener("click", async () => {
-      var _a4, _b2, _c2;
+      var _a4, _b2, _c2, _d2;
       const name = nameInput.value.trim();
       const nameError = validateAgentName(name);
       if (nameError) {
-        new import_obsidian26.Notice(nameError);
+        new import_obsidian30.Notice(nameError);
         return;
       }
       const description = descInput.value.trim();
       if (!description) {
-        new import_obsidian26.Notice(t("settings.subagents.descriptionRequired"));
+        new import_obsidian30.Notice(t("settings.subagents.descriptionRequired"));
         return;
       }
       const prompt = contentArea.value;
       if (!prompt.trim()) {
-        new import_obsidian26.Notice(t("settings.subagents.promptRequired"));
+        new import_obsidian30.Notice(t("settings.subagents.promptRequired"));
         return;
       }
       const allAgents = this.plugin.agentManager.getAvailableAgents();
@@ -66699,7 +68747,7 @@ var AgentModal = class extends import_obsidian26.Modal {
         }
       );
       if (duplicate) {
-        new import_obsidian26.Notice(t("settings.subagents.duplicateName", { name }));
+        new import_obsidian30.Notice(t("settings.subagents.duplicateName", { name }));
         return;
       }
       const parseList = (input) => {
@@ -66716,17 +68764,17 @@ var AgentModal = class extends import_obsidian26.Modal {
         disallowedTools: parseList(disallowedToolsInput),
         model: modelValue || "inherit",
         source: "vault",
-        filePath: this.existingAgent && this.existingAgent.name === name ? this.existingAgent.filePath : void 0,
+        filePath: (_a4 = this.existingAgent) == null ? void 0 : _a4.filePath,
         skills: parseList(skillsInput),
-        permissionMode: (_a4 = this.existingAgent) == null ? void 0 : _a4.permissionMode,
-        hooks: (_b2 = this.existingAgent) == null ? void 0 : _b2.hooks,
-        extraFrontmatter: (_c2 = this.existingAgent) == null ? void 0 : _c2.extraFrontmatter
+        permissionMode: (_b2 = this.existingAgent) == null ? void 0 : _b2.permissionMode,
+        hooks: (_c2 = this.existingAgent) == null ? void 0 : _c2.hooks,
+        extraFrontmatter: (_d2 = this.existingAgent) == null ? void 0 : _d2.extraFrontmatter
       };
       try {
         await this.onSave(agent);
       } catch (err) {
         const message = err instanceof Error ? err.message : "Unknown error";
-        new import_obsidian26.Notice(t("settings.subagents.saveFailed", { message }));
+        new import_obsidian30.Notice(t("settings.subagents.saveFailed", { message }));
         return;
       }
       this.close();
@@ -66747,12 +68795,22 @@ var AgentSettings = class {
     const headerEl = this.containerEl.createDiv({ cls: "claudian-sp-header" });
     headerEl.createSpan({ text: t("settings.subagents.name"), cls: "claudian-sp-label" });
     const actionsEl = headerEl.createDiv({ cls: "claudian-sp-header-actions" });
+    const refreshBtn = actionsEl.createEl("button", {
+      cls: "claudian-settings-action-btn",
+      attr: { "aria-label": t("common.refresh") }
+    });
+    (0, import_obsidian30.setIcon)(refreshBtn, "refresh-cw");
+    refreshBtn.addEventListener("click", () => {
+      void this.refreshAgents();
+    });
     const addBtn = actionsEl.createEl("button", {
       cls: "claudian-settings-action-btn",
       attr: { "aria-label": t("common.add") }
     });
-    (0, import_obsidian26.setIcon)(addBtn, "plus");
-    addBtn.addEventListener("click", () => this.openAgentModal(null));
+    (0, import_obsidian30.setIcon)(addBtn, "plus");
+    addBtn.addEventListener("click", () => {
+      void this.openAgentModal(null);
+    });
     const allAgents = this.plugin.agentManager.getAvailableAgents();
     const vaultAgents = allAgents.filter((a) => a.source === "vault");
     if (vaultAgents.length === 0) {
@@ -66780,13 +68838,15 @@ var AgentSettings = class {
       cls: "claudian-settings-action-btn",
       attr: { "aria-label": t("common.edit") }
     });
-    (0, import_obsidian26.setIcon)(editBtn, "pencil");
-    editBtn.addEventListener("click", () => this.openAgentModal(agent));
+    (0, import_obsidian30.setIcon)(editBtn, "pencil");
+    editBtn.addEventListener("click", () => {
+      void this.openAgentModal(agent);
+    });
     const deleteBtn = actionsEl.createEl("button", {
       cls: "claudian-settings-action-btn claudian-settings-delete-btn",
       attr: { "aria-label": t("common.delete") }
     });
-    (0, import_obsidian26.setIcon)(deleteBtn, "trash-2");
+    (0, import_obsidian30.setIcon)(deleteBtn, "trash-2");
     deleteBtn.addEventListener("click", async () => {
       const confirmed = await confirmDelete(
         this.plugin.app,
@@ -66797,26 +68857,50 @@ var AgentSettings = class {
         await this.deleteAgent(agent);
       } catch (err) {
         const message = err instanceof Error ? err.message : "Unknown error";
-        new import_obsidian26.Notice(t("settings.subagents.deleteFailed", { message }));
+        new import_obsidian30.Notice(t("settings.subagents.deleteFailed", { message }));
       }
     });
   }
-  openAgentModal(existingAgent) {
+  async refreshAgents() {
+    try {
+      await this.plugin.agentManager.loadAgents();
+      this.render();
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Unknown error";
+      new import_obsidian30.Notice(t("settings.subagents.refreshFailed", { message }));
+    }
+  }
+  async openAgentModal(existingAgent) {
+    var _a3;
+    let fresh;
+    if (existingAgent) {
+      try {
+        fresh = (_a3 = await this.plugin.storage.agents.load(existingAgent)) != null ? _a3 : existingAgent;
+      } catch (err) {
+        const message = err instanceof Error ? err.message : "Unknown error";
+        new import_obsidian30.Notice(`Failed to load subagent "${existingAgent.name}": ${message}`);
+        return;
+      }
+    } else {
+      fresh = null;
+    }
     new AgentModal(
       this.plugin.app,
       this.plugin,
-      existingAgent,
-      (agent) => this.saveAgent(agent, existingAgent)
+      fresh,
+      (agent) => this.saveAgent(agent, fresh)
     ).open();
   }
   async saveAgent(agent, existing) {
-    await this.plugin.storage.agents.save(agent);
     if (existing && existing.name !== agent.name) {
+      await this.plugin.storage.agents.save({ ...agent, filePath: void 0 });
       try {
         await this.plugin.storage.agents.delete(existing);
       } catch (e2) {
-        new import_obsidian26.Notice(t("settings.subagents.renameCleanupFailed", { name: existing.name }));
+        new import_obsidian30.Notice(t("settings.subagents.renameCleanupFailed", { name: existing.name }));
       }
+    } else {
+      await this.plugin.storage.agents.save(agent);
     }
     try {
       await this.plugin.agentManager.loadAgents();
@@ -66824,7 +68908,7 @@ var AgentSettings = class {
     }
     this.render();
     const action = existing ? "updated" : "created";
-    new import_obsidian26.Notice(t("settings.subagents.saved", { name: agent.name, action }));
+    new import_obsidian30.Notice(t("settings.subagents.saved", { name: agent.name, action }));
   }
   async deleteAgent(agent) {
     await this.plugin.storage.agents.delete(agent);
@@ -66833,13 +68917,13 @@ var AgentSettings = class {
     } catch (e2) {
     }
     this.render();
-    new import_obsidian26.Notice(t("settings.subagents.deleted", { name: agent.name }));
+    new import_obsidian30.Notice(t("settings.subagents.deleted", { name: agent.name }));
   }
 };
 
 // src/features/settings/ui/EnvSnippetManager.ts
-var import_obsidian27 = require("obsidian");
-var EnvSnippetModal = class extends import_obsidian27.Modal {
+var import_obsidian31 = require("obsidian");
+var EnvSnippetModal = class extends import_obsidian31.Modal {
   constructor(app, plugin, snippet, onSave) {
     super(app);
     this.plugin = plugin;
@@ -66868,7 +68952,7 @@ var EnvSnippetModal = class extends import_obsidian27.Modal {
       var _a3;
       const name = nameEl.value.trim();
       if (!name) {
-        new import_obsidian27.Notice(t("settings.envSnippets.nameRequired"));
+        new import_obsidian31.Notice(t("settings.envSnippets.nameRequired"));
         return;
       }
       const contextLimits = {};
@@ -66925,19 +69009,19 @@ var EnvSnippetModal = class extends import_obsidian27.Modal {
         contextLimitInputs.set(modelId, input);
       }
     };
-    new import_obsidian27.Setting(contentEl).setName(t("settings.envSnippets.modal.name")).setDesc(t("settings.envSnippets.modal.namePlaceholder")).addText((text) => {
+    new import_obsidian31.Setting(contentEl).setName(t("settings.envSnippets.modal.name")).setDesc(t("settings.envSnippets.modal.namePlaceholder")).addText((text) => {
       var _a3;
       nameEl = text.inputEl;
       text.setValue(((_a3 = this.snippet) == null ? void 0 : _a3.name) || "");
       text.inputEl.addEventListener("keydown", handleKeyDown);
     });
-    new import_obsidian27.Setting(contentEl).setName(t("settings.envSnippets.modal.description")).setDesc(t("settings.envSnippets.modal.descPlaceholder")).addText((text) => {
+    new import_obsidian31.Setting(contentEl).setName(t("settings.envSnippets.modal.description")).setDesc(t("settings.envSnippets.modal.descPlaceholder")).addText((text) => {
       var _a3;
       descEl = text.inputEl;
       text.setValue(((_a3 = this.snippet) == null ? void 0 : _a3.description) || "");
       text.inputEl.addEventListener("keydown", handleKeyDown);
     });
-    const envVarsSetting = new import_obsidian27.Setting(contentEl).setName(t("settings.envSnippets.modal.envVars")).setDesc(t("settings.envSnippets.modal.envVarsPlaceholder")).addTextArea((text) => {
+    const envVarsSetting = new import_obsidian31.Setting(contentEl).setName(t("settings.envSnippets.modal.envVars")).setDesc(t("settings.envSnippets.modal.envVarsPlaceholder")).addTextArea((text) => {
       var _a3, _b;
       envVarsEl = text.inputEl;
       const envVarsToShow = (_b = (_a3 = this.snippet) == null ? void 0 : _a3.envVars) != null ? _b : this.plugin.settings.environmentVariables;
@@ -66982,7 +69066,7 @@ var EnvSnippetManager = class {
       cls: "claudian-settings-action-btn",
       attr: { "aria-label": t("settings.envSnippets.addBtn") }
     });
-    (0, import_obsidian27.setIcon)(saveBtn, "plus");
+    (0, import_obsidian31.setIcon)(saveBtn, "plus");
     saveBtn.addEventListener("click", () => this.saveCurrentEnv());
     const snippets = this.plugin.settings.envSnippets;
     if (snippets.length === 0) {
@@ -67005,19 +69089,19 @@ var EnvSnippetManager = class {
         cls: "claudian-settings-action-btn",
         attr: { "aria-label": "Insert" }
       });
-      (0, import_obsidian27.setIcon)(restoreBtn, "clipboard-paste");
+      (0, import_obsidian31.setIcon)(restoreBtn, "clipboard-paste");
       restoreBtn.addEventListener("click", async () => {
         try {
           await this.insertSnippet(snippet);
         } catch (e2) {
-          new import_obsidian27.Notice("Failed to insert snippet");
+          new import_obsidian31.Notice("Failed to insert snippet");
         }
       });
       const editBtn = actionsEl.createEl("button", {
         cls: "claudian-settings-action-btn",
         attr: { "aria-label": "Edit" }
       });
-      (0, import_obsidian27.setIcon)(editBtn, "pencil");
+      (0, import_obsidian31.setIcon)(editBtn, "pencil");
       editBtn.addEventListener("click", () => {
         this.editSnippet(snippet);
       });
@@ -67025,14 +69109,14 @@ var EnvSnippetManager = class {
         cls: "claudian-settings-action-btn claudian-settings-delete-btn",
         attr: { "aria-label": "Delete" }
       });
-      (0, import_obsidian27.setIcon)(deleteBtn, "trash-2");
+      (0, import_obsidian31.setIcon)(deleteBtn, "trash-2");
       deleteBtn.addEventListener("click", async () => {
         try {
           if (confirm(`Delete environment snippet "${snippet.name}"?`)) {
             await this.deleteSnippet(snippet);
           }
         } catch (e2) {
-          new import_obsidian27.Notice("Failed to delete snippet");
+          new import_obsidian31.Notice("Failed to delete snippet");
         }
       });
     }
@@ -67046,7 +69130,7 @@ var EnvSnippetManager = class {
         this.plugin.settings.envSnippets.push(snippet);
         await this.plugin.saveSettings();
         this.render();
-        new import_obsidian27.Notice(`Environment snippet "${snippet.name}" saved`);
+        new import_obsidian31.Notice(`Environment snippet "${snippet.name}" saved`);
       }
     );
     modal.open();
@@ -67083,7 +69167,7 @@ var EnvSnippetManager = class {
           this.plugin.settings.envSnippets[index] = updatedSnippet;
           await this.plugin.saveSettings();
           this.render();
-          new import_obsidian27.Notice(`Environment snippet "${updatedSnippet.name}" updated`);
+          new import_obsidian31.Notice(`Environment snippet "${updatedSnippet.name}" updated`);
         }
       }
     );
@@ -67093,7 +69177,7 @@ var EnvSnippetManager = class {
     this.plugin.settings.envSnippets = this.plugin.settings.envSnippets.filter((s) => s.id !== snippet.id);
     await this.plugin.saveSettings();
     this.render();
-    new import_obsidian27.Notice(`Environment snippet "${snippet.name}" deleted`);
+    new import_obsidian31.Notice(`Environment snippet "${snippet.name}" deleted`);
   }
   refresh() {
     this.render();
@@ -67101,11 +69185,11 @@ var EnvSnippetManager = class {
 };
 
 // src/features/settings/ui/McpSettingsManager.ts
-var import_obsidian30 = require("obsidian");
+var import_obsidian34 = require("obsidian");
 
 // src/features/settings/ui/McpServerModal.ts
-var import_obsidian28 = require("obsidian");
-var McpServerModal = class extends import_obsidian28.Modal {
+var import_obsidian32 = require("obsidian");
+var McpServerModal = class extends import_obsidian32.Modal {
   constructor(app, plugin, existingServer, onSave, initialType, prefillConfig) {
     super(app);
     this.serverName = "";
@@ -67155,7 +69239,7 @@ var McpServerModal = class extends import_obsidian28.Modal {
     this.setTitle(this.existingServer ? "Edit MCP Server" : "Add MCP Server");
     this.modalEl.addClass("claudian-mcp-modal");
     const { contentEl } = this;
-    new import_obsidian28.Setting(contentEl).setName("Server name").setDesc("Unique identifier for this server").addText((text) => {
+    new import_obsidian32.Setting(contentEl).setName("Server name").setDesc("Unique identifier for this server").addText((text) => {
       this.nameInputEl = text.inputEl;
       text.setValue(this.serverName);
       text.setPlaceholder("my-mcp-server");
@@ -67164,7 +69248,7 @@ var McpServerModal = class extends import_obsidian28.Modal {
       });
       text.inputEl.addEventListener("keydown", (e2) => this.handleKeyDown(e2));
     });
-    new import_obsidian28.Setting(contentEl).setName("Type").setDesc("Server connection type").addDropdown((dropdown) => {
+    new import_obsidian32.Setting(contentEl).setName("Type").setDesc("Server connection type").addDropdown((dropdown) => {
       dropdown.addOption("stdio", "stdio (local command)");
       dropdown.addOption("sse", "sse (Server-Sent Events)");
       dropdown.addOption("http", "http (HTTP endpoint)");
@@ -67176,13 +69260,13 @@ var McpServerModal = class extends import_obsidian28.Modal {
     });
     this.typeFieldsEl = contentEl.createDiv({ cls: "claudian-mcp-type-fields" });
     this.renderTypeFields();
-    new import_obsidian28.Setting(contentEl).setName("Enabled").setDesc("Whether this server is active").addToggle((toggle) => {
+    new import_obsidian32.Setting(contentEl).setName("Enabled").setDesc("Whether this server is active").addToggle((toggle) => {
       toggle.setValue(this.enabled);
       toggle.onChange((value) => {
         this.enabled = value;
       });
     });
-    new import_obsidian28.Setting(contentEl).setName("Context-saving mode").setDesc("Hide tools from agent unless @-mentioned (saves context window)").addToggle((toggle) => {
+    new import_obsidian32.Setting(contentEl).setName("Context-saving mode").setDesc("Hide tools from agent unless @-mentioned (saves context window)").addToggle((toggle) => {
       toggle.setValue(this.contextSaving);
       toggle.onChange((value) => {
         this.contextSaving = value;
@@ -67211,7 +69295,7 @@ var McpServerModal = class extends import_obsidian28.Modal {
   }
   renderStdioFields() {
     if (!this.typeFieldsEl) return;
-    const cmdSetting = new import_obsidian28.Setting(this.typeFieldsEl).setName("Command").setDesc("Full command with arguments");
+    const cmdSetting = new import_obsidian32.Setting(this.typeFieldsEl).setName("Command").setDesc("Full command with arguments");
     cmdSetting.settingEl.addClass("claudian-mcp-cmd-setting");
     const cmdTextarea = cmdSetting.controlEl.createEl("textarea", {
       cls: "claudian-mcp-cmd-textarea"
@@ -67222,7 +69306,7 @@ var McpServerModal = class extends import_obsidian28.Modal {
     cmdTextarea.addEventListener("input", () => {
       this.command = cmdTextarea.value;
     });
-    const envSetting = new import_obsidian28.Setting(this.typeFieldsEl).setName("Environment variables").setDesc("KEY=VALUE per line (optional)");
+    const envSetting = new import_obsidian32.Setting(this.typeFieldsEl).setName("Environment variables").setDesc("KEY=VALUE per line (optional)");
     envSetting.settingEl.addClass("claudian-mcp-env-setting");
     const envTextarea = envSetting.controlEl.createEl("textarea", {
       cls: "claudian-mcp-env-textarea"
@@ -67236,7 +69320,7 @@ var McpServerModal = class extends import_obsidian28.Modal {
   }
   renderUrlFields() {
     if (!this.typeFieldsEl) return;
-    new import_obsidian28.Setting(this.typeFieldsEl).setName("URL").setDesc(this.serverType === "sse" ? "SSE endpoint URL" : "HTTP endpoint URL").addText((text) => {
+    new import_obsidian32.Setting(this.typeFieldsEl).setName("URL").setDesc(this.serverType === "sse" ? "SSE endpoint URL" : "HTTP endpoint URL").addText((text) => {
       text.setValue(this.url);
       text.setPlaceholder("http://localhost:3000/sse");
       text.onChange((value) => {
@@ -67244,7 +69328,7 @@ var McpServerModal = class extends import_obsidian28.Modal {
       });
       text.inputEl.addEventListener("keydown", (e2) => this.handleKeyDown(e2));
     });
-    const headersSetting = new import_obsidian28.Setting(this.typeFieldsEl).setName("Headers").setDesc("HTTP headers (KEY=VALUE per line)");
+    const headersSetting = new import_obsidian32.Setting(this.typeFieldsEl).setName("Headers").setDesc("HTTP headers (KEY=VALUE per line)");
     headersSetting.settingEl.addClass("claudian-mcp-env-setting");
     const headersTextarea = headersSetting.controlEl.createEl("textarea", {
       cls: "claudian-mcp-env-textarea"
@@ -67269,12 +69353,12 @@ var McpServerModal = class extends import_obsidian28.Modal {
     var _a3, _b, _c;
     const name = this.serverName.trim();
     if (!name) {
-      new import_obsidian28.Notice("Please enter a server name");
+      new import_obsidian32.Notice("Please enter a server name");
       (_a3 = this.nameInputEl) == null ? void 0 : _a3.focus();
       return;
     }
     if (!/^[a-zA-Z0-9._-]+$/.test(name)) {
-      new import_obsidian28.Notice("Server name can only contain letters, numbers, dots, hyphens, and underscores");
+      new import_obsidian32.Notice("Server name can only contain letters, numbers, dots, hyphens, and underscores");
       (_b = this.nameInputEl) == null ? void 0 : _b.focus();
       return;
     }
@@ -67282,7 +69366,7 @@ var McpServerModal = class extends import_obsidian28.Modal {
     if (this.serverType === "stdio") {
       const fullCommand = this.command.trim();
       if (!fullCommand) {
-        new import_obsidian28.Notice("Please enter a command");
+        new import_obsidian32.Notice("Please enter a command");
         return;
       }
       const { cmd, args } = parseCommand(fullCommand);
@@ -67298,7 +69382,7 @@ var McpServerModal = class extends import_obsidian28.Modal {
     } else {
       const url2 = this.url.trim();
       if (!url2) {
-        new import_obsidian28.Notice("Please enter a URL");
+        new import_obsidian32.Notice("Please enter a URL");
         return;
       }
       if (this.serverType === "sse") {
@@ -67353,7 +69437,7 @@ var McpServerModal = class extends import_obsidian28.Modal {
 };
 
 // src/features/settings/ui/McpTestModal.ts
-var import_obsidian29 = require("obsidian");
+var import_obsidian33 = require("obsidian");
 function formatToggleError(error48) {
   if (!(error48 instanceof Error)) return "Failed to update tool setting";
   const msg = error48.message.toLowerCase();
@@ -67368,7 +69452,7 @@ function formatToggleError(error48) {
   }
   return error48.message || "Failed to update tool setting";
 }
-var McpTestModal = class extends import_obsidian29.Modal {
+var McpTestModal = class extends import_obsidian33.Modal {
   constructor(app, serverName, initialDisabledTools, onToolToggle, onBulkToggle) {
     super(app);
     this.result = null;
@@ -67421,10 +69505,10 @@ var McpTestModal = class extends import_obsidian29.Modal {
     const statusEl = this.contentEl_.createDiv({ cls: "claudian-mcp-test-status" });
     const iconEl = statusEl.createSpan({ cls: "claudian-mcp-test-icon" });
     if (this.result.success) {
-      (0, import_obsidian29.setIcon)(iconEl, "check-circle");
+      (0, import_obsidian33.setIcon)(iconEl, "check-circle");
       iconEl.addClass("success");
     } else {
-      (0, import_obsidian29.setIcon)(iconEl, "x-circle");
+      (0, import_obsidian33.setIcon)(iconEl, "x-circle");
       iconEl.addClass("error");
     }
     const textEl = statusEl.createSpan({ cls: "claudian-mcp-test-text" });
@@ -67476,7 +69560,7 @@ var McpTestModal = class extends import_obsidian29.Modal {
     const toolEl = container.createDiv({ cls: "claudian-mcp-test-tool" });
     const headerEl = toolEl.createDiv({ cls: "claudian-mcp-test-tool-header" });
     const iconEl = headerEl.createSpan({ cls: "claudian-mcp-test-tool-icon" });
-    (0, import_obsidian29.setIcon)(iconEl, "wrench");
+    (0, import_obsidian33.setIcon)(iconEl, "wrench");
     const nameEl = headerEl.createSpan({ cls: "claudian-mcp-test-tool-name" });
     nameEl.setText(tool.name);
     const toggleEl = headerEl.createDiv({ cls: "claudian-mcp-test-tool-toggle" });
@@ -67534,7 +69618,7 @@ var McpTestModal = class extends import_obsidian29.Modal {
       container.toggleClass("is-enabled", !wasDisabled);
       this.updateToolState(toolEl, !wasDisabled);
       this.updateToggleAllButton();
-      new import_obsidian29.Notice(formatToggleError(error48));
+      new import_obsidian33.Notice(formatToggleError(error48));
     } finally {
       checkbox.disabled = false;
     }
@@ -67589,7 +69673,7 @@ var McpTestModal = class extends import_obsidian29.Modal {
         this.updateToolState(toolEl, isEnabled);
       }
       this.updateToggleAllButton();
-      new import_obsidian29.Notice(formatToggleError(error48));
+      new import_obsidian33.Notice(formatToggleError(error48));
     }
     for (const { checkbox } of this.toolToggles.values()) {
       checkbox.disabled = false;
@@ -67636,24 +69720,24 @@ var McpSettingsManager = class {
       cls: "claudian-settings-action-btn",
       attr: { "aria-label": "Add" }
     });
-    (0, import_obsidian30.setIcon)(addBtn, "plus");
+    (0, import_obsidian34.setIcon)(addBtn, "plus");
     const dropdown = addContainer.createDiv({ cls: "claudian-mcp-add-dropdown" });
     const stdioOption = dropdown.createDiv({ cls: "claudian-mcp-add-option" });
-    (0, import_obsidian30.setIcon)(stdioOption.createSpan({ cls: "claudian-mcp-add-option-icon" }), "terminal");
+    (0, import_obsidian34.setIcon)(stdioOption.createSpan({ cls: "claudian-mcp-add-option-icon" }), "terminal");
     stdioOption.createSpan({ text: "stdio (local command)" });
     stdioOption.addEventListener("click", () => {
       dropdown.removeClass("is-visible");
       this.openModal(null, "stdio");
     });
     const httpOption = dropdown.createDiv({ cls: "claudian-mcp-add-option" });
-    (0, import_obsidian30.setIcon)(httpOption.createSpan({ cls: "claudian-mcp-add-option-icon" }), "globe");
+    (0, import_obsidian34.setIcon)(httpOption.createSpan({ cls: "claudian-mcp-add-option-icon" }), "globe");
     httpOption.createSpan({ text: "http / sse (remote)" });
     httpOption.addEventListener("click", () => {
       dropdown.removeClass("is-visible");
       this.openModal(null, "http");
     });
     const importOption = dropdown.createDiv({ cls: "claudian-mcp-add-option" });
-    (0, import_obsidian30.setIcon)(importOption.createSpan({ cls: "claudian-mcp-add-option-icon" }), "clipboard-paste");
+    (0, import_obsidian34.setIcon)(importOption.createSpan({ cls: "claudian-mcp-add-option-icon" }), "clipboard-paste");
     importOption.createSpan({ text: "Import from clipboard" });
     importOption.addEventListener("click", () => {
       dropdown.removeClass("is-visible");
@@ -67708,25 +69792,25 @@ var McpSettingsManager = class {
       cls: "claudian-mcp-action-btn",
       attr: { "aria-label": "Verify (show tools)" }
     });
-    (0, import_obsidian30.setIcon)(testBtn, "zap");
+    (0, import_obsidian34.setIcon)(testBtn, "zap");
     testBtn.addEventListener("click", () => this.testServer(server));
     const toggleBtn = actionsEl.createEl("button", {
       cls: "claudian-mcp-action-btn",
       attr: { "aria-label": server.enabled ? "Disable" : "Enable" }
     });
-    (0, import_obsidian30.setIcon)(toggleBtn, server.enabled ? "toggle-right" : "toggle-left");
+    (0, import_obsidian34.setIcon)(toggleBtn, server.enabled ? "toggle-right" : "toggle-left");
     toggleBtn.addEventListener("click", () => this.toggleServer(server));
     const editBtn = actionsEl.createEl("button", {
       cls: "claudian-mcp-action-btn",
       attr: { "aria-label": "Edit" }
     });
-    (0, import_obsidian30.setIcon)(editBtn, "pencil");
+    (0, import_obsidian34.setIcon)(editBtn, "pencil");
     editBtn.addEventListener("click", () => this.openModal(server));
     const deleteBtn = actionsEl.createEl("button", {
       cls: "claudian-mcp-action-btn claudian-mcp-delete-btn",
       attr: { "aria-label": "Delete" }
     });
-    (0, import_obsidian30.setIcon)(deleteBtn, "trash-2");
+    (0, import_obsidian34.setIcon)(deleteBtn, "trash-2");
     deleteBtn.addEventListener("click", () => this.deleteServer(server));
   }
   async testServer(server) {
@@ -67762,7 +69846,7 @@ var McpSettingsManager = class {
     try {
       await this.broadcastMcpReloadToAllViews();
     } catch (e2) {
-      new import_obsidian30.Notice("Setting saved but reload failed. Changes will apply on next session.");
+      new import_obsidian34.Notice("Setting saved but reload failed. Changes will apply on next session.");
     }
   }
   async updateDisabledTool(server, toolName, enabled) {
@@ -67811,12 +69895,12 @@ var McpSettingsManager = class {
     try {
       const text = await navigator.clipboard.readText();
       if (!text.trim()) {
-        new import_obsidian30.Notice("Clipboard is empty");
+        new import_obsidian34.Notice("Clipboard is empty");
         return;
       }
       const parsed = McpStorage.tryParseClipboardConfig(text);
       if (!parsed || parsed.servers.length === 0) {
-        new import_obsidian30.Notice("No valid MCP configuration found in clipboard");
+        new import_obsidian34.Notice("No valid MCP configuration found in clipboard");
         return;
       }
       if (parsed.needsName || parsed.servers.length === 1) {
@@ -67835,13 +69919,13 @@ var McpSettingsManager = class {
         );
         modal.open();
         if (parsed.needsName) {
-          new import_obsidian30.Notice("Enter a name for the server");
+          new import_obsidian34.Notice("Enter a name for the server");
         }
         return;
       }
       await this.importServers(parsed.servers);
     } catch (e2) {
-      new import_obsidian30.Notice("Failed to read clipboard");
+      new import_obsidian34.Notice("Failed to read clipboard");
     }
   }
   async saveServer(server, existing) {
@@ -67851,7 +69935,7 @@ var McpSettingsManager = class {
         if (server.name !== existing.name) {
           const conflict = this.servers.find((s) => s.name === server.name);
           if (conflict) {
-            new import_obsidian30.Notice(`Server "${server.name}" already exists`);
+            new import_obsidian34.Notice(`Server "${server.name}" already exists`);
             return;
           }
         }
@@ -67860,7 +69944,7 @@ var McpSettingsManager = class {
     } else {
       const conflict = this.servers.find((s) => s.name === server.name);
       if (conflict) {
-        new import_obsidian30.Notice(`Server "${server.name}" already exists`);
+        new import_obsidian34.Notice(`Server "${server.name}" already exists`);
         return;
       }
       this.servers.push(server);
@@ -67868,7 +69952,7 @@ var McpSettingsManager = class {
     await this.plugin.storage.mcp.save(this.servers);
     await this.broadcastMcpReloadToAllViews();
     this.render();
-    new import_obsidian30.Notice(existing ? `MCP server "${server.name}" updated` : `MCP server "${server.name}" added`);
+    new import_obsidian34.Notice(existing ? `MCP server "${server.name}" updated` : `MCP server "${server.name}" added`);
   }
   async importServers(servers) {
     const added = [];
@@ -67893,7 +69977,7 @@ var McpSettingsManager = class {
       added.push(name);
     }
     if (added.length === 0) {
-      new import_obsidian30.Notice("No new MCP servers imported");
+      new import_obsidian34.Notice("No new MCP servers imported");
       return;
     }
     await this.plugin.storage.mcp.save(this.servers);
@@ -67903,14 +69987,14 @@ var McpSettingsManager = class {
     if (skipped.length > 0) {
       message += ` (${skipped.length} skipped)`;
     }
-    new import_obsidian30.Notice(message);
+    new import_obsidian34.Notice(message);
   }
   async toggleServer(server) {
     server.enabled = !server.enabled;
     await this.plugin.storage.mcp.save(this.servers);
     await this.broadcastMcpReloadToAllViews();
     this.render();
-    new import_obsidian30.Notice(`MCP server "${server.name}" ${server.enabled ? "enabled" : "disabled"}`);
+    new import_obsidian34.Notice(`MCP server "${server.name}" ${server.enabled ? "enabled" : "disabled"}`);
   }
   async deleteServer(server) {
     if (!confirm(`Delete MCP server "${server.name}"?`)) {
@@ -67920,7 +70004,7 @@ var McpSettingsManager = class {
     await this.plugin.storage.mcp.save(this.servers);
     await this.broadcastMcpReloadToAllViews();
     this.render();
-    new import_obsidian30.Notice(`MCP server "${server.name}" deleted`);
+    new import_obsidian34.Notice(`MCP server "${server.name}" deleted`);
   }
   /** Refresh the server list (call after external changes). */
   refresh() {
@@ -67929,7 +70013,7 @@ var McpSettingsManager = class {
 };
 
 // src/features/settings/ui/PluginSettingsManager.ts
-var import_obsidian31 = require("obsidian");
+var import_obsidian35 = require("obsidian");
 var PluginSettingsManager = class {
   constructor(containerEl, plugin) {
     this.containerEl = containerEl;
@@ -67944,7 +70028,7 @@ var PluginSettingsManager = class {
       cls: "claudian-settings-action-btn",
       attr: { "aria-label": "Refresh" }
     });
-    (0, import_obsidian31.setIcon)(refreshBtn, "refresh-cw");
+    (0, import_obsidian35.setIcon)(refreshBtn, "refresh-cw");
     refreshBtn.addEventListener("click", () => this.refreshPlugins());
     const plugins = this.plugin.pluginManager.getPlugins();
     if (plugins.length === 0) {
@@ -67990,7 +70074,7 @@ var PluginSettingsManager = class {
       cls: "claudian-plugin-action-btn",
       attr: { "aria-label": plugin.enabled ? "Disable" : "Enable" }
     });
-    (0, import_obsidian31.setIcon)(toggleBtn, plugin.enabled ? "toggle-right" : "toggle-left");
+    (0, import_obsidian35.setIcon)(toggleBtn, plugin.enabled ? "toggle-right" : "toggle-left");
     toggleBtn.addEventListener("click", () => this.togglePlugin(plugin.id));
   }
   async togglePlugin(pluginId) {
@@ -68010,14 +70094,14 @@ var PluginSettingsManager = class {
             }
           );
         } catch (e2) {
-          new import_obsidian31.Notice("Plugin toggled, but some tabs failed to restart.");
+          new import_obsidian35.Notice("Plugin toggled, but some tabs failed to restart.");
         }
       }
-      new import_obsidian31.Notice(`Plugin "${pluginId}" ${wasEnabled ? "disabled" : "enabled"}`);
+      new import_obsidian35.Notice(`Plugin "${pluginId}" ${wasEnabled ? "disabled" : "enabled"}`);
     } catch (err) {
       await this.plugin.pluginManager.togglePlugin(pluginId);
       const message = err instanceof Error ? err.message : "Unknown error";
-      new import_obsidian31.Notice(`Failed to toggle plugin: ${message}`);
+      new import_obsidian35.Notice(`Failed to toggle plugin: ${message}`);
     } finally {
       this.render();
     }
@@ -68026,10 +70110,10 @@ var PluginSettingsManager = class {
     try {
       await this.plugin.pluginManager.loadPlugins();
       await this.plugin.agentManager.loadAgents();
-      new import_obsidian31.Notice("Plugin list refreshed");
+      new import_obsidian35.Notice("Plugin list refreshed");
     } catch (err) {
       const message = err instanceof Error ? err.message : "Unknown error";
-      new import_obsidian31.Notice(`Failed to refresh plugins: ${message}`);
+      new import_obsidian35.Notice(`Failed to refresh plugins: ${message}`);
     } finally {
       this.render();
     }
@@ -68040,7 +70124,7 @@ var PluginSettingsManager = class {
 };
 
 // src/features/settings/ui/SlashCommandSettings.ts
-var import_obsidian32 = require("obsidian");
+var import_obsidian36 = require("obsidian");
 function resolveAllowedTools(inputValue, parsedTools) {
   const trimmed = inputValue.trim();
   if (trimmed) {
@@ -68051,7 +70135,7 @@ function resolveAllowedTools(inputValue, parsedTools) {
   }
   return void 0;
 }
-var SlashCommandModal = class extends import_obsidian32.Modal {
+var SlashCommandModal = class extends import_obsidian36.Modal {
   constructor(app, plugin, existingCmd, onSave) {
     super(app);
     this.plugin = plugin;
@@ -68085,7 +70169,7 @@ var SlashCommandModal = class extends import_obsidian32.Modal {
         disableUserToggle.setValue(false);
       }
     };
-    new import_obsidian32.Setting(contentEl).setName("Type").setDesc("Command or skill").addDropdown((dropdown) => {
+    new import_obsidian36.Setting(contentEl).setName("Type").setDesc("Command or skill").addDropdown((dropdown) => {
       dropdown.addOption("command", "Command").addOption("skill", "Skill").setValue(selectedType).onChange((value) => {
         selectedType = value;
         this.setTitle(this.existingCmd ? `Edit ${typeLabel()}` : `Add ${typeLabel()}`);
@@ -68095,12 +70179,12 @@ var SlashCommandModal = class extends import_obsidian32.Modal {
         dropdown.setDisabled(true);
       }
     });
-    new import_obsidian32.Setting(contentEl).setName("Command name").setDesc('The name used after / (e.g., "review" for /review)').addText((text) => {
+    new import_obsidian36.Setting(contentEl).setName("Command name").setDesc('The name used after / (e.g., "review" for /review)').addText((text) => {
       var _a4;
       nameInput = text.inputEl;
       text.setValue(((_a4 = this.existingCmd) == null ? void 0 : _a4.name) || "").setPlaceholder("review-code");
     });
-    new import_obsidian32.Setting(contentEl).setName("Description").setDesc("Optional description shown in dropdown").addText((text) => {
+    new import_obsidian36.Setting(contentEl).setName("Description").setDesc("Optional description shown in dropdown").addText((text) => {
       var _a4;
       descInput = text.inputEl;
       text.setValue(((_a4 = this.existingCmd) == null ? void 0 : _a4.description) || "");
@@ -68113,46 +70197,46 @@ var SlashCommandModal = class extends import_obsidian32.Modal {
     if (((_f = this.existingCmd) == null ? void 0 : _f.argumentHint) || ((_g = this.existingCmd) == null ? void 0 : _g.model) || ((_i = (_h = this.existingCmd) == null ? void 0 : _h.allowedTools) == null ? void 0 : _i.length) || ((_j = this.existingCmd) == null ? void 0 : _j.disableModelInvocation) || ((_k = this.existingCmd) == null ? void 0 : _k.userInvocable) === false || ((_l = this.existingCmd) == null ? void 0 : _l.context) || ((_m = this.existingCmd) == null ? void 0 : _m.agent)) {
       details.open = true;
     }
-    new import_obsidian32.Setting(details).setName("Argument hint").setDesc('Placeholder text for arguments (e.g., "[file] [focus]")').addText((text) => {
+    new import_obsidian36.Setting(details).setName("Argument hint").setDesc('Placeholder text for arguments (e.g., "[file] [focus]")').addText((text) => {
       var _a4;
       hintInput = text.inputEl;
       text.setValue(((_a4 = this.existingCmd) == null ? void 0 : _a4.argumentHint) || "");
     });
-    new import_obsidian32.Setting(details).setName("Model override").setDesc("Optional model to use for this command").addText((text) => {
+    new import_obsidian36.Setting(details).setName("Model override").setDesc("Optional model to use for this command").addText((text) => {
       var _a4;
       modelInput = text.inputEl;
       text.setValue(((_a4 = this.existingCmd) == null ? void 0 : _a4.model) || "").setPlaceholder("claude-sonnet-4-5");
     });
-    new import_obsidian32.Setting(details).setName("Allowed tools").setDesc("Comma-separated list of tools to allow (empty = all)").addText((text) => {
+    new import_obsidian36.Setting(details).setName("Allowed tools").setDesc("Comma-separated list of tools to allow (empty = all)").addText((text) => {
       var _a4, _b2;
       toolsInput = text.inputEl;
       text.setValue(((_b2 = (_a4 = this.existingCmd) == null ? void 0 : _a4.allowedTools) == null ? void 0 : _b2.join(", ")) || "");
     });
-    new import_obsidian32.Setting(details).setName("Disable model invocation").setDesc("Prevent the model from invoking this command itself").addToggle((toggle) => {
+    new import_obsidian36.Setting(details).setName("Disable model invocation").setDesc("Prevent the model from invoking this command itself").addToggle((toggle) => {
       toggle.setValue(disableModelToggle).onChange((value) => {
         disableModelToggle = value;
       });
     });
-    disableUserSetting = new import_obsidian32.Setting(details).setName("Disable user invocation").setDesc("Prevent the user from invoking this skill directly").addToggle((toggle) => {
+    disableUserSetting = new import_obsidian36.Setting(details).setName("Disable user invocation").setDesc("Prevent the user from invoking this skill directly").addToggle((toggle) => {
       disableUserToggle = toggle;
       toggle.setValue(disableUserInvocation).onChange((value) => {
         disableUserInvocation = value;
       });
     });
     updateSkillOnlyFields();
-    new import_obsidian32.Setting(details).setName("Context").setDesc("Run in a subagent (fork)").addToggle((toggle) => {
+    new import_obsidian36.Setting(details).setName("Context").setDesc("Run in a subagent (fork)").addToggle((toggle) => {
       toggle.setValue(contextValue === "fork").onChange((value) => {
         contextValue = value ? "fork" : "";
         agentSetting.settingEl.style.display = value ? "" : "none";
       });
     });
-    const agentSetting = new import_obsidian32.Setting(details).setName("Agent").setDesc("Subagent type when context is fork").addText((text) => {
+    const agentSetting = new import_obsidian36.Setting(details).setName("Agent").setDesc("Subagent type when context is fork").addText((text) => {
       var _a4;
       agentInput = text.inputEl;
       text.setValue(((_a4 = this.existingCmd) == null ? void 0 : _a4.agent) || "").setPlaceholder("code-reviewer");
     });
     agentSetting.settingEl.style.display = contextValue === "fork" ? "" : "none";
-    new import_obsidian32.Setting(contentEl).setName("Prompt template").setDesc("Use $ARGUMENTS, $1, $2, @file, !`bash`");
+    new import_obsidian36.Setting(contentEl).setName("Prompt template").setDesc("Use $ARGUMENTS, $1, $2, @file, !`bash`");
     const contentArea = contentEl.createEl("textarea", {
       cls: "claudian-sp-content-area",
       attr: {
@@ -68177,12 +70261,12 @@ var SlashCommandModal = class extends import_obsidian32.Modal {
       const name = nameInput.value.trim();
       const nameError = validateCommandName(name);
       if (nameError) {
-        new import_obsidian32.Notice(nameError);
+        new import_obsidian36.Notice(nameError);
         return;
       }
       const content = contentArea.value;
       if (!content.trim()) {
-        new import_obsidian32.Notice("Prompt template is required");
+        new import_obsidian36.Notice("Prompt template is required");
         return;
       }
       const existing = this.plugin.settings.slashCommands.find(
@@ -68192,7 +70276,7 @@ var SlashCommandModal = class extends import_obsidian32.Modal {
         }
       );
       if (existing) {
-        new import_obsidian32.Notice(`A command named "/${name}" already exists`);
+        new import_obsidian36.Notice(`A command named "/${name}" already exists`);
         return;
       }
       const parsed = parseSlashCommandContent(content);
@@ -68217,7 +70301,7 @@ var SlashCommandModal = class extends import_obsidian32.Modal {
         await this.onSave(cmd);
       } catch (e2) {
         const label = isSkillType ? "skill" : "slash command";
-        new import_obsidian32.Notice(`Failed to save ${label}`);
+        new import_obsidian36.Notice(`Failed to save ${label}`);
         return;
       }
       this.close();
@@ -68249,7 +70333,7 @@ var SlashCommandSettings = class {
       cls: "claudian-settings-action-btn",
       attr: { "aria-label": "Add" }
     });
-    (0, import_obsidian32.setIcon)(addBtn, "plus");
+    (0, import_obsidian36.setIcon)(addBtn, "plus");
     addBtn.addEventListener("click", () => this.openCommandModal(null));
     const commands = this.plugin.settings.slashCommands;
     if (commands.length === 0) {
@@ -68284,19 +70368,19 @@ var SlashCommandSettings = class {
       cls: "claudian-settings-action-btn",
       attr: { "aria-label": "Edit" }
     });
-    (0, import_obsidian32.setIcon)(editBtn, "pencil");
+    (0, import_obsidian36.setIcon)(editBtn, "pencil");
     editBtn.addEventListener("click", () => this.openCommandModal(cmd));
     if (!isSkill(cmd)) {
       const convertBtn = actionsEl.createEl("button", {
         cls: "claudian-settings-action-btn",
         attr: { "aria-label": "Convert to skill" }
       });
-      (0, import_obsidian32.setIcon)(convertBtn, "package");
+      (0, import_obsidian36.setIcon)(convertBtn, "package");
       convertBtn.addEventListener("click", async () => {
         try {
           await this.transformToSkill(cmd);
         } catch (e2) {
-          new import_obsidian32.Notice("Failed to convert to skill");
+          new import_obsidian36.Notice("Failed to convert to skill");
         }
       });
     }
@@ -68304,13 +70388,13 @@ var SlashCommandSettings = class {
       cls: "claudian-settings-action-btn claudian-settings-delete-btn",
       attr: { "aria-label": "Delete" }
     });
-    (0, import_obsidian32.setIcon)(deleteBtn, "trash-2");
+    (0, import_obsidian36.setIcon)(deleteBtn, "trash-2");
     deleteBtn.addEventListener("click", async () => {
       try {
         await this.deleteCommand(cmd);
       } catch (e2) {
         const label = isSkill(cmd) ? "skill" : "slash command";
-        new import_obsidian32.Notice(`Failed to delete ${label}`);
+        new import_obsidian36.Notice(`Failed to delete ${label}`);
       }
     });
   }
@@ -68336,14 +70420,14 @@ var SlashCommandSettings = class {
     await this.reloadCommands();
     this.render();
     const label = isSkill(cmd) ? "Skill" : "Slash command";
-    new import_obsidian32.Notice(`${label} "/${cmd.name}" ${existing ? "updated" : "created"}`);
+    new import_obsidian36.Notice(`${label} "/${cmd.name}" ${existing ? "updated" : "created"}`);
   }
   async deleteCommand(cmd) {
     await this.storageFor(cmd).delete(cmd.id);
     await this.reloadCommands();
     this.render();
     const label = isSkill(cmd) ? "Skill" : "Slash command";
-    new import_obsidian32.Notice(`${label} "/${cmd.name}" deleted`);
+    new import_obsidian36.Notice(`${label} "/${cmd.name}" deleted`);
   }
   async transformToSkill(cmd) {
     const skillName = cmd.name.toLowerCase().replace(/[^a-z0-9-]/g, "-").slice(0, 64);
@@ -68351,7 +70435,7 @@ var SlashCommandSettings = class {
       (c3) => isSkill(c3) && c3.name === skillName
     );
     if (existingSkill) {
-      new import_obsidian32.Notice(`A skill named "/${skillName}" already exists`);
+      new import_obsidian36.Notice(`A skill named "/${skillName}" already exists`);
       return;
     }
     const description = cmd.description || extractFirstParagraph(cmd.content);
@@ -68366,7 +70450,7 @@ var SlashCommandSettings = class {
     await this.plugin.storage.commands.delete(cmd.id);
     await this.reloadCommands();
     this.render();
-    new import_obsidian32.Notice(`Converted "/${cmd.name}" to skill`);
+    new import_obsidian36.Notice(`Converted "/${cmd.name}" to skill`);
   }
   async reloadCommands() {
     this.plugin.settings.slashCommands = await this.plugin.storage.loadAllSlashCommands();
@@ -68419,7 +70503,7 @@ function addHotkeySettingRow(containerEl, app, commandId, translationPrefix) {
   }
   item.addEventListener("click", () => openHotkeySettings(app));
 }
-var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
+var ClaudianSettingTab = class extends import_obsidian37.PluginSettingTab {
   constructor(app, plugin) {
     super(app, plugin);
     this.contextLimitsContainer = null;
@@ -68430,7 +70514,7 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
     containerEl.empty();
     containerEl.addClass("claudian-settings");
     setLocale(this.plugin.settings.locale);
-    new import_obsidian33.Setting(containerEl).setName(t("settings.language.name")).setDesc(t("settings.language.desc")).addDropdown((dropdown) => {
+    new import_obsidian37.Setting(containerEl).setName(t("settings.language.name")).setDesc(t("settings.language.desc")).addDropdown((dropdown) => {
       const locales = getAvailableLocales();
       for (const locale of locales) {
         dropdown.addOption(locale, getLocaleDisplayName(locale));
@@ -68445,15 +70529,15 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
         this.display();
       });
     });
-    new import_obsidian33.Setting(containerEl).setName(t("settings.customization")).setHeading();
-    new import_obsidian33.Setting(containerEl).setName(t("settings.userName.name")).setDesc(t("settings.userName.desc")).addText((text) => {
+    new import_obsidian37.Setting(containerEl).setName(t("settings.customization")).setHeading();
+    new import_obsidian37.Setting(containerEl).setName(t("settings.userName.name")).setDesc(t("settings.userName.desc")).addText((text) => {
       text.setPlaceholder(t("settings.userName.name")).setValue(this.plugin.settings.userName).onChange(async (value) => {
         this.plugin.settings.userName = value;
         await this.plugin.saveSettings();
       });
       text.inputEl.addEventListener("blur", () => this.restartServiceForPromptChange());
     });
-    new import_obsidian33.Setting(containerEl).setName(t("settings.excludedTags.name")).setDesc(t("settings.excludedTags.desc")).addTextArea((text) => {
+    new import_obsidian37.Setting(containerEl).setName(t("settings.excludedTags.name")).setDesc(t("settings.excludedTags.desc")).addTextArea((text) => {
       text.setPlaceholder("system\nprivate\ndraft").setValue(this.plugin.settings.excludedTags.join("\n")).onChange(async (value) => {
         this.plugin.settings.excludedTags = value.split(/\r?\n/).map((s) => s.trim().replace(/^#/, "")).filter((s) => s.length > 0);
         await this.plugin.saveSettings();
@@ -68461,7 +70545,7 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
       text.inputEl.rows = 4;
       text.inputEl.cols = 30;
     });
-    new import_obsidian33.Setting(containerEl).setName(t("settings.mediaFolder.name")).setDesc(t("settings.mediaFolder.desc")).addText((text) => {
+    new import_obsidian37.Setting(containerEl).setName(t("settings.mediaFolder.name")).setDesc(t("settings.mediaFolder.desc")).addText((text) => {
       text.setPlaceholder("attachments").setValue(this.plugin.settings.mediaFolder).onChange(async (value) => {
         this.plugin.settings.mediaFolder = value.trim();
         await this.plugin.saveSettings();
@@ -68469,7 +70553,7 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
       text.inputEl.addClass("claudian-settings-media-input");
       text.inputEl.addEventListener("blur", () => this.restartServiceForPromptChange());
     });
-    new import_obsidian33.Setting(containerEl).setName(t("settings.systemPrompt.name")).setDesc(t("settings.systemPrompt.desc")).addTextArea((text) => {
+    new import_obsidian37.Setting(containerEl).setName(t("settings.systemPrompt.name")).setDesc(t("settings.systemPrompt.desc")).addTextArea((text) => {
       text.setPlaceholder(t("settings.systemPrompt.name")).setValue(this.plugin.settings.systemPrompt).onChange(async (value) => {
         this.plugin.settings.systemPrompt = value;
         await this.plugin.saveSettings();
@@ -68478,7 +70562,7 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
       text.inputEl.cols = 50;
       text.inputEl.addEventListener("blur", () => this.restartServiceForPromptChange());
     });
-    new import_obsidian33.Setting(containerEl).setName(t("settings.enableAutoScroll.name")).setDesc(t("settings.enableAutoScroll.desc")).addToggle(
+    new import_obsidian37.Setting(containerEl).setName(t("settings.enableAutoScroll.name")).setDesc(t("settings.enableAutoScroll.desc")).addToggle(
       (toggle) => {
         var _a3;
         return toggle.setValue((_a3 = this.plugin.settings.enableAutoScroll) != null ? _a3 : true).onChange(async (value) => {
@@ -68487,7 +70571,7 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
         });
       }
     );
-    new import_obsidian33.Setting(containerEl).setName(t("settings.autoTitle.name")).setDesc(t("settings.autoTitle.desc")).addToggle(
+    new import_obsidian37.Setting(containerEl).setName(t("settings.autoTitle.name")).setDesc(t("settings.autoTitle.desc")).addToggle(
       (toggle) => toggle.setValue(this.plugin.settings.enableAutoTitleGeneration).onChange(async (value) => {
         this.plugin.settings.enableAutoTitleGeneration = value;
         await this.plugin.saveSettings();
@@ -68495,7 +70579,7 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
       })
     );
     if (this.plugin.settings.enableAutoTitleGeneration) {
-      new import_obsidian33.Setting(containerEl).setName(t("settings.titleModel.name")).setDesc(t("settings.titleModel.desc")).addDropdown((dropdown) => {
+      new import_obsidian37.Setting(containerEl).setName(t("settings.titleModel.name")).setDesc(t("settings.titleModel.desc")).addDropdown((dropdown) => {
         dropdown.addOption("", t("settings.titleModel.auto"));
         const envVars = parseEnvironmentVariables(this.plugin.settings.environmentVariables);
         const customModels = getModelsFromEnvironment(envVars);
@@ -68509,7 +70593,7 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
         });
       });
     }
-    new import_obsidian33.Setting(containerEl).setName(t("settings.navMappings.name")).setDesc(t("settings.navMappings.desc")).addTextArea((text) => {
+    new import_obsidian37.Setting(containerEl).setName(t("settings.navMappings.name")).setDesc(t("settings.navMappings.desc")).addTextArea((text) => {
       let pendingValue = buildNavMappingText(this.plugin.settings.keyboardNavigation);
       let saveTimeout = null;
       const commitValue = async (showError) => {
@@ -68520,7 +70604,7 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
         const result = parseNavMappings(pendingValue);
         if (!result.settings) {
           if (showError) {
-            new import_obsidian33.Notice(`${t("common.error")}: ${result.error}`);
+            new import_obsidian37.Notice(`${t("common.error")}: ${result.error}`);
             pendingValue = buildNavMappingText(this.plugin.settings.keyboardNavigation);
             text.setValue(pendingValue);
           }
@@ -68550,7 +70634,7 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
         await commitValue(true);
       });
     });
-    new import_obsidian33.Setting(containerEl).setName(t("settings.tabBarPosition.name")).setDesc(t("settings.tabBarPosition.desc")).addDropdown((dropdown) => {
+    new import_obsidian37.Setting(containerEl).setName(t("settings.tabBarPosition.name")).setDesc(t("settings.tabBarPosition.desc")).addDropdown((dropdown) => {
       var _a3;
       dropdown.addOption("input", t("settings.tabBarPosition.input")).addOption("header", t("settings.tabBarPosition.header")).setValue((_a3 = this.plugin.settings.tabBarPosition) != null ? _a3 : "input").onChange(async (value) => {
         this.plugin.settings.tabBarPosition = value;
@@ -68562,20 +70646,20 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
         }
       });
     });
-    new import_obsidian33.Setting(containerEl).setName(t("settings.openInMainTab.name")).setDesc(t("settings.openInMainTab.desc")).addToggle(
+    new import_obsidian37.Setting(containerEl).setName(t("settings.openInMainTab.name")).setDesc(t("settings.openInMainTab.desc")).addToggle(
       (toggle) => toggle.setValue(this.plugin.settings.openInMainTab).onChange(async (value) => {
         this.plugin.settings.openInMainTab = value;
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian33.Setting(containerEl).setName(t("settings.hotkeys")).setHeading();
+    new import_obsidian37.Setting(containerEl).setName(t("settings.hotkeys")).setHeading();
     const hotkeyGrid = containerEl.createDiv({ cls: "claudian-hotkey-grid" });
     addHotkeySettingRow(hotkeyGrid, this.app, "claudian:inline-edit", "settings.inlineEditHotkey");
     addHotkeySettingRow(hotkeyGrid, this.app, "claudian:open-view", "settings.openChatHotkey");
     addHotkeySettingRow(hotkeyGrid, this.app, "claudian:new-session", "settings.newSessionHotkey");
     addHotkeySettingRow(hotkeyGrid, this.app, "claudian:new-tab", "settings.newTabHotkey");
     addHotkeySettingRow(hotkeyGrid, this.app, "claudian:close-current-tab", "settings.closeTabHotkey");
-    new import_obsidian33.Setting(containerEl).setName(t("settings.slashCommands.name")).setHeading();
+    new import_obsidian37.Setting(containerEl).setName(t("settings.slashCommands.name")).setHeading();
     const slashCommandsDesc = containerEl.createDiv({ cls: "claudian-sp-settings-desc" });
     const descP = slashCommandsDesc.createEl("p", { cls: "setting-item-description" });
     descP.appendText(t("settings.slashCommands.desc") + " ");
@@ -68585,7 +70669,7 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
     });
     const slashCommandsContainer = containerEl.createDiv({ cls: "claudian-slash-commands-container" });
     new SlashCommandSettings(slashCommandsContainer, this.plugin);
-    new import_obsidian33.Setting(containerEl).setName(t("settings.hiddenSlashCommands.name")).setDesc(t("settings.hiddenSlashCommands.desc")).addTextArea((text) => {
+    new import_obsidian37.Setting(containerEl).setName(t("settings.hiddenSlashCommands.name")).setDesc(t("settings.hiddenSlashCommands.desc")).addTextArea((text) => {
       text.setPlaceholder(t("settings.hiddenSlashCommands.placeholder")).setValue((this.plugin.settings.hiddenSlashCommands || []).join("\n")).onChange(async (value) => {
         var _a3;
         this.plugin.settings.hiddenSlashCommands = value.split(/\r?\n/).map((s) => s.trim().replace(/^\//, "")).filter((s) => s.length > 0);
@@ -68595,7 +70679,7 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
       text.inputEl.rows = 4;
       text.inputEl.cols = 30;
     });
-    new import_obsidian33.Setting(containerEl).setName(t("settings.subagents.name")).setHeading();
+    new import_obsidian37.Setting(containerEl).setName(t("settings.subagents.name")).setHeading();
     const agentsDesc = containerEl.createDiv({ cls: "claudian-sp-settings-desc" });
     agentsDesc.createEl("p", {
       text: t("settings.subagents.desc"),
@@ -68603,7 +70687,7 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
     });
     const agentsContainer = containerEl.createDiv({ cls: "claudian-agents-container" });
     new AgentSettings(agentsContainer, this.plugin);
-    new import_obsidian33.Setting(containerEl).setName(t("settings.mcpServers.name")).setHeading();
+    new import_obsidian37.Setting(containerEl).setName(t("settings.mcpServers.name")).setHeading();
     const mcpDesc = containerEl.createDiv({ cls: "claudian-mcp-settings-desc" });
     mcpDesc.createEl("p", {
       text: t("settings.mcpServers.desc"),
@@ -68611,7 +70695,7 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
     });
     const mcpContainer = containerEl.createDiv({ cls: "claudian-mcp-container" });
     new McpSettingsManager(mcpContainer, this.plugin);
-    new import_obsidian33.Setting(containerEl).setName(t("settings.plugins.name")).setHeading();
+    new import_obsidian37.Setting(containerEl).setName(t("settings.plugins.name")).setHeading();
     const pluginsDesc = containerEl.createDiv({ cls: "claudian-plugin-settings-desc" });
     pluginsDesc.createEl("p", {
       text: t("settings.plugins.desc"),
@@ -68619,14 +70703,14 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
     });
     const pluginsContainer = containerEl.createDiv({ cls: "claudian-plugins-container" });
     new PluginSettingsManager(pluginsContainer, this.plugin);
-    new import_obsidian33.Setting(containerEl).setName(t("settings.safety")).setHeading();
-    new import_obsidian33.Setting(containerEl).setName(t("settings.loadUserSettings.name")).setDesc(t("settings.loadUserSettings.desc")).addToggle(
+    new import_obsidian37.Setting(containerEl).setName(t("settings.safety")).setHeading();
+    new import_obsidian37.Setting(containerEl).setName(t("settings.loadUserSettings.name")).setDesc(t("settings.loadUserSettings.desc")).addToggle(
       (toggle) => toggle.setValue(this.plugin.settings.loadUserClaudeSettings).onChange(async (value) => {
         this.plugin.settings.loadUserClaudeSettings = value;
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian33.Setting(containerEl).setName(t("settings.enableBlocklist.name")).setDesc(t("settings.enableBlocklist.desc")).addToggle(
+    new import_obsidian37.Setting(containerEl).setName(t("settings.enableBlocklist.name")).setDesc(t("settings.enableBlocklist.desc")).addToggle(
       (toggle) => toggle.setValue(this.plugin.settings.enableBlocklist).onChange(async (value) => {
         this.plugin.settings.enableBlocklist = value;
         await this.plugin.saveSettings();
@@ -68635,7 +70719,7 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
     const platformKey = getCurrentPlatformKey();
     const isWindows2 = platformKey === "windows";
     const platformLabel = isWindows2 ? "Windows" : "Unix";
-    new import_obsidian33.Setting(containerEl).setName(t("settings.blockedCommands.name", { platform: platformLabel })).setDesc(t("settings.blockedCommands.desc", { platform: platformLabel })).addTextArea((text) => {
+    new import_obsidian37.Setting(containerEl).setName(t("settings.blockedCommands.name", { platform: platformLabel })).setDesc(t("settings.blockedCommands.desc", { platform: platformLabel })).addTextArea((text) => {
       const placeholder = isWindows2 ? "del /s /q\nrd /s /q\nRemove-Item -Recurse -Force" : "rm -rf\nchmod 777\nmkfs";
       text.setPlaceholder(placeholder).setValue(this.plugin.settings.blockedCommands[platformKey].join("\n")).onChange(async (value) => {
         this.plugin.settings.blockedCommands[platformKey] = value.split(/\r?\n/).map((s) => s.trim()).filter((s) => s.length > 0);
@@ -68645,7 +70729,7 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
       text.inputEl.cols = 40;
     });
     if (isWindows2) {
-      new import_obsidian33.Setting(containerEl).setName(t("settings.blockedCommands.unixName")).setDesc(t("settings.blockedCommands.unixDesc")).addTextArea((text) => {
+      new import_obsidian37.Setting(containerEl).setName(t("settings.blockedCommands.unixName")).setDesc(t("settings.blockedCommands.unixDesc")).addTextArea((text) => {
         text.setPlaceholder("rm -rf\nchmod 777\nmkfs").setValue(this.plugin.settings.blockedCommands.unix.join("\n")).onChange(async (value) => {
           this.plugin.settings.blockedCommands.unix = value.split(/\r?\n/).map((s) => s.trim()).filter((s) => s.length > 0);
           await this.plugin.saveSettings();
@@ -68654,7 +70738,7 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
         text.inputEl.cols = 40;
       });
     }
-    new import_obsidian33.Setting(containerEl).setName(t("settings.exportPaths.name")).setDesc(t("settings.exportPaths.desc")).addTextArea((text) => {
+    new import_obsidian37.Setting(containerEl).setName(t("settings.exportPaths.name")).setDesc(t("settings.exportPaths.desc")).addTextArea((text) => {
       const placeholder = process.platform === "win32" ? "~/Desktop\n~/Downloads\n%TEMP%" : "~/Desktop\n~/Downloads\n/tmp";
       text.setPlaceholder(placeholder).setValue(this.plugin.settings.allowedExportPaths.join("\n")).onChange(async (value) => {
         this.plugin.settings.allowedExportPaths = value.split(/\r?\n/).map((s) => s.trim()).filter((s) => s.length > 0);
@@ -68664,8 +70748,8 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
       text.inputEl.cols = 40;
       text.inputEl.addEventListener("blur", () => this.restartServiceForPromptChange());
     });
-    new import_obsidian33.Setting(containerEl).setName(t("settings.environment")).setHeading();
-    new import_obsidian33.Setting(containerEl).setName(t("settings.customVariables.name")).setDesc(t("settings.customVariables.desc")).addTextArea((text) => {
+    new import_obsidian37.Setting(containerEl).setName(t("settings.environment")).setHeading();
+    new import_obsidian37.Setting(containerEl).setName(t("settings.customVariables.name")).setDesc(t("settings.customVariables.desc")).addTextArea((text) => {
       text.setPlaceholder("ANTHROPIC_API_KEY=your-key\nANTHROPIC_BASE_URL=https://api.example.com\nANTHROPIC_MODEL=custom-model").setValue(this.plugin.settings.environmentVariables);
       text.inputEl.rows = 6;
       text.inputEl.cols = 50;
@@ -68681,8 +70765,8 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
     new EnvSnippetManager(envSnippetsContainer, this.plugin, () => {
       this.renderContextLimitsSection();
     });
-    new import_obsidian33.Setting(containerEl).setName(t("settings.advanced")).setHeading();
-    new import_obsidian33.Setting(containerEl).setName(t("settings.show1MModel.name")).setDesc(t("settings.show1MModel.desc")).addToggle(
+    new import_obsidian37.Setting(containerEl).setName(t("settings.advanced")).setHeading();
+    new import_obsidian37.Setting(containerEl).setName(t("settings.show1MModel.name")).setDesc(t("settings.show1MModel.desc")).addToggle(
       (toggle) => {
         var _a3;
         return toggle.setValue((_a3 = this.plugin.settings.show1MModel) != null ? _a3 : false).onChange(async (value) => {
@@ -68694,7 +70778,7 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
         });
       }
     );
-    new import_obsidian33.Setting(containerEl).setName(t("settings.enableChrome.name")).setDesc(t("settings.enableChrome.desc")).addToggle(
+    new import_obsidian37.Setting(containerEl).setName(t("settings.enableChrome.name")).setDesc(t("settings.enableChrome.desc")).addToggle(
       (toggle) => {
         var _a3;
         return toggle.setValue((_a3 = this.plugin.settings.enableChrome) != null ? _a3 : false).onChange(async (value) => {
@@ -68703,15 +70787,15 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
         });
       }
     );
-    new import_obsidian33.Setting(containerEl).setName(t("settings.enableBangBash.name")).setDesc(t("settings.enableBangBash.desc")).addToggle(
+    new import_obsidian37.Setting(containerEl).setName(t("settings.enableBangBash.name")).setDesc(t("settings.enableBangBash.desc")).addToggle(
       (toggle) => {
         var _a3;
         return toggle.setValue((_a3 = this.plugin.settings.enableBangBash) != null ? _a3 : false).onChange(async (value) => {
           bangBashValidationEl.style.display = "none";
           if (value) {
             const enhancedPath = getEnhancedPath();
-            const nodePath = findNodeExecutable(enhancedPath);
-            if (!nodePath) {
+            const nodePath2 = findNodeExecutable(enhancedPath);
+            if (!nodePath2) {
               bangBashValidationEl.setText(t("settings.enableBangBash.validation.noNode"));
               bangBashValidationEl.style.display = "block";
               toggle.setValue(false);
@@ -68729,7 +70813,7 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
     bangBashValidationEl.style.marginTop = "-0.5em";
     bangBashValidationEl.style.marginBottom = "0.5em";
     bangBashValidationEl.style.display = "none";
-    const maxTabsSetting = new import_obsidian33.Setting(containerEl).setName(t("settings.maxTabs.name")).setDesc(t("settings.maxTabs.desc"));
+    const maxTabsSetting = new import_obsidian37.Setting(containerEl).setName(t("settings.maxTabs.name")).setDesc(t("settings.maxTabs.desc"));
     const maxTabsWarningEl = containerEl.createDiv({ cls: "claudian-max-tabs-warning" });
     maxTabsWarningEl.style.color = "var(--text-warning)";
     maxTabsWarningEl.style.fontSize = "0.85em";
@@ -68752,7 +70836,7 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
     const hostnameKey = getHostnameKey();
     const platformDesc = process.platform === "win32" ? t("settings.cliPath.descWindows") : t("settings.cliPath.descUnix");
     const cliPathDescription = `${t("settings.cliPath.desc")} ${platformDesc}`;
-    const cliPathSetting = new import_obsidian33.Setting(containerEl).setName(`${t("settings.cliPath.name")} (${hostnameKey})`).setDesc(cliPathDescription);
+    const cliPathSetting = new import_obsidian37.Setting(containerEl).setName(`${t("settings.cliPath.name")} (${hostnameKey})`).setDesc(cliPathDescription);
     const validationEl = containerEl.createDiv({ cls: "claudian-cli-path-validation" });
     validationEl.style.color = "var(--text-error)";
     validationEl.style.fontSize = "0.85em";
@@ -68763,10 +70847,10 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
       const trimmed = value.trim();
       if (!trimmed) return null;
       const expandedPath = expandHomePath(trimmed);
-      if (!fs8.existsSync(expandedPath)) {
+      if (!fs9.existsSync(expandedPath)) {
         return t("settings.cliPath.validation.notExist");
       }
-      const stat = fs8.statSync(expandedPath);
+      const stat = fs9.statSync(expandedPath);
       if (!stat.isFile()) {
         return t("settings.cliPath.validation.isDirectory");
       }
@@ -68878,7 +70962,7 @@ var ClaudianSettingTab = class extends import_obsidian33.PluginSettingTab {
 };
 
 // src/utils/claudeCli.ts
-var fs9 = __toESM(require("fs"));
+var fs10 = __toESM(require("fs"));
 var ClaudeCliResolver = class {
   constructor() {
     this.resolvedPath = null;
@@ -68921,8 +71005,8 @@ function resolveClaudeCliPath(hostnamePath, legacyPath, envText) {
   if (trimmedHostname) {
     try {
       const expandedPath = expandHomePath(trimmedHostname);
-      if (fs9.existsSync(expandedPath)) {
-        const stat = fs9.statSync(expandedPath);
+      if (fs10.existsSync(expandedPath)) {
+        const stat = fs10.statSync(expandedPath);
         if (stat.isFile()) {
           return expandedPath;
         }
@@ -68934,8 +71018,8 @@ function resolveClaudeCliPath(hostnamePath, legacyPath, envText) {
   if (trimmedLegacy) {
     try {
       const expandedPath = expandHomePath(trimmedLegacy);
-      if (fs9.existsSync(expandedPath)) {
-        const stat = fs9.statSync(expandedPath);
+      if (fs10.existsSync(expandedPath)) {
+        const stat = fs10.statSync(expandedPath);
         if (stat.isFile()) {
           return expandedPath;
         }
@@ -68947,430 +71031,8 @@ function resolveClaudeCliPath(hostnamePath, legacyPath, envText) {
   return findClaudeCLIPath(customEnv.PATH);
 }
 
-// src/utils/sdkSession.ts
-var import_fs3 = require("fs");
-var fs10 = __toESM(require("fs/promises"));
-var os6 = __toESM(require("os"));
-var path10 = __toESM(require("path"));
-function encodeVaultPathForSDK(vaultPath) {
-  const absolutePath = path10.resolve(vaultPath);
-  return absolutePath.replace(/[^a-zA-Z0-9]/g, "-");
-}
-function getSDKProjectsPath() {
-  return path10.join(os6.homedir(), ".claude", "projects");
-}
-function isValidSessionId(sessionId) {
-  if (!sessionId || sessionId.length === 0 || sessionId.length > 128) {
-    return false;
-  }
-  if (sessionId.includes("..") || sessionId.includes("/") || sessionId.includes("\\")) {
-    return false;
-  }
-  return /^[a-zA-Z0-9_-]+$/.test(sessionId);
-}
-function getSDKSessionPath(vaultPath, sessionId) {
-  if (!isValidSessionId(sessionId)) {
-    throw new Error(`Invalid session ID: ${sessionId}`);
-  }
-  const projectsPath = getSDKProjectsPath();
-  const encodedVault = encodeVaultPathForSDK(vaultPath);
-  return path10.join(projectsPath, encodedVault, `${sessionId}.jsonl`);
-}
-function sdkSessionExists(vaultPath, sessionId) {
-  try {
-    const sessionPath = getSDKSessionPath(vaultPath, sessionId);
-    return (0, import_fs3.existsSync)(sessionPath);
-  } catch (e2) {
-    return false;
-  }
-}
-async function deleteSDKSession(vaultPath, sessionId) {
-  try {
-    const sessionPath = getSDKSessionPath(vaultPath, sessionId);
-    if (!(0, import_fs3.existsSync)(sessionPath)) return;
-    await fs10.unlink(sessionPath);
-  } catch (e2) {
-  }
-}
-async function readSDKSession(vaultPath, sessionId) {
-  try {
-    const sessionPath = getSDKSessionPath(vaultPath, sessionId);
-    if (!(0, import_fs3.existsSync)(sessionPath)) {
-      return { messages: [], skippedLines: 0 };
-    }
-    const content = await fs10.readFile(sessionPath, "utf-8");
-    const lines = content.split("\n").filter((line) => line.trim());
-    const messages = [];
-    let skippedLines = 0;
-    for (const line of lines) {
-      try {
-        const msg = JSON.parse(line);
-        messages.push(msg);
-      } catch (e2) {
-        skippedLines++;
-      }
-    }
-    return { messages, skippedLines };
-  } catch (error48) {
-    const errorMsg = error48 instanceof Error ? error48.message : String(error48);
-    return { messages: [], skippedLines: 0, error: errorMsg };
-  }
-}
-function extractTextContent(content) {
-  if (!content) return "";
-  if (typeof content === "string") return content;
-  return content.filter(
-    (block) => block.type === "text" && typeof block.text === "string" && block.text.trim() !== "(no content)"
-  ).map((block) => block.text).join("\n");
-}
-function isRebuiltContextContent(textContent) {
-  if (!/^(User|Assistant):\s/.test(textContent)) return false;
-  return textContent.includes("\n\nUser:") || textContent.includes("\n\nAssistant:") || textContent.includes("\n\nA:");
-}
-function extractDisplayContent(textContent) {
-  return extractContentBeforeXmlContext(textContent);
-}
-function extractImages(content) {
-  if (!content || typeof content === "string") return void 0;
-  const imageBlocks = content.filter(
-    (block) => {
-      var _a3;
-      return block.type === "image" && !!((_a3 = block.source) == null ? void 0 : _a3.data);
-    }
-  );
-  if (imageBlocks.length === 0) return void 0;
-  return imageBlocks.map((block, index) => ({
-    id: `sdk-img-${Date.now()}-${index}`,
-    name: `image-${index + 1}`,
-    mediaType: block.source.media_type,
-    data: block.source.data,
-    size: Math.ceil(block.source.data.length * 0.75),
-    // Approximate original size from base64
-    source: "paste"
-  }));
-}
-function extractToolCalls(content, toolResults) {
-  var _a3;
-  if (!content || typeof content === "string") return void 0;
-  const toolUses = content.filter(
-    (block) => block.type === "tool_use" && !!block.id && !!block.name
-  );
-  if (toolUses.length === 0) return void 0;
-  const results = toolResults != null ? toolResults : /* @__PURE__ */ new Map();
-  if (!toolResults) {
-    for (const block of content) {
-      if (block.type === "tool_result" && block.tool_use_id) {
-        const resultContent = typeof block.content === "string" ? block.content : JSON.stringify(block.content);
-        results.set(block.tool_use_id, {
-          content: resultContent,
-          isError: (_a3 = block.is_error) != null ? _a3 : false
-        });
-      }
-    }
-  }
-  return toolUses.map((block) => {
-    var _a4;
-    const result = results.get(block.id);
-    return {
-      id: block.id,
-      name: block.name,
-      input: (_a4 = block.input) != null ? _a4 : {},
-      status: result ? result.isError ? "error" : "completed" : "completed",
-      result: result == null ? void 0 : result.content,
-      isExpanded: false
-    };
-  });
-}
-function mapContentBlocks(content) {
-  var _a3;
-  if (!content || typeof content === "string") return void 0;
-  const blocks = [];
-  for (const block of content) {
-    switch (block.type) {
-      case "text": {
-        const trimmed = (_a3 = block.text) == null ? void 0 : _a3.trim();
-        if (trimmed && trimmed !== "(no content)") {
-          blocks.push({ type: "text", content: trimmed });
-        }
-        break;
-      }
-      case "thinking":
-        if (block.thinking) {
-          blocks.push({ type: "thinking", content: block.thinking });
-        }
-        break;
-      case "tool_use":
-        if (block.id) {
-          blocks.push({ type: "tool_use", toolId: block.id });
-        }
-        break;
-    }
-  }
-  return blocks.length > 0 ? blocks : void 0;
-}
-function parseSDKMessageToChat(sdkMsg, toolResults) {
-  var _a3;
-  if (sdkMsg.type === "file-history-snapshot") return null;
-  if (sdkMsg.type === "system") {
-    if (sdkMsg.subtype === "compact_boundary") {
-      const timestamp2 = sdkMsg.timestamp ? new Date(sdkMsg.timestamp).getTime() : Date.now();
-      return {
-        id: sdkMsg.uuid || `compact-${timestamp2}-${Math.random().toString(36).slice(2)}`,
-        role: "assistant",
-        content: "",
-        timestamp: timestamp2,
-        contentBlocks: [{ type: "compact_boundary" }]
-      };
-    }
-    return null;
-  }
-  if (sdkMsg.type === "result") return null;
-  if (sdkMsg.type !== "user" && sdkMsg.type !== "assistant") return null;
-  const content = (_a3 = sdkMsg.message) == null ? void 0 : _a3.content;
-  const textContent = extractTextContent(content);
-  const images = sdkMsg.type === "user" ? extractImages(content) : void 0;
-  const hasToolUse = Array.isArray(content) && content.some((b3) => b3.type === "tool_use");
-  const hasImages = images && images.length > 0;
-  if (!textContent && !hasToolUse && !hasImages && (!content || typeof content === "string")) return null;
-  const timestamp = sdkMsg.timestamp ? new Date(sdkMsg.timestamp).getTime() : Date.now();
-  const commandNameMatch = sdkMsg.type === "user" ? textContent.match(/<command-name>(\/[^<]+)<\/command-name>/) : null;
-  let displayContent;
-  if (sdkMsg.type === "user") {
-    displayContent = commandNameMatch ? commandNameMatch[1] : extractDisplayContent(textContent);
-  }
-  const isInterrupt = sdkMsg.type === "user" && (textContent === "[Request interrupted by user]" || textContent === "[Request interrupted by user for tool use]" || textContent.includes("<local-command-stderr>") && textContent.includes("Compaction canceled"));
-  const isRebuiltContext = sdkMsg.type === "user" && isRebuiltContextContent(textContent);
-  return {
-    id: sdkMsg.uuid || `sdk-${timestamp}-${Math.random().toString(36).slice(2)}`,
-    role: sdkMsg.type,
-    content: textContent,
-    displayContent,
-    timestamp,
-    toolCalls: sdkMsg.type === "assistant" ? extractToolCalls(content, toolResults) : void 0,
-    contentBlocks: sdkMsg.type === "assistant" ? mapContentBlocks(content) : void 0,
-    images,
-    ...sdkMsg.type === "user" && sdkMsg.uuid && { sdkUserUuid: sdkMsg.uuid },
-    ...sdkMsg.type === "assistant" && sdkMsg.uuid && { sdkAssistantUuid: sdkMsg.uuid },
-    ...isInterrupt && { isInterrupt: true },
-    ...isRebuiltContext && { isRebuiltContext: true }
-  };
-}
-function collectToolResults(sdkMessages) {
-  var _a3, _b;
-  const results = /* @__PURE__ */ new Map();
-  for (const sdkMsg of sdkMessages) {
-    const content = (_a3 = sdkMsg.message) == null ? void 0 : _a3.content;
-    if (!content || typeof content === "string") continue;
-    for (const block of content) {
-      if (block.type === "tool_result" && block.tool_use_id) {
-        const resultContent = typeof block.content === "string" ? block.content : JSON.stringify(block.content);
-        results.set(block.tool_use_id, {
-          content: resultContent,
-          isError: (_b = block.is_error) != null ? _b : false
-        });
-      }
-    }
-  }
-  return results;
-}
-function collectStructuredPatchResults(sdkMessages) {
-  var _a3;
-  const results = /* @__PURE__ */ new Map();
-  for (const sdkMsg of sdkMessages) {
-    if (sdkMsg.type !== "user" || !sdkMsg.toolUseResult) continue;
-    const content = (_a3 = sdkMsg.message) == null ? void 0 : _a3.content;
-    if (!content || typeof content === "string") continue;
-    for (const block of content) {
-      if (block.type === "tool_result" && block.tool_use_id) {
-        results.set(block.tool_use_id, sdkMsg.toolUseResult);
-      }
-    }
-  }
-  return results;
-}
-function isSystemInjectedMessage(sdkMsg) {
-  var _a3;
-  if (sdkMsg.type !== "user") return false;
-  if ("toolUseResult" in sdkMsg || "sourceToolUseID" in sdkMsg || !!sdkMsg.isMeta) {
-    return true;
-  }
-  const text = extractTextContent((_a3 = sdkMsg.message) == null ? void 0 : _a3.content);
-  if (!text) return false;
-  if (text.includes("<command-name>") && text.includes("<command-message>")) return false;
-  if (text.includes("<local-command-stderr>") && text.includes("Compaction canceled")) return false;
-  if (text.startsWith("This session is being continued from a previous conversation")) return true;
-  if (text.includes("<command-name>")) return true;
-  if (text.includes("<local-command-stdout>") || text.includes("<local-command-stderr>")) return true;
-  return false;
-}
-function filterActiveBranch(entries, resumeSessionAt) {
-  if (entries.length === 0) return [];
-  const seen = /* @__PURE__ */ new Set();
-  const deduped = [];
-  for (const entry of entries) {
-    if (entry.uuid) {
-      if (seen.has(entry.uuid)) continue;
-      seen.add(entry.uuid);
-    }
-    deduped.push(entry);
-  }
-  const byUuid = /* @__PURE__ */ new Map();
-  const childrenOf = /* @__PURE__ */ new Map();
-  for (const entry of deduped) {
-    if (entry.uuid) {
-      byUuid.set(entry.uuid, entry);
-    }
-    if (entry.parentUuid && entry.uuid) {
-      let children = childrenOf.get(entry.parentUuid);
-      if (!children) {
-        children = /* @__PURE__ */ new Set();
-        childrenOf.set(entry.parentUuid, children);
-      }
-      children.add(entry.uuid);
-    }
-  }
-  const hasBranching = [...childrenOf.values()].some((children) => children.size > 1);
-  let leaf;
-  if (hasBranching) {
-    for (let i2 = deduped.length - 1; i2 >= 0; i2--) {
-      const uuid3 = deduped[i2].uuid;
-      if (uuid3 && !childrenOf.has(uuid3)) {
-        leaf = deduped[i2];
-        break;
-      }
-    }
-    if (resumeSessionAt && (leaf == null ? void 0 : leaf.uuid) && byUuid.has(resumeSessionAt)) {
-      let current2 = leaf;
-      while (current2 == null ? void 0 : current2.uuid) {
-        if (current2.uuid === resumeSessionAt) {
-          leaf = current2;
-          break;
-        }
-        if (current2.parentUuid) {
-          current2 = byUuid.get(current2.parentUuid);
-        } else {
-          break;
-        }
-      }
-    }
-  } else if (resumeSessionAt) {
-    leaf = byUuid.get(resumeSessionAt);
-  } else {
-    return deduped;
-  }
-  if (!leaf || !leaf.uuid) return deduped;
-  const activeUuids = /* @__PURE__ */ new Set();
-  let current = leaf;
-  while (current == null ? void 0 : current.uuid) {
-    activeUuids.add(current.uuid);
-    if (current.parentUuid) {
-      current = byUuid.get(current.parentUuid);
-    } else {
-      break;
-    }
-  }
-  const n2 = deduped.length;
-  const prevIsActive = new Array(n2);
-  const nextIsActive = new Array(n2);
-  let lastPrevActive = false;
-  for (let i2 = 0; i2 < n2; i2++) {
-    if (deduped[i2].uuid) {
-      lastPrevActive = activeUuids.has(deduped[i2].uuid);
-    }
-    prevIsActive[i2] = lastPrevActive;
-  }
-  let lastNextActive = false;
-  for (let i2 = n2 - 1; i2 >= 0; i2--) {
-    if (deduped[i2].uuid) {
-      lastNextActive = activeUuids.has(deduped[i2].uuid);
-    }
-    nextIsActive[i2] = lastNextActive;
-  }
-  return deduped.filter((entry, idx) => {
-    if (entry.uuid) return activeUuids.has(entry.uuid);
-    return prevIsActive[idx] && nextIsActive[idx];
-  });
-}
-function mergeAssistantMessage(target, source) {
-  if (source.content) {
-    if (target.content) {
-      target.content = target.content + "\n\n" + source.content;
-    } else {
-      target.content = source.content;
-    }
-  }
-  if (source.toolCalls) {
-    target.toolCalls = [...target.toolCalls || [], ...source.toolCalls];
-  }
-  if (source.contentBlocks) {
-    target.contentBlocks = [...target.contentBlocks || [], ...source.contentBlocks];
-  }
-  if (source.sdkAssistantUuid) {
-    target.sdkAssistantUuid = source.sdkAssistantUuid;
-  }
-}
-async function loadSDKSessionMessages(vaultPath, sessionId, resumeSessionAt) {
-  var _a3, _b;
-  const result = await readSDKSession(vaultPath, sessionId);
-  if (result.error) {
-    return { messages: [], skippedLines: result.skippedLines, error: result.error };
-  }
-  const filteredEntries = filterActiveBranch(result.messages, resumeSessionAt);
-  const toolResults = collectToolResults(filteredEntries);
-  const toolUseResults = collectStructuredPatchResults(filteredEntries);
-  const chatMessages = [];
-  let pendingAssistant = null;
-  for (const sdkMsg of filteredEntries) {
-    if (isSystemInjectedMessage(sdkMsg)) continue;
-    if (sdkMsg.type === "assistant" && ((_a3 = sdkMsg.message) == null ? void 0 : _a3.model) === "<synthetic>") continue;
-    const chatMsg = parseSDKMessageToChat(sdkMsg, toolResults);
-    if (!chatMsg) continue;
-    if (chatMsg.role === "assistant") {
-      const isCompactBoundary = (_b = chatMsg.contentBlocks) == null ? void 0 : _b.some((b3) => b3.type === "compact_boundary");
-      if (isCompactBoundary) {
-        if (pendingAssistant) {
-          chatMessages.push(pendingAssistant);
-        }
-        chatMessages.push(chatMsg);
-        pendingAssistant = null;
-      } else if (pendingAssistant) {
-        mergeAssistantMessage(pendingAssistant, chatMsg);
-      } else {
-        pendingAssistant = chatMsg;
-      }
-    } else {
-      if (pendingAssistant) {
-        chatMessages.push(pendingAssistant);
-        pendingAssistant = null;
-      }
-      chatMessages.push(chatMsg);
-    }
-  }
-  if (pendingAssistant) {
-    chatMessages.push(pendingAssistant);
-  }
-  if (toolUseResults.size > 0) {
-    for (const msg of chatMessages) {
-      if (msg.role !== "assistant" || !msg.toolCalls) continue;
-      for (const toolCall of msg.toolCalls) {
-        const toolUseResult = toolUseResults.get(toolCall.id);
-        if (!toolUseResult) continue;
-        if (!toolCall.diffData) {
-          toolCall.diffData = extractDiffData(toolUseResult, toolCall);
-        }
-        if (toolCall.name === TOOL_ASK_USER_QUESTION) {
-          const answers = extractResolvedAnswers(toolUseResult);
-          if (answers) toolCall.resolvedAnswers = answers;
-        }
-      }
-    }
-  }
-  chatMessages.sort((a, b3) => a.timestamp - b3.timestamp);
-  return { messages: chatMessages, skippedLines: result.skippedLines };
-}
-
 // src/main.ts
-var ClaudianPlugin = class extends import_obsidian34.Plugin {
+var ClaudianPlugin = class extends import_obsidian38.Plugin {
   constructor() {
     super(...arguments);
     this.conversations = [];
@@ -69420,10 +71082,10 @@ var ClaudianPlugin = class extends import_obsidian34.Plugin {
           );
           editContext = { mode: "cursor", cursorContext };
         }
-        const modal = new InlineEditModal(this.app, this, editContext, notePath);
+        const modal = new InlineEditModal(this.app, this, editor, view, editContext, notePath);
         const result = await modal.openAndWait();
         if (result.decision === "accept" && result.editedText !== void 0) {
-          new import_obsidian34.Notice(editContext.mode === "cursor" ? "Inserted" : "Edit applied");
+          new import_obsidian38.Notice(editContext.mode === "cursor" ? "Inserted" : "Edit applied");
         }
       }
     });
@@ -69509,7 +71171,7 @@ var ClaudianPlugin = class extends import_obsidian34.Plugin {
   }
   /** Loads settings and conversations from persistent storage. */
   async loadSettings() {
-    var _a3, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q2;
+    var _a3, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q2, _r;
     this.storage = new StorageService(this);
     const { claudian } = await this.storage.initialize();
     const slashCommands = await this.storage.loadAllSlashCommands();
@@ -69559,8 +71221,9 @@ var ClaudianPlugin = class extends import_obsidian34.Plugin {
       }
       conversation.previousSdkSessionIds = (_n = meta3.previousSdkSessionIds) != null ? _n : conversation.previousSdkSessionIds;
       conversation.legacyCutoffAt = (_o = meta3.legacyCutoffAt) != null ? _o : conversation.legacyCutoffAt;
-      conversation.resumeSessionAt = (_p = meta3.resumeSessionAt) != null ? _p : conversation.resumeSessionAt;
-      conversation.forkSource = (_q2 = meta3.forkSource) != null ? _q2 : conversation.forkSource;
+      conversation.subagentData = (_p = meta3.subagentData) != null ? _p : conversation.subagentData;
+      conversation.resumeSessionAt = (_q2 = meta3.resumeSessionAt) != null ? _q2 : conversation.resumeSessionAt;
+      conversation.forkSource = (_r = meta3.forkSource) != null ? _r : conversation.forkSource;
     }
     const nativeMetadata = await this.storage.sessions.listNativeMetadata();
     const nativeConversations = nativeMetadata.filter((meta3) => !legacyIds.has(meta3.id)).map((meta3) => {
@@ -69597,7 +71260,7 @@ var ClaudianPlugin = class extends import_obsidian34.Plugin {
       }
     );
     if (failedCount > 0) {
-      new import_obsidian34.Notice(`Failed to load ${failedCount} conversation${failedCount > 1 ? "s" : ""}`);
+      new import_obsidian38.Notice(`Failed to load ${failedCount} conversation${failedCount > 1 ? "s" : ""}`);
     }
     setLocale(this.settings.locale);
     const backfilledConversations = this.backfillConversationResponseTimestamps();
@@ -69698,12 +71361,12 @@ var ClaudianPlugin = class extends import_obsidian34.Plugin {
         }
       }
       if (failedTabs > 0) {
-        new import_obsidian34.Notice(`Environment changes applied, but ${failedTabs} tab(s) failed to restart.`);
+        new import_obsidian38.Notice(`Environment changes applied, but ${failedTabs} tab(s) failed to restart.`);
       }
     }
     view == null ? void 0 : view.refreshModelSelector();
     const noticeText = changed ? "Environment variables applied. Sessions will be rebuilt on next message." : "Environment variables applied.";
-    new import_obsidian34.Notice(noticeText);
+    new import_obsidian38.Notice(noticeText);
   }
   /** Returns the runtime environment variables (fixed at plugin load). */
   getActiveEnvironmentVariables() {
@@ -69843,10 +71506,41 @@ var ClaudianPlugin = class extends import_obsidian34.Plugin {
       ...afterCutoff
     ]).sort((a, b3) => a.timestamp - b3.timestamp);
     if (conversation.subagentData) {
+      await this.enrichAsyncSubagentToolCalls(
+        conversation.subagentData,
+        vaultPath,
+        allSessionIds
+      );
       this.applySubagentData(merged, conversation.subagentData);
     }
     conversation.messages = merged;
     conversation.sdkMessagesLoaded = true;
+  }
+  async enrichAsyncSubagentToolCalls(subagentData, vaultPath, sessionIds) {
+    var _a3, _b;
+    const uniqueSessionIds = [...new Set(sessionIds)];
+    if (uniqueSessionIds.length === 0) return;
+    const loaderCache = /* @__PURE__ */ new Map();
+    for (const subagent of Object.values(subagentData)) {
+      if (subagent.mode !== "async") continue;
+      if (!subagent.agentId) continue;
+      if (((_b = (_a3 = subagent.toolCalls) == null ? void 0 : _a3.length) != null ? _b : 0) > 0) continue;
+      for (const sessionId of uniqueSessionIds) {
+        const cacheKey = `${sessionId}:${subagent.agentId}`;
+        let loader = loaderCache.get(cacheKey);
+        if (!loader) {
+          loader = loadSubagentToolCalls(vaultPath, sessionId, subagent.agentId);
+          loaderCache.set(cacheKey, loader);
+        }
+        const recoveredToolCalls = await loader;
+        if (recoveredToolCalls.length === 0) continue;
+        subagent.toolCalls = recoveredToolCalls.map((toolCall) => ({
+          ...toolCall,
+          input: { ...toolCall.input }
+        }));
+        break;
+      }
+    }
   }
   /**
    * Applies cached subagentData to messages.
@@ -69854,37 +71548,113 @@ var ClaudianPlugin = class extends import_obsidian34.Plugin {
    * Also updates contentBlocks to properly identify Task tools as subagents.
    */
   applySubagentData(messages, subagentData) {
-    var _a3;
+    var _a3, _b, _c, _d, _e;
+    const attachedSubagentIds = /* @__PURE__ */ new Set();
+    const chooseRicherResult = (sdkResult, cachedResult) => {
+      const sdkText = typeof sdkResult === "string" ? sdkResult.trim() : "";
+      const cachedText = typeof cachedResult === "string" ? cachedResult.trim() : "";
+      if (sdkText.length === 0 && cachedText.length === 0) return void 0;
+      if (sdkText.length === 0) return cachedResult;
+      if (cachedText.length === 0) return sdkResult;
+      return sdkText.length >= cachedText.length ? sdkResult : cachedResult;
+    };
+    const ensureTaskToolCall = (msg, subagentId, subagent) => {
+      msg.toolCalls = msg.toolCalls || [];
+      let taskToolCall = msg.toolCalls.find(
+        (tc) => tc.id === subagentId && tc.name === TOOL_TASK
+      );
+      if (!taskToolCall) {
+        taskToolCall = {
+          id: subagentId,
+          name: TOOL_TASK,
+          input: {
+            description: subagent.description,
+            prompt: subagent.prompt || "",
+            ...subagent.mode === "async" ? { run_in_background: true } : {}
+          },
+          status: subagent.status,
+          result: subagent.result,
+          isExpanded: false,
+          subagent
+        };
+        msg.toolCalls.push(taskToolCall);
+        return taskToolCall;
+      }
+      if (!taskToolCall.input.description) taskToolCall.input.description = subagent.description;
+      if (!taskToolCall.input.prompt) taskToolCall.input.prompt = subagent.prompt || "";
+      if (subagent.mode === "async") taskToolCall.input.run_in_background = true;
+      taskToolCall.status = subagent.status;
+      const mergedResult = chooseRicherResult(taskToolCall.result, subagent.result);
+      if (mergedResult !== void 0) {
+        taskToolCall.result = mergedResult;
+        subagent.result = mergedResult;
+      }
+      taskToolCall.subagent = subagent;
+      return taskToolCall;
+    };
     for (const msg of messages) {
       if (msg.role !== "assistant") continue;
       for (const [subagentId, subagent] of Object.entries(subagentData)) {
-        if (!msg.subagents) {
-          msg.subagents = [];
-        }
         const hasSubagentBlock = (_a3 = msg.contentBlocks) == null ? void 0 : _a3.some(
           (b3) => b3.type === "subagent" && b3.subagentId === subagentId || b3.type === "tool_use" && b3.toolId === subagentId
         );
-        if (!hasSubagentBlock) continue;
-        const existingIdx = msg.subagents.findIndex((s) => s.id === subagentId);
-        if (existingIdx === -1) {
-          msg.subagents.push(subagent);
-        } else {
-          msg.subagents[existingIdx] = subagent;
+        const hasTaskToolCall = (_c = (_b = msg.toolCalls) == null ? void 0 : _b.some((tc) => tc.id === subagentId)) != null ? _c : false;
+        if (!hasSubagentBlock && !hasTaskToolCall) continue;
+        ensureTaskToolCall(msg, subagentId, subagent);
+        if (!msg.contentBlocks) {
+          msg.contentBlocks = [];
         }
-        if (msg.contentBlocks) {
-          for (let i2 = 0; i2 < msg.contentBlocks.length; i2++) {
-            const block = msg.contentBlocks[i2];
-            if (block.type === "tool_use" && block.toolId === subagentId) {
-              msg.contentBlocks[i2] = {
-                type: "subagent",
-                subagentId,
-                mode: subagent.mode
-              };
-            } else if (block.type === "subagent" && block.subagentId === subagentId && !block.mode) {
-              block.mode = subagent.mode;
-            }
+        let hasNormalizedSubagentBlock = false;
+        for (let i2 = 0; i2 < msg.contentBlocks.length; i2++) {
+          const block = msg.contentBlocks[i2];
+          if (block.type === "tool_use" && block.toolId === subagentId) {
+            msg.contentBlocks[i2] = {
+              type: "subagent",
+              subagentId,
+              mode: subagent.mode
+            };
+            hasNormalizedSubagentBlock = true;
+          } else if (block.type === "subagent" && block.subagentId === subagentId && !block.mode) {
+            block.mode = subagent.mode;
+            hasNormalizedSubagentBlock = true;
+          } else if (block.type === "subagent" && block.subagentId === subagentId) {
+            hasNormalizedSubagentBlock = true;
           }
         }
+        if (!hasNormalizedSubagentBlock && hasTaskToolCall) {
+          msg.contentBlocks.push({
+            type: "subagent",
+            subagentId,
+            mode: subagent.mode
+          });
+        }
+        attachedSubagentIds.add(subagentId);
+      }
+    }
+    for (const [subagentId, subagent] of Object.entries(subagentData)) {
+      if (attachedSubagentIds.has(subagentId)) continue;
+      let anchor = [...messages].reverse().find((msg) => msg.role === "assistant");
+      if (!anchor) {
+        anchor = {
+          id: `subagent-recovery-${subagentId}`,
+          role: "assistant",
+          content: "",
+          timestamp: (_e = (_d = subagent.completedAt) != null ? _d : subagent.startedAt) != null ? _e : Date.now(),
+          contentBlocks: []
+        };
+        messages.push(anchor);
+      }
+      ensureTaskToolCall(anchor, subagentId, subagent);
+      anchor.contentBlocks = anchor.contentBlocks || [];
+      const hasSubagentBlock = anchor.contentBlocks.some(
+        (block) => block.type === "subagent" && block.subagentId === subagentId
+      );
+      if (!hasSubagentBlock) {
+        anchor.contentBlocks.push({
+          type: "subagent",
+          subagentId,
+          mode: subagent.mode
+        });
       }
     }
   }
