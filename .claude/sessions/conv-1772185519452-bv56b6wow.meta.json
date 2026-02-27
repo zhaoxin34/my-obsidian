@@ -1,0 +1,20 @@
+{
+  "id": "conv-1772185519452-bv56b6wow",
+  "title": "Optimize current document",
+  "titleGenerationStatus": "success",
+  "createdAt": 1772185519453,
+  "updatedAt": 1772185588699,
+  "lastResponseAt": 1772185588699,
+  "sessionId": "60f7cc18-7b53-42ee-9990-45e577fabab3",
+  "sdkSessionId": "60f7cc18-7b53-42ee-9990-45e577fabab3",
+  "currentNote": "技术工作/JDK17 命令示例.md",
+  "usage": {
+    "model": "MiniMax-M2",
+    "inputTokens": 7036,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 21397,
+    "contextWindow": 200000,
+    "contextTokens": 28433,
+    "percentage": 14
+  }
+}
