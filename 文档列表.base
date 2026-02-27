@@ -11,6 +11,8 @@ views:
       - file.folder
       - tags
     sort:
+      - property: file.ctime
+        direction: DESC
       - property: file.folder
         direction: ASC
     columnSize:
