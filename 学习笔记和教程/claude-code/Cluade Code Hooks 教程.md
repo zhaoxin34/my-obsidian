@@ -88,7 +88,7 @@ Hooks 可以使用以下环境变量：
         "hooks": [
           {
             "type": "command",
-            "command": "jq -r'\"\\(.tool_input.command) - \\(.tool_input.description // \"No description\")\"' >> ~/.claude/bash-command-log.txt"
+            "command": "bash $CLAUDE_PROJECT_DIR/.claude/hooks/pretooluse.bash.sh"
           }
         ]
       }
@@ -97,6 +97,18 @@ Hooks 可以使用以下环境变量：
 }
 ```
 
+pretooluse.bash.sh
+
+```bash
+#!/bin/bash
+
+INPUT=$(cat)
+COMMAND=$(echo $INPUT | jq -r '.tool_input.command')
+DESCRIPTION=$(echo $INPUT | jq -r '.tool_input.description')
+
+TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
+echo "[$TIMESTAMP] - $COMMAND - $DESCRIPTION" >> /tmp/bash-command-log.txt
+```
 ### 示例 2：长时间运行命令前提醒使用 tmux
 
 ```json

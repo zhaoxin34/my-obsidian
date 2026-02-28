@@ -1,0 +1,20 @@
+{
+  "id": "conv-1772185519452-bv56b6wow",
+  "title": "Format article for better readability",
+  "titleGenerationStatus": "success",
+  "createdAt": 1772185519453,
+  "updatedAt": 1772289193341,
+  "lastResponseAt": 1772289076705,
+  "sessionId": "60f7cc18-7b53-42ee-9990-45e577fabab3",
+  "sdkSessionId": "60f7cc18-7b53-42ee-9990-45e577fabab3",
+  "currentNote": "学习笔记和教程/bash/使用 Bash 脚本处理标准输入的两种方法.md",
+  "usage": {
+    "model": "MiniMax-M2",
+    "inputTokens": 7036,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 21397,
+    "contextWindow": 200000,
+    "contextTokens": 28433,
+    "percentage": 14
+  }
+}
