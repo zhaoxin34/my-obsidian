@@ -96,7 +96,7 @@ specific, actionable feedback on quality, security, and best practices.
 | `model`           | 否   | 要使用的 [模型](#choose-a-model)：`sonnet`、`opus`、`haiku` 或 `inherit`。默认为 `inherit`                                                        |
 | `permissionMode`  | 否   | [权限模式](#permission-modes)：`default`、`acceptEdits`、`delegate`、`dontAsk`、`bypassPermissions` 或 `plan`                                 |
 | `maxTurns`        | 否   | 子代理停止前的最大代理轮数                                                                                                                       |
-| `skills`          | 否   | 在启动时加载到子代理上下文中的 [技能](/en/skills)。注入完整的技能内容，而不仅仅是使其可供调用。子代理不继承父对话中的技能                                                                |
+| `skills`          | 否   | 在启动时加载到子代理上下文中的 [技能](/en/skills)。*注入完整的技能内容，而不仅仅是使其可供调用。* 子代理不继承父对话中的技能                                                             |
 | `mcpServers`      | 否   | 此子代理可用的 [MCP 服务器](/en/mcp)。每个条目要么是引用已配置服务器的服务器名称（例如 `"slack"`），要么是内联定义，以服务器名称为键，以完整的 [MCP 服务器配置](/en/mcp#configure-mcp-servers) 作为值 |
 | `hooks`           | 否   | 作用域到此子代理的 [生命周期钩子](#define-hooks-for-subagents)                                                                                     |
 | `memory`          | 否   | [持久内存范围](#enable-persistent-memory)：`user`、`project` 或 `local`。启用跨会话学习                                                              |
