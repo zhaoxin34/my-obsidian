@@ -1,81 +1,15 @@
 ## 目录
 
-1. [Hook 类型详解](#hook-类型详解)
-2. [配置文件的结构](#配置文件的结构)
-3. [Hook 配置详解](#hook-配置详解)
-4. [环境变量](#环境变量)
-5. [实战示例](#实战示例)
-6. [使用 /hooks 命令配置](#使用-hooks-命令配置)
+1. [Hook 配置详解](#hook-配置详解)
+2. [环境变量](#环境变量)
+3. [实战示例](#实战示例)
+4. [使用 /hooks 命令配置](#使用-hooks-命令配置)
+
+## Hooks生命周期
+
+![img](https://mintcdn.com/claude-code/rsuu-ovdPNos9Dnn/images/hooks-lifecycle.svg?w=1100&fit=max&auto=format&n=rsuu-ovdPNos9Dnn&q=85&s=614def559f34f9b0c1dec93739d96b64)
 
 ---
-
-## 什么是 Hooks
-
-**Hooks（钩子）** 是基于触发器的自动化机制，在特定事件时触发执行自定义逻辑。与 Skills 不同，Hooks 被限制在工具调用和生命周期事件中。
-
-### Hooks 的工作原理
-
-```
-用户输入 → SessionStart → UserPromptSubmit → PreToolUse → 工具执行 → PostToolUse → Stop → SessionEnd
-                                                              ↓
-                                                       PreCompact
-```
-
-Hooks 在 Claude Code 会话的关键节点触发，使你能够在 AI 助手执行操作前后插入自定义代码。
-
----
-
-## Hook 类型详解
-
-Claude Code 提供以下类型的 Hook：
-
-| Hook 类型 | 触发时机 | 典型用途 |
-|-----------|----------|----------|
-| **SessionStart** | 会话开始或恢复时 | 初始化环境变量、加载项目上下文 |
-| **UserPromptSubmit** | 用户提交提示时 | 验证或修改用户输入 |
-| **PreToolUse** | 工具执行前 | 审批或修改工具调用、验证命令 |
-| **PermissionRequest** | 需要用户权限时 | 自定义权限处理 |
-| **PostToolUse** | 工具执行成功后 | 处理工具执行结果、格式化输出 |
-| **SubagentStart** | 子代理启动时 | 记录子代理启动信息 |
-| **SubagentStop** | 子代理完成时 | 处理子代理结果 |
-| **Stop** | 主代理完成响应时 | 决定是否继续执行 |
-| **PreCompact** | 上下文压缩前 | 准备压缩上下文 |
-| **Notification** | 权限请求时 | 自定义通知 |
-| **SessionEnd** | 会话终止时 | 清理资源、保存会话数据 |
-
----
-
-## 配置文件的结构
-
-Hooks 配置文件通常位于 `.claude/settings.json`，基本结构如下：
-
-```json
-{
-  "description": "插件描述",
-  "hooks": {
-    "EventName": [
-      {
-        "matcher": "匹配模式",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "要执行的命令",
-            "timeout": 30
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
-### 配置位置
-
-- **项目级配置**: `.claude/settings.json` - 仅对当前项目生效
-- **用户级配置**: `~/.claude/settings.json` - 对所有项目生效
-
----
-
 ## Hook 配置详解
 
 ### 1. matcher（匹配器）
@@ -129,13 +63,13 @@ Hook 有两种执行类型：
 
 Hooks 可以使用以下环境变量：
 
-| 变量 | 说明 |
-|------|------|
-| `$CLAUDE_PROJECT_DIR` | 项目目录路径 |
-| `$CLAUDE_TOOL_NAME` | 当前工具名称 |
-| `$CLAUDE_TOOL_INPUT` | 工具输入参数（JSON 格式） |
-| `$CLAUDE_TOOL_RESULT` | 工具执行结果 |
-| `$CLAUDE_SESSION_ID` | 会话 ID |
+| 变量                    | 说明              |
+| --------------------- | --------------- |
+| `$CLAUDE_PROJECT_DIR` | 项目目录路径          |
+| `$CLAUDE_TOOL_NAME`   | 当前工具名称          |
+| `$CLAUDE_TOOL_INPUT`  | 工具输入参数（JSON 格式） |
+| `$CLAUDE_TOOL_RESULT` | 工具执行结果          |
+| `$CLAUDE_SESSION_ID`  | 会话 ID           |
 
 ---
 
