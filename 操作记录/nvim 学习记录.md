@@ -89,6 +89,10 @@ Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lan
 *查看某个文件的linter*
 :lua print(vim.inspect(require('lint').linters_by_ft[vim.bo.filetype]))
 
+*临时关闭自动格式化 auto format*
+`<leader>uF` 关闭buffer的
+`<leader>uf` 关闭所有的
+
 ### 配置overseer.nvim进行任务管理
 
 https://github.com/stevearc/overseer.nvim
