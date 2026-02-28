@@ -4,6 +4,7 @@
 npm install -g @fission-ai/openspec@latest
 ```
 
+再次调用上命令，可以升级，目前已经升级到1.2.0
 ### 使用
 
 ```bash
