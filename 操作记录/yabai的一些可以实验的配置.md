@@ -1,3 +1,17 @@
+## yabai的启动和停止
+
+```bash
+yabai --start-service
+yabai --stop-service
+```
+
+## yabai 启动sa
+
+```bash
+sudo yabai --load-s
+```
+
+
 实施配置
 ```bash
 yabai -m config --space 1 layout float
