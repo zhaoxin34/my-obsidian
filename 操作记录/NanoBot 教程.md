@@ -5,6 +5,11 @@ Ultra-Lightweight Personal AI Assistant
 uv tool install nanobot-ai
 ```
 
+## 升级
+
+```bash
+uv tool update nanobot-ai
+```
 ## 初始化
 ```bash
 nanobot onboard
