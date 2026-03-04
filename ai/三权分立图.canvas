@@ -1,6 +1,5 @@
 {
 	"nodes":[
-		{"id":"f00834f9dbafc319","x":428,"y":-503,"width":250,"height":60,"type":"text","text":""},
 		{"id":"balance1","type":"text","text":"制衡\n平衡","x":240,"y":-50,"width":100,"height":80,"color":"#6B7280"},
 		{"id":"central","type":"text","text":"三权分立\n\n相互制衡\n民主基石","x":215,"y":200,"width":175,"height":120,"color":"#8B5CF6"},
 		{"id":"balance3","type":"text","text":"执行\n落实","x":-90,"y":210,"width":100,"height":80,"color":"#6B7280"},
