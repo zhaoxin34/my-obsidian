@@ -8,7 +8,7 @@ yabai --stop-service
 ## yabai 启动sa
 
 ```bash
-sudo yabai --load-s
+sudo yabai --load-sa
 ```
 
 
