@@ -23,3 +23,23 @@ git reset --hard HEAD~1
 # 这时，只要不执行下面这行，也只是修改本地提交, feature_reentry是分支名称
 git push --force-with-lease origin feature_reentry
 ```
+
+## git rm --cached
+
+将文件从 git 跟踪中移除，但**不删除本地文件**。
+
+*常用场景*
+- 文件已被 git 跟踪，后来才加入 `.gitignore`
+- 不想删除本地文件，但希望停止版本控制
+
+```bash
+# 移除单个文件
+git rm --cached filename
+
+# 递归移除目录
+git rm -r --cached directory/
+
+# 多个文件/目录
+git rm -r --cached dir1/ dir2/file.txt
+```
+
