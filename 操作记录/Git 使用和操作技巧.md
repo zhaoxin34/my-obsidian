@@ -24,7 +24,7 @@ git reset --hard HEAD~1
 git push --force-with-lease origin feature_reentry
 ```
 
-## git rm --cached
+## 误提交后撤回提交
 
 将文件从 git 跟踪中移除，但**不删除本地文件**。
 
@@ -42,4 +42,3 @@ git rm -r --cached directory/
 # 多个文件/目录
 git rm -r --cached dir1/ dir2/file.txt
 ```
-
