@@ -3,6 +3,18 @@
   "title": "查找2.1.52到最新版本变更记录",
   "titleGenerationStatus": "success",
   "createdAt": 1772951684642,
-  "updatedAt": 1772951698466,
-  "sessionId": null
+  "updatedAt": 1772951978409,
+  "lastResponseAt": 1772951978409,
+  "sessionId": "8319afd7-1a6f-4327-86df-b814a815fd8c",
+  "sdkSessionId": "8319afd7-1a6f-4327-86df-b814a815fd8c",
+  "currentNote": "学习笔记和教程/claude-code/Claude code 2.1.39 - 2.1.51 变更记录.md",
+  "usage": {
+    "model": "MiniMax-M2",
+    "inputTokens": 160,
+    "cacheCreationInputTokens": 4197,
+    "cacheReadInputTokens": 33823,
+    "contextWindow": 200000,
+    "contextTokens": 38180,
+    "percentage": 19
+  }
 }
