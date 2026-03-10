@@ -1,4 +1,4 @@
- ## 配置chrome 使用remote debug的方式
+ ## 配置c hrome 使用remote debug的方式
 
 *启动chrome*
 ```bash
