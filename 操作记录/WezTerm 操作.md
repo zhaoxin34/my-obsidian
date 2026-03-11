@@ -73,3 +73,7 @@ sudo systemctl restart sshd
 sudo launchctl stop com.openssh.sshd
 sudo launchctl start com.openssh.sshd
 ```
+
+## 查看debug日志
+
+*shift + cmd + L* 打开日志, 亲测可用
