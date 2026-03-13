@@ -69,6 +69,13 @@ Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lan
 | `<leader>cv` | Select VirtualEnv | **n** |
 `<leaer>ql` 可以恢复上次打开的文件
 `alt+m` 在文件浏览器上可以最大化文件浏览器
+`<leader>sr` 可以打开在某个目录下替换字符串的窗口，非常有用
+
+## mark 做记号或者叫作打标签
+
+`m{a-z}` 可以设置标签
+`m{A-Z}` 可以设置跨文件标签
+`<leader>sm` 搜索所有做的标记
 ### 一些命令
 
 *查看所有事件*
