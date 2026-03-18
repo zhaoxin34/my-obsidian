@@ -16,3 +16,33 @@
   - chrome-devtools - MCP 服务器名称
   - -- - 分隔符，后面是实际要执行的命令
   - npx chrome-devtools-mcp@latest -u http://127.0.0.1:9222 - 使用 -u 参数（不是 --browser-url）
+## 2026-3-18 新的方法
+
+chrome最新版146版支持原生mcp了，打开方法如下
+
+* chrome://flags/WebMCP-for-testing enable
+* chrome://inspect/#remote-debugging 打开
+
+这样就不用上面那种启动chrome的方法了
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
