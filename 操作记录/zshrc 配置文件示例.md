@@ -1,17 +1,27 @@
 ```zsh
-# 开始性能测试
-# zmodload zsh/zprof
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-# 优化启动速度
-zstyle ':bracketed-paste-magic' active-enabled off
-zstyle ':bracketed-paste-magic' paste-enabled off
-DISABLE_AUTO_UPDATE="true"
-DISABLE_UPDATE_PROMPT="true"
+export ZSH="$HOME/.oh-my-zsh"
+export ZSH_THEME="robbyrussell"
+
+plugins=(git autoswitch_virtualenv poetry)
 
 source $ZSH/oh-my-zsh.sh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 source $HOME/.config/working/working.sh
 
-plugins=(git zsh-autosuggestions zsh-completions zsh-syntax-highlighting autoswitch_virtualenv)
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/zhaoxin/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
 
 # bun completions
 [ -s "/Users/zhaoxin/.bun/_bun" ] && source "/Users/zhaoxin/.bun/_bun"
@@ -19,6 +29,4 @@ plugins=(git zsh-autosuggestions zsh-completions zsh-syntax-highlighting autoswi
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-
 ```
