@@ -75,6 +75,7 @@ Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lan
 
 `m{a-z}` 可以设置标签
 `m{A-Z}` 可以设置跨文件标签
+`'[a-zA-Z]` 跳转到mark的位子
 `<leader>sm` 搜索所有做的标记
 ### 一些命令
 
