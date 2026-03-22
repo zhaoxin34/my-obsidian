@@ -3,8 +3,8 @@
   "title": "Start conversation",
   "titleGenerationStatus": "success",
   "createdAt": 1772951684642,
-  "updatedAt": 1774195469148,
-  "lastResponseAt": 1774195469148,
+  "updatedAt": 1774196060718,
+  "lastResponseAt": 1774196060718,
   "sessionId": "7e0861a5-cc5f-4217-a380-791180e1a13d",
   "sdkSessionId": "7e0861a5-cc5f-4217-a380-791180e1a13d",
   "previousSdkSessionIds": [
@@ -13,11 +13,11 @@
   "currentNote": "ai/全自动营销产品.excalidraw.md",
   "usage": {
     "model": "MiniMax-M2.7",
-    "inputTokens": 5854,
+    "inputTokens": 14140,
     "cacheCreationInputTokens": 0,
     "cacheReadInputTokens": 28584,
     "contextWindow": 200000,
-    "contextTokens": 34438,
-    "percentage": 17
+    "contextTokens": 42724,
+    "percentage": 21
   }
 }
