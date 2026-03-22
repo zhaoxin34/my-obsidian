@@ -1,4 +1,4 @@
 {
   "repository": "my-obsidian",
-  "debounceMs": 10000
+  "debounceMs": 300000
 }
