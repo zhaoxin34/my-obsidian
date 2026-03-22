@@ -1,20 +1,23 @@
 {
   "id": "conv-1772951684641-2p5f57urx",
-  "title": "查找2.1.52到最新版本变更记录",
+  "title": "Start conversation",
   "titleGenerationStatus": "success",
   "createdAt": 1772951684642,
-  "updatedAt": 1772951978409,
-  "lastResponseAt": 1772951978409,
-  "sessionId": "8319afd7-1a6f-4327-86df-b814a815fd8c",
-  "sdkSessionId": "8319afd7-1a6f-4327-86df-b814a815fd8c",
-  "currentNote": "学习笔记和教程/claude-code/Claude code 2.1.39 - 2.1.51 变更记录.md",
+  "updatedAt": 1774193488895,
+  "lastResponseAt": 1774193488895,
+  "sessionId": "7e0861a5-cc5f-4217-a380-791180e1a13d",
+  "sdkSessionId": "7e0861a5-cc5f-4217-a380-791180e1a13d",
+  "previousSdkSessionIds": [
+    "8319afd7-1a6f-4327-86df-b814a815fd8c"
+  ],
+  "currentNote": "ai/全自动营销产品.excalidraw.md",
   "usage": {
-    "model": "MiniMax-M2",
-    "inputTokens": 160,
-    "cacheCreationInputTokens": 4197,
-    "cacheReadInputTokens": 33823,
+    "model": "MiniMax-M2.7",
+    "inputTokens": 129,
+    "cacheCreationInputTokens": 30891,
+    "cacheReadInputTokens": 0,
     "contextWindow": 200000,
-    "contextTokens": 38180,
-    "percentage": 19
+    "contextTokens": 31020,
+    "percentage": 16
   }
 }
