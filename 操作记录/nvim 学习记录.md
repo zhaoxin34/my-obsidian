@@ -102,6 +102,8 @@ Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lan
 `<leader>uF` 关闭buffer的
 `<leader>uf` 关闭所有的
 
+*临时关闭诊断*
+`<leader>ud`
 ### 配置overseer.nvim进行任务管理
 
 https://github.com/stevearc/overseer.nvim
