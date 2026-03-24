@@ -3,18 +3,18 @@
   "title": "调研触达反馈主流方案",
   "titleGenerationStatus": "success",
   "createdAt": 1774338891054,
-  "updatedAt": 1774338959364,
-  "lastResponseAt": 1774338959364,
+  "updatedAt": 1774339120138,
+  "lastResponseAt": 1774339120138,
   "sessionId": "df7ac489-4ee5-45d7-9d32-964d1b9314bd",
   "sdkSessionId": "df7ac489-4ee5-45d7-9d32-964d1b9314bd",
   "currentNote": "ai/全自动营销产品/全自动营销产品 - 头脑风暴.md",
   "usage": {
     "model": "MiniMax-M2",
-    "inputTokens": 16056,
+    "inputTokens": 276,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 33660,
+    "cacheReadInputTokens": 52997,
     "contextWindow": 200000,
-    "contextTokens": 49716,
-    "percentage": 25
+    "contextTokens": 53273,
+    "percentage": 27
   }
 }
