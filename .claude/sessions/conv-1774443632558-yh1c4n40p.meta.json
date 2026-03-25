@@ -3,17 +3,17 @@
   "title": "编写LightPanda browser入门手册",
   "titleGenerationStatus": "success",
   "createdAt": 1774443632559,
-  "updatedAt": 1774446600421,
-  "lastResponseAt": 1774446600421,
+  "updatedAt": 1774447279050,
+  "lastResponseAt": 1774447279050,
   "sessionId": "ff82f668-1284-469a-9f7f-3948fee68305",
   "sdkSessionId": "ff82f668-1284-469a-9f7f-3948fee68305",
   "usage": {
     "model": "MiniMax-M2.7",
     "inputTokens": 129,
-    "cacheCreationInputTokens": 3822,
-    "cacheReadInputTokens": 63815,
+    "cacheCreationInputTokens": 365,
+    "cacheReadInputTokens": 72688,
     "contextWindow": 200000,
-    "contextTokens": 67766,
-    "percentage": 34
+    "contextTokens": 73182,
+    "percentage": 37
   }
 }
