@@ -57,102 +57,10 @@ Lightpanda 是专为无头浏览器场景设计的新一代浏览器：
 #### macOS Apple Silicon (M1/M2/M3)
 
 ```bash
-curl -L -o lightpanda https://github.com/lightpanda-io/browser/releases/download/nightly/lightpanda-aarch64-macos && \
+cd /usr/local/bin
+curl -L -o lightpanda https://github.com/lightpanda-io/browser/releases/download/nightly/lightpanda-aarch64-macos
 chmod a+x ./lightpanda
 ```
-
-#### macOS Intel
-
-> [!NOTE]
-> 官方 nightly builds 目前只提供 `aarch64-macos`（Apple Silicon）。Intel Mac 需要从源码编译。
-
----
-
-### 方式二：从源码编译
-
-如果你想使用最新功能，或者你的架构没有预编译版本，可以从源码编译。
-
-#### 准备工作
-
-**安装依赖（macOS）：**
-
-```bash
-# 安装 Homebrew（如果没有）
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# 安装 cmake
-brew install cmake
-
-# 安装 Rust（Zig 的 build.zig.zon 依赖 Rust 工具链）
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source ~/.cargo/env
-```
-
-**安装 Zig：**
-
-Lightpanda 使用 Zig `0.15.2` 编写。需要安装对应版本：
-
-```bash
-# 下载 Zig 0.15.2
-curl -L -o /tmp/zig-macos-x86_64-0.15.2.tar.xz https://github.com/ziglang/zig/releases/download/0.15.2/zig-macos-x86_64-0.15.2.tar.xz
-
-# 解压到用户目录
-tar -xf /tmp/zig-macos-x86_64-0.15.2.tar.xz -C ~/
-
-# 添加到 PATH（建议添加到 ~/.zshrc）
-export PATH="$HOME/zig-macos-x86_64-0.15.2:$PATH"
-```
-
-> [!TIP]
-> 你也可以使用 `zigup` 工具管理多个 Zig 版本：
-> ```bash
-> curl -L https://raw.githubusercontent.com/marler8997/zigup/master/zigup.sh -o /tmp/zigup.sh && \
-> chmod +x /tmp/zigup.sh && \
-> mv /tmp/zigup.sh /usr/local/bin/zigup && \
-> zigup 0.15.2
-> ```
-
-#### 克隆项目
-
-```bash
-git clone https://github.com/lightpanda-io/browser.git
-cd browser
-```
-
-#### 构建
-
-```bash
-# 构建 v8 snapshot（release 安全模式）
-make build-v8-snapshot
-
-# 完整构建
-make build
-
-# 或者一步到位运行
-make run
-```
-
-#### 可选：Debug 模式构建
-
-```bash
-# Debug 模式构建（更快编译，但运行较慢）
-make build-dev
-
-# Debug 模式运行
-make run-debug
-```
-
-#### 运行测试
-
-```bash
-# 单元测试
-make test
-
-# 指定测试过滤器
-make test F="server"  # 只运行包含 "server" 的测试
-```
-
----
 
 ### 方式三：Docker
 
