@@ -6,7 +6,6 @@
 - [项目介绍](#项目介绍)
 - [安装方式](#安装方式)
   - [方式一：下载预编译二进制（推荐）](#方式一下载预编译二进制推荐)
-  - [方式二：从源码编译](#方式二从源码编译)
   - [方式三：Docker](#方式三docker)
 - [基础使用](#基础使用)
   - [快速抓取网页](#快速抓取网页)
@@ -20,9 +19,12 @@
   - [robots.txt](#robotstxt)
 - [MCP Server 集成](#mcp-server-集成)
   - [Fetcher MCP（推荐）](#fetcher-mcp推荐)
+  - [手动构建 Lightpanda MCP Server](#手动构建-lightpanda-mcp-server)
 - [命令行参数参考](#命令行参数参考)
 - [已知限制](#已知限制)
 - [性能对比](#性能对比)
+- [常见问题](#常见问题)
+- [参考链接](#参考链接)
 
 ---
 
@@ -30,31 +32,20 @@
 
 Lightpanda 是专为无头浏览器场景设计的新一代浏览器：
 
-| 特性 | 说明 |
-|------|------|
-| **语言** | Zig（底层系统编程语言） |
-| **JavaScript 引擎** | v8 |
-| **HTML 解析器** | html5ever |
-| **HTTP 客户端** | libcurl |
-| **通信协议** | CDP（Chrome DevTools Protocol） |
-| **兼容性** | Puppeteer、Playwright、chromedp |
-
-### 核心优势
-
-- **极低内存占用**：比 Chrome 少 9 倍
-- **极速执行**：比 Chrome 快 11 倍
-- **即时启动**：无需等待渲染引擎初始化
-- **无头设计**：专为服务端/自动化场景优化
+| 特性                | 说明                            |
+| ----------------- | ----------------------------- |
+| **语言**            | Zig（底层系统编程语言）                 |
+| **JavaScript 引擎** | v8                            |
+| **HTML 解析器**      | html5ever                     |
+| **HTTP 客户端**      | libcurl                       |
+| **通信协议**          | CDP（Chrome DevTools Protocol） |
+| **兼容性**           | Puppeteer、Playwright、chromedp |
 
 ---
 
 ## 安装方式
 
 ### 方式一：下载预编译二进制（推荐）
-
-这是最简单的方式，适合不想折腾的用户。
-
-#### macOS Apple Silicon (M1/M2/M3)
 
 ```bash
 cd /usr/local/bin
@@ -81,7 +72,7 @@ docker run -d --name lightpanda -p 9222:9222 lightpanda/browser:nightly
 使用 `fetch` 命令快速获取网页内容（包含 JavaScript 执行结果）：
 
 ```bash
-./lightpanda fetch --obey-robots --log-format pretty --log-level info https://example.com/
+lightpanda fetch --log-format pretty --log-level info https://www.baidu.com/
 ```
 
 参数说明：
@@ -96,17 +87,7 @@ docker run -d --name lightpanda -p 9222:9222 lightpanda/browser:nightly
 CDP 服务器允许你使用 Puppeteer、Playwright 等客户端连接：
 
 ```bash
-./lightpanda serve --obey-robots --log-format pretty --log-level info --host 127.0.0.1 --port 9222
-```
-
-输出示例：
-
-```
-INFO  telemetry : telemetry status . . . . . . . . . . . . .  [+0ms]
-      disabled = false
-
-INFO  app : server running . . . . . . . . . . . . . . . . .  [+0ms]
-      address = 127.0.0.1:9222
+lightpanda serve --log-format pretty --log-level info --host 127.0.0.1 --port 9222
 ```
 
 ---
@@ -160,9 +141,6 @@ await browser.disconnect();
 ---
 
 ### 与 Playwright 集成
-
-> [!WARNING]
-> Playwright 兼容性说明：由于 Playwright 的特性，在当前版本上运行的脚本在浏览器更新后可能会发生功能变化。如果遇到问题，请提交 [GitHub Issue](https://github.com/lightpanda-io/browser/issues)。
 
 #### 安装 Playwright
 
