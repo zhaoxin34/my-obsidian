@@ -1,0 +1,19 @@
+{
+  "id": "conv-1774445572480-y0cwbz67d",
+  "title": "Create Playwright CLI tutorial",
+  "titleGenerationStatus": "success",
+  "createdAt": 1774445572481,
+  "updatedAt": 1774445828489,
+  "lastResponseAt": 1774445828489,
+  "sessionId": "3794c3e2-8620-402f-a5f1-143d1c33d7bb",
+  "sdkSessionId": "3794c3e2-8620-402f-a5f1-143d1c33d7bb",
+  "usage": {
+    "model": "MiniMax-M2.7",
+    "inputTokens": 13333,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 28584,
+    "contextWindow": 200000,
+    "contextTokens": 41917,
+    "percentage": 21
+  }
+}
