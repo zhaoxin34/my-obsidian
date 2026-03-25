@@ -141,9 +141,16 @@ playwright-cli open https://demo.playwright.dev/todomvc/ --headed
 
 ### 输入文本
 
-在输入框中输入一些文字：
+在输入框中输入一些文字前，需要先获取快照找到输入框的引用，然后用 `click` 点击激活它：
 
 ```bash
+playwright-cli snapshot
+```
+
+从输出中找到输入框的引用（通常是 `e1` 或 `e2`），然后：
+
+```bash
+playwright-cli click e1  # 点击输入框激活它
 playwright-cli type "Buy groceries"
 ```
 
@@ -162,6 +169,7 @@ playwright-cli press Enter
 ### 再添加一个
 
 ```bash
+playwright-cli click e1  # 再次点击输入框激活它
 playwright-cli type "Water flowers"
 playwright-cli press Enter
 ```
@@ -173,7 +181,7 @@ playwright-cli press Enter
 Playwright CLI 会自动为页面上的可交互元素分配引用 ID（如 `e1`、`e2`、`e21`、`e35` 等）。在 Todo 应用中，复选框通常使用 `e21`、`e35` 等引用。
 
 ```bash
-playwright-cli check e21
+playwright-cli click e21  # 点击复选框
 ```
 
 你应该看到 "Buy groceries" 旁边的复选框被勾选了，文字上有删除线，表示已完成。
@@ -181,14 +189,14 @@ playwright-cli check e21
 ### 再勾选一个
 
 ```bash
-playwright-cli check e35
+playwright-cli click e35
 ```
 
 现在两个待办事项都完成了。
 
 <Note>
-元素的引用 ID 可能会根据页面结构变化。每次执行命令后，终端都会显示最新的快照，其中包含所有可用的元素引用。
-</Tip>
+**重要**：`type` 命令不接受元素引用，必须先用 `click` 点击目标元素激活它，再输入文字。元素的引用 ID 可能会根据页面结构变化。每次执行命令后，终端都会显示最新的快照，其中包含所有可用的元素引用。
+</Note>
 
 ## 第五步：截取截图
 
