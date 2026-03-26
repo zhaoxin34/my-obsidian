@@ -1,0 +1,19 @@
+{
+  "id": "conv-1774496641818-rrqi7si7b",
+  "title": "编写 Puppeteer 入门指南",
+  "titleGenerationStatus": "success",
+  "createdAt": 1774496641818,
+  "updatedAt": 1774496904161,
+  "lastResponseAt": 1774496904161,
+  "sessionId": "7a40ee7f-ed51-444f-8e3c-5bf9199e490a",
+  "sdkSessionId": "7a40ee7f-ed51-444f-8e3c-5bf9199e490a",
+  "usage": {
+    "model": "MiniMax-M2",
+    "inputTokens": 17334,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 33660,
+    "contextWindow": 200000,
+    "contextTokens": 50994,
+    "percentage": 25
+  }
+}
