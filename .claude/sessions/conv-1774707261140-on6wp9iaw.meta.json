@@ -3,17 +3,17 @@
   "title": "Explore deep-research capabilities",
   "titleGenerationStatus": "success",
   "createdAt": 1774707261141,
-  "updatedAt": 1774708364132,
-  "lastResponseAt": 1774708364132,
+  "updatedAt": 1774709359115,
+  "lastResponseAt": 1774709359115,
   "sessionId": "41a4f6b5-2fcf-4674-8b54-d23c01d2326a",
   "sdkSessionId": "41a4f6b5-2fcf-4674-8b54-d23c01d2326a",
   "usage": {
     "model": "MiniMax-M2.7",
-    "inputTokens": 38256,
-    "cacheCreationInputTokens": 0,
+    "inputTokens": 129,
+    "cacheCreationInputTokens": 62869,
     "cacheReadInputTokens": 28533,
     "contextWindow": 200000,
-    "contextTokens": 66789,
-    "percentage": 33
+    "contextTokens": 91531,
+    "percentage": 46
   }
 }

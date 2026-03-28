@@ -1,0 +1,162 @@
+Skip to content
+Navigation Menu
+Platform
+Solutions
+Resources
+Open Source
+Enterprise
+Pricing
+Sign in
+Sign up
+repositories Search Results · pageindex retrieval
+Filter by
+Code
+...
+ (...)
+results
+Repositories
+28
+ (28)
+results
+Issues
+110
+ (110)
+results
+Pull requests
+456
+ (456)
+results
+Discussions
+9
+ (9)
+results
+Users
+0
+ (0)
+results
+More
+Languages
+Python
+Jupyter Notebook
+TypeScript
+CSS
+Go
+More languages...
+Advanced
+Owner
+Size
+Number of followers
+Number of forks
+Number of stars
+Date created
+Date pushed
+Topic
+License
+Archived
+Public
+Private
+Advanced search
+28 results
+ (131 ms)
+28 results
+Sort by: Most stars
+VectifyAI/PageIndex
+📑 PageIndex: Document Index for Vectorless, Reasoning-based RAG
+information-retrieval
+ai
+retrieval
+agents
+reasoning
+Python
+·
+23.2k
+·
+Updated 13 hours ago
+Star
+vixhal-baraiya/pageindex-rag
+Vectorless, Reasoning-Based Retrieval-Augmented Generation (RAG)
+Python
+·
+56
+·
+Updated yesterday
+Star
+xmpuspus/kb-arena
+Benchmark 7 retrieval strategies on your own docs — naive vector, contextual, QnA pairs, knowledge graph, RAPTOR, PageIndex, and hybrid. …
+python
+cli
+benchmark
+neo4j
+retrieval
+Python
+·
+6
+·
+Updated 2 days ago
+Star
+BukeLy/pageindex-light-mcp
+Lightweight Agentic PDF Search via MCP — Vectorless, reasoning-based document retrieval
+Python
+·
+2
+·
+Updated on Jan 22
+Star
+funnamer/pageIndex-rag-chat
+An Agentic RAG Web UI system built on the ReAct paradigm with PageIndex, visualizing the document retrieval and reasoning process
+Python
+·
+2
+·
+Updated 12 days ago
+Star
+mithun50/EduRag
+PageIndex-style PDF indexing engine for RAG retrieval with hierarchical content trees
+Jupyter Notebook
+·
+2
+·
+Updated 27 days ago
+Star
+ Sponsor
+Utkarsh809/Vexta-AI
+VextaAI – Personal Research Assistant | Python, Streamlit, Claude AI, MCP Built an agentic RAG system using Claude Code and PageIndex MCP…
+Python
+·
+2
+·
+Updated 10 days ago
+Star
+Erenjaegaaa/lore-keeper
+Hybrid GraphRAG system over Tolkien's Middle-earth lore. Combines Neo4j knowledge graph + ChromaDB vector search for retrieval, with Gemi…
+ai
+pageindex
+llm
+graphrag
+Python
+·
+1
+·
+Updated 6 days ago
+Star
+Nithin0306/appian
+Appian Hackathon project implementing context-aware policy intelligence using Docling + PageIndex for structure-based retrieval (no vecto…
+TypeScript
+·
+1
+·
+Updated on Jan 12
+Star
+PrabhakaranVijay/vectorless-retrieval
+Simple implementation of PageIndex RAG
+Jupyter Notebook
+·
+0
+·
+Updated 11 days ago
+Star
+Previous123Next
+Sponsor open source projects you depend on
+Contributors are working behind the scenes to make open source better for everyone—give them the help and recognition they deserve.
+Explore sponsorable projects
+ProTip! Press the / key to activate the search input again and adjust your query.
