@@ -1,5 +1,3 @@
-# PageIndex 与 LightRAG 技术调研报告
-
 > **调研日期：** 2026-03-28
 > **调研范围：** 适用场景、成本分析、技术架构、融合可行性
 > **数据来源：** GitHub HKUDS/LightRAG (https://github.com/HKUDS/LightRAG) 及 VectifyAI/PageIndex (https://github.com/VectifyAI/PageIndex)，抓取时间 2026-03-28

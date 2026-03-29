@@ -1,5 +1,3 @@
-# Aurasell vs Salesforce SFA：AI原生新锐与传统巨头的深度对比研究报告
-
 > **研究日期**：2026年3月29日
 > **研究范围**：Aurasell（AI原生CRM新锐）vs Salesforce Sales Cloud（传统CRM巨头）
 > **研究方法**：网络公开信息收集、多源交叉验证
