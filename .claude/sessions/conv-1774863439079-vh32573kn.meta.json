@@ -3,8 +3,8 @@
   "title": "Research Aurasell company background and origins",
   "titleGenerationStatus": "success",
   "createdAt": 1774863439080,
-  "updatedAt": 1774863983330,
-  "lastResponseAt": 1774863983330,
+  "updatedAt": 1774864766149,
+  "lastResponseAt": 1774864766149,
   "sessionId": "89589264-d246-4544-ad0b-1126e68dba2c",
   "sdkSessionId": "89589264-d246-4544-ad0b-1126e68dba2c",
   "currentNote": "ai/Aurasell与Salesforce_SFA对比研究报告.md",
@@ -13,11 +13,11 @@
   ],
   "usage": {
     "model": "MiniMax-M2.7",
-    "inputTokens": 11558,
+    "inputTokens": 14140,
     "cacheCreationInputTokens": 0,
     "cacheReadInputTokens": 0,
     "contextWindow": 200000,
-    "contextTokens": 11558,
-    "percentage": 6
+    "contextTokens": 14140,
+    "percentage": 7
   }
 }
