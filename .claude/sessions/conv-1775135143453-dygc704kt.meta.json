@@ -1,0 +1,19 @@
+{
+  "id": "conv-1775135143453-dygc704kt",
+  "title": "Convert selection to Mermaid diagram",
+  "titleGenerationStatus": "success",
+  "createdAt": 1775135143454,
+  "updatedAt": 1775135240035,
+  "lastResponseAt": 1775135240035,
+  "sessionId": "2dc0a86d-4ce1-488b-9392-90d7597953ad",
+  "sdkSessionId": "2dc0a86d-4ce1-488b-9392-90d7597953ad",
+  "usage": {
+    "model": "MiniMax-M2.7",
+    "inputTokens": 276,
+    "cacheCreationInputTokens": 4146,
+    "cacheReadInputTokens": 33670,
+    "contextWindow": 200000,
+    "contextTokens": 38092,
+    "percentage": 19
+  }
+}
