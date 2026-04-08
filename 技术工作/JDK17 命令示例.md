@@ -32,19 +32,19 @@ java -Xms1g -Xmx2g \
 
 ## 参数速查表
 
-| 参数 | 默认值 | 说明 |
-|:-----|:-------|:-----|
-| `-Xms1g` | - | 初始堆大小 |
-| `-Xmx2g` | - | 最大堆大小 |
-| `-XX:+UseZGC` | - | 启用 ZGC 垃圾回收器 |
-| `-XX:MaxGCPauseMillis=200` | 200 | 最大 GC 暂停目标（毫秒） |
-| `-XX:InitiatingHeapOccupancyPercent=45` | 45 | 触发并发标记的堆占用阈值（%） |
-| `-XX:ZAllocationSpikeTolerance=2.0` | 2.0 | 分配波动容忍度系数 |
-| `-XX:ZCollectionInterval=5` | 0 | 最大 GC 间隔（秒），0 表示禁用 |
-| `-XX:ZFragmentationLimit=25` | 25 | 最大碎片化限制（%） |
-| `-XX:+ZProactive` | 开启 | 启用主动 GC 周期 |
-| `-XX:+ZUncommit` | 开启 | 启用内存释放（取消提交） |
-| `-XX:ZUncommitDelay=300` | 300 | 内存释放延迟（秒） |
+| 参数                                      | 默认值 | 说明                 |
+| :-------------------------------------- | :-- | :----------------- |
+| `-Xms1g`                                | -   | 初始堆大小              |
+| `-Xmx2g`                                | -   | 最大堆大小              |
+| `-XX:+UseZGC`                           | -   | 启用 ZGC 垃圾回收器       |
+| `-XX:MaxGCPauseMillis=200`              | 200 | 最大 GC 暂停目标（毫秒）     |
+| `-XX:InitiatingHeapOccupancyPercent=45` | 45  | 触发并发标记的堆占用阈值（%）    |
+| `-XX:ZAllocationSpikeTolerance=2.0`     | 2.0 | 分配波动容忍度系数          |
+| `-XX:ZCollectionInterval=5`             | 0   | 最大 GC 间隔（秒），0 表示禁用 |
+| `-XX:ZFragmentationLimit=25`            | 25  | 最大碎片化限制（%）         |
+| `-XX:+ZProactive`                       | 开启  | 启用主动 GC 周期         |
+| `-XX:+ZUncommit`                        | 开启  | 启用内存释放（取消提交）       |
+| `-XX:ZUncommitDelay=300`                | 300 | 内存释放延迟（秒）          |
 
 ## 详细说明
 
