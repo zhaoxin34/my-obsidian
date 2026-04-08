@@ -1,4 +1,3 @@
-# Hive Metastore 4.1.0 配置和启动教程
 
 本教程将帮助你快速配置并启动 Apache Hive Metastore 4.1.0，使用嵌入式 Derby 数据库作为开发/测试环境。
 
