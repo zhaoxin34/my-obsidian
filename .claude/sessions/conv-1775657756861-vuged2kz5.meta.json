@@ -1,0 +1,18 @@
+{
+  "id": "conv-1775657756861-vuged2kz5",
+  "title": "Research graph databases for AI applications",
+  "titleGenerationStatus": "success",
+  "createdAt": 1775657756862,
+  "updatedAt": 1775658036256,
+  "lastResponseAt": 1775658036256,
+  "sessionId": null,
+  "usage": {
+    "model": "MiniMax-M2.7",
+    "inputTokens": 26003,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 33670,
+    "contextWindow": 200000,
+    "contextTokens": 59673,
+    "percentage": 30
+  }
+}
