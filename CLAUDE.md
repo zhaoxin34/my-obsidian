@@ -11,7 +11,10 @@
 - **技术工作** - 技术文档 (Redis, StarRocks, Java GC, 微服务架构等)
 - **操作记录** - 安装配置指南 (Neovim, tmux, WezTerm, Karabiner 等)
 - **曾用过的提示词** - 可复用的提示词模板
-- **datatist** - 工作相关文档，datatist我目前所在的公司名称
+- **datatist** - 工作相关文档，datatist我目前所在的公司名称，采用 LLM Wiki 结构：
+  - `raw/` - 原始素材（会议纪要、面试记录、工作笔记等，只读）
+  - `wiki/` - LLM 编译的知识库（人员档案、合作项目、工作规范等）
+  - `output/` - 查询和分析结果
 
 ## 知识库组织规范
 
