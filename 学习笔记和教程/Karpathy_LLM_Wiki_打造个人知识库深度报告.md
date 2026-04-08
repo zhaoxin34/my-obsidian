@@ -1,5 +1,3 @@
-# Andrej Karpathy LLM Wiki：打造个人知识库的革命性方法
-
 > 来源：Andrej Karpathy 在 X (Twitter) 上的分享，2026年4月初
 > GitHub Gist：https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
 > 浏览量：超过 1700 万次，GitHub Star 超 2100+
