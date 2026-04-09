@@ -1,0 +1,19 @@
+{
+  "id": "conv-1775752879683-aoiqviu3j",
+  "title": "Create graphify installation and usage tutorial",
+  "titleGenerationStatus": "success",
+  "createdAt": 1775752879683,
+  "updatedAt": 1775753054435,
+  "lastResponseAt": 1775753054435,
+  "sessionId": "a1e797b1-f2de-4060-ac32-1d08faefd59b",
+  "sdkSessionId": "a1e797b1-f2de-4060-ac32-1d08faefd59b",
+  "usage": {
+    "model": "MiniMax-M2.7",
+    "inputTokens": 31172,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 33670,
+    "contextWindow": 200000,
+    "contextTokens": 64842,
+    "percentage": 32
+  }
+}
