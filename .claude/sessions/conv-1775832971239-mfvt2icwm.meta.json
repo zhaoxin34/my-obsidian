@@ -3,17 +3,17 @@
   "title": "Create MkDocs Material installation guide",
   "titleGenerationStatus": "success",
   "createdAt": 1775832971240,
-  "updatedAt": 1775833037483,
-  "lastResponseAt": 1775833037483,
+  "updatedAt": 1775833568742,
+  "lastResponseAt": 1775833568742,
   "sessionId": "31b6662b-84a8-4f33-b09e-97b1184a1fa7",
   "sdkSessionId": "31b6662b-84a8-4f33-b09e-97b1184a1fa7",
   "usage": {
     "model": "MiniMax-M2.7",
-    "inputTokens": 12817,
+    "inputTokens": 24030,
     "cacheCreationInputTokens": 0,
     "cacheReadInputTokens": 33670,
     "contextWindow": 200000,
-    "contextTokens": 46487,
-    "percentage": 23
+    "contextTokens": 57700,
+    "percentage": 29
   }
 }
