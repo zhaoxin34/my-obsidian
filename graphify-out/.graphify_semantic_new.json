@@ -1,0 +1,2026 @@
+{
+  "nodes": [
+    {
+      "id": "\u8fd0\u8425\u4ea7\u54c1",
+      "label": "\u8fd0\u8425\u4ea7\u54c1",
+      "file_type": "document",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "\u5bf9\u8bdd\u7f16\u8f91\u7cfb\u7edf",
+      "label": "\u5bf9\u8bdd\u7f16\u8f91\u7cfb\u7edf",
+      "file_type": "document",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "\u6587\u6863\u7248\u672c\u7ba1\u7406",
+      "label": "\u6587\u6863\u7248\u672c\u7ba1\u7406",
+      "file_type": "document",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "React",
+      "label": "React",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u67b6\u6784\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "Vite",
+      "label": "Vite",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u67b6\u6784\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "TypeScript",
+      "label": "TypeScript",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u67b6\u6784\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "pnpm",
+      "label": "pnpm",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u67b6\u6784\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "Ant_Design",
+      "label": "Ant Design",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u67b6\u6784\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "\u524d\u7aef_MVP\u539f\u5219",
+      "label": "\u524d\u7aefMVP\u539f\u5219",
+      "file_type": "document",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u67b6\u6784\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "FastAPI",
+      "label": "FastAPI",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u540e\u7aef\u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "Python",
+      "label": "Python",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u540e\u7aef\u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "uv",
+      "label": "uv",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u540e\u7aef\u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "MySQL",
+      "label": "MySQL",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u540e\u7aef\u4e1a\u52a1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "SQLAlchemy",
+      "label": "SQLAlchemy",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u540e\u7aef\u4e1a\u52a1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "Document\u6a21\u578b",
+      "label": "Document\u6a21\u578b",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u540e\u7aef\u4e1a\u52a1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "DocumentVersion\u6a21\u578b",
+      "label": "DocumentVersion\u6a21\u578b",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u540e\u7aef\u4e1a\u52a1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "\u540e\u7aef_MVP\u539f\u5219",
+      "label": "\u540e\u7aefMVP\u539f\u5219",
+      "file_type": "document",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u540e\u7aef\u4e1a\u52a1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "OpenAI_SDK",
+      "label": "OpenAI SDK",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - OpenAI SDK \u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "LLM\u67b6\u6784\u5c42",
+      "label": "LLM\u67b6\u6784\u5c42",
+      "file_type": "document",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "llm_base",
+      "label": "llm/base.py",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "llm_types",
+      "label": "llm/types.py",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "llm_registry",
+      "label": "llm/registry.py",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "llm_providers",
+      "label": "llm/providers\u76ee\u5f55",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "MockLLM",
+      "label": "MockLLM",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "PlaceholderLLM",
+      "label": "PlaceholderLLM",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "\u4e1a\u52a1Prompt",
+      "label": "\u4e1a\u52a1Prompt",
+      "file_type": "document",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u4e1a\u52a1\u5b9e\u73b0\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "\u8fd0\u8425\u7b56\u5212\u4e13\u5bb6Prompt",
+      "label": "\u8fd0\u8425\u7b56\u5212\u4e13\u5bb6Prompt",
+      "file_type": "document",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u4e1a\u52a1\u5b9e\u73b0\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "document_edit_prompt",
+      "label": "document_edit.py Prompt",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u4e1a\u52a1\u5b9e\u73b0\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "Prompt\u8d44\u4ea7\u72ec\u7acb\u6027",
+      "label": "Prompt\u8d44\u4ea7\u72ec\u7acb\u6027",
+      "file_type": "document",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u4e1a\u52a1\u5b9e\u73b0\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "LangChain_LangGraph\u5b66\u4e60\u5de5\u7a0b",
+      "label": "LangChain/LangGraph\u5b66\u4e60\u5de5\u7a0b",
+      "file_type": "document",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/Python langchain\u5de5\u7a0b\u521b\u5efaprompt.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "\u524d\u540e\u7aef\u8054\u8c03",
+      "label": "\u524d\u540e\u7aef\u8054\u8c03",
+      "file_type": "document",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u540e\u7aef\u8054\u8c03\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "MarkdownEditor\u7ec4\u4ef6",
+      "label": "MarkdownEditor\u7ec4\u4ef6",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u4e1a\u52a1\u5b9e\u73b0\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "ChatPanel\u7ec4\u4ef6",
+      "label": "ChatPanel\u7ec4\u4ef6",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u4e1a\u52a1\u5b9e\u73b0\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "VersionPanel\u7ec4\u4ef6",
+      "label": "VersionPanel\u7ec4\u4ef6",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u4e1a\u52a1\u5b9e\u73b0\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "\u524d\u7aef_API\u5c01\u88c5\u5c42",
+      "label": "\u524d\u7aefAPI\u5c01\u88c5\u5c42",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u540e\u7aef\u8054\u8c03\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "axios",
+      "label": "axios",
+      "file_type": "code",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u540e\u7aef\u8054\u8c03\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "StarRocks\u6570\u636e\u751f\u6210",
+      "label": "StarRocks\u6570\u636e\u751f\u6210",
+      "file_type": "document",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/starrocks wolf_v4\u9020\u6570\u636e.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "\u667a\u8c31\u5927\u6a21\u578bAPI",
+      "label": "\u667a\u8c31\u5927\u6a21\u578bAPI",
+      "file_type": "document",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u667a\u8c31\u5927\u6a21\u578b\u5e94\u7528.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "\u6587\u672c\u8f6c\u8bed\u97f3",
+      "label": "\u6587\u672c\u8f6c\u8bed\u97f3",
+      "file_type": "document",
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u667a\u8c31\u5927\u6a21\u578b\u5e94\u7528.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "Claude_Code",
+      "label": "Claude Code",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Claude Code\u5b89\u88c5\u548c\u914d\u7f6e.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "MCP\u670d\u52a1\u5668",
+      "label": "MCP\u670d\u52a1\u5668",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Claude Code\u5b89\u88c5\u548c\u914d\u7f6e.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "Ollama",
+      "label": "Ollama",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Ollama \u5b89\u88c5\u548c\u4f7f\u7528.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "OpenVPN",
+      "label": "OpenVPN",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/\u5b89\u88c5\u914d\u7f6eopenvpn.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "\u963f\u91cc\u4e91\u4f01\u4e1a\u90ae\u7bb1",
+      "label": "\u963f\u91cc\u4e91\u4f01\u4e1a\u90ae\u7bb1",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/\u963f\u91cc\u4e91\u4f01\u4e1a\u90ae\u7bb1\u4f7f\u7528.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "Obsidian\u77e5\u8bc6\u5e93",
+      "label": "Obsidian\u77e5\u8bc6\u5e93",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "\u5f85\u5b66\u4e60\u5217\u8868",
+      "label": "\u5f85\u5b66\u4e60\u5217\u8868",
+      "file_type": "document",
+      "source_file": "\u5f85\u5b66\u4e60\u5217\u8868.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "openspec",
+      "label": "OpenSpec",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/OpenSpec \u5b89\u88c5\u548c\u4f7f\u7528.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "npx_skills",
+      "label": "npx Skills",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Skills \u4ed3\u5e93.md",
+      "source_location": null,
+      "source_url": "https://skills.sh/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "neovim",
+      "label": "Neovim",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/nvim \u5b66\u4e60\u8bb0\u5f55.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "lazyvim",
+      "label": "LazyVim",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/nvim \u5b66\u4e60\u8bb0\u5f55.md",
+      "source_location": null,
+      "source_url": "https://www.lazyvim.org/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "pyright",
+      "label": "Pyright",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/python Neovim\u73af\u5883\u521b\u5efa.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "python_lsp_server",
+      "label": "python-lsp-server",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/python Neovim\u73af\u5883\u521b\u5efa.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "coursier",
+      "label": "Coursier",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Neovim \u914d\u7f6e java scala.md",
+      "source_location": null,
+      "source_url": "https://get-coursier.io/docs/cli-installation",
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "metals",
+      "label": "Metals",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Neovim \u914d\u7f6e java scala.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "zellij",
+      "label": "Zellij",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Zellij \u64cd\u4f5c\u8bb0\u5f55.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "yabai",
+      "label": "yabai",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/yabai\u7684\u4e00\u4e9b\u53ef\u4ee5\u5b9e\u9a8c\u7684\u914d\u7f6e.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "skhd",
+      "label": "skhd",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/\u5de5\u4f5c\u73af\u5883\u521d\u59cb\u5316.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "karabiner_elements",
+      "label": "Karabiner-Elements",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/\u5b89\u88c5\u914d\u7f6eKarabiner.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "jenv",
+      "label": "jEnv",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/\u5b89\u88c5Jenv\u7ba1\u7406jdk\u73af\u5883.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "jdk",
+      "label": "JDK",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/\u5b89\u88c5Jenv\u7ba1\u7406jdk\u73af\u5883.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "questdb",
+      "label": "QuestDB",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/QuestDB \u5b89\u88c5\u914d\u7f6e\u3001\u4f7f\u7528.md",
+      "source_location": null,
+      "source_url": "https://questdb.com/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "influxdb",
+      "label": "InfluxDB",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/fluxdb\u5b89\u88c5\u914d\u7f6e.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "mysql",
+      "label": "MySQL",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/mysql\u76f8\u5173\u914d\u7f6e.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "git_hooks",
+      "label": "Git Hooks",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Git hook \u4f7f\u7528\u6280\u5de7.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "git",
+      "label": "Git",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Git \u4f7f\u7528\u548c\u64cd\u4f5c\u6280\u5de7.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "rime",
+      "label": "Rime",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/rime\u5b89\u88c5\u548c\u914d\u7f6e.md",
+      "source_location": null,
+      "source_url": "https://rime.im/download/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "powerlevel10k",
+      "label": "Powerlevel10k",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/\u5b89\u88c5\u914d\u7f6ep10k.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "copilot_lua",
+      "label": "copilot.lua",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/NeoVim Copilot\u5b89\u88c5\u914d\u7f6e.md",
+      "source_location": null,
+      "source_url": "https://github.com/zbirenbaum/copilot.lua",
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "copilot_language_server",
+      "label": "Copilot Language Server",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/NeoVim Copilot\u5b89\u88c5\u914d\u7f6e.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "nodejs",
+      "label": "Node.js",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/python Neovim\u73af\u5883\u521b\u5efa.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "llmfit",
+      "label": "llmfit",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/\u5b89\u88c5llmfit.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "blink_cmp",
+      "label": "blink.cmp",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/NVim \u672a\u5b8c\u6210\u7684\u914d\u7f6e.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "overseer_nvim",
+      "label": "overseer.nvim",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/nvim \u5b66\u4e60\u8bb0\u5f55.md",
+      "source_location": null,
+      "source_url": "https://github.com/stevearc/overseer.nvim",
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "ruby",
+      "label": "Ruby",
+      "file_type": "document",
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/yabai\u7684\u4e00\u4e9b\u53ef\u4ee5\u5b9e\u9a8c\u7684\u914d\u7f6e.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "\u8fd0\u8425\u4ea7\u54c1",
+      "target": "\u5bf9\u8bdd\u7f16\u8f91\u7cfb\u7edf",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u8fd0\u8425\u4ea7\u54c1",
+      "target": "\u6587\u6863\u7248\u672c\u7ba1\u7406",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u8fd0\u8425\u4ea7\u54c1",
+      "target": "React",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "React",
+      "target": "Vite",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u67b6\u6784\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "React",
+      "target": "TypeScript",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u67b6\u6784\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "React",
+      "target": "pnpm",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u67b6\u6784\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "React",
+      "target": "Ant_Design",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u67b6\u6784\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u524d\u7aef_MVP\u539f\u5219",
+      "target": "React",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u67b6\u6784\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "FastAPI",
+      "target": "Python",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u540e\u7aef\u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "Python",
+      "target": "uv",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u540e\u7aef\u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "MySQL",
+      "target": "SQLAlchemy",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u540e\u7aef\u4e1a\u52a1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u540e\u7aef_MVP\u539f\u5219",
+      "target": "FastAPI",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u540e\u7aef\u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "Document\u6a21\u578b",
+      "target": "DocumentVersion\u6a21\u578b",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.85,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u540e\u7aef\u4e1a\u52a1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u8fd0\u8425\u4ea7\u54c1",
+      "target": "FastAPI",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u8fd0\u8425\u4ea7\u54c1",
+      "target": "OpenAI_SDK",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "OpenAI_SDK",
+      "target": "LLM\u67b6\u6784\u5c42",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - OpenAI SDK \u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "LLM\u67b6\u6784\u5c42",
+      "target": "llm_base",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "LLM\u67b6\u6784\u5c42",
+      "target": "llm_types",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "LLM\u67b6\u6784\u5c42",
+      "target": "llm_registry",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "LLM\u67b6\u6784\u5c42",
+      "target": "llm_providers",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "llm_providers",
+      "target": "MockLLM",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "llm_providers",
+      "target": "PlaceholderLLM",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u8fd0\u8425\u7b56\u5212\u4e13\u5bb6Prompt",
+      "target": "\u4e1a\u52a1Prompt",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u4e1a\u52a1\u5b9e\u73b0\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "Prompt\u8d44\u4ea7\u72ec\u7acb\u6027",
+      "target": "\u4e1a\u52a1Prompt",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u4e1a\u52a1\u5b9e\u73b0\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "document_edit_prompt",
+      "target": "\u8fd0\u8425\u7b56\u5212\u4e13\u5bb6Prompt",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u4e1a\u52a1\u5b9e\u73b0\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "LLM\u67b6\u6784\u5c42",
+      "target": "\u4e1a\u52a1Prompt",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u8fd0\u8425\u4ea7\u54c1",
+      "target": "\u524d\u540e\u7aef\u8054\u8c03",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u524d\u540e\u7aef\u8054\u8c03",
+      "target": "MarkdownEditor\u7ec4\u4ef6",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u540e\u7aef\u8054\u8c03\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u524d\u540e\u7aef\u8054\u8c03",
+      "target": "ChatPanel\u7ec4\u4ef6",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u540e\u7aef\u8054\u8c03\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u524d\u540e\u7aef\u8054\u8c03",
+      "target": "VersionPanel\u7ec4\u4ef6",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u540e\u7aef\u8054\u8c03\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u524d\u7aef_API\u5c01\u88c5\u5c42",
+      "target": "axios",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u540e\u7aef\u8054\u8c03\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "ChatPanel\u7ec4\u4ef6",
+      "target": "axios",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u4e1a\u52a1\u5b9e\u73b0\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "MarkdownEditor\u7ec4\u4ef6",
+      "target": "axios",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u4e1a\u52a1\u5b9e\u73b0\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "VersionPanel\u7ec4\u4ef6",
+      "target": "axios",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u4e1a\u52a1\u5b9e\u73b0\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "Claude_Code",
+      "target": "MCP\u670d\u52a1\u5668",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Claude Code\u5b89\u88c5\u548c\u914d\u7f6e.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "Claude_Code",
+      "target": "Ollama",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Claude Code\u5b89\u88c5\u548c\u914d\u7f6e.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u667a\u8c31\u5927\u6a21\u578bAPI",
+      "target": "\u6587\u672c\u8f6c\u8bed\u97f3",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u667a\u8c31\u5927\u6a21\u578b\u5e94\u7528.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "StarRocks\u6570\u636e\u751f\u6210",
+      "target": "MySQL",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/starrocks wolf_v4\u9020\u6570\u636e.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "Obsidian\u77e5\u8bc6\u5e93",
+      "target": "\u8fd0\u8425\u4ea7\u54c1",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.6,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "neovim",
+      "target": "pyright",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/python Neovim\u73af\u5883\u521b\u5efa.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "pyright",
+      "target": "python_lsp_server",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/python Neovim\u73af\u5883\u521b\u5efa.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "neovim",
+      "target": "metals",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Neovim \u914d\u7f6e java scala.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "metals",
+      "target": "coursier",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Neovim \u914d\u7f6e java scala.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "neovim",
+      "target": "copilot_lua",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/NeoVim Copilot\u5b89\u88c5\u914d\u7f6e.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "copilot_lua",
+      "target": "copilot_language_server",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/NeoVim Copilot\u5b89\u88c5\u914d\u7f6e.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "copilot_language_server",
+      "target": "nodejs",
+      "relation": "requires",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/NeoVim Copilot\u5b89\u88c5\u914d\u7f6e.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "neovim",
+      "target": "blink_cmp",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/NVim \u672a\u5b8c\u6210\u7684\u914d\u7f6e.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "neovim",
+      "target": "overseer_nvim",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/nvim \u5b66\u4e60\u8bb0\u5f55.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "jenv",
+      "target": "jdk",
+      "relation": "manages",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/\u5b89\u88c5Jenv\u7ba1\u7406jdk\u73af\u5883.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "questdb",
+      "target": "jdk",
+      "relation": "requires",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/QuestDB \u5b89\u88c5\u914d\u7f6e\u3001\u4f7f\u7528.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "git",
+      "target": "git_hooks",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Git hook \u4f7f\u7528\u6280\u5de7.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "yabai",
+      "target": "skhd",
+      "relation": "works_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/\u5de5\u4f5c\u73af\u5883\u521d\u59cb\u5316.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "karabiner_elements",
+      "target": "neovim",
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.6,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/\u5b89\u88c5\u914d\u7f6eKarabiner.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "npx_skills",
+      "target": "nodejs",
+      "relation": "requires",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Skills \u4ed3\u5e93.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u8fd0\u8425\u4ea7\u54c1",
+      "target": "\u5bf9\u8bdd\u7f16\u8f91\u7cfb\u7edf",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u8fd0\u8425\u4ea7\u54c1",
+      "target": "\u6587\u6863\u7248\u672c\u7ba1\u7406",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u8fd0\u8425\u4ea7\u54c1",
+      "target": "React",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "React",
+      "target": "Vite",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u67b6\u6784\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "React",
+      "target": "TypeScript",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u67b6\u6784\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "React",
+      "target": "pnpm",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u67b6\u6784\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "React",
+      "target": "Ant_Design",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u67b6\u6784\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u524d\u7aef_MVP\u539f\u5219",
+      "target": "React",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u67b6\u6784\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "FastAPI",
+      "target": "Python",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u540e\u7aef\u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "Python",
+      "target": "uv",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u540e\u7aef\u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "MySQL",
+      "target": "SQLAlchemy",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u540e\u7aef\u4e1a\u52a1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u540e\u7aef_MVP\u539f\u5219",
+      "target": "FastAPI",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u540e\u7aef\u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "Document\u6a21\u578b",
+      "target": "DocumentVersion\u6a21\u578b",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.85,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u540e\u7aef\u4e1a\u52a1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u8fd0\u8425\u4ea7\u54c1",
+      "target": "FastAPI",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u8fd0\u8425\u4ea7\u54c1",
+      "target": "OpenAI_SDK",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "OpenAI_SDK",
+      "target": "LLM\u67b6\u6784\u5c42",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - OpenAI SDK \u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "LLM\u67b6\u6784\u5c42",
+      "target": "llm_base",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "LLM\u67b6\u6784\u5c42",
+      "target": "llm_types",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "LLM\u67b6\u6784\u5c42",
+      "target": "llm_registry",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "LLM\u67b6\u6784\u5c42",
+      "target": "llm_providers",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "llm_providers",
+      "target": "MockLLM",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "llm_providers",
+      "target": "PlaceholderLLM",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u8fd0\u8425\u7b56\u5212\u4e13\u5bb6Prompt",
+      "target": "\u4e1a\u52a1Prompt",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u4e1a\u52a1\u5b9e\u73b0\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "Prompt\u8d44\u4ea7\u72ec\u7acb\u6027",
+      "target": "\u4e1a\u52a1Prompt",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u4e1a\u52a1\u5b9e\u73b0\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "document_edit_prompt",
+      "target": "\u8fd0\u8425\u7b56\u5212\u4e13\u5bb6Prompt",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u4e1a\u52a1\u5b9e\u73b0\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "LLM\u67b6\u6784\u5c42",
+      "target": "\u4e1a\u52a1Prompt",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u8fd0\u8425\u4ea7\u54c1",
+      "target": "\u524d\u540e\u7aef\u8054\u8c03",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u524d\u540e\u7aef\u8054\u8c03",
+      "target": "MarkdownEditor\u7ec4\u4ef6",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u540e\u7aef\u8054\u8c03\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u524d\u540e\u7aef\u8054\u8c03",
+      "target": "ChatPanel\u7ec4\u4ef6",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u540e\u7aef\u8054\u8c03\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u524d\u540e\u7aef\u8054\u8c03",
+      "target": "VersionPanel\u7ec4\u4ef6",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u540e\u7aef\u8054\u8c03\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u524d\u7aef_API\u5c01\u88c5\u5c42",
+      "target": "axios",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u540e\u7aef\u8054\u8c03\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "ChatPanel\u7ec4\u4ef6",
+      "target": "axios",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u4e1a\u52a1\u5b9e\u73b0\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "MarkdownEditor\u7ec4\u4ef6",
+      "target": "axios",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u4e1a\u52a1\u5b9e\u73b0\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "VersionPanel\u7ec4\u4ef6",
+      "target": "axios",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u4e1a\u52a1\u5b9e\u73b0\u63d0\u793a\u8bcd.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "Claude_Code",
+      "target": "MCP\u670d\u52a1\u5668",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Claude Code\u5b89\u88c5\u548c\u914d\u7f6e.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "Claude_Code",
+      "target": "Ollama",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Claude Code\u5b89\u88c5\u548c\u914d\u7f6e.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "\u667a\u8c31\u5927\u6a21\u578bAPI",
+      "target": "\u6587\u672c\u8f6c\u8bed\u97f3",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u667a\u8c31\u5927\u6a21\u578b\u5e94\u7528.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "StarRocks\u6570\u636e\u751f\u6210",
+      "target": "MySQL",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/starrocks wolf_v4\u9020\u6570\u636e.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "Obsidian\u77e5\u8bc6\u5e93",
+      "target": "\u8fd0\u8425\u4ea7\u54c1",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.6,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "neovim",
+      "target": "pyright",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/python Neovim\u73af\u5883\u521b\u5efa.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "pyright",
+      "target": "python_lsp_server",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/python Neovim\u73af\u5883\u521b\u5efa.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "neovim",
+      "target": "metals",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Neovim \u914d\u7f6e java scala.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "metals",
+      "target": "coursier",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Neovim \u914d\u7f6e java scala.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "neovim",
+      "target": "copilot_lua",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/NeoVim Copilot\u5b89\u88c5\u914d\u7f6e.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "copilot_lua",
+      "target": "copilot_language_server",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/NeoVim Copilot\u5b89\u88c5\u914d\u7f6e.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "copilot_language_server",
+      "target": "nodejs",
+      "relation": "requires",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/NeoVim Copilot\u5b89\u88c5\u914d\u7f6e.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "neovim",
+      "target": "blink_cmp",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/NVim \u672a\u5b8c\u6210\u7684\u914d\u7f6e.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "neovim",
+      "target": "overseer_nvim",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/nvim \u5b66\u4e60\u8bb0\u5f55.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "jenv",
+      "target": "jdk",
+      "relation": "manages",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/\u5b89\u88c5Jenv\u7ba1\u7406jdk\u73af\u5883.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "questdb",
+      "target": "jdk",
+      "relation": "requires",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/QuestDB \u5b89\u88c5\u914d\u7f6e\u3001\u4f7f\u7528.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "git",
+      "target": "git_hooks",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Git hook \u4f7f\u7528\u6280\u5de7.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "yabai",
+      "target": "skhd",
+      "relation": "works_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/\u5de5\u4f5c\u73af\u5883\u521d\u59cb\u5316.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "karabiner_elements",
+      "target": "neovim",
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.6,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/\u5b89\u88c5\u914d\u7f6eKarabiner.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "npx_skills",
+      "target": "nodejs",
+      "relation": "requires",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/Skills \u4ed3\u5e93.md",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "\u524d\u7aef\u6280\u672f\u6808",
+      "label": "\u524d\u7aef\u6280\u672f\u6808",
+      "nodes": [
+        "React",
+        "Vite",
+        "TypeScript",
+        "pnpm",
+        "Ant_Design"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u67b6\u6784\u63d0\u793a\u8bcd.md"
+    },
+    {
+      "id": "\u540e\u7aef\u6280\u672f\u6808",
+      "label": "\u540e\u7aef\u6280\u672f\u6808",
+      "nodes": [
+        "FastAPI",
+        "Python",
+        "uv",
+        "MySQL",
+        "SQLAlchemy"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u540e\u7aef\u6846\u67b6\u63d0\u793a\u8bcd.md"
+    },
+    {
+      "id": "LLM\u57fa\u7840\u8bbe\u65bd\u5c42",
+      "label": "LLM\u57fa\u7840\u8bbe\u65bd\u5c42",
+      "nodes": [
+        "llm_base",
+        "llm_types",
+        "llm_registry",
+        "llm_providers",
+        "MockLLM",
+        "PlaceholderLLM"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md"
+    },
+    {
+      "id": "neovim_language_servers",
+      "label": "Neovim Language Server Configuration",
+      "nodes": [
+        "neovim",
+        "pyright",
+        "python_lsp_server",
+        "metals",
+        "copilot_language_server"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.85,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/python Neovim\u73af\u5883\u521b\u5efa.md"
+    },
+    {
+      "id": "\u524d\u7aef\u6280\u672f\u6808",
+      "label": "\u524d\u7aef\u6280\u672f\u6808",
+      "nodes": [
+        "React",
+        "Vite",
+        "TypeScript",
+        "pnpm",
+        "Ant_Design"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u524d\u7aef\u67b6\u6784\u63d0\u793a\u8bcd.md"
+    },
+    {
+      "id": "\u540e\u7aef\u6280\u672f\u6808",
+      "label": "\u540e\u7aef\u6280\u672f\u6808",
+      "nodes": [
+        "FastAPI",
+        "Python",
+        "uv",
+        "MySQL",
+        "SQLAlchemy"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u540e\u7aef\u6846\u67b6\u63d0\u793a\u8bcd.md"
+    },
+    {
+      "id": "LLM\u57fa\u7840\u8bbe\u65bd\u5c42",
+      "label": "LLM\u57fa\u7840\u8bbe\u65bd\u5c42",
+      "nodes": [
+        "llm_base",
+        "llm_types",
+        "llm_registry",
+        "llm_providers",
+        "MockLLM",
+        "PlaceholderLLM"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "\u66fe\u7528\u8fc7\u7684\u63d0\u793a\u8bcd/\u8fd0\u8425\u4ea7\u54c1 - \u5bf9\u63a5\u5927\u8bed\u8a00\u6a21\u578b - \u6846\u67b6\u63d0\u793a\u8bcd.md"
+    },
+    {
+      "id": "neovim_language_servers",
+      "label": "Neovim Language Server Configuration",
+      "nodes": [
+        "neovim",
+        "pyright",
+        "python_lsp_server",
+        "metals",
+        "copilot_language_server"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.85,
+      "source_file": "\u64cd\u4f5c\u8bb0\u5f55/python Neovim\u73af\u5883\u521b\u5efa.md"
+    }
+  ],
+  "input_tokens": 25228,
+  "output_tokens": 0
+}
