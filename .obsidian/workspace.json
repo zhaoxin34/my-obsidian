@@ -1,24 +1,24 @@
 {
   "main": {
-    "id": "0dff355be0288fe3",
+    "id": "244053746fcc8bed",
     "type": "split",
     "children": [
       {
-        "id": "22688df495808e68",
+        "id": "8b9db767025b3e18",
         "type": "tabs",
         "children": [
           {
-            "id": "a8a77f9e1388d663",
+            "id": "21df43400851280b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "我的项目/plato/AI之我思.md",
+                "file": "我的项目/全自动营销产品/自动营销 - TOB 型软件公司的现状和变革.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AI之我思"
+              "title": "自动营销 - TOB 型软件公司的现状和变革"
             }
           }
         ]
@@ -27,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "a3e825d1361ece1a",
+    "id": "23c3b752277a64eb",
     "type": "split",
     "children": [
       {
-        "id": "76669f24cf11185a",
+        "id": "654fa8e088b83230",
         "type": "tabs",
         "children": [
           {
-            "id": "b746167d935cd3b2",
+            "id": "c80a86a267dcdfa4",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -48,12 +48,12 @@
             }
           },
           {
-            "id": "89b70c27d8975c9f",
+            "id": "c8efab1062f26527",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "docker",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,7 +65,7 @@
             }
           },
           {
-            "id": "a5ffec3985fc3ddf",
+            "id": "5e0da49adb526373",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -81,19 +81,20 @@
     "width": 300
   },
   "right": {
-    "id": "04cbc61875f8a98e",
+    "id": "fa9d9a41700988c1",
     "type": "split",
     "children": [
       {
-        "id": "09a788e45e02a6c8",
+        "id": "73a2149e65a98736",
         "type": "tabs",
         "children": [
           {
-            "id": "881c61bde974e898",
+            "id": "86e37454c760dc50",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
+                "file": "my-obsidian/操作记录/工作环境初始化.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,24 +104,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for 工作环境初始化"
             }
           },
           {
-            "id": "8cc146c624396ec2",
+            "id": "25352970d2e547ae",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "my-obsidian/操作记录/工作环境初始化.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from 工作环境初始化"
             }
           },
           {
-            "id": "957fa3e6b62e7424",
+            "id": "20271ad97fca8376",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -135,46 +137,27 @@
             }
           },
           {
-            "id": "54cfc999c31c1ea2",
+            "id": "3b0fef9d4ba97174",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "my-obsidian/曾用过的提示词/运营产品 - 后端框架提示词.md",
+                "file": "my-obsidian/操作记录/工作环境初始化.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 运营产品 - 后端框架提示词"
-            }
-          },
-          {
-            "id": "69e796eb624fca58",
-            "type": "leaf",
-            "state": {
-              "type": "claudian-view",
-              "state": {},
-              "icon": "bot",
-              "title": "Claudian"
-            }
-          },
-          {
-            "id": "60e2db1650c22659",
-            "type": "leaf",
-            "state": {
-              "type": "calendar",
-              "state": {},
-              "icon": "calendar-with-checkmark",
-              "title": "Calendar"
+              "title": "Outline of 工作环境初始化"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 709
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -185,57 +168,47 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
-      "github-sync:Sync with Remote": false,
-      "obsidian-excalidraw-plugin:New drawing": false,
-      "claudian:Open Claudian": false
+      "github-sync:Sync with Remote": false
     }
   },
-  "active": "a8a77f9e1388d663",
+  "active": "21df43400851280b",
   "lastOpenFiles": [
     "Untitled 1.md",
-    "Untitled.md",
-    "学习笔记和教程/Paperclip AI Agent 编排平台安装与使用教程.md",
-    "学习笔记和教程/Paperclip AI Agent 编排平台分析报告.md",
-    "graphify-out",
-    "学习笔记和教程/MkDocs Material 安装与使用教程.md",
-    "datatist/raw/会议纪要/2026-04-09.md",
-    "学习笔记和教程/Graphify 使用教程 - 知识图谱构建工具.md",
+    "我的项目/全自动营销产品/全自动营销产品 - 头脑风暴.md",
     "我的项目/数字分身/数字分身 - 头脑风暴.md",
-    "我的项目/数字分身",
-    "技术工作/JDK17 命令示例.md",
-    "datatist/工作总结模板.md",
-    "datatist/wiki/技术备忘/Wolf-K8s操作经验.md",
-    "datatist/wiki/技术备忘",
-    "datatist/wiki/工作规范/工作总结模板.md",
-    "datatist/wiki/工作规范/AI增强工程师面试要点.md",
-    "datatist/wiki/工作规范/2026工作总结提交人名单.md",
-    "datatist/wiki/工作规范",
-    "datatist/wiki/会议纪要/2026-03-27-易观合作继续讨论.md",
-    "datatist/wiki/会议纪要/2026-03-26-易观合作初次对接.md",
-    "datatist/wiki/会议纪要",
-    "datatist/wiki/人员档案/戚爱强.md",
-    "datatist/wiki/人员档案",
-    "datatist/wiki/index.md",
-    "datatist/wiki",
-    "datatist/raw/面试记录/上海电商 - 戚爱强.md",
-    "datatist/raw/会议纪要/2026-03-27 继续讨论和易观的合作.md",
-    "datatist/raw/会议纪要/2026-03-26 - 易观.md",
-    "datatist/raw/面试记录",
-    "datatist/raw/工作总结模板.md",
-    "datatist/raw/会议纪要",
-    "datatist/raw/Wolf K8s操作经验.md",
-    "datatist/raw/AI 增强工程师 面试问题.md",
-    "datatist/raw/2026工作总结提交人.md",
-    "datatist/raw",
     "CLAUDE.md",
+    "my-obsidian/技术工作/设计模式 - 策略模式.md",
+    "Untitled.md",
+    "曾用过的提示词/运营产品提示词.md",
+    "曾用过的提示词/运营产品 - 对接大语言模型 - 框架提示词.md",
+    "曾用过的提示词/运营产品 - 对接大语言模型 - 业务实现提示词.md",
+    "曾用过的提示词/运营产品 - 对接大语言模型 - OpenAI SDK 提示词.md",
+    "曾用过的提示词/运营产品 - 后端框架提示词.md",
+    "曾用过的提示词/运营产品 - 后端业务提示词.md",
+    "曾用过的提示词/运营产品 - 前端架构提示词.md",
+    "曾用过的提示词/运营产品 - 前端业务实现提示词.md",
+    "曾用过的提示词/运营产品 - 前后端联调提示词.md",
+    "曾用过的提示词/智谱大模型应用.md",
+    "曾用过的提示词/starrocks wolf_v4造数据.md",
+    "曾用过的提示词/Python langchain工程创建prompt.md",
+    "曾用过的提示词",
+    "文档列表.base",
+    "操作记录/阿里云百炼密钥.md",
+    "操作记录/阿里云企业邮箱使用.md",
+    "操作记录/已经安装skills.md",
+    "操作记录/工作环境初始化.md",
+    "操作记录/安装配置p10k.md",
+    "操作记录/安装配置openvpn.md",
+    "操作记录/安装配置Karabiner.md",
+    "操作记录/安装llmfit.md",
+    "操作记录",
+    "技术工作",
+    "我的项目/全自动营销产品/自动营销-TOB型软件公司销售全流程.excalidraw",
     "我的项目/plato/三权分立图.canvas",
-    "我的项目/三权分立图.canvas",
-    "学习笔记/langchain/react_workflow_diagram.svg",
-    "学习笔记/langchain/langgraph_core_concepts.svg",
-    "学习笔记/langchain/agent_decision_flow.svg",
-    "学习笔记/langchain/langchain_agent_architecture.svg",
-    "学习笔记/langchain/multi_tool_agent_interaction.svg",
-    "my-obsidian/ai/三权分立图.canvas",
-    "Untitled.canvas"
+    "我的项目/数字分身",
+    "我的项目/全自动营销产品",
+    "我的项目/plato",
+    "我的项目/memory",
+    "我的项目/anteam"
   ]
 }
