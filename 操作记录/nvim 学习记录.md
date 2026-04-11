@@ -1,0 +1,122 @@
+### 一些必须初始化的命令
+
+```bash
+# markdown preview 需要用
+npm install markdownlint-cli2 --global
+# https://github.com/jonschlinkert/markdown-toc
+npm install -g markdown-toc
+# js 格式化需要用
+npm install prettier --global 
+```
+### 快捷键帮助地址
+https://www.lazyvim.org/keymaps
+
+比较有意义的命令
+
+| Key          | Description                | Mode         |
+| ------------ | -------------------------- | ------------ |
+| `<leader>ft` | Terminal (Root Dir)        | **n**        |
+| `]]`         | Next Reference             | **n**        |
+| `[[`         | Prev Reference             | **n**        |
+| `<a-n>`      | Next Reference             | **n**        |
+| `<a-p>`      | Prev Reference             | **n**        |
+| `<leader>sr` | Search and Replace         | **n**, **v** |
+| `<leader>,`  | Buffers                    | **n**        |
+| `<leader>.`  | Toggle Scratch Buffer      | **n**        |
+| `<leader>/`  | Grep (Root Dir)            | **n**        |
+| `<leader>:`  | Command History            | **n**        |
+| `<leader>fe` | Explorer Snacks (root dir) | **n**        |
+| `<leader>fE` | Explorer Snacks (cwd)      | **n**        |
+| `<leader>ff` | Find Files (Root Dir)      | **n**        |
+| `<leader>n`  | Notification History       | **n**        |
+| `<leader>sp` | Search for Plugin Spec     | **n**        |
+| `gd`         | Goto Definition            | **n**        |
+| `gr`         | References                 | **n**        |
+| `gcc`        | 注释当前行                      | **n**        |
+| `gbc`        | 注释代码块                      | **n**        |
+| `<leader>ss` | Goto Symbol (Aerial)       | **n**        |
+| `>>`         | 增加缩进                       | **n**        |
+| `<<`         | 减少缩进                       | **n**        |
+*一些跳转操作*
+
+| 想要的动作             | 快捷键               |
+| ----------------- | ----------------- |
+| 返回上一次跳转前的行首       | `''`              |
+| 返回上一次跳转前的精确位置     | ````              |
+| 返回上一次编辑处          | `` `. ``          |
+| 光标历史后退 / 前进       | `<C-o>` / `<C-i>` |
+| 跳到上一次编辑的位置并进入插入模式 | `gi`              |
+|                   |                   |
+{}可以移动一段
+zc、zo折叠、展开代码
+
+|                   |
+| ----------------- |
+| 跳到上一次编辑的位置并进入插入模式 |
+#### [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim.git)
+
+Part of [lazyvim.plugins.extras.lang.markdown](https://www.lazyvim.org/extras/lang/markdown)
+需要先安装npm命令行
+
+| Key          | Description      | Mode  |
+| ------------ | ---------------- | ----- |
+| `<leader>cp` | Markdown Preview | **n** |
+#### [venv-selector.nvim](https://github.com/linux-cultist/venv-selector.nvim.git)
+Part of [lazyvim.plugins.extras.lang.python](https://www.lazyvim.org/extras/lang/python)
+
+| Key          | Description       | Mode  |
+| ------------ | ----------------- | ----- |
+| `<leader>cv` | Select VirtualEnv | **n** |
+`<leaer>ql` 可以恢复上次打开的文件
+`alt+m` 在文件浏览器上可以最大化文件浏览器
+`<leader>sr` 可以打开在某个目录下替换字符串的窗口，非常有用
+
+## mark 做记号或者叫作打标签
+
+`m{a-z}` 可以设置标签
+`m{A-Z}` 可以设置跨文件标签
+`'[a-zA-Z]` 跳转到mark的位子
+`<leader>sm` 搜索所有做的标记
+### 一些命令
+
+*查看所有事件*
+:h events
+
+*产看当前文件是否支持格式化及其他lsp信息*
+:LspInfo
+:ConformInfo
+
+*查看某个事件的命令，如下示例展示了文件保存后的回调*
+:verbose autocmd BufWritePre
+
+*查看快捷键对应的命令*
+:verbose map \<leader>.
+
+*查看某个包有没有被加载*
+:lua print(vim.inspect(package.loaded["blink.cmp"]))
+
+*查看某个文件的linter*
+:lua print(vim.inspect(require('lint').linters_by_ft[vim.bo.filetype]))
+
+*临时关闭自动格式化 auto format*
+`<leader>uF` 关闭buffer的
+`<leader>uf` 关闭所有的
+
+*临时关闭诊断*
+`<leader>ud`
+### 配置overseer.nvim进行任务管理
+
+https://github.com/stevearc/overseer.nvim
+### [[Python Neovim环境创建]]
+
+### [[NeoVim Copilot安装配置]]
+
+## 使用Snacks.explorer移动或copy文件
+
+按`tab`键选择文件，按jk移动光标到目标文件间，m或c可以移动或copy文件
+
+## 解决http rest报错问题
+
+
+:TSUninstall kulala_http  
+:TSInstall kulala_http

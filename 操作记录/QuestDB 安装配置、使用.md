@@ -1,0 +1,57 @@
+## 安装
+
+### tar包下载安装
+
+```bash
+cd ~/working/server/questdb
+wget https://github.com/questdb/questdb/releases/download/9.2.0/questdb-9.2.0-no-jre-bin.tar.gz
+tar xzvf questdb-9.2.0-no-jre-bin.tar.gz
+```
+
+### 使用jdk17启动 [参考文档](https://questdb.com/docs/quick-start/)
+
+确保主机上安装有jdk17 `jenv versions`
+
+```bash
+cd ~/working/server/questdb/questdb-9.2.0-no-jre-bin
+jenv local 17
+
+# 创建数据目录 
+mkdir ../data
+./questdb.sh start -d ../data
+
+```
+
+输出
+```
+     ___                  _   ____  ____
+    / _ \ _   _  ___  ___| |_|  _ \| __ )
+   | | | | | | |/ _ \/ __| __| | | |  _ \
+   | |_| | |_| |  __/\__ \ |_| |_| | |_) |
+    \__\_\\__,_|\___||___/\__|____/|____/
+                        www.questdb.io
+
+    Web Console URL                 ILP Client Connection String
+
+    http://192.168.31.96:9000       http::addr=192.168.31.96:9000;
+    http://127.0.0.1:9000           http::addr=127.0.0.1:9000;
+```
+
+
+## 操作
+
+### 客户端操作
+
+*安装postgres客户端*
+`brew install libpq`
+
+*加入到nvim连接*
+`postgres://admin:quest@127.0.0.1:8812/`
+
+*命令行连接*
+`psql -h localhost -p 8812 -U admin -d qdb`
+
+### 导入数据
+
+*安装导入客户端*
+`brew install telegraf`

@@ -1,0 +1,10 @@
+apple-calendar ~/.agents/skills/apple-calendar
+apple-mail ~/.agents/skills/apple-mail
+apple-reminders ~/.agents/skills/apple-reminders
+find-skills ~/.agents/skills/find-skills
+tutorial-docs ~/.agents/skills/tutorial-docs
+awesome-agent ~/.claude/skills/awesome-agent
+http-proxy ~/.claude/skills/http-proxy
+web-fetcher ~/.claude/skills/web-fetcher
+wezterm-cli ~/.claude/skills/wezterm-cli
+wolf-ops ~/.claude/skills/wolf-ops
