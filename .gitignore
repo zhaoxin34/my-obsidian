@@ -12,3 +12,4 @@ copilot
 # Ignore Smart Environment folder
 .smart-env
 .tar.gz
+graphify-out
