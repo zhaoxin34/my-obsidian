@@ -11,12 +11,14 @@
             "id": "90a50ef29fdff163",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.12.7"
+                "file": "分析报告/OKR与KPI对比分析报告.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.12.7"
+              "icon": "lucide-file",
+              "title": "OKR与KPI对比分析报告"
             }
           }
         ]
@@ -190,6 +192,7 @@
   },
   "active": "69e796eb624fca58",
   "lastOpenFiles": [
+    "学习笔记和教程/Java框架",
     "分析报告/OKR与KPI对比分析报告.html",
     "分析报告/OKR与KPI对比分析报告.md",
     "分析报告",
@@ -225,7 +228,6 @@
     "datatist/wiki/人员档案",
     "datatist/wiki",
     "datatist/raw/面试记录",
-    "datatist/raw/会议纪要",
     "我的项目/plato/三权分立图.canvas",
     "我的项目/三权分立图.canvas",
     "学习笔记/langchain/react_workflow_diagram.svg",
