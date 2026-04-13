@@ -1,68 +1,98 @@
 {
   "main": {
-    "id": "0dff355be0288fe3",
+    "id": "244053746fcc8bed",
     "type": "split",
     "children": [
       {
-        "id": "0483095b870c3d1b",
+        "id": "9f1b3558f7f28f02",
         "type": "tabs",
         "children": [
           {
-            "id": "90a50ef29fdff163",
+            "id": "c89e6859495e86d7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "分析报告/OKR与KPI对比分析报告.md",
+                "file": "我的项目/全自动营销产品/自动营销 - TOB 型软件公司的现状和变革.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "OKR与KPI对比分析报告"
+              "title": "自动营销 - TOB 型软件公司的现状和变革"
             }
           },
           {
-            "id": "0699877ce88ec130",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "我的项目/plato/thinking.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "thinking.excalidraw"
-            }
-          },
-          {
-            "id": "51bca441531ef5f1",
+            "id": "8dea4fbd744c0e54",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "学习笔记和教程/大脑左右半球分工与协作.md",
+                "file": "我的项目/全自动营销产品/全自动营销产品 - 头脑风暴.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "大脑左右半球分工与协作"
+              "title": "全自动营销产品 - 头脑风暴"
+            }
+          },
+          {
+            "id": "445b7d2f81cee971",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "学习笔记和教程/Karpathy_LLM_Wiki_打造个人知识库深度报告.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Karpathy_LLM_Wiki_打造个人知识库深度报告"
+            }
+          },
+          {
+            "id": "086bce8d096a112f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "学习笔记和教程/Paperclip AI Agent 编排平台安装与使用教程.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Paperclip AI Agent 编排平台安装与使用教程"
+            }
+          },
+          {
+            "id": "31344a0d99f67a9e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "学习笔记和教程/Paperclip AI Agent 编排平台安装与排坑指南.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Paperclip AI Agent 编排平台安装与排坑指南"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "a3e825d1361ece1a",
+    "id": "23c3b752277a64eb",
     "type": "split",
     "children": [
       {
-        "id": "76669f24cf11185a",
+        "id": "654fa8e088b83230",
         "type": "tabs",
         "children": [
           {
-            "id": "b746167d935cd3b2",
+            "id": "c80a86a267dcdfa4",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -75,12 +105,12 @@
             }
           },
           {
-            "id": "89b70c27d8975c9f",
+            "id": "c8efab1062f26527",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#ai",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -92,7 +122,7 @@
             }
           },
           {
-            "id": "a5ffec3985fc3ddf",
+            "id": "5e0da49adb526373",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -105,22 +135,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 377
   },
   "right": {
-    "id": "04cbc61875f8a98e",
+    "id": "fa9d9a41700988c1",
     "type": "split",
     "children": [
       {
-        "id": "09a788e45e02a6c8",
+        "id": "73a2149e65a98736",
         "type": "tabs",
         "children": [
           {
-            "id": "881c61bde974e898",
+            "id": "86e37454c760dc50",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
+                "file": "my-obsidian/操作记录/工作环境初始化.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,24 +161,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for 工作环境初始化"
             }
           },
           {
-            "id": "8cc146c624396ec2",
+            "id": "25352970d2e547ae",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "my-obsidian/操作记录/工作环境初始化.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from 工作环境初始化"
             }
           },
           {
-            "id": "957fa3e6b62e7424",
+            "id": "20271ad97fca8376",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -162,22 +194,22 @@
             }
           },
           {
-            "id": "54cfc999c31c1ea2",
+            "id": "3b0fef9d4ba97174",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "my-obsidian/曾用过的提示词/运营产品 - 后端框架提示词.md",
+                "file": "学习笔记和教程/PageIndex与LightRAG调研报告.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 运营产品 - 后端框架提示词"
+              "title": "Outline of PageIndex与LightRAG调研报告"
             }
           },
           {
-            "id": "69e796eb624fca58",
+            "id": "bd942496fd15bce4",
             "type": "leaf",
             "state": {
               "type": "claudian-view",
@@ -187,7 +219,7 @@
             }
           },
           {
-            "id": "60e2db1650c22659",
+            "id": "592cf9c4d2549ff5",
             "type": "leaf",
             "state": {
               "type": "calendar",
@@ -201,7 +233,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 709
+    "width": 542
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -217,52 +249,53 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "51bca441531ef5f1",
+  "active": "31344a0d99f67a9e",
   "lastOpenFiles": [
+    "学习笔记和教程/Paperclip AI Agent 编排平台安装与使用教程.md",
+    "学习笔记和教程/Paperclip AI Agent 编排平台安装与排坑指南.md",
+    "文档列表.base",
+    "分析报告/PageIndex与LightRAG调研报告.md",
     "学习笔记和教程/LightRAG 使用教程 - 轻量级检索增强生成系统.md",
-    "Untitled.md",
-    "Untitled 4.md",
-    "Untitled 1.md",
-    "我的项目/plato/AI之我思.md",
-    "学习笔记和教程/大脑左右半球分工与协作.md",
-    "我的项目/数字分身/数字分身 - 头脑风暴.md",
-    "我的项目/全自动营销产品/自动营销-TOB型软件公司销售全流程.excalidraw",
-    "我的项目/全自动营销产品/自动营销 - TOB 型软件公司的现状和变革.md",
-    "我的项目/全自动营销产品/全自动营销系统架构.md",
-    "我的项目/全自动营销产品/全自动营销产品 - 头脑风暴.md",
-    "我的项目/全自动营销产品/全自动营销产品 - 2026-03 -25会议纪要.md",
-    "我的项目/全自动营销产品/Aurasell创业背景与经历.md",
-    "我的项目/全自动营销产品/Aurasell与Salesforce_SFA对比研究报告.md",
-    "我的项目/全自动营销产品/2026-4-13 继续思考.md",
-    "我的项目/全自动营销产品/2026-3-24 会议纪要.md",
     "分析报告/PaaS与SaaS对比分析报告.md",
-    "我的项目/plato/thinking.excalidraw.md",
-    "分析报告/OKR与KPI对比分析报告.md",
+    "学习笔记和教程/ast-grep/AST-Grep Deep Dive into ast-grep's Pattern Syntax.md",
+    "Untitled 1.md",
+    "Untitled.md",
+    "学习笔记和教程/大脑左右半球分工与协作.md",
+    "Untitled 4.md",
     "Untitled 3.md",
+    "学习笔记和教程/PaaS与SaaS对比分析报告.md",
     "Untitled 2.md",
     "学习笔记和教程/Java框架/PowerJob 分布式任务调度框架完全指南.md",
     "学习笔记和教程/Java框架",
+    "我的项目/全自动营销产品/2026-4-13 继续思考.md",
+    "分析报告/OKR与KPI对比分析报告.md",
     "分析报告/OKR与KPI对比分析报告.html",
     "分析报告",
-    "学习笔记和教程/Paperclip AI Agent 编排平台安装与排坑指南.md",
-    "学习笔记和教程/Paperclip AI Agent 编排平台安装与使用教程.md",
+    "学习笔记和教程/ast-grep/AST-Grep Pattern Syntax.md",
+    "学习笔记和教程/ast-grep/AST-Grep 介绍和使用.md",
+    "学习笔记和教程/Karpathy_LLM_Wiki_打造个人知识库深度报告.md",
+    "学习笔记和教程/Google Search MCP 配置教程.md",
+    "学习笔记和教程/Flink 学习记录.md",
+    "学习笔记和教程/Docling 文档处理 - 可以用于embedding.md",
     "学习笔记和教程/Paperclip AI Agent 编排平台分析报告.md",
-    "graphify-out",
-    "学习笔记和教程/MkDocs Material 安装与使用教程.md",
-    "datatist/raw/会议纪要/2026-04-09.md",
-    "我的项目/数字分身",
-    "datatist/wiki/技术备忘",
-    "datatist/wiki/工作规范",
-    "datatist/wiki/会议纪要",
-    "datatist/wiki/人员档案",
+    "学习笔记和教程/Python-async-await-完全指南.md",
+    "学习笔记和教程/Graphify 使用教程 - 知识图谱构建工具.md",
+    "待学习列表.md~",
+    "学习笔记和教程/Puppeteer 入门教程.md~",
+    "graphify-out/graph.html~",
+    "graphify-out/cost.json",
+    "graphify-out/manifest.json",
+    "graphify-out/graph.html",
+    "ai/全自动营销产品/Untitled.canvas",
     "我的项目/plato/三权分立图.canvas",
-    "我的项目/三权分立图.canvas",
-    "学习笔记/langchain/react_workflow_diagram.svg",
-    "学习笔记/langchain/langgraph_core_concepts.svg",
+    "ai/三权分立图.canvas",
+    "ast-grep-pattern-debugger.jpg",
+    "ast-grep-parse-pattern.jpg",
     "学习笔记/langchain/agent_decision_flow.svg",
-    "学习笔记/langchain/langchain_agent_architecture.svg",
     "学习笔记/langchain/multi_tool_agent_interaction.svg",
+    "学习笔记/langchain/react_workflow_diagram.svg",
+    "学习笔记/langchain/langchain_agent_architecture.svg",
     "my-obsidian/ai/三权分立图.canvas",
-    "Untitled.canvas"
+    "学习笔记/langchain/langgraph_core_concepts.svg"
   ]
 }
