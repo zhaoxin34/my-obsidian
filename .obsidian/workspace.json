@@ -25,14 +25,12 @@
             "id": "0699877ce88ec130",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "分析报告/OKR与KPI对比分析报告.md",
-                "mode": "source",
-                "source": false
+                "file": "我的项目/plato/thinking.excalidraw.md"
               },
-              "icon": "lucide-file",
-              "title": "OKR与KPI对比分析报告"
+              "icon": "excalidraw-icon",
+              "title": "thinking.excalidraw"
             }
           }
         ],
@@ -207,12 +205,15 @@
   },
   "active": "0699877ce88ec130",
   "lastOpenFiles": [
+    "我的项目/plato/AI之我思.md",
+    "我的项目/plato/thinking.excalidraw.md",
+    "学习笔记和教程/PaaS与SaaS对比分析报告.md",
+    "分析报告/OKR与KPI对比分析报告.md",
     "Untitled.md",
     "Untitled 3.md",
     "Untitled 2.md",
     "Untitled 1.md",
     "学习笔记和教程/Java框架/PowerJob 分布式任务调度框架完全指南.md",
-    "分析报告/OKR与KPI对比分析报告.md",
     "学习笔记和教程/Java框架",
     "分析报告/OKR与KPI对比分析报告.html",
     "分析报告",
@@ -222,7 +223,6 @@
     "我的项目/全自动营销产品/Aurasell创业背景与经历.md",
     "我的项目/全自动营销产品/全自动营销产品 - 2026-03 -25会议纪要.md",
     "我的项目/全自动营销产品/2026-3-24 会议纪要.md",
-    "我的项目/plato/AI之我思.md",
     "学习笔记和教程/Paperclip AI Agent 编排平台安装与排坑指南.md",
     "学习笔记和教程/Paperclip AI Agent 编排平台安装与使用教程.md",
     "学习笔记和教程/Paperclip AI Agent 编排平台分析报告.md",
@@ -237,8 +237,6 @@
     "datatist/wiki/技术备忘/Wolf-K8s操作经验.md",
     "datatist/wiki/技术备忘",
     "datatist/wiki/工作规范/工作总结模板.md",
-    "datatist/wiki/工作规范/AI增强工程师面试要点.md",
-    "datatist/wiki/工作规范/2026工作总结提交人名单.md",
     "datatist/wiki/工作规范",
     "datatist/wiki/会议纪要",
     "datatist/wiki/人员档案",
