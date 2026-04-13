@@ -1,0 +1,19 @@
+{
+  "id": "conv-1776073108874-t3yxwm5pt",
+  "title": "研究人类大脑左右脑分工与协作机制",
+  "titleGenerationStatus": "success",
+  "createdAt": 1776073108874,
+  "updatedAt": 1776073535377,
+  "lastResponseAt": 1776073535377,
+  "sessionId": "44368712-a359-4c80-83d6-694e8cc2ee37",
+  "sdkSessionId": "44368712-a359-4c80-83d6-694e8cc2ee37",
+  "usage": {
+    "model": "MiniMax-M2.7",
+    "inputTokens": 16018,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 33670,
+    "contextWindow": 200000,
+    "contextTokens": 49688,
+    "percentage": 25
+  }
+}
