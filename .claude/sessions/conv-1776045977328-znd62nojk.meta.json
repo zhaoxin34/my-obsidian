@@ -1,0 +1,19 @@
+{
+  "id": "conv-1776045977328-znd62nojk",
+  "title": "Create OKR and KPI comparison report",
+  "titleGenerationStatus": "success",
+  "createdAt": 1776045977328,
+  "updatedAt": 1776046443706,
+  "lastResponseAt": 1776046443706,
+  "sessionId": "253181fb-e982-4449-98cf-272eae4f5c89",
+  "sdkSessionId": "253181fb-e982-4449-98cf-272eae4f5c89",
+  "usage": {
+    "model": "MiniMax-M2.7",
+    "inputTokens": 41679,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 33670,
+    "contextWindow": 200000,
+    "contextTokens": 75349,
+    "percentage": 38
+  }
+}
