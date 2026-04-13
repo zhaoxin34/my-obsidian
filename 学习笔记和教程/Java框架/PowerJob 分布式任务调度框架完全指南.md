@@ -1,5 +1,3 @@
-# PowerJob 分布式任务调度框架完全指南
-
 > 本教程基于 PowerJob 最新版本（4.x）编写，涵盖从环境搭建到高级特性的完整实践指南。
 >
 > **信息来源**：腾讯云开发者社区 [1](https://cloud.tencent.com/developer/article/2402898)、CSDN 技术博客 [2](https://blog.csdn.net/gitblog_00537/article/details/155331996)、阿里云开发者社区 [3](https://developer.aliyun.com/article/1680726)
