@@ -69,12 +69,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "分析报告/PaaS与SaaS对比分析报告.md",
+                "file": "分析报告/Attio_CRM_研究报告.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "PaaS与SaaS对比分析报告"
+              "title": "Attio_CRM_研究报告"
             }
           }
         ],
@@ -251,6 +251,9 @@
   },
   "active": "31344a0d99f67a9e",
   "lastOpenFiles": [
+    "分析报告/PaaS与SaaS对比分析报告.md",
+    "分析报告/Attio_CRM_研究报告.md",
+    "Attio_CRM_研究报告.md",
     "操作记录/OmniWM 快速入门指南.md~",
     "技术工作/datatist Jenkins 记录.md~",
     "操作记录/已经安装skills.md~",
@@ -266,7 +269,6 @@
     "分析报告/images/cdp-hightouch-composable.jpg",
     "分析报告/images/cdp-hightouch-architecture.jpg",
     "分析报告/images",
-    "分析报告/PaaS与SaaS对比分析报告.md",
     "分析报告/CDP客户数据平台产品对比分析报告.md",
     "学习笔记和教程/客户数据平台CDP学习笔记.md",
     "学习笔记和教程/DeepTutor 港大开源AI学习助手研究报告.md",
@@ -287,13 +289,11 @@
     "我的项目/全自动营销产品/2026-4-13 继续思考.md",
     "分析报告/OKR与KPI对比分析报告.md",
     "分析报告/OKR与KPI对比分析报告.html",
-    "分析报告",
     "学习笔记和教程/ast-grep/AST-Grep Pattern Syntax.md",
     "学习笔记和教程/ast-grep/AST-Grep 介绍和使用.md",
     "学习笔记和教程/Karpathy_LLM_Wiki_打造个人知识库深度报告.md",
     "学习笔记和教程/Google Search MCP 配置教程.md",
     "学习笔记和教程/Flink 学习记录.md",
-    "学习笔记和教程/Docling 文档处理 - 可以用于embedding.md",
     "ai/全自动营销产品/Untitled.canvas",
     "我的项目/plato/三权分立图.canvas",
     "ai/三权分立图.canvas",
