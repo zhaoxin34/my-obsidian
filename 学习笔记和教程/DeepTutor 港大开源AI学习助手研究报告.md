@@ -2,6 +2,7 @@
 
 > 日期：2026-04-14
 > 研究主题：香港大学数据智能实验室（HKUDS）开源的 DeepTutor 项目
+> 项目地址：https://github.com/HKUDS/DeepTutor
 
 ---
 
