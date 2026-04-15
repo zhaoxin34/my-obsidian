@@ -1,5 +1,3 @@
-# GSD (Get Shit Done) 使用教程
-
 > **一个轻量但强大的元提示、上下文工程与规格驱动开发系统**
 
 GSD 是一个专为 AI 代码助手设计的开发工作流框架，支持 Claude Code、OpenCode、Gemini CLI、Kilo、Codex、Copilot、Cursor、Windsurf、Antigravity、Augment、Trae、Qwen Code、Cline 和 CodeBuddy 等多种运行时。
