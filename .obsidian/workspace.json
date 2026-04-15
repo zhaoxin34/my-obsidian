@@ -39,12 +39,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "分析报告/Claude_Code开发电商网站最佳实践调研报告.md",
+                "file": "曾用过的提示词/运营产品 - 后端框架提示词.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Claude_Code开发电商网站最佳实践调研报告"
+              "title": "运营产品 - 后端框架提示词"
             }
           }
         ],
@@ -219,8 +219,12 @@
   },
   "active": "51bca441531ef5f1",
   "lastOpenFiles": [
-    "学习笔记和教程/客户数据平台CDP学习笔记.md",
+    "曾用过的提示词/运营产品提示词.md",
     "分析报告/Claude_Code开发电商网站最佳实践调研报告.md",
+    "学习笔记和教程/UI-UX-Pro-Max-Skill 项目调研报告.md",
+    "分析报告/CDP客户数据平台产品对比分析报告.md~",
+    "学习笔记和教程/Product-Manager-Skills 项目调研报告.md",
+    "学习笔记和教程/客户数据平台CDP学习笔记.md",
     "分析报告/Attio_CRM_研究报告.md",
     "分析报告/images/cdp-salesforce-data-cloud-architecture.png",
     "分析报告/images/cdp-mparticle-architecture.png",
@@ -254,9 +258,6 @@
     "分析报告/PaaS与SaaS对比分析报告.md",
     "我的项目/plato/thinking.excalidraw.md",
     "分析报告/OKR与KPI对比分析报告.md",
-    "Untitled 3.md",
-    "Untitled 2.md",
-    "学习笔记和教程/Java框架/PowerJob 分布式任务调度框架完全指南.md",
     "学习笔记和教程/Java框架",
     "分析报告/OKR与KPI对比分析报告.html",
     "分析报告",
@@ -264,7 +265,6 @@
     "我的项目/数字分身",
     "datatist/wiki/技术备忘",
     "datatist/wiki/工作规范",
-    "datatist/wiki/会议纪要",
     "我的项目/plato/三权分立图.canvas",
     "我的项目/三权分立图.canvas",
     "my-obsidian/ai/三权分立图.canvas",
