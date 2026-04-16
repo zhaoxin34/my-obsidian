@@ -37,14 +37,10 @@
             "id": "51bca441531ef5f1",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "学习笔记和教程/GSD Get-Shit-Done 使用教程.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "GSD Get-Shit-Done 使用教程"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ],
@@ -219,11 +215,13 @@
   },
   "active": "51bca441531ef5f1",
   "lastOpenFiles": [
+    "技术工作/cms g1 zgc 垃圾回收器对比.md",
+    "学习笔记和教程/DeepTutor 港大开源AI学习助手研究报告.md",
+    "学习笔记和教程/GSD Get-Shit-Done 使用教程.md",
     "曾用过的提示词/Matrix Readme.md",
     "分析报告/五一促销营销ROI最大化策略调查报告.md~",
     "Untitled.md",
     "学习笔记和教程/Superpowers - Claude Code 智能开发技能框架.md",
-    "学习笔记和教程/GSD Get-Shit-Done 使用教程.md",
     "学习笔记和教程/Product-Manager-Skills 项目调研报告.md",
     "分析报告/五一促销营销ROI最大化策略调查报告.html",
     "分析报告/五一促销营销ROI最大化策略调查报告.md",
@@ -247,7 +245,6 @@
     "分析报告/images",
     "分析报告/CDP客户数据平台产品对比分析报告.md",
     "学习笔记和教程/大脑左右半球分工与协作.md",
-    "学习笔记和教程/DeepTutor 港大开源AI学习助手研究报告.md",
     "学习笔记和教程/LightRAG 使用教程 - 轻量级检索增强生成系统.md",
     "Untitled 4.md",
     "Untitled 1.md",
