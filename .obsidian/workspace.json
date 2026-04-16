@@ -46,23 +46,9 @@
               "icon": "lucide-file",
               "title": "Matrix Readme"
             }
-          },
-          {
-            "id": "9ce3499ac3d1cb17",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Untitled.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Untitled"
-            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -231,8 +217,9 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "9ce3499ac3d1cb17",
+  "active": "51bca441531ef5f1",
   "lastOpenFiles": [
+    "分析报告/五一促销营销ROI最大化策略调查报告.md~",
     "Untitled.md",
     "曾用过的提示词/Matrix Readme.md",
     "学习笔记和教程/Superpowers - Claude Code 智能开发技能框架.md",
@@ -272,7 +259,6 @@
     "我的项目/全自动营销产品/全自动营销产品 - 头脑风暴.md",
     "我的项目/全自动营销产品/全自动营销产品 - 2026-03 -25会议纪要.md",
     "我的项目/全自动营销产品/Aurasell创业背景与经历.md",
-    "我的项目/全自动营销产品/Aurasell与Salesforce_SFA对比研究报告.md",
     "学习笔记和教程/Java框架",
     "分析报告/OKR与KPI对比分析报告.html",
     "分析报告",
