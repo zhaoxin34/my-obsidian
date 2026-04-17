@@ -39,12 +39,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术工作/Kubernetes 实战：PV 误删进入 Terminating 的恢复方法.md",
+                "file": "操作记录/安装Jenv管理jdk环境.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Kubernetes 实战：PV 误删进入 Terminating 的恢复方法"
+              "title": "安装Jenv管理jdk环境"
             }
           }
         ],
