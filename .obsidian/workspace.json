@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "学习笔记和教程/GSD Get-Shit-Done 使用教程.md",
+                "file": "学习笔记和教程/决策树算法与应用.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GSD Get-Shit-Done 使用教程"
+              "title": "决策树算法与应用"
             }
           }
         ]
@@ -194,55 +194,6 @@
   },
   "active": "22d462ef563586a8",
   "lastOpenFiles": [
-    "Untitled 1.md",
-    "技术工作/Kubernetes 实战：PV 误删进入 Terminating 的恢复方法.md",
-    "学习笔记和教程/Superpowers - Claude Code 智能开发技能框架.md",
-    "学习笔记和教程/GSD Get-Shit-Done 使用教程.md",
-    "Untitled.md",
-    "分析报告/Claude_Code开发电商网站最佳实践调研报告.md~",
-    "学习笔记和教程/从nanobot和pi-mono解剖LLMAgent核心.md~",
-    "曾用过的提示词/Matrix Readme.md",
-    "分析报告/五一促销营销ROI最大化策略调查报告.md",
-    "分析报告/五一促销营销ROI最大化策略调查报告.html",
-    "分析报告/Attio_CRM_研究报告.md",
-    "学习笔记和教程/UI-UX-Pro-Max-Skill 项目调研报告.md",
-    "学习笔记和教程/Product-Manager-Skills 项目调研报告.md",
-    "分析报告/Claude_Code开发电商网站最佳实践调研报告.md",
-    "分析报告/PaaS与SaaS对比分析报告.md",
-    "Attio_CRM_研究报告.md",
-    "操作记录/OmniWM 快速入门指南.md~",
-    "技术工作/datatist Jenkins 记录.md~",
-    "操作记录/已经安装skills.md~",
-    "操作记录/uiautomator2 安装配置和开发.md~",
-    "操作记录/安装llmfit.md~",
-    "学习笔记和教程/Lightpanda Browser 入门手册.md~",
-    "分析报告/images/cdp-segment-architecture.png",
-    "分析报告/images/cdp-salesforce-data-cloud-architecture.png",
-    "分析报告/images/cdp-mparticle-architecture.png",
-    "分析报告/images/cdp-hightouch-platform-overview.png",
-    "分析报告/images/cdp-hightouch-composable.svg",
-    "分析报告/images/cdp-hightouch-composable.jpg",
-    "分析报告/images/cdp-hightouch-architecture.jpg",
-    "分析报告/images",
-    "分析报告/CDP客户数据平台产品对比分析报告.md",
-    "学习笔记和教程/客户数据平台CDP学习笔记.md",
-    "学习笔记和教程/DeepTutor 港大开源AI学习助手研究报告.md",
-    "学习笔记和教程/大脑左右半球分工与协作.md",
-    "学习笔记和教程/Paperclip AI Agent 编排平台安装与排坑指南.md",
-    "学习笔记和教程/Paperclip AI Agent 编排平台安装与使用教程.md",
-    "分析报告/PageIndex与LightRAG调研报告.md",
-    "学习笔记和教程/LightRAG 使用教程 - 轻量级检索增强生成系统.md",
-    "学习笔记和教程/ast-grep/AST-Grep Deep Dive into ast-grep's Pattern Syntax.md",
-    "Untitled 4.md",
-    "Untitled 3.md",
-    "学习笔记和教程/PaaS与SaaS对比分析报告.md",
-    "Untitled 2.md",
-    "ai/全自动营销产品/Untitled.canvas",
-    "我的项目/plato/三权分立图.canvas",
-    "ai/三权分立图.canvas",
-    "ast-grep-pattern-debugger.jpg",
-    "ast-grep-parse-pattern.jpg",
-    "学习笔记/langchain/agent_decision_flow.svg",
-    "my-obsidian/ai/三权分立图.canvas"
+    "学习笔记和教程/GSD Get-Shit-Done 使用教程.md"
   ]
 }
