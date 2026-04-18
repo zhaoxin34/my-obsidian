@@ -1,0 +1,20 @@
+{
+  "id": "conv-1776493201207-r5rgupc9o",
+  "title": "Explain decision tree multi-class decision capa...",
+  "titleGenerationStatus": "success",
+  "createdAt": 1776493201207,
+  "updatedAt": 1776493225171,
+  "lastResponseAt": 1776493225171,
+  "sessionId": "de76c50e-d144-4512-8ed9-6e65128ffd7e",
+  "sdkSessionId": "de76c50e-d144-4512-8ed9-6e65128ffd7e",
+  "currentNote": "学习笔记和教程/决策树算法与应用.md",
+  "usage": {
+    "model": "MiniMax-M2.7",
+    "inputTokens": 10617,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 33938,
+    "contextWindow": 200000,
+    "contextTokens": 44555,
+    "percentage": 22
+  }
+}
