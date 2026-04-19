@@ -1,5 +1,3 @@
-# Harness Engineering：AI Agent 时代的工程范式革命
-
 **技术深度研究报告**
 
 > **报告日期**: 2026年4月7日

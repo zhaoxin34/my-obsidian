@@ -4,20 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "2f860b695c6413e8",
+        "id": "e14722c73c294b59",
         "type": "tabs",
         "children": [
           {
-            "id": "22d462ef563586a8",
+            "id": "4118adbd2d710d6b",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "markdown",
               "state": {
-                "file": "文档列表.base",
-                "viewName": "Table"
+                "file": "学习笔记和教程/Harness_Engineering_深度技术报告.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-table",
-              "title": "文档列表"
+              "icon": "lucide-file",
+              "title": "Harness_Engineering_深度技术报告"
             }
           }
         ]
@@ -191,8 +192,10 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "22d462ef563586a8",
+  "active": "4118adbd2d710d6b",
   "lastOpenFiles": [
+    "学习笔记和教程/Graphify 使用教程 - 知识图谱构建工具.md",
+    "文档列表.base",
     "CLAUDE.md",
     "学习笔记和教程/决策树算法与应用.md",
     "操作记录/浏览器调试工具差异.md",
