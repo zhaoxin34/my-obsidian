@@ -977,6 +977,8 @@ Harness Engineering代表了AI软件工程的一次根本性范式转变：**从
 
 [23] CloudTencent. "OpenAI的Agent神器揭秘." 2026. https://blog.csdn.net/2301_80239908/article/details/159514636
 
+https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/
+
 ---
 
 *本报告基于2026年4月7日前的公开技术资料综合整理，力求准确反映Harness Engineering的核心概念与技术实践。*
