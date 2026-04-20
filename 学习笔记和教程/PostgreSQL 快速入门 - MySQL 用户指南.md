@@ -1,5 +1,3 @@
-# PostgreSQL 快速入门 - MySQL 用户指南
-
 > 本教程专为熟悉 MySQL 并希望快速掌握 PostgreSQL 的命令行用户编写。
 
 ## 目录
