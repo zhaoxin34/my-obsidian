@@ -1,5 +1,3 @@
-# Paperclip AI Agent 编排平台分析报告
-
 > 项目地址：[paperclipai/paperclip](https://github.com/paperclipai/paperclip)
 > 官方文档：https://paperclip.ing/docs
 > Discord 社区：https://discord.gg/m4HZY7xNG3
