@@ -1,5 +1,3 @@
-# Paperclip AI Agent 编排平台安装与排坑指南
-
 > 本文档记录 Paperclip 从安装到成功运行的全过程，包括踩过的坑和解决方案。
 > 系统环境：macOS Darwin 24.6.0，Apple Silicon M2
 
