@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作记录/OpenSpec 安装和使用.md",
+                "file": "操作记录/nvim 学习记录.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "OpenSpec 安装和使用"
+              "title": "nvim 学习记录"
             }
           }
         ]
@@ -195,6 +195,7 @@
   },
   "active": "4118adbd2d710d6b",
   "lastOpenFiles": [
+    "操作记录/OpenSpec 安装和使用.md",
     "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md",
     "曾用过的提示词/运营产品 - 前端架构提示词.md",
     "学习笔记和教程/Paperclip AI Agent 编排平台安装与排坑指南.md",
