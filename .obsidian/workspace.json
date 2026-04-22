@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作记录/Git hook 使用技巧.md",
+                "file": "编程经验/Python-LoggingMiddleware异常日志记录经验.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Git hook 使用技巧"
+              "title": "Python-LoggingMiddleware异常日志记录经验"
             }
           }
         ]
@@ -190,13 +190,14 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "b746167d935cd3b2",
+  "active": "33dfefcc442bfe9e",
   "lastOpenFiles": [
+    "操作记录/Git hook 使用技巧.md",
+    "编程经验/Python-LoggingMiddleware异常日志记录经验.md",
     "编程经验",
     "学习笔记和教程/Paperclip AI Agent 编排平台分析报告.md",
     "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md",
     "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md~",
-    "操作记录/Git hook 使用技巧.md",
     "文档列表.base",
     "操作记录/Saleor 安装配置.md",
     "学习笔记和教程/随机森林算法原理与应用.md",
@@ -237,7 +238,6 @@
     "我的项目/全自动营销产品/自动营销-TOB型软件公司销售全流程.excalidraw",
     "学习笔记和教程/Java框架",
     "分析报告/OKR与KPI对比分析报告.html",
-    "分析报告",
     "我的项目/plato/三权分立图.canvas",
     "我的项目/三权分立图.canvas",
     "my-obsidian/ai/三权分立图.canvas",
