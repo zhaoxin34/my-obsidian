@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "6c9e2c54e7979832",
+        "id": "7697de30688c1f4d",
         "type": "tabs",
         "children": [
           {
-            "id": "bcd5d9dd1a5276fa",
+            "id": "33dfefcc442bfe9e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "学习笔记和教程/Paperclip AI Agent 编排平台分析报告.md",
+                "file": "操作记录/Git hook 使用技巧.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Paperclip AI Agent 编排平台分析报告"
+              "title": "Git hook 使用技巧"
             }
           }
         ]
@@ -190,8 +190,9 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "bcd5d9dd1a5276fa",
+  "active": "33dfefcc442bfe9e",
   "lastOpenFiles": [
+    "学习笔记和教程/Paperclip AI Agent 编排平台分析报告.md",
     "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md",
     "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md~",
     "操作记录/Git hook 使用技巧.md",
