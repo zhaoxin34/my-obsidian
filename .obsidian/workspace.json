@@ -1,24 +1,24 @@
 {
   "main": {
-    "id": "244053746fcc8bed",
+    "id": "0dff355be0288fe3",
     "type": "split",
     "children": [
       {
-        "id": "e14722c73c294b59",
+        "id": "7697de30688c1f4d",
         "type": "tabs",
         "children": [
           {
-            "id": "4118adbd2d710d6b",
+            "id": "33dfefcc442bfe9e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程经验/数据库表对应关系.md",
+                "file": "编程经验/Python-LoggingMiddleware异常日志记录经验.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "数据库表对应关系"
+              "title": "Python-LoggingMiddleware异常日志记录经验"
             }
           }
         ]
@@ -27,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "23c3b752277a64eb",
+    "id": "a3e825d1361ece1a",
     "type": "split",
     "children": [
       {
-        "id": "654fa8e088b83230",
+        "id": "76669f24cf11185a",
         "type": "tabs",
         "children": [
           {
-            "id": "c80a86a267dcdfa4",
+            "id": "b746167d935cd3b2",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -48,12 +48,12 @@
             }
           },
           {
-            "id": "c8efab1062f26527",
+            "id": "89b70c27d8975c9f",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "pnpm",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,7 +65,7 @@
             }
           },
           {
-            "id": "5e0da49adb526373",
+            "id": "a5ffec3985fc3ddf",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -78,23 +78,22 @@
       }
     ],
     "direction": "horizontal",
-    "width": 377
+    "width": 300
   },
   "right": {
-    "id": "fa9d9a41700988c1",
+    "id": "04cbc61875f8a98e",
     "type": "split",
     "children": [
       {
-        "id": "73a2149e65a98736",
+        "id": "09a788e45e02a6c8",
         "type": "tabs",
         "children": [
           {
-            "id": "86e37454c760dc50",
+            "id": "881c61bde974e898",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "my-obsidian/操作记录/工作环境初始化.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,25 +103,24 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 工作环境初始化"
+              "title": "Backlinks"
             }
           },
           {
-            "id": "25352970d2e547ae",
+            "id": "8cc146c624396ec2",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "my-obsidian/操作记录/工作环境初始化.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 工作环境初始化"
+              "title": "Outgoing links"
             }
           },
           {
-            "id": "20271ad97fca8376",
+            "id": "957fa3e6b62e7424",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -137,22 +135,22 @@
             }
           },
           {
-            "id": "3b0fef9d4ba97174",
+            "id": "54cfc999c31c1ea2",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习笔记和教程/PageIndex与LightRAG调研报告.md",
+                "file": "my-obsidian/曾用过的提示词/运营产品 - 后端框架提示词.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of PageIndex与LightRAG调研报告"
+              "title": "Outline of 运营产品 - 后端框架提示词"
             }
           },
           {
-            "id": "bd942496fd15bce4",
+            "id": "69e796eb624fca58",
             "type": "leaf",
             "state": {
               "type": "claudian-view",
@@ -162,7 +160,7 @@
             }
           },
           {
-            "id": "592cf9c4d2549ff5",
+            "id": "60e2db1650c22659",
             "type": "leaf",
             "state": {
               "type": "calendar",
@@ -176,7 +174,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 542
+    "width": 709
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,39 +190,57 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "4118adbd2d710d6b",
+  "active": "33dfefcc442bfe9e",
   "lastOpenFiles": [
-    "编程经验/Python-测试用例按顺序执行经验.md",
     "编程经验/数据库表对应关系.md",
-    "操作记录/Git hook 使用技巧.md",
-    "操作记录/nvim 学习记录.md",
-    "Untitled.md",
+    "编程经验/Python-测试用例按顺序执行经验.md",
     "编程经验/Playwright-E2E测试断言前端错误消息经验.md",
+    "操作记录/Git hook 使用技巧.md",
     "编程经验/Python-LoggingMiddleware异常日志记录经验.md",
     "编程经验",
-    "操作记录/OpenSpec 安装和使用.md",
-    "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md",
-    "曾用过的提示词/运营产品 - 前端架构提示词.md",
-    "学习笔记和教程/Paperclip AI Agent 编排平台安装与排坑指南.md",
-    "学习笔记和教程/Paperclip AI Agent 编排平台安装与使用教程.md",
     "学习笔记和教程/Paperclip AI Agent 编排平台分析报告.md",
-    "分析报告/Attio_CRM_研究报告.md",
-    "我的项目/plato/AI之我思.md",
+    "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md",
+    "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md~",
+    "文档列表.base",
+    "操作记录/Saleor 安装配置.md",
+    "学习笔记和教程/随机森林算法原理与应用.md",
     "Pasted image 20260420002225.png",
     "Pasted image 20260420001630.png",
     "Pasted image 20260420001507.png",
-    "学习笔记和教程/Harness_Engineering_深度技术报告.md",
-    "学习笔记和教程/Graphify 使用教程 - 知识图谱构建工具.md",
-    "文档列表.base",
-    "CLAUDE.md",
-    "学习笔记和教程/决策树算法与应用.md",
     "操作记录/浏览器调试工具差异.md",
-    "操作记录/Saleor 安装配置.md",
-    "分析报告/React_vs_NextJS_Comparison_Report_20260418.md~",
-    "CLAUDE.md~",
+    "学习笔记和教程/决策树算法与应用.md",
+    "CLAUDE.md",
+    "分析报告/五一促销营销ROI最大化策略调查报告.md",
+    "我的项目/数字分身/数字分身 - 头脑风暴.md",
+    "操作记录/安装Jenv管理jdk环境.md",
     "分析报告/React_vs_NextJS_Comparison_Report_20260418.md",
-    "React_vs_NextJS_Comparison_Report_20260418.md",
-    "学习笔记和教程/随机森林算法原理与应用.md~",
-    "学习笔记和教程/GSD Get-Shit-Done 使用教程.md"
+    "Untitled 1.md",
+    "学习笔记和教程/蒙特卡洛算法与应用.md",
+    "技术工作/Kubernetes 实战：PV 误删进入 Terminating 的恢复方法.md",
+    "技术工作/cms g1 zgc 垃圾回收器对比.md",
+    "学习笔记和教程/DeepTutor 港大开源AI学习助手研究报告.md",
+    "学习笔记和教程/GSD Get-Shit-Done 使用教程.md",
+    "曾用过的提示词/Matrix Readme.md",
+    "分析报告/五一促销营销ROI最大化策略调查报告.md~",
+    "Untitled.md",
+    "学习笔记和教程/Superpowers - Claude Code 智能开发技能框架.md",
+    "学习笔记和教程/Product-Manager-Skills 项目调研报告.md",
+    "分析报告/五一促销营销ROI最大化策略调查报告.html",
+    "分析报告/CDP客户数据平台产品对比分析报告.md~",
+    "分析报告/images/cdp-salesforce-data-cloud-architecture.png",
+    "分析报告/images/cdp-mparticle-architecture.png",
+    "分析报告/images/cdp-segment-architecture.png",
+    "分析报告/images/cdp-hightouch-composable.svg",
+    "分析报告/images/cdp-hightouch-platform-overview.png",
+    "分析报告/images/cdp-hightouch-composable.jpg",
+    "分析报告/images/cdp-hightouch-architecture.jpg",
+    "分析报告/images",
+    "我的项目/全自动营销产品/自动营销-TOB型软件公司销售全流程.excalidraw",
+    "学习笔记和教程/Java框架",
+    "分析报告/OKR与KPI对比分析报告.html",
+    "我的项目/plato/三权分立图.canvas",
+    "我的项目/三权分立图.canvas",
+    "my-obsidian/ai/三权分立图.canvas",
+    "Untitled.canvas"
   ]
 }
