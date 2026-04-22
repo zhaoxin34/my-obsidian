@@ -13,30 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作记录/nvim 学习记录.md",
+                "file": "操作记录/Git hook 使用技巧.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "nvim 学习记录"
-            }
-          },
-          {
-            "id": "8cb4de2ae5cca06b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Untitled.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "Git hook 使用技巧"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -89,8 +74,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -208,11 +192,11 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "8cb4de2ae5cca06b",
+  "active": "4118adbd2d710d6b",
   "lastOpenFiles": [
-    "编程经验/Playwright-E2E测试断言前端错误消息经验.md",
-    "Untitled.md",
     "操作记录/nvim 学习记录.md",
+    "Untitled.md",
+    "编程经验/Playwright-E2E测试断言前端错误消息经验.md",
     "编程经验/Python-LoggingMiddleware异常日志记录经验.md",
     "编程经验",
     "操作记录/OpenSpec 安装和使用.md",

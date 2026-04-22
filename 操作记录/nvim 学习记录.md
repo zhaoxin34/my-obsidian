@@ -37,6 +37,7 @@ https://www.lazyvim.org/keymaps
 | `<leader>ss` | Goto Symbol (Aerial)       | **n**        |
 | `>>`         | 增加缩进                       | **n**        |
 | `<<`         | 减少缩进                       | **n**        |
+|              |                            |              |
 *一些跳转操作*
 
 | 想要的动作             | 快捷键               |
