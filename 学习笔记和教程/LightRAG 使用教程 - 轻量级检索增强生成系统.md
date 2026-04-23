@@ -1,5 +1,3 @@
-# LightRAG 使用教程 — 轻量级检索增强生成系统
-
 > LightRAG 由香港大学（HKU）开发，已被 EMNLP 2025 录用。它通过基于图的索引策略和双模式检索（局部+全局）实现了高效且具有上下文关联的 RAG 能力。
 >
 > **项目地址**: https://github.com/HKUDS/LightRAG
