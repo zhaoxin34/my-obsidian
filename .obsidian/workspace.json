@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程经验/Spring + Mysql + Redis 事务的理解错误.md",
+                "file": "分析报告/React_vs_NextJS_Comparison_Report_20260418.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Spring + Mysql + Redis 事务的理解错误"
+              "title": "React_vs_NextJS_Comparison_Report_20260418"
             }
           }
         ]
@@ -194,8 +194,8 @@
   },
   "active": "4118adbd2d710d6b",
   "lastOpenFiles": [
-    "我的项目/matrix/Drawing 2026-04-24 16.41.15.excalidraw.md",
     "编程经验/Spring + Mysql + Redis 事务的理解错误.md",
+    "我的项目/matrix/Drawing 2026-04-24 16.41.15.excalidraw.md",
     "我的项目/matrix",
     "编程经验/数据库表对应关系.md",
     "编程经验/pytest-测试中断时数据库恢复经验.md",
