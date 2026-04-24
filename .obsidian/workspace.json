@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "分析报告/React_vs_NextJS_Comparison_Report_20260418.md",
+                "file": "分析报告/Fundamental_vs_Palantir_Research_20260424/research_report.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "React_vs_NextJS_Comparison_Report_20260418"
+              "title": "research_report"
             }
           }
         ]
@@ -194,6 +194,9 @@
   },
   "active": "4118adbd2d710d6b",
   "lastOpenFiles": [
+    "分析报告/React_vs_NextJS_Comparison_Report_20260418.md",
+    "分析报告/Fundamental_vs_Palantir_Research_20260424/research_report.md",
+    "分析报告/Fundamental_vs_Palantir_Research_20260424",
     "编程经验/Spring + Mysql + Redis 事务的理解错误.md",
     "我的项目/matrix/Drawing 2026-04-24 16.41.15.excalidraw.md",
     "我的项目/matrix",
@@ -226,8 +229,6 @@
     "操作记录/Saleor 安装配置.md",
     "分析报告/React_vs_NextJS_Comparison_Report_20260418.md~",
     "CLAUDE.md~",
-    "分析报告/React_vs_NextJS_Comparison_Report_20260418.md",
-    "React_vs_NextJS_Comparison_Report_20260418.md",
     "学习笔记和教程/随机森林算法原理与应用.md~"
   ]
 }
