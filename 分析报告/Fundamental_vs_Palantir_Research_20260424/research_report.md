@@ -41,7 +41,7 @@ Palantir 的领导团队以 CEO Alex Karp 为核心，CTO Shyam Sankar 在 2025 
 
 ## 二、技术架构对比
 
-### 2.1 Fundamental：大型表格模型 (LTM) 架构
+### 2.1 Fundamental：大型表格模型 (LTM) 架构t
 
 Fundamental 的核心竞争力在于其完全自主研发的 Nexus 模型，这是全球首个"大型表格模型" (Large Tabular Model, LTM) [14]。与当前主流的 Transformer 架构大语言模型不同，Nexus 从根本上针对结构化数据（表格、数据库）进行了优化设计。
 
