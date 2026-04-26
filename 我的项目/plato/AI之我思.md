@@ -63,3 +63,8 @@
 ![[Pasted image 20260420001630.png]]
 ![[Pasted image 20260420002225.png]]
 
+## 贝叶斯推断
+
+原文： 贝叶斯定理 | AI与人脑共享的意识算法 | 受控的幻觉 https://www.bilibili.com/video/BV1FMFoz5ELQ/?spm_id_from=333.1387.favlist.content.click&vd_source=0cd22daab129c4281d8eaaeae8ccf348
+
+受到的启发：在人类做出决策前，就让agent先做判断，然后对比agent做事的风格和人类做事的风格的区别。
