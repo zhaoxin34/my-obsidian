@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程经验/Python-LoggingMiddleware异常日志记录经验.md",
+                "file": "分析报告/Fundamental_vs_Palantir_Research_20260424/research_report.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Python-LoggingMiddleware异常日志记录经验"
+              "title": "research_report"
             }
           }
         ]
@@ -194,6 +194,7 @@
   },
   "active": "4118adbd2d710d6b",
   "lastOpenFiles": [
+    "编程经验/Python-LoggingMiddleware异常日志记录经验.md",
     "编程经验/Playwright-E2E测试断言前端错误消息经验.md",
     "操作记录/Git hook 使用技巧.md",
     "分析报告/Fundamental_vs_Palantir_Research_20260424/research_report.md",
@@ -207,7 +208,6 @@
     "编程经验/Python-测试用例按顺序执行经验.md",
     "操作记录/nvim 学习记录.md",
     "Untitled.md",
-    "编程经验/Python-LoggingMiddleware异常日志记录经验.md",
     "编程经验",
     "操作记录/OpenSpec 安装和使用.md",
     "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md",
