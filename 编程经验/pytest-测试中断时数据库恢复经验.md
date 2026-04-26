@@ -78,3 +78,53 @@ Database restored and backup file cleaned up.
 1. **不要在信号处理器中调用 `sys.exit()`**：会阻止正常的中断流程，应重新抛出 `KeyboardInterrupt`
 2. **全局变量存储备份路径**：信号处理器需要访问 fixture 中创建的备份文件路径
 3. **cleanup_auth 不受影响**：`cleanup_auth` 是 function 级别的 autouse fixture，每个测试后都会清理，即使中断也会执行
+
+## pytest 输出看不到 print 的问题
+
+### 问题现象
+
+在 `conftest.py` 中添加了 `print` 语句用于调试（例如打印数据库备份路径），但运行时看不到任何输出。
+
+### 原因
+
+pytest 默认会**捕获（capture）**标准输出，所有 `print` 的内容不会直接显示在终端，除非：
+- 测试失败
+- 使用 `-s` 参数禁用输出捕获
+
+### 解决方案
+
+#### 1. 命令行添加 `-s` 参数
+
+```bash
+pytest -s
+# 或在 Makefile 中
+make test: PYTHONUNBUFFERED=1 ... pytest -m "not slow" -s
+```
+
+#### 2. 确保 print 立即输出（防止缓冲）
+
+```python
+# 加 flush=True 确保立即输出
+print(f"\nDatabase backed up to: {backup_file}", flush=True)
+
+# 信号处理器中也要加
+def signal_handler(signum, frame):
+    print("\n\nReceived interrupt signal...", flush=True)
+    sys.stderr.flush()
+    # ...
+```
+
+#### 3. Makefile 中同时设置 PYTHONUNBUFFERED
+
+```makefile
+test:
+    PYTHONUNBUFFERED=1 PLAYWRIGHT_BASE_URL=$(BASE_URL) .venv/bin/python -m pytest -m "not slow" -s
+```
+
+### 相关配置优先级
+
+| 配置 | 作用 |
+|------|------|
+| `PYTHONUNBUFFERED=1` | 确保 Python 输出不缓冲 |
+| `-s` | 禁用 pytest 的输出捕获 |
+| `flush=True` | 确保单次 print 立即刷新 |
