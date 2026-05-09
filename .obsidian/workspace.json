@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作记录/nvim 学习记录.md",
+                "file": "学习笔记和教程/lang-chain-graph/LangGraph学习教程.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "nvim 学习记录"
+              "title": "LangGraph学习教程"
             }
           }
         ],
@@ -207,6 +207,7 @@
   },
   "active": "a08effeeae3c0958",
   "lastOpenFiles": [
+    "操作记录/nvim 学习记录.md",
     "学习笔记和教程/MakeFile 学习笔记.md",
     "学习笔记和教程/Python GraphQL 入门教程.md",
     "分析报告/Fundamental_vs_Palantir_Research_20260424/research_report.md",
@@ -239,7 +240,6 @@
     "Pasted image 20260420002225.png",
     "Pasted image 20260420001630.png",
     "Pasted image 20260420001507.png",
-    "操作记录/浏览器调试工具差异.md",
     "分析报告/五一促销营销ROI最大化策略调查报告.md~",
     "分析报告/五一促销营销ROI最大化策略调查报告.html",
     "分析报告/CDP客户数据平台产品对比分析报告.md~",
