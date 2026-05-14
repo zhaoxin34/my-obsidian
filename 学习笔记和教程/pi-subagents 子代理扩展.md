@@ -683,3 +683,50 @@ Use url in the prompt to take screenshot: $@
 ---
 
 > 来源：[pi-subagents - pi.dev](https://pi.dev/packages/pi-subagents)
+
+
+---
+
+
+ 问题分析
+
+ 找到了根本原因！查看 session-manager.js 的 createBranchedSession 方法（第 928-934 行）：
+
+ ```javascript
+   const hasAssistant = this.fileEntries.some((e) => e.type === "message" && e.message.role === "assistant");
+   if (hasAssistant) {
+       this._rewriteFile();
+       this.flushed = true;
+   }
+   else {
+       this.flushed = false;  // 文件不会被写入！
+   }
+   return newSessionFile;     // 但仍然返回路径！
+ ```
+
+ 问题所在：当你尝试 fork 时，如果当前会话还没有任何 assistant 回复，文件不会被写入磁盘，但路径仍然被返回。然后 pi-subagents
+ 检查文件是否存在时就会失败。
+
+ 解决方案
+
+ 根据 pi-subagents 文档的建议，有两个选项：
+
+ ### 选项 1: 改用 context: "fresh" (推荐)
+
+ 不使用 fork 而是用 fresh context，这样不需要会话文件：
+
+ ```typescript
+   subagent({
+     agent: "ui-developer",
+     task: "...",
+     context: "fresh"  // 改为 fresh
+   })
+ ```
+
+ 缺点：子代理不会继承父会话的历史记录。
+
+ ### 选项 2: 手动触发一次 assistant 回复
+
+ 在当前的父会话中，让我先发送一条消息让模型产生回复，然后再尝试 fork。
+
+ 你想选择哪个方案？
