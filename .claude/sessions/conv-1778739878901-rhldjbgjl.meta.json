@@ -3,17 +3,17 @@
   "title": "Start casual conversation",
   "titleGenerationStatus": "success",
   "createdAt": 1778739878902,
-  "updatedAt": 1778740132347,
-  "lastResponseAt": 1778740132347,
+  "updatedAt": 1778743796931,
+  "lastResponseAt": 1778743796931,
   "sessionId": "d592ef49-d250-4197-a786-a43f44eeaf2b",
   "sdkSessionId": "d592ef49-d250-4197-a786-a43f44eeaf2b",
   "usage": {
     "model": "MiniMax-M2.7",
-    "inputTokens": 41177,
+    "inputTokens": 55839,
     "cacheCreationInputTokens": 0,
     "cacheReadInputTokens": 0,
     "contextWindow": 200000,
-    "contextTokens": 41177,
-    "percentage": 21
+    "contextTokens": 55839,
+    "percentage": 28
   }
 }
