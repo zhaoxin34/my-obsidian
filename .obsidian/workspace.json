@@ -177,11 +177,13 @@
       "bases:Create new base": false,
       "github-sync:Sync with Remote": false,
       "obsidian-excalidraw-plugin:New drawing": false,
-      "pi-agent:Open Pi Agent": false
+      "pi-agent:Open Pi Agent": false,
+      "claudian:Open Claudian": false
     }
   },
-  "active": "60e2db1650c22659",
+  "active": "e36506c59ec646c4",
   "lastOpenFiles": [
+    "编程经验/Python-uv项目配置经验.md",
     "学习笔记和教程/Pi Coding Agent 入门教程.md",
     "学习笔记和教程/lang-chain-graph/LangChain学习笔记.md",
     "学习笔记和教程/PI Agents.md",
@@ -208,7 +210,6 @@
     "编程经验/Spring + Mysql + Redis 事务的理解错误.md",
     "学习笔记和教程/LightRAG 使用教程 - 轻量级检索增强生成系统.md",
     "编程经验/pytest-测试中断时数据库恢复经验.md",
-    "编程经验/Playwright-E2E测试断言前端错误消息经验.md",
     "编程经验",
     "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md~",
     "文档列表.base",
