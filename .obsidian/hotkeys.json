@@ -58,5 +58,13 @@
       ],
       "key": "P"
     }
+  ],
+  "pi-agent:ask-about-current-note": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "."
+    }
   ]
 }
