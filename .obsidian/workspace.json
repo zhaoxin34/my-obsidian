@@ -205,8 +205,14 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "a08effeeae3c0958",
+  "active": "b746167d935cd3b2",
   "lastOpenFiles": [
+    "Untitled.md",
+    "操作记录/安装配置p10k.md",
+    "编程经验/Python-uv项目配置经验.md",
+    "我的项目/开发流程.md",
+    "学习笔记和教程/pi-subagents 子代理扩展.md",
+    "学习笔记和教程/PI Agents.md",
     "待阅读的论文.md",
     "分析报告/MUI_vs_shadcn_ui对比分析报告.md",
     "分析报告/React_vs_NextJS_Comparison_Report_20260418.md",
@@ -228,12 +234,6 @@
     "分析报告/Fundamental_vs_Palantir_Research_20260424",
     "编程经验/Spring + Mysql + Redis 事务的理解错误.md",
     "学习笔记和教程/LightRAG 使用教程 - 轻量级检索增强生成系统.md",
-    "编程经验/pytest-测试中断时数据库恢复经验.md",
-    "编程经验/Playwright-E2E测试断言前端错误消息经验.md",
-    "编程经验/Python-LoggingMiddleware异常日志记录经验.md",
-    "编程经验/数据库表对应关系.md",
-    "编程经验/Python-测试用例按顺序执行经验.md",
-    "操作记录/Git hook 使用技巧.md",
     "编程经验",
     "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md~",
     "文档列表.base",
