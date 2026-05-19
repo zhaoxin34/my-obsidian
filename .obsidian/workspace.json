@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作记录/安装配置p10k.md",
+                "file": "操作记录/python 环境初始化.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "安装配置p10k"
+              "title": "python 环境初始化"
             }
           }
         ],
@@ -205,8 +205,9 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "b746167d935cd3b2",
+  "active": "a08effeeae3c0958",
   "lastOpenFiles": [
+    "学习笔记和教程/Python开发环境pyrightconfig.json配置.md",
     "Untitled.md",
     "操作记录/安装配置p10k.md",
     "编程经验/Python-uv项目配置经验.md",
@@ -233,7 +234,6 @@
     "编程经验/Python 美化命令行输出组件 - rich.md",
     "分析报告/Fundamental_vs_Palantir_Research_20260424",
     "编程经验/Spring + Mysql + Redis 事务的理解错误.md",
-    "学习笔记和教程/LightRAG 使用教程 - 轻量级检索增强生成系统.md",
     "编程经验",
     "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md~",
     "文档列表.base",
