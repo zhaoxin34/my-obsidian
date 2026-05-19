@@ -48,4 +48,17 @@ git clone "https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv.git" "$Z
 zshrc增加
 plugins=(autoswitch_virtualenv $plugins)
 
+使用zinit后的安装方法，变为执行如下命令
+
+```bash
+zinit wait lucid for MichaelAquilina/zsh-autoswitch-virtualenv
+
+```
+
+90-init.sh
+```
+# 自动切换 Python 虚拟环境
+zinit light MichaelAquilina/zsh-autoswitch-virtualenv
+```
+
 ### [[poetry 安装和配置]]
