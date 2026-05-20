@@ -68,7 +68,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "pyenv",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -89,7 +89,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -207,6 +208,8 @@
   },
   "active": "a08effeeae3c0958",
   "lastOpenFiles": [
+    "操作记录/Python开发环境初始化.md",
+    "操作记录/python 环境初始化.md",
     "学习笔记和教程/Python开发环境pyrightconfig.json配置.md",
     "Untitled.md",
     "操作记录/安装配置p10k.md",
@@ -231,9 +234,7 @@
     "学习笔记和教程/马尔可夫链 Markov Chain 教程.md",
     "学习笔记和教程/使用 Playwright CLI 自动化浏览器操作.md",
     "操作记录/OpenSpec 安装和使用.md",
-    "编程经验/Python 美化命令行输出组件 - rich.md",
     "分析报告/Fundamental_vs_Palantir_Research_20260424",
-    "编程经验/Spring + Mysql + Redis 事务的理解错误.md",
     "编程经验",
     "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md~",
     "文档列表.base",
