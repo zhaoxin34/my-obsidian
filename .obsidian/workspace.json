@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "my-obsidian/曾用过的提示词/运营产品 - 后端框架提示词.md",
+                "file": "学习笔记和教程/A2A协议入门教程.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 运营产品 - 后端框架提示词"
+              "title": "Outline of A2A协议入门教程"
             }
           },
           {
@@ -185,7 +185,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -207,13 +207,14 @@
   },
   "active": "a08effeeae3c0958",
   "lastOpenFiles": [
+    "学习笔记和教程/pi-agent/01-Extensions 扩展.md",
+    "学习笔记和教程/A2A协议入门教程.md",
+    "学习笔记和教程/pi-agent/04-TUI 组件.md",
     "学习笔记和教程/pi-agent/03-RPC 模式.md",
     "学习笔记和教程/pi-agent/02-SDK.md",
-    "学习笔记和教程/pi-agent/01-Extensions 扩展.md",
     "学习笔记和教程/马尔可夫链 Markov Chain 教程.md",
     "学习笔记和教程/pi-agent/Pi Coding Agent 入门教程.md~",
     "学习笔记和教程/pi-agent/Pi Coding Agent 入门教程.md",
-    "学习笔记和教程/A2A协议入门教程.md",
     "学习笔记和教程/pi-agent/pi-subagents 子代理扩展.md",
     "学习笔记和教程/pi-agent",
     "Untitled.canvas",
@@ -235,7 +236,6 @@
     "学习笔记和教程/Python GraphQL 入门教程.md",
     "分析报告/Fundamental_vs_Palantir_Research_20260424/research_report.md",
     "分析报告/Attio_CRM_研究报告.md",
-    "学习笔记和教程/Pi Coding Agent 入门教程.md",
     "分析报告/Fundamental_vs_Palantir_Research_20260424",
     "编程经验",
     "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md~",
