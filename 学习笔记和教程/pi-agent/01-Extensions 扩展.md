@@ -113,25 +113,19 @@ pi -e ./my-extension.ts
 
 扩展自动发现位置:
 
-| 位置 | 范围 |
-|------|------|
-| `~/.pi/agent/extensions/*.ts` | 全局 (所有项目) |
-| `~/.pi/agent/extensions/*/index.ts` | 全局 (子目录) |
-| `.pi/extensions/*.ts` | 项目本地 |
-| `.pi/extensions/*/index.ts` | 项目本地 (子目录) |
+| 位置                                | 范围              |
+| ----------------------------------- | ----------------- |
+| `~/.pi/agent/extensions/*.ts`       | 全局 (所有项目)   |
+| `~/.pi/agent/extensions/*/index.ts` | 全局 (子目录)     |
+| `.pi/extensions/*.ts`               | 项目本地          |
+| `.pi/extensions/*/index.ts`         | 项目本地 (子目录) |
 
 通过 `settings.json` 添加额外路径:
 
 ```json
 {
-  "packages": [
-    "npm:@foo/bar@1.0.0",
-    "git:github.com/user/repo@v1"
-  ],
-  "extensions": [
-    "/path/to/local/extension.ts",
-    "/path/to/local/extension/dir"
-  ]
+  "packages": ["npm:@foo/bar@1.0.0", "git:github.com/user/repo@v1"],
+  "extensions": ["/path/to/local/extension.ts", "/path/to/local/extension/dir"]
 }
 ```
 
@@ -139,12 +133,12 @@ pi -e ./my-extension.ts
 
 ## 可用导入
 
-| 包 | 用途 |
-|---|------|
+| 包                                | 用途                                                  |
+| --------------------------------- | ----------------------------------------------------- |
 | `@earendil-works/pi-coding-agent` | 扩展类型 (`ExtensionAPI`, `ExtensionContext`, events) |
-| `typebox` | 工具参数的模式定义 |
-| `@earendil-works/pi-ai` | AI 工具 (`StringEnum` for Google-compatible enums) |
-| `@earendil-works/pi-tui` | TUI 组件用于自定义渲染 |
+| `typebox`                         | 工具参数的模式定义                                    |
+| `@earendil-works/pi-ai`           | AI 工具 (`StringEnum` for Google-compatible enums)    |
+| `@earendil-works/pi-tui`          | TUI 组件用于自定义渲染                                |
 
 npm 依赖也可以使用。在扩展旁边添加 `package.json` (或在父目录)，运行 `npm install`，然后从 `node_modules/` 导入自动工作。
 
@@ -366,7 +360,10 @@ pi.on("resources_discover", async (event, _ctx) => {
 pi.on("session_start", async (event, ctx) => {
   // event.reason - "startup" | "reload" | "new" | "resume" | "fork"
   // event.previousSessionFile - 对于 "new", "resume" 和 "fork" 存在
-  ctx.ui.notify(`Session: ${ctx.sessionManager.getSessionFile() ?? "ephemeral"}`, "info");
+  ctx.ui.notify(
+    `Session: ${ctx.sessionManager.getSessionFile() ?? "ephemeral"}`,
+    "info",
+  );
 });
 ```
 
@@ -419,7 +416,7 @@ pi.on("session_before_compact", async (event, ctx) => {
       summary: "...",
       firstKeptEntryId: preparation.firstKeptEntryId,
       tokensBefore: preparation.tokensBefore,
-    }
+    },
   };
 });
 
@@ -477,7 +474,8 @@ pi.on("before_agent_start", async (event, ctx) => {
       display: true,
     },
     // 替换此轮的系统提示 (跨扩展链接)
-    systemPrompt: event.systemPrompt + "\n\nExtra instructions for this turn...",
+    systemPrompt:
+      event.systemPrompt + "\n\nExtra instructions for this turn...",
   };
 });
 ```
@@ -551,6 +549,7 @@ pi.on("message_end", async (event, ctx) => {
 工具执行生命周期更新时触发。
 
 在并行工具模式下:
+
 - `tool_execution_start` 在预检阶段按 assistant 源顺序发出
 - `tool_execution_update` 事件可能在工具之间交错
 - `tool_execution_end` 在每个工具最终确定后按工具完成顺序发出
@@ -577,7 +576,7 @@ pi.on("tool_execution_end", async (event, ctx) => {
 ```typescript
 pi.on("context", async (event, ctx) => {
   // event.messages - 深拷贝，可以安全修改
-  const filtered = event.messages.filter(m => !shouldPrune(m));
+  const filtered = event.messages.filter((m) => !shouldPrune(m));
   return { messages: filtered };
 });
 ```
@@ -679,6 +678,7 @@ pi.on("tool_call", async (event, ctx) => {
 工具执行完成、`tool_execution_end` 和最终 tool result 消息事件发出后触发。**可修改结果。**
 
 `tool_result` 处理程序像中间件一样链式工作:
+
 - 处理程序按扩展加载顺序运行
 - 每个处理程序看到前一个处理程序更改后的最新结果
 - 处理程序可以返回部分补丁 (`content`, `details` 或 `isError`)；省略的字段保持当前值
@@ -722,12 +722,14 @@ pi.on("user_bash", (event, ctx) => {
     operations: {
       exec(command, cwd, options) {
         return local.exec(`source ~/.profile\n${command}`, cwd, options);
-      }
-    }
+      },
+    },
   };
 
   // 选项 3: 完全替换 - 直接返回结果
-  return { result: { output: "...", exitCode: 0, cancelled: false, truncated: false } };
+  return {
+    result: { output: "...", exitCode: 0, cancelled: false, truncated: false },
+  };
 });
 ```
 
@@ -738,6 +740,7 @@ pi.on("user_bash", (event, ctx) => {
 当收到用户输入时触发，在扩展命令检查之后、技能和模板扩展之前。
 
 **处理顺序:**
+
 1. 扩展命令 (`/cmd`) 优先检查 - 如果找到，处理程序运行且跳过输入事件
 2. `input` 事件触发 - 可拦截、转换或处理
 3. 如果未处理: 技能命令 (`/skill:name`) 扩展为技能内容
@@ -752,7 +755,10 @@ pi.on("input", async (event, ctx) => {
 
   // 转换: 在扩展前重写输入
   if (event.text.startsWith("?quick "))
-    return { action: "transform", text: `Respond briefly: ${event.text.slice(7)}` };
+    return {
+      action: "transform",
+      text: `Respond briefly: ${event.text.slice(7)}`,
+    };
 
   // 处理: 无需 LLM 响应 (扩展显示自己的反馈)
   if (event.text === "ping") {
@@ -760,11 +766,12 @@ pi.on("input", async (event, ctx) => {
     return { action: "handled" };
   }
 
-  return { action: "continue" };  // 默认: 传递通过
+  return { action: "continue" }; // 默认: 传递通过
 });
 ```
 
 **结果:**
+
 - `continue` - 传递不变 (默认)
 - `transform` - 修改文本/图像，然后继续扩展
 - `handled` - 完全跳过 agent (返回此值的第一个处理程序获胜)
@@ -911,7 +918,7 @@ pi.registerCommand("pick", {
   handler: async (_args, ctx) => {
     const result = await ctx.ui.custom<string | null>(
       (tui, theme, keybindings, done) => new MyDialog({ onClose: done }),
-      { overlay: true }
+      { overlay: true },
     );
 
     if (result) {
@@ -934,6 +941,7 @@ pi.on("extension_error", (event, ctx) => {
 ## 模式行为
 
 扩展在不同模式下可能有不同的行为:
+
 - 在打印模式 (`-p`) 中，`ctx.hasUI` 为 `false`
 - 在 RPC 模式下，对话方法通过扩展 UI 子协议工作
 
