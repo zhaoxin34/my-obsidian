@@ -34,9 +34,23 @@
               "icon": "lucide-file",
               "title": "A2A协议入门教程"
             }
+          },
+          {
+            "id": "3ffec975c1b228cb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -155,13 +169,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习笔记和教程/A2A协议入门教程.md",
+                "file": "Untitled.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of A2A协议入门教程"
+              "title": "Outline of Untitled"
             }
           },
           {
@@ -205,12 +219,14 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "a08effeeae3c0958",
+  "active": "3ffec975c1b228cb",
   "lastOpenFiles": [
+    "Untitled.md",
+    "学习笔记和教程/Chrome Extension 核心概念与原理.md",
+    "学习笔记和教程/A2A协议入门教程.md",
     "学习笔记和教程/Chrome Extension 开发入门教程.md",
     "Untitled 1.md",
     "学习笔记和教程/pi-agent/01-Extensions 扩展.md",
-    "学习笔记和教程/A2A协议入门教程.md",
     "学习笔记和教程/pi-agent/04-TUI 组件.md",
     "学习笔记和教程/pi-agent/03-RPC 模式.md",
     "学习笔记和教程/pi-agent/02-SDK.md",
@@ -224,7 +240,6 @@
     "操作记录/python 环境初始化.md",
     "操作记录/Python开发环境初始化.md",
     "学习笔记和教程/Python开发环境pyrightconfig.json配置.md",
-    "Untitled.md",
     "操作记录/安装配置p10k.md",
     "编程经验/Python-uv项目配置经验.md",
     "我的项目/开发流程.md",
@@ -235,7 +250,6 @@
     "分析报告/React_vs_NextJS_Comparison_Report_20260418.md",
     "学习笔记和教程/lang-chain-graph/LangGraph学习教程.md",
     "学习笔记和教程/MakeFile 学习笔记.md",
-    "学习笔记和教程/Python GraphQL 入门教程.md",
     "分析报告/Fundamental_vs_Palantir_Research_20260424",
     "编程经验",
     "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md~",
