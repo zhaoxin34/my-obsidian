@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程经验/Python-LoggingMiddleware异常日志记录经验.md",
+                "file": "编程经验/Logging日志增强-过期清理-异常记录经验.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Python-LoggingMiddleware异常日志记录经验"
+              "title": "Logging日志增强-过期清理-异常记录经验"
             }
           }
         ],
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程经验/Python-LoggingMiddleware异常日志记录经验.md",
+                "file": "编程经验/Logging日志增强-过期清理-异常记录经验.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Python-LoggingMiddleware异常日志记录经验"
+              "title": "Outline of Logging日志增强-过期清理-异常记录经验"
             }
           },
           {
@@ -207,8 +207,9 @@
   },
   "active": "a08effeeae3c0958",
   "lastOpenFiles": [
-    "编程经验/Python 美化命令行输出组件 - rich.md",
     "编程经验/Python-LoggingMiddleware异常日志记录经验.md",
+    "编程经验/Logging日志增强-过期清理-异常记录经验.md",
+    "编程经验/Python 美化命令行输出组件 - rich.md",
     "编程经验/Python-uv项目配置经验.md",
     "操作记录/nvim 学习记录.md",
     "Untitled.md",
@@ -235,7 +236,6 @@
     "学习笔记和教程/PI Agents.md",
     "待阅读的论文.md",
     "分析报告/MUI_vs_shadcn_ui对比分析报告.md",
-    "分析报告/React_vs_NextJS_Comparison_Report_20260418.md",
     "分析报告/Fundamental_vs_Palantir_Research_20260424",
     "编程经验",
     "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md~",
