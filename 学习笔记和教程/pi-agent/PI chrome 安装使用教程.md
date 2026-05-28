@@ -13,3 +13,4 @@ Then in Pi:
 
 /chrome doctor # 查看健康情况
 
+> 这个东西目前搞不太懂，暂时先放弃了
