@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "我的项目/项目价值.md",
+                "file": "学习笔记和教程/pi-agent/PI chrome 安装使用教程.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "项目价值"
+              "title": "PI chrome 安装使用教程"
             }
           }
         ],
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "我的项目/项目价值.md",
+                "file": "学习笔记和教程/pi-agent/PI chrome 安装使用教程.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 项目价值"
+              "title": "Outline of PI chrome 安装使用教程"
             }
           },
           {
@@ -207,11 +207,9 @@
   },
   "active": "a08effeeae3c0958",
   "lastOpenFiles": [
-    "分析报告/Fundamental_vs_Palantir_Research_20260424/research_report.md",
     "我的项目/项目价值.md",
-    "我的项目/开发流程.md",
-    "学习笔记和教程/pi-agent/PI chrome 安装使用教程.md",
     "学习笔记和教程/Chrome Extension 开发入门教程.md",
+    "学习笔记和教程/pi-agent/PI chrome 安装使用教程.md",
     "编程经验/Logging日志增强-过期清理-异常记录经验.md",
     "学习笔记和教程/Chrome Extension 核心概念与原理.md",
     "操作记录/nvim 学习记录.md",
@@ -233,9 +231,11 @@
     "学习笔记和教程/Python开发环境pyrightconfig.json配置.md",
     "操作记录/安装配置p10k.md",
     "编程经验/Python-uv项目配置经验.md",
+    "我的项目/开发流程.md",
     "学习笔记和教程/pi-subagents 子代理扩展.md",
     "学习笔记和教程/PI Agents.md",
     "待阅读的论文.md",
+    "分析报告/MUI_vs_shadcn_ui对比分析报告.md",
     "分析报告/Fundamental_vs_Palantir_Research_20260424",
     "编程经验",
     "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md~",
