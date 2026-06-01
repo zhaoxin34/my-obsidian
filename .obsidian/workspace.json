@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "学习笔记和教程/pi-agent/值得一看的pi 扩展.md",
+                "file": "操作记录/nvim 学习记录.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "值得一看的pi 扩展"
+              "title": "nvim 学习记录"
             }
           }
         ],
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习笔记和教程/pi-agent/值得一看的pi 扩展.md",
+                "file": "操作记录/nvim 学习记录.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 值得一看的pi 扩展"
+              "title": "Outline of nvim 学习记录"
             }
           },
           {
@@ -207,9 +207,12 @@
   },
   "active": "a08effeeae3c0958",
   "lastOpenFiles": [
-    "学习笔记和教程/pi-agent/PI chrome 安装使用教程.md",
     "学习笔记和教程/pi-agent/值得一看的pi 扩展.md",
+    "操作记录/NeoVim Copilot安装配置.md",
     "我的项目/项目价值.md",
+    "分析报告/Fundamental_vs_Palantir_Research_20260424/research_report.md",
+    "我的项目/开发流程.md",
+    "学习笔记和教程/pi-agent/PI chrome 安装使用教程.md",
     "学习笔记和教程/Chrome Extension 开发入门教程.md",
     "编程经验/Logging日志增强-过期清理-异常记录经验.md",
     "学习笔记和教程/Chrome Extension 核心概念与原理.md",
@@ -232,10 +235,7 @@
     "学习笔记和教程/Python开发环境pyrightconfig.json配置.md",
     "操作记录/安装配置p10k.md",
     "编程经验/Python-uv项目配置经验.md",
-    "我的项目/开发流程.md",
     "学习笔记和教程/pi-subagents 子代理扩展.md",
-    "学习笔记和教程/PI Agents.md",
-    "待阅读的论文.md",
     "分析报告/Fundamental_vs_Palantir_Research_20260424",
     "编程经验",
     "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md~",
