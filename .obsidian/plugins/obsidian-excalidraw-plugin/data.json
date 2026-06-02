@@ -142,10 +142,11 @@
             "version": 126,
             "versionNonce": 1977009445,
             "isDeleted": false,
-            "boundElements": null,
+            "boundElements": [],
             "updated": 1777020095880,
             "link": null,
-            "locked": false
+            "locked": false,
+            "hasTextLink": false
           }
         ],
         "id": "ljmd4M9l_Oq2pNxoC8c7y",

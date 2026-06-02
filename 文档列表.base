@@ -3,13 +3,13 @@ views:
     name: Table
     filters:
       and:
-        - file.ext == "md"
         - '!file.inFolder("laop")'
     order:
       - file.name
       - file.ctime
       - file.folder
       - tags
+      - file.ext
     sort:
       - property: file.ctime
         direction: DESC

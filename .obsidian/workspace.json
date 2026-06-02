@@ -25,14 +25,13 @@
             "id": "a08effeeae3c0958",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "待阅读的论文.md",
-                "mode": "source",
-                "source": false
+                "file": "文档列表.base",
+                "viewName": "Table"
               },
-              "icon": "lucide-file",
-              "title": "待阅读的论文"
+              "icon": "lucide-table",
+              "title": "文档列表"
             }
           }
         ],
@@ -155,13 +154,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "待阅读的论文.md",
+                "file": "文档列表.base",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 待阅读的论文"
+              "title": "Outline of 文档列表"
             }
           },
           {
@@ -207,8 +206,12 @@
   },
   "active": "a08effeeae3c0958",
   "lastOpenFiles": [
-    "CLAUDE.md",
+    "我的项目/全自动营销产品/自动营销-TOB型软件公司销售全流程.excalidraw",
+    "文档列表.base",
+    "Pasted image 20260420001630.png",
+    "Pasted image 20260420001507.png",
     "待阅读的论文.md",
+    "CLAUDE.md",
     "学习笔记和教程/Lightpanda Browser 入门手册.md",
     "我的项目/项目价值.md",
     "学习笔记和教程/Rust学习记录.md",
@@ -235,14 +238,10 @@
     "学习笔记和教程/pi-agent/pi-subagents 子代理扩展.md",
     "学习笔记和教程/pi-agent",
     "Untitled.canvas",
-    "操作记录/python 环境初始化.md",
     "分析报告/Fundamental_vs_Palantir_Research_20260424",
     "编程经验",
     "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md~",
-    "文档列表.base",
     "Pasted image 20260420002225.png",
-    "Pasted image 20260420001630.png",
-    "Pasted image 20260420001507.png",
     "分析报告/五一促销营销ROI最大化策略调查报告.md~",
     "分析报告/五一促销营销ROI最大化策略调查报告.html",
     "分析报告/CDP客户数据平台产品对比分析报告.md~",
