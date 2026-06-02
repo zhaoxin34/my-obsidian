@@ -32,3 +32,39 @@
 16:11:14 [INFO] AppBlur: 应用失去焦点
 21:55:25 [INFO] AppFocus: 应用获得焦点
 21:55:27 [INFO] PollingService stopped
+22:09:23 [INFO] restore: loaded data={'panes': {}}
+22:09:23 [INFO] restore: zellij panes count=29
+22:09:23 [INFO] === on_mount START ===
+22:09:23 [INFO] === creating PollingService ===
+22:09:23 [INFO] PollingService: init cache /Users/zhaoxin/.config/ubar/config.toml mtime=1780240544.6744144
+22:09:23 [INFO] PollingService: config not found /Volumes/data/working/my-obsidian/.ubar/config.toml
+22:09:23 [INFO] === starting PollingService ===
+22:09:23 [INFO] === on_mount END ===
+22:09:23 [INFO] Socket server started: /Volumes/data/working/my-obsidian/.ubar/ubar.sock
+22:12:20 [INFO] AppBlur: 应用失去焦点
+22:12:21 [INFO] AppFocus: 应用获得焦点
+22:12:21 [INFO] AppBlur: 应用失去焦点
+22:12:22 [INFO] AppFocus: 应用获得焦点
+22:12:24 [INFO] PollingService stopped
+22:12:25 [INFO] restore: loaded data={'panes': {}}
+22:12:25 [INFO] restore: zellij panes count=29
+22:12:25 [INFO] === on_mount START ===
+22:12:25 [INFO] === creating PollingService ===
+22:12:25 [INFO] PollingService: init cache /Users/zhaoxin/.config/ubar/config.toml mtime=1780240544.6744144
+22:12:25 [INFO] PollingService: config not found /Volumes/data/working/my-obsidian/.ubar/config.toml
+22:12:25 [INFO] === starting PollingService ===
+22:12:25 [INFO] PollingService started
+22:12:25 [INFO] === on_mount END ===
+22:12:25 [INFO] Socket server started: /Volumes/data/working/my-obsidian/.ubar/ubar.sock
+22:14:33 [INFO] AppBlur: 应用失去焦点
+22:14:33 [INFO] AppFocus: 应用获得焦点
+22:14:35 [INFO] PollingService stopped
+22:14:36 [INFO] restore: loaded data={'panes': {}}
+22:14:36 [INFO] restore: zellij panes count=29
+22:14:36 [INFO] === on_mount START ===
+22:14:36 [INFO] === creating PollingService ===
+22:14:36 [INFO] PollingService: init cache /Users/zhaoxin/.config/ubar/config.toml mtime=1780240544.6744144
+22:14:36 [INFO] PollingService: config not found /Volumes/data/working/my-obsidian/.ubar/config.toml
+22:14:36 [INFO] === starting PollingService ===
+22:14:36 [INFO] === on_mount END ===
+22:14:36 [INFO] Socket server started: /Volumes/data/working/my-obsidian/.ubar/ubar.sock
