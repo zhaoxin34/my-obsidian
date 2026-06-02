@@ -68,3 +68,6 @@
 22:14:36 [INFO] === starting PollingService ===
 22:14:36 [INFO] === on_mount END ===
 22:14:36 [INFO] Socket server started: /Volumes/data/working/my-obsidian/.ubar/ubar.sock
+22:18:43 [INFO] AppBlur: 应用失去焦点
+22:18:43 [INFO] AppFocus: 应用获得焦点
+22:18:45 [INFO] PollingService stopped
