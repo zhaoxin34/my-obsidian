@@ -25,13 +25,17 @@
             "id": "a08effeeae3c0958",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "canvas",
               "state": {
-                "file": "文档列表.base",
-                "viewName": "Table"
+                "file": "我的项目/plato/三权分立图.canvas",
+                "viewState": {
+                  "x": 300,
+                  "y": 277.5,
+                  "zoom": 0
+                }
               },
-              "icon": "lucide-table",
-              "title": "文档列表"
+              "icon": "lucide-layout-dashboard",
+              "title": "三权分立图"
             }
           }
         ],
@@ -154,13 +158,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "文档列表.base",
+                "file": "我的项目/plato/三权分立图.canvas",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 文档列表"
+              "title": "Outline of 三权分立图"
             }
           },
           {
@@ -206,8 +210,14 @@
   },
   "active": "a08effeeae3c0958",
   "lastOpenFiles": [
-    "我的项目/全自动营销产品/自动营销-TOB型软件公司销售全流程.excalidraw",
+    "我的项目/全自动营销产品/images/proactive-agent-evo.png",
+    "我的项目/全自动营销产品/images/proactive-agent-stack.png",
+    "我的项目/全自动营销产品/images/ChatGPT Image Jun 2, 2026, 04_06_58 PM.png",
+    "我的项目/全自动营销产品/images/ChatGPT Image Jun 2, 2026, 03_11_57 PM.png",
+    "我的项目/全自动营销产品/images",
     "文档列表.base",
+    "我的项目/plato/Plato.excalidraw.md",
+    "我的项目/全自动营销产品/自动营销-TOB型软件公司销售全流程.excalidraw",
     "Pasted image 20260420001630.png",
     "Pasted image 20260420001507.png",
     "待阅读的论文.md",
@@ -235,7 +245,6 @@
     "学习笔记和教程/马尔可夫链 Markov Chain 教程.md",
     "学习笔记和教程/pi-agent/Pi Coding Agent 入门教程.md~",
     "学习笔记和教程/pi-agent/Pi Coding Agent 入门教程.md",
-    "学习笔记和教程/pi-agent/pi-subagents 子代理扩展.md",
     "学习笔记和教程/pi-agent",
     "Untitled.canvas",
     "分析报告/Fundamental_vs_Palantir_Research_20260424",
@@ -244,15 +253,10 @@
     "Pasted image 20260420002225.png",
     "分析报告/五一促销营销ROI最大化策略调查报告.md~",
     "分析报告/五一促销营销ROI最大化策略调查报告.html",
-    "分析报告/CDP客户数据平台产品对比分析报告.md~",
     "分析报告/images/cdp-salesforce-data-cloud-architecture.png",
     "分析报告/images/cdp-mparticle-architecture.png",
     "分析报告/images/cdp-segment-architecture.png",
     "分析报告/images/cdp-hightouch-composable.svg",
-    "分析报告/images/cdp-hightouch-platform-overview.png",
-    "分析报告/images/cdp-hightouch-composable.jpg",
-    "分析报告/images/cdp-hightouch-architecture.jpg",
-    "分析报告/images",
     "我的项目/plato/三权分立图.canvas",
     "我的项目/三权分立图.canvas",
     "my-obsidian/ai/三权分立图.canvas"

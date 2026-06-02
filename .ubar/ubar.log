@@ -1,0 +1,32 @@
+16:07:20 [INFO] restore: loaded data={'panes': {}}
+16:07:20 [INFO] restore: zellij panes count=17
+16:07:20 [INFO] === on_mount START ===
+16:07:20 [INFO] === creating PollingService ===
+16:07:20 [INFO] PollingService: init cache /Users/zhaoxin/.config/ubar/config.toml mtime=1780240544.6744144
+16:07:20 [INFO] PollingService: config not found /Volumes/data/working/my-obsidian/.ubar/config.toml
+16:07:20 [INFO] === starting PollingService ===
+16:07:20 [INFO] PollingService started
+16:07:20 [INFO] === on_mount END ===
+16:07:20 [INFO] Socket server started: /Volumes/data/working/my-obsidian/.ubar/ubar.sock
+16:07:55 [INFO] AppFocus: 应用获得焦点
+16:07:55 [INFO] AppFocus: 应用获得焦点
+16:07:55 [INFO] AppFocus: 应用获得焦点
+16:07:57 [INFO] $ zellij action new-pane --floating -c -- zsh -ic yazi
+16:07:57 [INFO] _on_model_update: model updated, saving...
+16:07:57 [INFO] _on_model_update: model updated, saving...
+16:07:57 [INFO] AppBlur: 应用失去焦点
+16:09:36 [INFO] AppFocus: 应用获得焦点
+16:09:37 [INFO] _on_model_update: model updated, saving...
+16:09:37 [INFO] _on_model_update: model updated, saving...
+16:09:39 [INFO] AppBlur: 应用失去焦点
+16:10:06 [INFO] AppFocus: 应用获得焦点
+16:10:06 [INFO] AppFocus: 应用获得焦点
+16:10:06 [INFO] AppFocus: 应用获得焦点
+16:10:07 [INFO] $ zellij action new-pane --floating -c -- zsh -ic yazi
+16:10:07 [INFO] _on_model_update: model updated, saving...
+16:10:07 [INFO] _on_model_update: model updated, saving...
+16:10:07 [INFO] AppBlur: 应用失去焦点
+16:11:09 [INFO] AppFocus: 应用获得焦点
+16:11:13 [INFO] _on_model_update: model updated, saving...
+16:11:13 [INFO] _on_model_update: model updated, saving...
+16:11:14 [INFO] AppBlur: 应用失去焦点
