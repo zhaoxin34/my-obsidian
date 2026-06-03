@@ -25,17 +25,14 @@
             "id": "a08effeeae3c0958",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "我的项目/plato/三权分立图.canvas",
-                "viewState": {
-                  "x": 300,
-                  "y": 277.5,
-                  "zoom": 0
-                }
+                "file": "技术工作/Windows WSL 操作指南.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "三权分立图"
+              "icon": "lucide-file",
+              "title": "Windows WSL 操作指南"
             }
           }
         ],
@@ -158,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "我的项目/plato/三权分立图.canvas",
+                "file": "技术工作/Windows WSL 操作指南.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 三权分立图"
+              "title": "Outline of Windows WSL 操作指南"
             }
           },
           {
@@ -210,6 +207,7 @@
   },
   "active": "a08effeeae3c0958",
   "lastOpenFiles": [
+    "我的项目/plato/三权分立图.canvas",
     "我的项目/全自动营销产品/images/proactive-agent-evo.png",
     "我的项目/全自动营销产品/images/proactive-agent-stack.png",
     "我的项目/全自动营销产品/images/ChatGPT Image Jun 2, 2026, 04_06_58 PM.png",
@@ -256,8 +254,6 @@
     "分析报告/images/cdp-salesforce-data-cloud-architecture.png",
     "分析报告/images/cdp-mparticle-architecture.png",
     "分析报告/images/cdp-segment-architecture.png",
-    "分析报告/images/cdp-hightouch-composable.svg",
-    "我的项目/plato/三权分立图.canvas",
     "我的项目/三权分立图.canvas",
     "my-obsidian/ai/三权分立图.canvas"
   ]
