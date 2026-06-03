@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作记录/在docker虚拟机下安装配置openvpn.md",
+                "file": "待阅读的论文.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "在docker虚拟机下安装配置openvpn"
+              "title": "待阅读的论文"
             }
           }
         ],
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "操作记录/在docker虚拟机下安装配置openvpn.md",
+                "file": "待阅读的论文.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 在docker虚拟机下安装配置openvpn"
+              "title": "Outline of 待阅读的论文"
             }
           },
           {
@@ -207,6 +207,7 @@
   },
   "active": "a08effeeae3c0958",
   "lastOpenFiles": [
+    "操作记录/在docker虚拟机下安装配置openvpn.md",
     "学习笔记和教程/使用-OrbStack-运行第一个-Ubuntu-虚拟机.md",
     "学习笔记和教程/OrbStack-工作原理深度解析.md",
     "学习笔记和教程/pi-agent/值得一看的pi 扩展.md",
@@ -242,7 +243,6 @@
     "学习笔记和教程/pi-agent/01-Extensions 扩展.md",
     "学习笔记和教程/pi-agent/04-TUI 组件.md",
     "学习笔记和教程/pi-agent/03-RPC 模式.md",
-    "学习笔记和教程/pi-agent/02-SDK.md",
     "学习笔记和教程/pi-agent/Pi Coding Agent 入门教程.md~",
     "学习笔记和教程/pi-agent",
     "Untitled.canvas",
