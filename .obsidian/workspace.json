@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术工作/Windows WSL 操作指南.md",
+                "file": "学习笔记和教程/OrbStack-工作原理深度解析.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Windows WSL 操作指南"
+              "title": "OrbStack-工作原理深度解析"
             }
           }
         ],
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术工作/Windows WSL 操作指南.md",
+                "file": "学习笔记和教程/OrbStack-工作原理深度解析.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Windows WSL 操作指南"
+              "title": "Outline of OrbStack-工作原理深度解析"
             }
           },
           {
@@ -189,7 +189,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 709
+    "width": 403
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -207,6 +207,9 @@
   },
   "active": "a08effeeae3c0958",
   "lastOpenFiles": [
+    "学习笔记和教程/使用-OrbStack-运行第一个-Ubuntu-虚拟机.md",
+    "学习笔记和教程/OrbStack-工作原理深度解析.md",
+    "技术工作/Windows WSL 操作指南.md",
     "我的项目/plato/三权分立图.canvas",
     "我的项目/全自动营销产品/images/proactive-agent-evo.png",
     "我的项目/全自动营销产品/images/proactive-agent-stack.png",
@@ -240,9 +243,7 @@
     "学习笔记和教程/pi-agent/04-TUI 组件.md",
     "学习笔记和教程/pi-agent/03-RPC 模式.md",
     "学习笔记和教程/pi-agent/02-SDK.md",
-    "学习笔记和教程/马尔可夫链 Markov Chain 教程.md",
     "学习笔记和教程/pi-agent/Pi Coding Agent 入门教程.md~",
-    "学习笔记和教程/pi-agent/Pi Coding Agent 入门教程.md",
     "学习笔记和教程/pi-agent",
     "Untitled.canvas",
     "分析报告/Fundamental_vs_Palantir_Research_20260424",
