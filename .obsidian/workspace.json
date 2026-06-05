@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "待阅读的论文.md",
+                "file": "学习笔记和教程/pi-agent/01-Extensions 扩展.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "待阅读的论文"
+              "title": "01-Extensions 扩展"
             }
           }
         ],
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "待阅读的论文.md",
+                "file": "学习笔记和教程/pi-agent/01-Extensions 扩展.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 待阅读的论文"
+              "title": "Outline of 01-Extensions 扩展"
             }
           },
           {
@@ -207,9 +207,9 @@
   },
   "active": "a08effeeae3c0958",
   "lastOpenFiles": [
+    "待阅读的论文.md",
     "操作记录/Ollama 安装和使用.md",
     "学习笔记和教程/pi-agent/值得一看的pi 扩展.md",
-    "待阅读的论文.md",
     "编程经验/Log4j2-日志级别配置不生效解决方案.md",
     "操作记录/在docker虚拟机下安装配置openvpn.md",
     "学习笔记和教程/使用-OrbStack-运行第一个-Ubuntu-虚拟机.md",
