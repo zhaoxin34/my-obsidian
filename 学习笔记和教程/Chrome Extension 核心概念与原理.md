@@ -398,7 +398,7 @@ mindmap
     root((MV3 安全))
         远程代码禁止
             所有代码打包
-            无 eval()
+            无 eval
             无内联脚本
         权限控制
             Prominent Disclosure
