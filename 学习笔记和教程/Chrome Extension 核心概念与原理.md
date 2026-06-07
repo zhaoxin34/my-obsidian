@@ -90,12 +90,12 @@ Chrome Extension 由多种组件构成，理解它们的角色和通信方式是
 flowchart TB
     subgraph Browser["浏览器环境"]
         subgraph Extension["扩展环境（沙箱）"]
-            BG["Background Script\nService Worker"]
-            POP["Popup\n弹出窗口"]
-            OPT["Options Page\n选项页面"]
+            BG["Background Script<br>Service Worker"]
+            POP["Popup<br>弹出窗口"]
+            OPT["Options Page<br>选项页面"]
         end
         
-        CT["Content Script\n内容脚本"]
+        CT["Content Script<br>内容脚本"]
     end
     
     subgraph WebPage["网页环境"]
@@ -103,7 +103,7 @@ flowchart TB
     end
     
     subgraph User["用户界面"]
-        TB["Toolbar\n工具栏图标"]
+        TB["Toolbar<br>工具栏图标"]
         MN["右键菜单"]
     end
     
