@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作记录/nvim 学习记录.md",
+                "file": "学习笔记和教程/Chrome Extension 开发入门教程.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "nvim 学习记录"
+              "title": "Chrome Extension 开发入门教程"
             }
           }
         ],
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "操作记录/nvim 学习记录.md",
+                "file": "学习笔记和教程/Chrome Extension 开发入门教程.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of nvim 学习记录"
+              "title": "Outline of Chrome Extension 开发入门教程"
             }
           },
           {
@@ -207,8 +207,9 @@
   },
   "active": "a08effeeae3c0958",
   "lastOpenFiles": [
-    "操作记录/NeoVim Copilot安装配置.md",
     "学习笔记和教程/Chrome Extension 核心概念与原理.md",
+    "操作记录/nvim 学习记录.md",
+    "操作记录/NeoVim Copilot安装配置.md",
     "学习笔记和教程/Chrome Extension 开发入门教程.md",
     "学习笔记和教程/DeepTutor 港大开源AI学习助手研究报告.md",
     "学习笔记和教程/pi-agent/01-Extensions 扩展.md",
@@ -236,7 +237,6 @@
     "我的项目/项目价值.md",
     "学习笔记和教程/Rust学习记录.md",
     "操作记录/Zellij 操作记录.md",
-    "操作记录/nvim 学习记录.md",
     "分析报告/Fundamental_vs_Palantir_Research_20260424/research_report.md",
     "我的项目/开发流程.md",
     "学习笔记和教程/pi-agent/PI chrome 安装使用教程.md",
