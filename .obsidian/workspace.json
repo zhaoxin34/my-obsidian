@@ -50,7 +50,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -169,13 +169,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习笔记和教程/Chrome Extension 开发入门教程.md",
+                "file": "学习笔记和教程/Chrome Extension 核心概念与原理.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Chrome Extension 开发入门教程"
+              "title": "Outline of Chrome Extension 核心概念与原理"
             }
           },
           {
@@ -219,8 +219,9 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "4a5384336ad6121a",
+  "active": "a08effeeae3c0958",
   "lastOpenFiles": [
+    "学习笔记和教程/Chrome Extension 开发入门教程.md",
     "我的项目/拼图.md",
     "我的项目/chatgpt-隐形知识萃取.md",
     "编程经验/rrweb-录制时长分段限制经验.md",
@@ -232,7 +233,6 @@
     "编程经验/Java-Scala-catch-Throwable经验.md",
     "antagent/核心架构.md",
     "antagent",
-    "学习笔记和教程/Chrome Extension 开发入门教程.md",
     "操作记录/nvim 学习记录.md",
     "操作记录/NeoVim Copilot安装配置.md",
     "学习笔记和教程/DeepTutor 港大开源AI学习助手研究报告.md",
