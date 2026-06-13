@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程经验/Java-Scala-catch-Throwable经验.md",
+                "file": "学习笔记和教程/Chrome Extension 核心概念与原理.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Java-Scala-catch-Throwable经验"
+              "title": "Chrome Extension 核心概念与原理"
             }
           },
           {
@@ -169,13 +169,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程经验/Java-Scala-catch-Throwable经验.md",
+                "file": "学习笔记和教程/Chrome Extension 核心概念与原理.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Java-Scala-catch-Throwable经验"
+              "title": "Outline of Chrome Extension 核心概念与原理"
             }
           },
           {
@@ -221,6 +221,7 @@
   },
   "active": "a08effeeae3c0958",
   "lastOpenFiles": [
+    "编程经验/Java-Scala-catch-Throwable经验.md",
     "学习笔记和教程/Chrome Extension 核心概念与原理.md",
     "学习笔记和教程/Chrome Extension 开发入门教程.md",
     "我的项目/拼图.md",
@@ -230,7 +231,6 @@
     "编程经验/rrweb-回放架构-Controller与UI分离经验.md",
     "编程经验/npm-pierre-theming依赖问题.md",
     "编程经验/Spark-HiveMetastore版本不兼容解决方案.md",
-    "编程经验/Java-Scala-catch-Throwable经验.md",
     "antagent/核心架构.md",
     "antagent",
     "操作记录/nvim 学习记录.md",
