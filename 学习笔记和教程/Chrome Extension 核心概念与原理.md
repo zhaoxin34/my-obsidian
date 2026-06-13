@@ -258,11 +258,11 @@ chrome.storage.local.get('key', function(result) {
 });
 ```
 
-| 存储类型 | 用途 | 容量 |
-|----------|------|------|
-| `chrome.storage.local` | 本地存储 | 约 10MB |
-| `chrome.storage.sync` | 同步到 Google 账户 | 约 100KB |
-| `chrome.storage.session` | 会话存储（内存） | 约 10MB |
+| 存储类型                     | 用途            | 容量      |
+| ------------------------ | ------------- | ------- |
+| `chrome.storage.local`   | 本地存储          | 约 10MB  |
+| `chrome.storage.sync`    | 同步到 Google 账户 | 约 100KB |
+| `chrome.storage.session` | 会话存储（内存）      | 约 10MB  |
 
 ### 3. 广播消息
 
