@@ -29,73 +29,73 @@
       "id": "3",
       "subject": "写 02-微调全景图.md",
       "description": "微调定位：vs Prompt Engineering vs RAG、SFT/IT/Continue Pretraining/DPO/RLHF的对比矩阵、什么场景该微调、用Mermaid画决策树",
-      "status": "in_progress",
+      "status": "completed",
       "activeForm": "写微调全景图",
       "metadata": {},
       "blocks": [],
       "blockedBy": [],
       "createdAt": 1782219848655,
-      "updatedAt": 1782220065117
+      "updatedAt": 1782220161513
     },
     {
       "id": "4",
       "subject": "写 03-数据准备.md",
       "description": "Alpaca/ShareGPT/Messages格式对比、数据质量>数量、去重、长度分布、对话模板与chat template、token数预算估算、合成数据",
-      "status": "pending",
+      "status": "completed",
       "activeForm": "写数据准备章节",
       "metadata": {},
       "blocks": [],
       "blockedBy": [],
       "createdAt": 1782219848655,
-      "updatedAt": 1782219848655
+      "updatedAt": 1782220279654
     },
     {
       "id": "5",
       "subject": "写 04-微调方法原理.md",
       "description": "Full Fine-tuning、LoRA的数学推导（低秩分解W=W0+BA）、QLoRA的NF4量化+双量化+分页优化器、Adapter/Prefix/Prompt Tuning对比、用数学公式+矩阵图说明",
-      "status": "pending",
+      "status": "completed",
       "activeForm": "写微调方法原理",
       "metadata": {},
       "blocks": [],
       "blockedBy": [],
       "createdAt": 1782219848656,
-      "updatedAt": 1782219848656
+      "updatedAt": 1782220410153
     },
     {
       "id": "6",
       "subject": "写 05-实战：用QLoRA微调Qwen.md",
       "description": "端到端实战：环境安装、用trl的SFTTrainer、配置peft的LoraConfig、加载Qwen2.5-7B-Instruct+4bit量化、训练一个领域问答助手、合并LoRA权重、推理测试。完整可运行代码",
-      "status": "pending",
+      "status": "completed",
       "activeForm": "写实战章节",
       "metadata": {},
       "blocks": [],
       "blockedBy": [],
       "createdAt": 1782219848656,
-      "updatedAt": 1782219848656
+      "updatedAt": 1782220556424
     },
     {
       "id": "7",
       "subject": "写 06-训练评估与调参.md",
       "description": "Loss曲线解读、过拟合判断、困惑度(PPL)、BLEU/ROUGE参考、BLEU在LLM的局限、Eval数据集构建、关键超参（LR、epochs、batch_size）、梯度累积、early stopping",
-      "status": "pending",
+      "status": "completed",
       "activeForm": "写评估与调参",
       "metadata": {},
       "blocks": [],
       "blockedBy": [],
       "createdAt": 1782219848656,
-      "updatedAt": 1782219848656
+      "updatedAt": 1782220708524
     },
     {
       "id": "8",
       "subject": "写 07-进阶与工程实践.md",
       "description": "DPO/ORPO/PPO的区别和数学原理、多GPU训练(FSDP/DeepSpeed ZeRO)、vLLM部署、模型合并与量化导出、常见错误清单",
-      "status": "pending",
+      "status": "in_progress",
       "activeForm": "写进阶与工程实践",
       "metadata": {},
       "blocks": [],
       "blockedBy": [],
       "createdAt": 1782219848657,
-      "updatedAt": 1782219848657
+      "updatedAt": 1782220708528
     }
   ]
 }
