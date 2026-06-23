@@ -89,13 +89,13 @@
       "id": "8",
       "subject": "写 07-进阶与工程实践.md",
       "description": "DPO/ORPO/PPO的区别和数学原理、多GPU训练(FSDP/DeepSpeed ZeRO)、vLLM部署、模型合并与量化导出、常见错误清单",
-      "status": "in_progress",
+      "status": "completed",
       "activeForm": "写进阶与工程实践",
       "metadata": {},
       "blocks": [],
       "blockedBy": [],
       "createdAt": 1782219848657,
-      "updatedAt": 1782220708528
+      "updatedAt": 1782220825067
     }
   ]
 }
