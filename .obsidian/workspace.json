@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "技术工作/Redis 分布式锁.md",
+                "file": "编程经验/Spring + Mysql + Redis 事务的理解错误.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Redis 分布式锁"
+              "title": "Spring + Mysql + Redis 事务的理解错误"
             }
           }
         ]
@@ -140,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术工作/Redis 分布式锁.md",
+                "file": "编程经验/Spring + Mysql + Redis 事务的理解错误.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Redis 分布式锁"
+              "title": "Outline of Spring + Mysql + Redis 事务的理解错误"
             }
           },
           {
@@ -192,6 +192,7 @@
   },
   "active": "ae411f45fcd4dfdb",
   "lastOpenFiles": [
+    "技术工作/Redis 分布式锁.md",
     "Untitled.md",
     "学习笔记和教程/WebSocket 入门教程.md",
     "学习笔记和教程/LLM微调入门教程/07-进阶与工程实践.md",
@@ -219,7 +220,6 @@
     "编程经验/Spark-HiveMetastore版本不兼容解决方案.md",
     "antagent/核心架构.md",
     "antagent",
-    "操作记录/NeoVim Copilot安装配置.md",
     "我的项目/plato/三权分立图.canvas",
     "我的项目/全自动营销产品/images/proactive-agent-evo.png",
     "我的项目/全自动营销产品/images/proactive-agent-stack.png",
