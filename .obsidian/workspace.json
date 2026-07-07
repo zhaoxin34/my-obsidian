@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作记录/nvim 学习记录.md",
+                "file": "学习笔记和教程/lang-chain-graph/LangGraph学习教程.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "nvim 学习记录"
+              "title": "LangGraph学习教程"
             }
           }
         ]
@@ -140,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "操作记录/nvim 学习记录.md",
+                "file": "学习笔记和教程/lang-chain-graph/LangGraph学习教程.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of nvim 学习记录"
+              "title": "Outline of LangGraph学习教程"
             }
           },
           {
@@ -192,13 +192,13 @@
   },
   "active": "ae411f45fcd4dfdb",
   "lastOpenFiles": [
+    "操作记录/nvim 学习记录.md",
     "学习笔记和教程/lang-chain-graph/LangGraph学习教程.md",
     "学习笔记和教程/lang-chain-graph/LangChain学习笔记.md",
     "学习笔记和教程/lang-chain-graph/Langchain学习.md",
     "待阅读的论文.md",
     "编程经验/Chrome-Extension-MV3-消息通信调试经验.md",
     "学习笔记和教程/Vercel Workflow SDK 入门教程：为 JavaScript 异步流程注入持久化能力.md",
-    "操作记录/nvim 学习记录.md",
     "学习笔记和教程/LLM微调入门教程/02-微调全景图.md",
     "学习笔记和教程/LLM微调入门教程/00-导读与学习路线.md",
     "学习笔记和教程/LLM微调入门教程/01-Transformer与LLM基础回顾.md",
