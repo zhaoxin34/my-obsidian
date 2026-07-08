@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程经验/rrweb-回放架构-Controller与UI分离经验.md",
+                "file": "学习笔记和教程/LiteLLM 入门教程与 LangChain 对比分析.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "rrweb-回放架构-Controller与UI分离经验"
+              "title": "LiteLLM 入门教程与 LangChain 对比分析"
             }
           }
         ]
@@ -140,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程经验/rrweb-回放架构-Controller与UI分离经验.md",
+                "file": "学习笔记和教程/LiteLLM 入门教程与 LangChain 对比分析.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of rrweb-回放架构-Controller与UI分离经验"
+              "title": "Outline of LiteLLM 入门教程与 LangChain 对比分析"
             }
           },
           {
@@ -192,6 +192,7 @@
   },
   "active": "ae411f45fcd4dfdb",
   "lastOpenFiles": [
+    "编程经验/rrweb-回放架构-Controller与UI分离经验.md",
     "学习笔记和教程/LiteLLM 入门教程与 LangChain 对比分析.md",
     "学习笔记和教程/lang-chain-graph/LangGraph学习教程.md",
     "操作记录/nvim 学习记录.md",
@@ -218,7 +219,6 @@
     "学习笔记和教程/Chrome Extension 核心概念与原理.md",
     "学习笔记和教程/Chrome Extension 开发入门教程.md",
     "学习笔记和教程/Pi Coding Agent 入门教程.md",
-    "编程经验/Java-Scala-catch-Throwable经验.md",
     "antagent",
     "我的项目/plato/三权分立图.canvas",
     "我的项目/全自动营销产品/images/proactive-agent-evo.png",
