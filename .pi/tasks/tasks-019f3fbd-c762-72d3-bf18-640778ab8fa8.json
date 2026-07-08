@@ -1,0 +1,53 @@
+{
+  "nextId": 5,
+  "tasks": [
+    {
+      "id": "1",
+      "subject": "Phase 1-2 SCOPE + PLAN：锁定调研范围与查询策略",
+      "description": "确定调研边界：LiteLLM 是什么 / 核心特性 / 与 LangChain 对比 / 适用场景。规划多角度检索查询",
+      "status": "completed",
+      "activeForm": "规划调研范围与查询策略",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1783481317679,
+      "updatedAt": 1783481322915
+    },
+    {
+      "id": "2",
+      "subject": "Phase 3 RETRIEVE：并行检索多源信息",
+      "description": "并行抓取 LiteLLM 官方文档、GitHub README、对比文章、LangChain 官方资料、Tavily 检索补充",
+      "status": "completed",
+      "activeForm": "并行抓取多源信息",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1783481317680,
+      "updatedAt": 1783481401451
+    },
+    {
+      "id": "3",
+      "subject": "Phase 4-5 TRIANGULATE + SYNTHESIZE：交叉验证与综合",
+      "description": "交叉验证关键事实，综合成结构化内容，提取对比矩阵与选型建议",
+      "status": "in_progress",
+      "activeForm": "交叉验证与综合",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1783481317680,
+      "updatedAt": 1783481401452
+    },
+    {
+      "id": "4",
+      "subject": "Phase 8 PACKAGE：撰写教程到 学习笔记和教程/ 目录",
+      "description": "使用中文 + Mermaid + 引用编号格式，输出到 /Volumes/data/working/my-obsidian/学习笔记和教程/",
+      "status": "pending",
+      "activeForm": "撰写教程文档",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1783481317681,
+      "updatedAt": 1783481317681
+    }
+  ]
+}
