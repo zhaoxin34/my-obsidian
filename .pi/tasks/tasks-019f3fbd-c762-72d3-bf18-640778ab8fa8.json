@@ -29,25 +29,25 @@
       "id": "3",
       "subject": "Phase 4-5 TRIANGULATE + SYNTHESIZE：交叉验证与综合",
       "description": "交叉验证关键事实，综合成结构化内容，提取对比矩阵与选型建议",
-      "status": "in_progress",
+      "status": "completed",
       "activeForm": "交叉验证与综合",
       "metadata": {},
       "blocks": [],
       "blockedBy": [],
       "createdAt": 1783481317680,
-      "updatedAt": 1783481401452
+      "updatedAt": 1783481528924
     },
     {
       "id": "4",
       "subject": "Phase 8 PACKAGE：撰写教程到 学习笔记和教程/ 目录",
       "description": "使用中文 + Mermaid + 引用编号格式，输出到 /Volumes/data/working/my-obsidian/学习笔记和教程/",
-      "status": "pending",
+      "status": "completed",
       "activeForm": "撰写教程文档",
       "metadata": {},
       "blocks": [],
       "blockedBy": [],
       "createdAt": 1783481317681,
-      "updatedAt": 1783481317681
+      "updatedAt": 1783481528925
     }
   ]
 }
