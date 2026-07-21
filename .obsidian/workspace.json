@@ -25,14 +25,12 @@
             "id": "3f8a7c6f0d234f55",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "我的项目/全自动营销产品/全自动营销系统架构.md",
-                "mode": "source",
-                "source": false
+                "file": "我的项目/全自动营销产品/images/proactive-agent-stack.png"
               },
-              "icon": "lucide-file",
-              "title": "全自动营销系统架构"
+              "icon": "lucide-image",
+              "title": "proactive-agent-stack"
             }
           }
         ],
@@ -155,13 +153,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "我的项目/全自动营销产品/全自动营销系统架构.md",
+                "file": "我的项目/全自动营销产品/images/proactive-agent-stack.png",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 全自动营销系统架构"
+              "title": "Outline of proactive-agent-stack"
             }
           },
           {
@@ -207,19 +205,19 @@
   },
   "active": "3f8a7c6f0d234f55",
   "lastOpenFiles": [
+    "我的项目/全自动营销产品/images/proactive-agent-evo.png",
+    "我的项目/全自动营销产品/images/proactive-agent-stack.png",
+    "我的项目/全自动营销产品/全自动营销产品 - 2026-03 -25会议纪要.md",
+    "我的项目/全自动营销产品/全自动营销系统架构.md",
     "分析报告/Aurasell创业背景与经历.md",
     "分析报告/Aurasell与Salesforce_SFA对比研究报告.md",
     "我的项目/全自动营销产品/自动营销 - TOB 型软件公司的现状和变革.md",
     "我的项目/全自动营销产品/自动营销-TOB型软件公司销售全流程.excalidraw",
-    "我的项目/全自动营销产品/全自动营销系统架构.md",
     "我的项目/全自动营销产品/全自动营销产品 - 头脑风暴.md",
     "我的项目/全自动营销产品/Aurasell创业背景与经历.md",
-    "我的项目/全自动营销产品/全自动营销产品 - 2026-03 -25会议纪要.md",
     "我的项目/全自动营销产品/Aurasell与Salesforce_SFA对比研究报告.md",
     "我的项目/全自动营销产品/2026-4-13 继续思考.md",
     "我的项目/全自动营销产品/2026-3-24 会议纪要.md",
-    "我的项目/全自动营销产品/images/proactive-agent-evo.png",
-    "我的项目/全自动营销产品/images/proactive-agent-stack.png",
     "我的项目/数字分身/数字分身 - 头脑风暴.md",
     "我的项目/chatgpt-隐形知识萃取.md",
     "我的项目/开发流程.md",
@@ -235,7 +233,6 @@
     "学习笔记和教程/LLM微调入门教程/02-微调全景图.md",
     "学习笔记和教程/LLM微调入门教程/00-导读与学习路线.md",
     "学习笔记和教程/LLM微调入门教程/01-Transformer与LLM基础回顾.md",
-    "学习笔记和教程/LLM微调入门教程/03-数据准备.md",
     "学习笔记和教程/LLM微调入门教程",
     "antagent",
     "我的项目/plato/三权分立图.canvas",
