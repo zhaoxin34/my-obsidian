@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "我的项目/chatgpt-隐形知识萃取.md",
+                "file": "我的项目/全自动营销产品/全自动营销系统架构.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "chatgpt-隐形知识萃取"
+              "title": "全自动营销系统架构"
             }
           }
         ]
@@ -140,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "我的项目/chatgpt-隐形知识萃取.md",
+                "file": "我的项目/全自动营销产品/全自动营销系统架构.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of chatgpt-隐形知识萃取"
+              "title": "Outline of 全自动营销系统架构"
             }
           },
           {
@@ -192,6 +192,11 @@
   },
   "active": "ae411f45fcd4dfdb",
   "lastOpenFiles": [
+    "我的项目/全自动营销产品/自动营销-TOB型软件公司销售全流程.excalidraw",
+    "分析报告/Aurasell与Salesforce_SFA对比研究报告.md",
+    "我的项目/全自动营销产品/2026-4-13 继续思考.md",
+    "分析报告/Aurasell创业背景与经历.md",
+    "我的项目/chatgpt-隐形知识萃取.md",
     "我的项目/项目价值.md",
     "待阅读的论文.md",
     "编程经验/WeakRef与全局Map混用导致幽灵元素问题.md",
@@ -214,11 +219,6 @@
     "学习笔记和教程/LLM微调入门教程/04-微调方法原理.md",
     "学习笔记和教程/LLM微调入门教程",
     "学习笔记和教程/pi-agent/01-Extensions 扩展.md",
-    "学习笔记和教程/pi-agent/02-SDK.md",
-    "学习笔记和教程/Chrome Extension 核心概念与原理.md",
-    "学习笔记和教程/Chrome Extension 开发入门教程.md",
-    "学习笔记和教程/Pi Coding Agent 入门教程.md",
-    "编程经验/Java-Scala-catch-Throwable经验.md",
     "antagent",
     "我的项目/plato/三权分立图.canvas",
     "我的项目/全自动营销产品/images/proactive-agent-evo.png",
@@ -227,7 +227,6 @@
     "我的项目/全自动营销产品/images/ChatGPT Image Jun 2, 2026, 03_11_57 PM.png",
     "我的项目/全自动营销产品/images",
     "文档列表.base",
-    "我的项目/全自动营销产品/自动营销-TOB型软件公司销售全流程.excalidraw",
     "Pasted image 20260420001630.png",
     "Pasted image 20260420001507.png",
     "学习笔记和教程/pi-agent/Pi Coding Agent 入门教程.md~",
