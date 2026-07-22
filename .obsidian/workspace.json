@@ -25,12 +25,14 @@
             "id": "3f8a7c6f0d234f55",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "我的项目/全自动营销产品/images/proactive-agent-stack.png"
+                "file": "学习笔记和教程/Karpathy_LLM_Wiki_打造个人知识库深度报告.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "proactive-agent-stack"
+              "icon": "lucide-file",
+              "title": "Karpathy_LLM_Wiki_打造个人知识库深度报告"
             }
           }
         ],
@@ -153,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "我的项目/全自动营销产品/images/proactive-agent-stack.png",
+                "file": "学习笔记和教程/Karpathy_LLM_Wiki_打造个人知识库深度报告.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of proactive-agent-stack"
+              "title": "Outline of Karpathy_LLM_Wiki_打造个人知识库深度报告"
             }
           },
           {
@@ -205,8 +207,8 @@
   },
   "active": "3f8a7c6f0d234f55",
   "lastOpenFiles": [
-    "我的项目/全自动营销产品/images/proactive-agent-evo.png",
     "我的项目/全自动营销产品/images/proactive-agent-stack.png",
+    "我的项目/全自动营销产品/images/proactive-agent-evo.png",
     "我的项目/全自动营销产品/全自动营销产品 - 2026-03 -25会议纪要.md",
     "我的项目/全自动营销产品/全自动营销系统架构.md",
     "分析报告/Aurasell创业背景与经历.md",
