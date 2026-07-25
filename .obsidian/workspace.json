@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "分析报告/知识库分层编排：从RAG到Agent-native_KCL_调研报告.md",
+                "file": "学习笔记和教程/Karpathy_LLM_Wiki_打造个人知识库深度报告.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "知识库分层编排：从RAG到Agent-native_KCL_调研报告"
+              "title": "Karpathy_LLM_Wiki_打造个人知识库深度报告"
             }
           }
         ],
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "分析报告/知识库分层编排：从RAG到Agent-native_KCL_调研报告.md",
+                "file": "学习笔记和教程/Karpathy_LLM_Wiki_打造个人知识库深度报告.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 知识库分层编排：从RAG到Agent-native_KCL_调研报告"
+              "title": "Outline of Karpathy_LLM_Wiki_打造个人知识库深度报告"
             }
           },
           {
@@ -207,8 +207,8 @@
   },
   "active": "3f8a7c6f0d234f55",
   "lastOpenFiles": [
-    "学习笔记和教程/LLM微调入门教程/03-数据准备.md",
     "分析报告/知识库分层编排：从RAG到Agent-native_KCL_调研报告.md",
+    "学习笔记和教程/LLM微调入门教程/03-数据准备.md",
     "待阅读的论文.md",
     "文档列表.base",
     "学习笔记和教程/Karpathy_LLM_Wiki_打造个人知识库深度报告.md",
