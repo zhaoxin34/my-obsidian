@@ -1,0 +1,22 @@
+{
+  "topic": "NATS 教程：从入门到 JetStream 实践",
+  "query": "调查 nats.io 的功能并写一个教程（覆盖核心 pub/sub、request-reply、queue group、JetStream、KV、Object Store、安全、集群）",
+  "mode": "standard",
+  "language": "zh-CN",
+  "audience": "有消息中间件基础（Kafka/RabbitMQ）的开发者，目标是 60-90 分钟掌握 NATS 全貌并能上手",
+  "deliverable": "学习笔记和教程/NATS 教程：从入门到 JetStream 实践.md",
+  "research_folder": "学习笔记和教程/_research/NATS_Tutorial_20260727",
+  "date": "2026-07-27",
+  "provider": "tavily + fetch_content (NATS Docs / GitHub)",
+  "phases_executed": [
+    "Phase 1 SCOPE",
+    "Phase 2 PLAN",
+    "Phase 3 RETRIEVE",
+    "Phase 4 TRIANGULATE",
+    "Phase 4.5 OUTLINE REFINEMENT",
+    "Phase 5 SYNTHESIZE",
+    "Phase 6 CRITIQUE",
+    "Phase 7 REFINE",
+    "Phase 8 PACKAGE"
+  ]
+}

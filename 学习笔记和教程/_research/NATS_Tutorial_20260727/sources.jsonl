@@ -1,0 +1,36 @@
+{"id": 1, "title": "NATS.io 官网主页", "url": "https://nats.io/", "type": "official", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 2, "title": "NATS Docs: Overview", "url": "https://docs.nats.io/nats-concepts/overview", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 3, "title": "NATS Docs: Subject-Based Messaging", "url": "https://docs.nats.io/nats-concepts/subjects", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 4, "title": "NATS Docs: Request-Reply", "url": "https://docs.nats.io/nats-concepts/core-nats/reqreply", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 5, "title": "NATS Docs: Queue Groups", "url": "https://docs.nats.io/nats-concepts/core-nats/queue", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 6, "title": "NATS Docs: JetStream", "url": "https://docs.nats.io/nats-concepts/jetstream", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 7, "title": "NATS Docs: Streams", "url": "https://docs.nats.io/nats-concepts/jetstream/streams", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 8, "title": "NATS Docs: Consumers", "url": "https://docs.nats.io/nats-concepts/jetstream/consumers", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 9, "title": "NATS Docs: Key/Value Store", "url": "https://docs.nats.io/nats-concepts/jetstream/key-value-store", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 10, "title": "NATS Docs: Object Store", "url": "https://docs.nats.io/nats-concepts/jetstream/obj_store", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 11, "title": "NATS Docs: KV Walkthrough", "url": "https://docs.nats.io/nats-concepts/jetstream/key-value-store/kv_walkthrough", "type": "official-docs-walkthrough", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 12, "title": "NATS Docs: Object Store Walkthrough", "url": "https://docs.nats.io/nats-concepts/jetstream/obj_store/obj_walkthrough", "type": "official-docs-walkthrough", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 13, "title": "NATS Docs: JetStream Walkthrough", "url": "https://docs.nats.io/nats-concepts/jetstream/js_walkthrough", "type": "official-docs-walkthrough", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 14, "title": "NATS Docs: Security", "url": "https://docs.nats.io/nats-concepts/security", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 15, "title": "NATS Docs: Authentication", "url": "https://docs.nats.io/running-a-nats-service/configuration/securing_nats/auth_intro", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 16, "title": "NATS Docs: Multi Tenancy using Accounts", "url": "https://docs.nats.io/running-a-nats-service/configuration/securing_nats/accounts", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 17, "title": "NATS Docs: Clustering", "url": "https://docs.nats.io/running-a-nats-service/configuration/clustering", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 18, "title": "NATS Docs: Leaf Nodes", "url": "https://docs.nats.io/running-a-nats-service/configuration/leafnodes", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 19, "title": "NATS Docs: Super-cluster with Gateways", "url": "https://docs.nats.io/running-a-nats-service/configuration/gateways", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 20, "title": "NATS Docs: Monitoring", "url": "https://docs.nats.io/running-a-nats-service/configuration/monitoring", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 21, "title": "NATS Docs: Installing a NATS Server", "url": "https://docs.nats.io/running-a-nats-service/introduction/installation", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 22, "title": "NATS Docs: NATS and Docker", "url": "https://docs.nats.io/running-a-nats-service/nats_docker", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 23, "title": "NATS Docs: NATS Service Infrastructure", "url": "https://docs.nats.io/nats-concepts/service_infrastructure", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 24, "title": "NATS Docs: FAQ", "url": "https://docs.nats.io/reference/faq", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 25, "title": "NATS Docs: nats CLI", "url": "https://docs.nats.io/using-nats/nats-tools/nats_cli", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 26, "title": "NATS Docs: TLS", "url": "https://docs.nats.io/running-a-nats-service/configuration/securing_nats/tls", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 27, "title": "NATS Docs: Encrypting Connections with TLS", "url": "https://docs.nats.io/using-nats/developer/connecting/tls", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 28, "title": "NATS Docs: Developing with NATS / JetStream", "url": "https://docs.nats.io/using-nats/developer/develop_jetstream", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 29, "title": "GitHub: NATS 2.10 Release Notes", "url": "https://github.com/nats-io/nats.docs/blob/master/release_notes/whats_new_210.md", "type": "official-release-notes", "year": 2023, "retrieved": "2026-07-27"}
+{"id": 30, "title": "GitHub: nats-server v2.10.0 Release", "url": "https://github.com/nats-io/nats-server/releases/tag/v2.10.0", "type": "official-release-notes", "year": 2023, "retrieved": "2026-07-27"}
+{"id": 31, "title": "GitHub: nats-server v2.10.27 (CVE-2025-30215 fix)", "url": "https://github.com/nats-io/nats-server/releases/tag/v2.10.27", "type": "official-release-notes", "year": 2025, "retrieved": "2026-07-27"}
+{"id": 32, "title": "sanj.dev: NATS vs Apache Kafka vs RabbitMQ", "url": "https://sanj.dev/post/nats-kafka-rabbitmq-messaging-comparison/", "type": "industry-analysis", "year": 2025, "retrieved": "2026-07-27"}
+{"id": 33, "title": "dev.to: Message Broker Throughput: RabbitMQ vs Kafka vs NATS", "url": "https://dev.to/writingmuffin/message-broker-throughput-rabbitmq-vs-kafka-vs-nats-11hd", "type": "community-benchmark", "year": 2025, "retrieved": "2026-07-27"}
+{"id": 34, "title": "NATS by Example", "url": "https://natsbyexample.com", "type": "official-examples", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 35, "title": "NATS Docs: Leaf Node Configuration Block", "url": "https://docs.nats.io/running-a-nats-service/configuration/leafnodes/leafnode_conf", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
+{"id": 36, "title": "NATS Docs: Configuring Subject Mapping", "url": "https://docs.nats.io/running-a-nats-service/configuration/configuring_subject_mapping", "type": "official-docs", "year": 2026, "retrieved": "2026-07-27"}
