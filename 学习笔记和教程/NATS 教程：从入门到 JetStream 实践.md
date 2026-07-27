@@ -43,8 +43,8 @@ created: 2026-07-27
 
 ```bash
 brew install nats-server
-brew tap nats-io/natscli
-brew install nats-io/natscli/nats
+brew tap nats-io/nats-tools
+brew install nats-io/nats-tools/nats
 ```
 
 **Linux（curl 一行安装）**
