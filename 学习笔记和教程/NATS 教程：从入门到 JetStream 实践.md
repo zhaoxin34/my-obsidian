@@ -185,32 +185,14 @@ nats-server
 nats sub hello
 ```
 
-你应该看到：
-
-```text
-09:30:00 Subscribing on hello
-```
-
 ### 1.3 发布消息
 
 在终端 A 或第三个终端 C 都可以：
 
+按ctrl+d发送
 ```bash
-nats pub hello "你好, NATS!"
+nats pub hello
 ```
-
-回到终端 B，你应该看到：
-
-```text
-[#1] Received on "hello"
-你好, NATS!
-```
-
-在终端 A，你也能看到 `Published` 的统计。
-
-> **它是怎么工作的？** 发布者把消息发到 `hello` 这个"主题（subject）"上，NATS 服务器维护了一个"兴趣图（interest graph）" [5] —— 任何在 `hello` 上订阅的客户端都会收到这条消息。没有任何订阅者时，消息被默默丢弃 [5]。
-
-> **Tip** 后续步骤全部假设 NATS 服务还在运行。如果想清掉状态，重启 `nats-server` 即可（开发模式下无持久化）。
 
 ## Step 2：Subject 与 wildcard —— 用"业务语义"代替"IP + 端口"
 
