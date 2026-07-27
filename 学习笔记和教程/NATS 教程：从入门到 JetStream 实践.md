@@ -8,6 +8,16 @@ tags:
   - 教程
 source: nats.io / docs.nats.io / GitHub nats-io
 created: 2026-07-27
+revised: 2026-07-27
+revision_notes: |
+  基于本地实操验证（nats CLI v0.4.0 + nats-server v2.10.29）修订：
+  - 新增 Step 0：nats context 命名连接配置（v0.3+ 的核心抽象，原文未提及）
+  - Step 1 起改用 context，不再每次 `-s nats://...`
+  - Step 3.1 修正：nats reply 的 Go 模板语法（{{.Subject}} / {{.Data}} 都不存在）
+  - Step 5.2/5.3 补充：脚本环境下需用 `--defaults`，consumer 默认 ack policy 实际是 explicit 不是 none
+  - Step 5.4 输出格式更新：v0.4.0 分段（Options/Limits/State）
+  - Step 6.2 修正：CLI 不会显示 duplicate 提示（与原文预期不符）
+  - Step 11.1 集群配置修正：必须加 `server_name`，且 `routes` 至少包含自身与其他节点
 ---
 
 # NATS 教程：从入门到 JetStream 实践
@@ -75,6 +85,76 @@ nats cli version v0.2.x
 ```
 
 > **为什么装 `nats` CLI**：官方说得很直接 —— "the companion is the `nats` CLI tool that you should install... as it is the best tool to use to test, monitor, manage and generally interact with a NATS infrastructure" [3]。
+
+## Step 0：用 `nats context` 管理连接配置（v0.3+ 必学）
+
+> **核心要点**：现代 NATS CLI 的核心抽象是 **context（命名连接配置）**。每次命令敲 `-s nats://localhost:4222` 是 v0.2.x 的旧习惯，多环境/多集群切换会非常痛苦。先学会这个，后面所有步骤都干净一截。
+
+### 0.1 context 是什么
+
+一个 context 把"怎么连一台 NATS server"打包成一个有名字的配置项：
+
+- server URL（支持 cluster URL 列表）
+- 凭据（token / user-pass / creds / NKEY / JWT）
+- TLS 配置
+- 描述信息（给人看的）
+
+存储位置：`~/.config/nats/context/<name>.json`。
+
+### 0.2 创建并使用第一个 context
+
+先确认当前状态：
+
+```bash
+nats context ls
+# No known contexts   ← 第一次会显示这个
+```
+
+创建一个名为 `local` 的 context，指向本机 NATS server：
+
+```bash
+nats context add local --server nats://127.0.0.1:4222 --description "本机 NATS"
+```
+
+把它设为默认（`ls` 列表里带 `*` 的那个）：
+
+```bash
+nats context select local
+# 或一步到位：nats context add local --server nats://127.0.0.1:4222 --select
+```
+
+再看：
+
+```bash
+nats context ls
+# * local    nats://127.0.0.1:4222    本机 NATS
+```
+
+> 设置为默认后，下面所有 `nats pub / sub / stream` 等命令都不用再带 `-s`。
+
+### 0.3 多环境切换
+
+```bash
+nats context add staging  --server nats://staging.internal:4222 --token "..." --select
+nats context add prod      --server nats://prod.internal:4222    --creds ~/prod.creds
+
+nats context ls            # 看所有
+nats context select local  # 切回本机
+nats context previous      # 切回上一次的
+```
+
+`alias` `ctx` 是一样的：
+
+```bash
+nats ctx ls
+nats ctx select staging
+```
+
+### 0.4 为什么这步放在最前面
+
+剩下的 Step 1 - Step 11 都会用默认 context，省掉每个命令后面的 `-s` 长串。如果你已经有远程 server，用 `nats context add` 一行配置，后面所有命令就不用动了。
+
+> **踩坑提示**：CLI 默认会忽略 `--server` 参数，**优先使用默认 context**。如果发现命令连错了地方，先 `nats context ls` 看一下当前选中的。
 
 ## Step 1：启动你的第一个 NATS 服务并跑通 pub/sub
 
