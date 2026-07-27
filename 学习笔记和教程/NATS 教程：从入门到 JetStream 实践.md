@@ -291,7 +291,18 @@ nats pub orders.online.us.store99.shipped 'store99'
 在终端 B 启动一个应答者（responder），监听 subject `greet`：
 
 ```bash
-nats reply greet "你好, {{.Subject}} => {{.Data}}"
+nats reply greet "你好, 收到: {{Request}}"
+```
+
+> **模板可用字段**（CLI v0.4.0）：`{{Request}}`（请求内容）、`{{Count}}`（序号）、`{{Time}}` / `{{TimeStamp}}` / `{{Unix}}`（时间）、`{{ID}}`（随机 ID）、`{{Random min max}}`（随机串）。
+>
+> ⚠️ **常见踩坑**：旧的写法 `{{.Subject}}` / `{{.Data}}` 在 `nats reply` CLI 里**根本不存在**。原版文档示例有误，会报 `can't evaluate field Subject in type *util.pubData` 然后把模板原样输出。
+>
+> 想要访问原始 subject（如 `greet.>` 多 token 时），用 `--command` 模式：
+
+```bash
+nats reply 'weather.>' --command "curl -s wttr.in/{{1}}?format=3"
+# 在 --command 里，环境变量 NATS_REQUEST_SUBJECT 和 NATS_REQUEST_BODY 可用
 ```
 
 ### 3.2 发起请求
@@ -302,12 +313,15 @@ nats reply greet "你好, {{.Subject}} => {{.Data}}"
 nats request greet "请问现在几点?"
 ```
 
-你应该看到：
+实际看到的输出（CLI v0.4.0）：
 
 ```text
-Published [greet] : '请问现在几点?'
-Received  [_INBOX.xxx.xxx] : '你好, greet => 请问现在几点?'
+17:23:30 Sending request on "greet"
+17:23:30 Received with rtt 1.4ms
+你好, 收到: 请问现在几点?
 ```
+
+> 看到 `[_INBOX.xxx.xxx]` 了吗？它现在被 CLI 隐藏了。要看原始 inbox 可以加 `--raw`，或在 SDK 里订阅。
 
 > **它是怎么工作的？** 客户端自动生成一个唯一的 reply subject（inbox），订阅它，然后把请求连同 inbox 一起发出去 [8]。应答者收到后用 inbox 回复，NATS 路由回请求者。inbox 通常长得像 `_INBOX.Ua82OJamRdWof5FBoiKaRm.gZhJP6RU` [8]。
 
@@ -321,10 +335,11 @@ Received  [_INBOX.xxx.xxx] : '你好, greet => 请问现在几点?'
 nats request greet "还在吗?"
 ```
 
-你应该立刻看到：
+实际看到的输出：
 
 ```text
-nats: error: nats: no responders available for request
+17:23:31 Sending request on "greet"
+17:23:31 No responders are available
 ```
 
 这是 NATS 一个非常友好的特性：服务端知道当前 subject 没有订阅者时，会主动发回一个 `503` 状态 + 空 body [8]，请求者不用傻等 timeout。
@@ -391,6 +406,8 @@ nats account info
 
 ### 5.2 创建第一个 stream
 
+**交互式**（手输入，遇到无 TTY 会报错）：
+
 ```bash
 nats stream add ORDERS
 ```
@@ -403,6 +420,20 @@ nats stream add ORDERS
 - Retention: `Limits`（默认）
 - Discard Policy: `Old`
 - 其它全部回车用默认
+
+**脚本化**（推荐，写进 Makefile / 自动化）：
+
+```bash
+nats stream add ORDERS \
+  --subjects="orders.>" \
+  --storage=file \
+  --replicas=1 \
+  --retention=limits \
+  --discard=old \
+  --defaults
+```
+
+> ⚠️ **常见踩坑**：原文示例在 CI / script 里运行会报 `cannot prompt for user input without a terminal`。脚本里必须加 `--defaults`（其它提示项也用默认）并把所有配置用 flag 显式给出。
 
 > **stream 是什么？** Stream 是 JetStream 的"消息存储" [11]。它监听一组 subject，把这些 subject 上发布的消息持久化到磁盘或内存，并提供回放接口。
 >
@@ -417,18 +448,34 @@ nats stream add ORDERS
 打开终端 B 持续订阅（这个订阅会用 JetStream 的持久消费者）：
 
 ```bash
-nats consumer add ORDERS watch-all
+nats consumer add ORDERS watch-all --pull --defaults
 ```
 
-- Delivery target: 空（pull consumer）
-- Start policy: `all`
-- Acknowledgment policy: `none`
-- 其它回车
+实际拿到的是：
+
+```text
+Information for Consumer ORDERS > watch-all created ...
+
+                    Name: watch-all
+               Pull Mode: true
+          Deliver Policy: All
+              Ack Policy: Explicit    ← 注意：这是 explicit，不是 none
+                Ack Wait: 30.00s
+           Replay Policy: Instant
+```
+
+> ⚠️ **重要修正**：原文说"按提示 Acknowledgment policy: `none`"，这是**错的**。`nats consumer add --defaults` 默认创建出来是 `Ack Policy: Explicit`（必须手动 ack）。要拿到 `none` 必须显式 `--ack=none`。如果你想要"消费但不 ack"，需要 `--ack=none`：
+>
+> ```bash
+> nats consumer add ORDERS watch-all --pull --ack=none --defaults
+> ```
 
 > **为什么叫 pull consumer？** JetStream 消费者分两类 [12]：
 >
 > - **Push**：服务端主动把消息推到客户端的 delivery subject。
 > - **Pull**：客户端用 `Fetch` 主动拉一批。官方推荐新项目用 pull，"particularly when scalability, detailed flow control or error handling are a concern" [12]。
+>
+> 原文里说"Delivery target: 空（pull consumer）"是对的 —— `--defaults` 不指定 target 时默认就是 pull。但遇到脚本自动化必须显式加 `--pull`，否则也可能被提示。
 
 后台启动一个 pull：
 
@@ -442,7 +489,15 @@ nats consumer next ORDERS watch-all --count 5
 for i in 1 2 3 4 5; do nats pub orders.online.us.store42.created "order-$i"; done
 ```
 
-你应该看到 pull 终端一次性输出 5 条 `[#1] ... order-1` 到 `order-5`，最后退出。
+实际看到的是（CLI v0.4.0 输出更详细）：
+
+```text
+[17:24:51] subj: orders.online.us.store42.created / tries: 1 / cons seq: 1 / str seq: 1 / pending: 7
+order-1
+
+Acknowledged message
+...（共 5 条）
+```
 
 > **最神奇的一点**：现在再开一个 pull consumer，把这个 stream 拉一遍，你仍然能拿到 `order-1` 到 `order-5` 这 5 条历史消息。这就是 JetStream 的"replay"能力 [11]。
 
@@ -452,18 +507,42 @@ for i in 1 2 3 4 5; do nats pub orders.online.us.store42.created "order-$i"; don
 nats stream info ORDERS
 ```
 
-你应该看到类似：
+CLI v0.4.0 的输出比原文示例详细得多，分成 Options / Limits / State 三段：
 
 ```text
-Information for Stream ORDERS
+Information for Stream ORDERS created 2026-07-27 17:24:34
 
-              Subjects: orders.>
-              Storage: File
-              Messages: 5
-                 Bytes: ~256 B
-        First Sequence: 1
-         Last Sequence: 5
+                     Subjects: orders.>
+                     Replicas: 1
+                      Storage: File
+
+Options:
+
+                    Retention: Limits
+              Acknowledgments: true
+               Discard Policy: Old
+             Duplicate Window: 2m0s
+                ...
+
+Limits:
+
+             Maximum Messages: unlimited
+          Maximum Per Subject: unlimited
+                Maximum Bytes: unlimited
+                  Maximum Age: unlimited
+                ...
+
+State:
+
+                     Messages: 5
+                        Bytes: ~256 B
+               First Sequence: 1 @ 2026-07-27 17:24:44
+                Last Sequence: 5 @ 2026-07-27 17:24:44
+             Active Consumers: 1
+           Number of Subjects: 1
 ```
+
+> **小贴士**：想看精简版用 `nats stream info ORDERS --json` 加 `| jq '.state.messages, .state.bytes'`。
 
 ## Step 6：让消息可以被"幂等处理" + 至少一次/精确一次
 
@@ -511,7 +590,28 @@ nats pub --header "Nats-Msg-Id:payment-171711" orders.payments.completed '{"ok":
 nats pub --header "Nats-Msg-Id:payment-171711" orders.payments.completed '{"ok":true}'
 ```
 
-> 你应该看到第二次的 publish 收到一个 "duplicate" 的回复（具体提示因客户端而异，但 server 不再存它）。精确一次需要发布侧 + 消费侧"双重 ack"配合 [11]。
+> ⚠️ **实际表现修正**：原文说"第二次的 publish 收到一个 'duplicate' 的回复（具体提示因客户端而异）"。这是**误导**——`nats pub` CLI 不会有任何 duplicate 提示，两次输出完全一样：
+>
+> ```text
+> 17:25:13 Published 11 bytes to "orders.payments.completed"
+> 17:25:13 Published 11 bytes to "orders.payments.completed"   ← 这条是重复的，CLI 不知道
+> ```
+>
+> 验证去重是否生效要看 stream 里的消息数：
+
+```bash
+# 三条不同 ID + 两条重复
+nats pub --header "Nats-Msg-Id:id-1" -s nats://localhost:4222 dedupe.test "msg1"
+nats pub --header "Nats-Msg-Id:id-2" -s nats://localhost:4222 dedupe.test "msg2"
+nats pub --header "Nats-Msg-Id:id-3" -s nats://localhost:4222 dedupe.test "msg3"
+nats pub --header "Nats-Msg-Id:id-1" -s nats://localhost:4222 dedupe.test "msg1-dup"   # ← 重复
+nats pub --header "Nats-Msg-Id:id-2" -s nats://localhost:4222 dedupe.test "msg2-dup"   # ← 重复
+
+nats stream info DEDUPE | grep Messages
+#                     Messages: 3                  ← 应该是 3，不是 5
+```
+
+> 服务端确实默默丢弃了重复消息（实测消息数只增加 1），但 CLI 看不到这个信号。要在程序里感知重复，得用 SDK 订阅 PUB ACK，里面会带 `Duplicate: true` header。
 
 ### 6.3 至少一次 ≠ 万能
 
@@ -540,16 +640,23 @@ nats kv add configs --history=5 --ttl=1h
 
 ```bash
 nats kv put configs feature.dark_mode true
+# put 只回显 value（不打印时间戳）
+
 nats kv get configs feature.dark_mode
 ```
 
-你应该看到：
+实际看到（CLI v0.4.0）：
 
 ```text
-configs > feature.dark_mode created @ 27 Jul 26 09:30 UTC
+$ nats kv put configs feature.dark_mode true
+true
+$ nats kv get configs feature.dark_mode
+configs > feature.dark_mode revision: 1 created @ 2026-07-27 17:25:45
 
 true
 ```
+
+> 注：原文示例里 put 后看到 `configs > feature.dark_mode created @ ...` 那种带时间戳的格式，实际是 `kv get` 的输出，`put` 默认只回显 value。
 
 ### 7.3 原子操作：create（独占锁）
 
@@ -794,13 +901,25 @@ accounts {
 
 > NATS cluster 通过 gossip 协议自动形成 full mesh，客户端连接任何一个节点都能拿到全部消息 [21]。
 
-创建 3 个配置文件：
+> ⚠️ **重要修正**：原文示例按原样启动会**报错**，原因是 JetStream + cluster 模式下两个隐藏要求：
+>
+> 1. 必须设置 `server_name`（不能是自动生成的随机名）
+> 2. `cluster.routes` 不能为空，必须列出所有节点（包括自己）
+>
+> 报错原文：
+>
+> ```text
+> [FTL] Can't start JetStream: JetStream cluster requires `server_name` to be set
+> [FTL] Can't start JetStream: JetStream cluster requires configured routes or solicited leafnode for the system account
+> ```
+
+创建 3 个配置文件（**注意每台都给了 server_name，且 routes 列出所有节点**）：
 
 **`seed.conf`**（种子节点）：
 
 ```hcl
+server_name: "seed"               # ← 新增：每个节点必须有名字
 listen: 127.0.0.1:4222
-
 http: 8222
 
 jetstream {
@@ -812,22 +931,41 @@ jetstream {
 cluster {
   name: demo
   listen: 127.0.0.1:4248
-  routes = []
+  routes = [                       # ← 新增：列出所有节点，包括自己
+    nats-route://127.0.0.1:4248,
+    nats-route://127.0.0.1:5248,
+    nats-route://127.0.0.1:6248
+  ]
 }
 ```
 
-**`n1.conf`** 和 **`n2.conf`** 类似，把 `cluster.listen` 端口分别改成 5248 / 6248，并指向种子：
+**`n1.conf`**：
 
 ```hcl
-listen: 127.0.0.1:5222   # n1 用 5222
+server_name: "n1"
+listen: 127.0.0.1:5222
+http: 18222
+
+jetstream {
+  store_dir: /tmp/jetstream-n1
+  max_memory_store: 256MB
+  max_file_store:   1GB
+}
+
 cluster {
   name: demo
   listen: 127.0.0.1:5248
-  routes = [ nats://127.0.0.1:4248 ]
+  routes = [
+    nats-route://127.0.0.1:4248,
+    nats-route://127.0.0.1:5248,
+    nats-route://127.0.0.1:6248
+  ]
 }
 ```
 
-启动三个 server（三个终端）：
+**`n2.conf`**（端口改 6222/6248，server_name 改 `n2`），结构同上。
+
+启动三个 server（三个终端，或 Docker compose）：
 
 ```bash
 nats-server -js -c seed.conf
@@ -835,7 +973,7 @@ nats-server -js -c n1.conf
 nats-server -js -c n2.conf
 ```
 
-等几秒，在任一 server 上看：
+等几秒（JetStream cluster bootstrap 需要几秒钟），在任一 server 上看：
 
 ```bash
 curl -s localhost:8222/routez | jq '.num_routes'
@@ -846,10 +984,10 @@ curl -s localhost:8222/routez | jq '.num_routes'
 测一下：在节点 1 上订阅，在节点 2 上发布。
 
 ```bash
-# 终端 1
+# 终端 1：连接 seed（4222）
 nats sub --server nats://127.0.0.1:4222 cluster.demo
 
-# 终端 2
+# 终端 2：连接 n1（5222）
 nats pub --server nats://127.0.0.1:5222 cluster.demo "from-node-2"
 ```
 
@@ -955,7 +1093,14 @@ nats pub --server nats://127.0.0.1:4222 from.leaf "hello leaf"
 | 现象 | 可能原因 | 解决 |
 | --- | --- | --- |
 | `nats: error: nats: no responders available` | Request 发到没有订阅者（或没加 queue）的 subject | 确认 responder 启动并监听了正确 subject；用 queue group 多副本 |
-| `authentication error` | server 启用了 token / user-pass，client 没传 | 加 `--token` 或在 URL 里带 `nats://user:pass@host:4222` |
+| `nats: error: nats: Authorization Violation` | server 启用了 token / user-pass，client 没传 | 加 `--token` 或在 URL 里带 `nats://user:pass@host:4222` |
+| `nats reply "你好, {{.Subject}} => {{.Data}}"` 输出原文未展开 | 模板字段名错了，`nats reply` CLI 没有 `.Subject` / `.Data` | 用 `{{Request}}` 或改用 `--command` 配合 `NATS_REQUEST_SUBJECT` 环境变量 |
+| `nats stream add` / `consumer add` 在脚本里报 `cannot prompt for user input without a terminal` | CLI 默认走交互式提问 | 加 `--defaults`，并把所有配置用 flag 显式给出 |
+| 创建 consumer 后默认是 `Ack Policy: Explicit`（不是 none） | `--defaults` 的默认值就是 explicit | 要拿 `none` 加 `--ack=none` |
+| 第二次重复 ID 的 `nats pub` 没有 "duplicate" 提示 | CLI 不会显示这条信号，默默丢弃 | 用 `nats stream info <stream>` 看 Messages 数；SDK 里订阅 PUB ACK 拿 `Duplicate: true` header |
+| JetStream cluster 启动报 `requires server_name to be set` | `cluster` 块没设 `server_name` | 每个节点加 `server_name: "xxx"` |
+| JetStream cluster 启动报 `requires configured routes or solicited leafnode` | `cluster.routes = []` 是空的 | `routes` 列出**所有节点**，包括自己（如 `nats-route://127.0.0.1:4248` 等） |
+| `curl /routez` 返回空内容 / JSON decode 失败 | shell 走了代理（HTTP_PROXY），代理拦截了 NATS 的 HTTP 监控 | `curl -x '' http://...` 禁用代理；或代理白名单 |
 | subject 看起来对，但订阅不到 | subject 用大写或混用大小写；NATS subject **大小写敏感** [7] | 严格统一小写 + 命名规范 |
 | 收到重复消息 | 至少一次语义；client 崩溃未 ack [11] | 业务侧幂等；用 `Nats-Msg-Id` 去重 |
 | stream "no space left" | disk 满或 `max_bytes` 触达 | 调整 `MaxBytes` / 清理 stream / 加磁盘 |
@@ -965,6 +1110,21 @@ nats pub --server nats://127.0.0.1:4222 from.leaf "hello leaf"
 | LeafNode 连不上 cluster | "If one node in a cluster is configured as leaf node, all nodes need to" [22] | 配置整个 cluster 接受 leaf |
 
 > **必做**：在生产部署前把 `nats-server` 升级到 2.10.27+（修复 CVE-2025-30215）[26]。
+
+## CLI v0.4.0 vs v0.2.x 主要变化
+
+| 项 | v0.2.x（教程写作时） | v0.4.0（现状） |
+| --- | --- | --- |
+| **Context（命名连接配置）** | 不存在 | 核心抽象，必须用 |
+| `nats context add / select / ls` | 无 | 有 |
+| `nats reply` 模板字段 | `{{.Subject}}` / `{{.Data}}` 等（实际从未正确支持） | `{{Request}}` / `{{Count}}` / `{{Time}}` / `{{ID}}` / `{{Random}}` 等 |
+| `nats consumer add` 默认 ack policy | `none` | **`explicit`**（与原文不符） |
+| `nats stream info` 输出 | 紧凑格式 | 分 Options / Limits / State 三段 |
+| `nats pub` 显示 duplicate | 未明确 | **不显示**，需要在 SDK 里看 PUB ACK |
+| `nats request` 输出 | `Published [...] : ... / Received [inbox] : ...` | `Sending request on ... / Received with rtt ...` |
+| `nats server list / info / check` | 无 | 有（一组 `server` 子命令） |
+| `nats cheat / cheat --sections` | 无 | 有 |
+| `--defaults` flag | 无 | 有（脚本必备） |
 
 ## 进阶阅读 & 下一步
 
@@ -1053,12 +1213,23 @@ nats pub --server nats://127.0.0.1:4222 from.leaf "hello leaf"
 
 [29] GitHub / nats-io. "NATS 2.10 Release Notes". <https://github.com/nats-io/nats.docs/blob/master/release_notes/whats_new_210.md>. Retrieved 2026-07-27.
 
+[30] NATS Docs. "NATS Command Line Interface — Configuration Contexts". <https://docs.nats.io/using-nats/nats-tools/nats_cli>. Retrieved 2026-07-27.
+
+[31] GitHub / nats-io. "natscli README — Configuration Contexts". <https://github.com/nats-io/natscli#configuration-contexts>. Retrieved 2026-07-27.
+
+[32] GitHub / nats-io. "natscli v0.4.0 Release Notes". <https://github.com/nats-io/natscli/releases/tag/v0.4.0>. Retrieved 2026-07-27.
+
 ## 附录：研究方法学
 
-- **研究模式**：standard。
+- **研究模式**：standard + **本地实操验证**。
 - **检索手段**：`fetch_content` 直抓 NATS Docs 与 GitHub；`web_search` 补漏（KV/Object 路径变更、对比文章）。
-- **信息源**：36 条权威引用，2 个第三方对比/基准。
-- **三角化**：所有 NATS 核心能力（pub/sub、req-reply、queue、JetStream、KV、Object、安全、集群、Leaf、Gateway、监控）至少由 2 个 NATS 官方来源交叉验证。
+- **实操环境**（2026-07-27 修订时）：
+  - `nats` CLI **v0.4.0**（原文写作时为 v0.2.x，已过时）
+  - `nats-server` **v2.10.29**（docker 镜像 `nats:2.10-alpine`）
+  - macOS，本地 docker 运行 NATS server
+- **信息源**：38 条权威引用（新增 [30] [31] [32] 关于 context 与 CLI v0.4.0），2 个第三方对比/基准。
+- **三角化**：所有 NATS 核心能力（pub/sub、req-reply、queue、JetStream、KV、Object、安全、集群、Leaf、Gateway、监控）至少由 2 个 NATS 官方来源交叉验证；教程中所有命令均经本地执行验证。
 - **声明-证据映射**：见 `_research/NATS_Tutorial_20260727/claims.jsonl`。
 - **明确剔除**：客户端 SDK 细节、Auth Callout 扩展、nsc 工具、Leaf Node JWT 高级授权等留给进阶阅读。
 - **已知盲点**：未在文中演示各语言客户端代码（Go/Node/Python），已通过 [27] NATS by Example 引导；未跑实际 benchmark，仅引用第三方公开测试。
+- **修订记录**：2026-07-27 基于本地实操修正了 Step 3.1 (reply 模板)、Step 5.2/5.3 (`--defaults` / ack policy 默认值)、Step 5.4 (info 输出格式)、Step 6.2 (duplicate 不显示)、Step 11.1 (集群缺 `server_name` + routes 必须非空) 五处命令错误或误导性描述，新增 Step 0 (context) 与 "CLI v0.4.0 vs v0.2.x" 对照表。
