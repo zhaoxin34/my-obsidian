@@ -207,6 +207,7 @@
   },
   "active": "3f8a7c6f0d234f55",
   "lastOpenFiles": [
+    "操作记录/NATS-Consumer-OOM-问题.md",
     "学习笔记和教程/MkDocs Material 安装与使用教程.md",
     "学习笔记和教程/NATS 教程：从入门到 JetStream 实践.md",
     "待阅读的论文.md",
@@ -242,7 +243,6 @@
     "学习笔记和教程/LiteLLM 入门教程与 LangChain 对比分析.md",
     "编程经验/Chrome-Extension-MV3-消息通信调试经验.md",
     "学习笔记和教程/Vercel Workflow SDK 入门教程：为 JavaScript 异步流程注入持久化能力.md",
-    "操作记录/nvim 学习记录.md",
     "学习笔记和教程/LLM微调入门教程",
     "antagent",
     "我的项目/plato/三权分立图.canvas",
