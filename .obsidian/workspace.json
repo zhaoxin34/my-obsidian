@@ -27,16 +27,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "学习笔记和教程/NATS 教程：从入门到 JetStream 实践.md",
+                "file": "待阅读的论文.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "NATS 教程：从入门到 JetStream 实践"
+              "title": "待阅读的论文"
+            }
+          },
+          {
+            "id": "d1bf2ec4880e4849",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -155,13 +169,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习笔记和教程/NATS 教程：从入门到 JetStream 实践.md",
+                "file": "Untitled.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of NATS 教程：从入门到 JetStream 实践"
+              "title": "Outline of Untitled"
             }
           },
           {
@@ -205,18 +219,18 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "3f8a7c6f0d234f55",
+  "active": "d1bf2ec4880e4849",
   "lastOpenFiles": [
     "操作记录/NATS-Consumer-OOM-问题.md",
-    "学习笔记和教程/MkDocs Material 安装与使用教程.md",
-    "学习笔记和教程/NATS 教程：从入门到 JetStream 实践.md",
+    "Untitled.md",
     "待阅读的论文.md",
-    "学习笔记和教程/_research/NATS_Tutorial_20260727/evidence.jsonl",
-    "学习笔记和教程/_research/NATS_Tutorial_20260727/claims.jsonl",
     "学习笔记和教程/_research/NATS_Tutorial_20260727/sources.jsonl",
     "学习笔记和教程/_research/NATS_Tutorial_20260727/run_manifest.json",
+    "学习笔记和教程/_research/NATS_Tutorial_20260727/evidence.jsonl",
+    "学习笔记和教程/_research/NATS_Tutorial_20260727/claims.jsonl",
     "学习笔记和教程/_research/NATS_Tutorial_20260727",
     "学习笔记和教程/_research",
+    "学习笔记和教程/NATS 教程：从入门到 JetStream 实践.md",
     "学习笔记和教程/Karpathy_LLM_Wiki_打造个人知识库深度报告.md",
     "分析报告/知识库分层编排：从RAG到Agent-native_KCL_调研报告.md",
     "学习笔记和教程/LLM微调入门教程/03-数据准备.md",
@@ -239,10 +253,10 @@
     "我的项目/开发流程.md",
     "我的项目/拼图.md",
     "我的项目/项目价值.md",
-    "Untitled.md",
     "学习笔记和教程/LiteLLM 入门教程与 LangChain 对比分析.md",
     "编程经验/Chrome-Extension-MV3-消息通信调试经验.md",
     "学习笔记和教程/Vercel Workflow SDK 入门教程：为 JavaScript 异步流程注入持久化能力.md",
+    "操作记录/nvim 学习记录.md",
     "学习笔记和教程/LLM微调入门教程",
     "antagent",
     "我的项目/plato/三权分立图.canvas",
