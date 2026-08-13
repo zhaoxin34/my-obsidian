@@ -34,9 +34,21 @@
               "icon": "lucide-file",
               "title": "redis哨兵模式选主的过程"
             }
+          },
+          {
+            "id": "128fe118a2bbfcec",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.13.4"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.13.4"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -56,7 +68,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -155,13 +169,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "技术工作/redis哨兵模式选主的过程.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of redis哨兵模式选主的过程"
+              "title": "Outline"
             }
           },
           {
@@ -205,7 +218,7 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "3f8a7c6f0d234f55",
+  "active": "128fe118a2bbfcec",
   "lastOpenFiles": [
     "技术工作/Redis 分布式锁.md",
     "学习笔记和教程/NATS 教程：从入门到 JetStream 实践.md",
