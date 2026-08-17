@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "待阅读的论文"
             }
+          },
+          {
+            "id": "27fa07fa587bc3f7",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.13.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.13.7"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -142,7 +155,6 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "待阅读的论文.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -192,7 +204,7 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "12bd9ba9c1f883d3",
+  "active": "27fa07fa587bc3f7",
   "lastOpenFiles": [
     "学习笔记和教程/Harness_Engineering_深度技术报告.md",
     "待阅读的论文.md",
