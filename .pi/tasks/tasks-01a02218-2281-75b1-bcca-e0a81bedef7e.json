@@ -1,0 +1,65 @@
+{
+  "nextId": 6,
+  "tasks": [
+    {
+      "id": "1",
+      "subject": "检索 Memgraph 架构与 Python SDK 最新信息",
+      "description": "通过 web 搜索获取 Memgraph 的最新架构设计（存储引擎、查询执行、复制机制）以及 Python SDK（pymgclient、Neo4j 兼容驱动、GQLAlchemy、LangChain 集成）的最新文档",
+      "status": "completed",
+      "activeForm": "检索 Memgraph 资料",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1787278564519,
+      "updatedAt": 1787278706548
+    },
+    {
+      "id": "2",
+      "subject": "检索 Neo4j 架构与 Python 驱动最新信息",
+      "description": "通过 web 搜索获取 Neo4j 5.x/6.x 的最新架构（DBMS、数据库、Fabric、向量索引）、Python 驱动（neo4j-driver、GraphDataScience、LangChain 集成）的最新文档",
+      "status": "completed",
+      "activeForm": "检索 Neo4j 资料",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1787278564520,
+      "updatedAt": 1787278706549
+    },
+    {
+      "id": "3",
+      "subject": "撰写 Memgraph 教程",
+      "description": "撰写\"Memgraph 架构设计与 Python 开发入门教程\"，包含架构原理、部署、Cypher 查询、Python 客户端（pymgclient/gqlalchemy）、实战案例",
+      "status": "completed",
+      "activeForm": "撰写 Memgraph 教程",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1787278564521,
+      "updatedAt": 1787278920652
+    },
+    {
+      "id": "4",
+      "subject": "撰写 Neo4j 教程",
+      "description": "撰写\"Neo4j 架构设计与 Python 开发入门教程\"，包含架构原理、部署、Cypher 查询、Python 驱动（neo4j-driver）、向量索引、LangChain 集成、实战案例",
+      "status": "completed",
+      "activeForm": "撰写 Neo4j 教程",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1787278564522,
+      "updatedAt": 1787279001765
+    },
+    {
+      "id": "5",
+      "subject": "撰写 Memgraph vs Neo4j 对比报告",
+      "description": "基于两篇教程和最新检索结果撰写对比报告，涵盖架构、性能、生态、Python 支持、部署、成本、适用场景等维度",
+      "status": "completed",
+      "activeForm": "撰写对比报告",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1787278564523,
+      "updatedAt": 1787279018177
+    }
+  ]
+}
