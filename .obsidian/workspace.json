@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "我的项目/antagent/方案.md",
+                "file": "学习笔记和教程/ClickHouse 深度教程：从架构到实践.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "方案"
+              "title": "ClickHouse 深度教程：从架构到实践"
             }
           }
         ],
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "我的项目/antagent/方案.md",
+                "file": "学习笔记和教程/ClickHouse 深度教程：从架构到实践.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 方案"
+              "title": "Outline of ClickHouse 深度教程：从架构到实践"
             }
           },
           {
@@ -206,8 +206,9 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "89b70c27d8975c9f",
+  "active": "3f8a7c6f0d234f55",
   "lastOpenFiles": [
+    "我的项目/antagent/方案.md",
     "学习笔记和教程/ClickHouse 深度教程：从架构到实践.md",
     "我的项目/memory/Memory 个人知识库系统.md",
     "我的项目/全自动营销产品/自动营销-TOB型软件公司销售全流程.excalidraw",
@@ -243,7 +244,6 @@
     "文档列表.base",
     "分析报告/Aurasell创业背景与经历.md",
     "分析报告/Aurasell与Salesforce_SFA对比研究报告.md",
-    "我的项目/全自动营销产品/Aurasell创业背景与经历.md",
     "学习笔记和教程/LLM微调入门教程",
     "antagent",
     "我的项目/plato/三权分立图.canvas",
