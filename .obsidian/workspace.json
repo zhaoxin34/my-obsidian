@@ -41,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -146,7 +148,7 @@
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of LightRAG 使用教程 - 轻量级检索增强生成系统"
+              "title": "Outline"
             }
           },
           {
