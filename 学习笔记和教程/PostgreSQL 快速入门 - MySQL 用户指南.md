@@ -18,12 +18,12 @@
 
 ### 1.1 架构对比
 
-| 特性 | MySQL | PostgreSQL |
-|------|-------|------------|
-| **存储引擎** | 多引擎（InnoDB、MyISAM 等） | 统一引擎，可扩展 |
-| **进程模型** | 每连接一个线程 | 多进程模型（postgres 进程） |
+| 特性       | MySQL                                       | PostgreSQL                                                          |
+| -------- | ------------------------------------------- | ------------------------------------------------------------------- |
+| **存储引擎** | 多引擎（InnoDB、MyISAM 等）                        | 统一引擎，可扩展                                                            |
+| **进程模型** | 每连接一个线程                                     | 多进程模型（postgres 进程）                                                  |
 | **事务隔离** | READ COMMITTED、REPEATABLE READ、SERIALIZABLE | READ COMMITTED、READ COMMITTED、REPEATABLE READ、SERIALIZABLE、SNAPSHOT |
-| **MVCC** | InnoDB 行级版本控制 | 完整 MVCC 实现 |
+| **MVCC** | InnoDB 行级版本控制                               | 完整 MVCC 实现                                                          |
 
 ### 1.2 自动提交
 
@@ -88,13 +88,13 @@ psql -U username -h hostname -d dbname -p 5432
 
 ### 3.1 数据库操作
 
-| 操作 | MySQL | PostgreSQL |
-|------|-------|------------|
-| 列出数据库 | `SHOW DATABASES;` | `\l` 或 `\list` |
-| 创建数据库 | `CREATE DATABASE dbname;` | `CREATE DATABASE dbname;` |
-| 删除数据库 | `DROP DATABASE dbname;` | `DROP DATABASE dbname;` |
-| 使用数据库 | `USE dbname;` | `\c dbname` |
-| 查看当前数据库 | `SELECT database();` | `SELECT current_database();` |
+| 操作      | MySQL                     | PostgreSQL                   |
+| ------- | ------------------------- | ---------------------------- |
+| 列出数据库   | `SHOW DATABASES;`         | `\l` 或 `\list`               |
+| 创建数据库   | `CREATE DATABASE dbname;` | `CREATE DATABASE dbname;`    |
+| 删除数据库   | `DROP DATABASE dbname;`   | `DROP DATABASE dbname;`      |
+| 使用数据库   | `USE dbname;`             | `\c dbname`                  |
+| 查看当前数据库 | `SELECT database();`      | `SELECT current_database();` |
 
 ### 3.2 表操作
 
