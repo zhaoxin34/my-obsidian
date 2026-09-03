@@ -53,37 +53,37 @@
       "id": "5",
       "subject": "SYNTHESIZE - 撰写中文研究报告",
       "description": "按 report_template 输出中文报告，落到 ~/Documents/Mercor_Research_YYYYMMDD/Mercor_深度调研_YYYYMMDD.md，并同步写入 /Volumes/data/working/my-obsidian/分析报告/。",
-      "status": "in_progress",
+      "status": "completed",
       "activeForm": "撰写中文研究报告",
       "metadata": {},
       "blocks": [],
       "blockedBy": [],
       "createdAt": 1788403786211,
-      "updatedAt": 1788404315721
+      "updatedAt": 1788404626644
     },
     {
       "id": "6",
       "subject": "CRITIQUE + REFINE - 自检与精修",
       "description": "用 quality-gates 检查 10+ 来源、3+ 来源支撑、引用完整、无虚构，再针对\"国内是否可行\"做压力测试，补强风险章节。",
-      "status": "pending",
+      "status": "completed",
       "activeForm": "自检与精修",
       "metadata": {},
       "blocks": [],
       "blockedBy": [],
       "createdAt": 1788403786212,
-      "updatedAt": 1788403786212
+      "updatedAt": 1788404740891
     },
     {
       "id": "7",
       "subject": "PACKAGE - 生成 Markdown + HTML + sources/evidence/claims JSONL",
       "description": "落 sources.jsonl / evidence.jsonl / claims.jsonl / run_manifest.json，生成 McKinsey 风格 HTML 并自动打开。",
-      "status": "pending",
+      "status": "completed",
       "activeForm": "打包交付物",
       "metadata": {},
       "blocks": [],
       "blockedBy": [],
       "createdAt": 1788403786213,
-      "updatedAt": 1788403786213
+      "updatedAt": 1788404850241
     }
   ]
 }
