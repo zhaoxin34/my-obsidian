@@ -1,0 +1,89 @@
+{
+  "nextId": 8,
+  "tasks": [
+    {
+      "id": "1",
+      "subject": "SCOPE - 明确调研范围和关键问题",
+      "description": "读取 deep-research methodology，准备工作目录 ~/Documents/Mercor_Research_YYYYMMDD/，明确本次调研要回答的核心问题清单。",
+      "status": "in_progress",
+      "activeForm": "规划调研范围",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1788403786209,
+      "updatedAt": 1788403810236
+    },
+    {
+      "id": "2",
+      "subject": "RETRIEVE - 抓取 Mercor 一手资料",
+      "description": "用 fetch_content 抓官网首页/About/Product/Pricing/For Employers/For Talent/FAQ 等核心页面，并提取产品截图、招聘文案、雇主 logo 等。",
+      "status": "pending",
+      "activeForm": "抓取 Mercor 一手资料",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1788403786210,
+      "updatedAt": 1788403786210
+    },
+    {
+      "id": "3",
+      "subject": "RETRIEVE - 二手资料（融资/媒体/竞品）",
+      "description": "web_search 搜索 TechCrunch/Forbes/Bloomberg/LinkedIn/Crunchbase 等关于 Mercor 的报道、融资轮次、创始人背景、估值变化、关键客户、争议事件。",
+      "status": "pending",
+      "activeForm": "搜索二手资料",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1788403786210,
+      "updatedAt": 1788403786210
+    },
+    {
+      "id": "4",
+      "subject": "TRIANGULATE - 交叉验证核心论断",
+      "description": "对融资额、估值、技术栈（AI/agent）、关键客户、ARR 等关键数字做 source_check，>=3 个独立来源相互印证。",
+      "status": "pending",
+      "activeForm": "交叉验证核心论断",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1788403786211,
+      "updatedAt": 1788403786211
+    },
+    {
+      "id": "5",
+      "subject": "SYNTHESIZE - 撰写中文研究报告",
+      "description": "按 report_template 输出中文报告，落到 ~/Documents/Mercor_Research_YYYYMMDD/Mercor_深度调研_YYYYMMDD.md，并同步写入 /Volumes/data/working/my-obsidian/分析报告/。",
+      "status": "pending",
+      "activeForm": "撰写中文研究报告",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1788403786211,
+      "updatedAt": 1788403786211
+    },
+    {
+      "id": "6",
+      "subject": "CRITIQUE + REFINE - 自检与精修",
+      "description": "用 quality-gates 检查 10+ 来源、3+ 来源支撑、引用完整、无虚构，再针对\"国内是否可行\"做压力测试，补强风险章节。",
+      "status": "pending",
+      "activeForm": "自检与精修",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1788403786212,
+      "updatedAt": 1788403786212
+    },
+    {
+      "id": "7",
+      "subject": "PACKAGE - 生成 Markdown + HTML + sources/evidence/claims JSONL",
+      "description": "落 sources.jsonl / evidence.jsonl / claims.jsonl / run_manifest.json，生成 McKinsey 风格 HTML 并自动打开。",
+      "status": "pending",
+      "activeForm": "打包交付物",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1788403786213,
+      "updatedAt": 1788403786213
+    }
+  ]
+}
