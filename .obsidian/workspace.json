@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作记录/Debezium 加 jmx_exporter (暴露Prometheus指标).md",
+                "file": "操作记录/postgres 监控配置（Prometheus + Grafana）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Debezium 加 jmx_exporter (暴露Prometheus指标)"
+              "title": "postgres 监控配置（Prometheus + Grafana）"
             }
           }
         ]
@@ -142,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "操作记录/Debezium 加 jmx_exporter (暴露Prometheus指标).md",
+                "file": "操作记录/postgres 监控配置（Prometheus + Grafana）.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -194,9 +194,9 @@
   },
   "active": "6905492cd9bcf087",
   "lastOpenFiles": [
+    "操作记录/Debezium 加 jmx_exporter (暴露Prometheus指标).md",
     "操作记录/postgres 监控配置（Prometheus + Grafana）.md",
     "编程经验/nginx-反向代理-iframe嵌入经验.md",
-    "操作记录/Debezium 加 jmx_exporter (暴露Prometheus指标).md",
     "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md",
     "分析报告/sources.jsonl",
     "分析报告/run_manifest.json",
