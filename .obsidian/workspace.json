@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "分析报告/React_vs_NextJS_Comparison_Report_20260418.md",
+                "file": "学习笔记和教程/Next.js 全栈开发入门教程 - 从零做一个用户登录系统.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "React_vs_NextJS_Comparison_Report_20260418"
+              "title": "Next.js 全栈开发入门教程 - 从零做一个用户登录系统"
             }
           }
         ]
@@ -140,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "分析报告/React_vs_NextJS_Comparison_Report_20260418.md",
+                "file": "学习笔记和教程/Next.js 全栈开发入门教程 - 从零做一个用户登录系统.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of React_vs_NextJS_Comparison_Report_20260418"
+              "title": "Outline of Next.js 全栈开发入门教程 - 从零做一个用户登录系统"
             }
           },
           {
@@ -192,6 +192,8 @@
   },
   "active": "2c5e4122982fe1d0",
   "lastOpenFiles": [
+    "分析报告/React_vs_NextJS_Comparison_Report_20260418.md",
+    "学习笔记和教程/Next.js 全栈开发入门教程 - 从零做一个用户登录系统.md",
     "曾用过的提示词/运营产品 - 后端框架提示词.md",
     "曾用过的提示词/智谱大模型应用.md",
     "曾用过的提示词/starrocks wolf_v4造数据.md",
@@ -216,8 +218,6 @@
     "学习笔记和教程/DeepTutor 港大开源AI学习助手研究报告.md",
     "学习笔记和教程/Google Search MCP 配置教程.md",
     "学习笔记和教程/Harness_Engineering_深度技术报告.md",
-    "学习笔记和教程/马尔可夫链 Markov Chain 教程.md",
-    "学习笔记和教程/随机森林算法原理与应用.md",
     "分析报告/Mercor_深度调研_20260903.html",
     "分析报告/claims.jsonl",
     "分析报告/evidence.jsonl",
