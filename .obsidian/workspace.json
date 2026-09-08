@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "备忘.md",
+                "file": "分析报告/React_vs_NextJS_Comparison_Report_20260418.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "备忘"
+              "title": "React_vs_NextJS_Comparison_Report_20260418"
             }
           }
         ]
@@ -140,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "备忘.md",
+                "file": "分析报告/React_vs_NextJS_Comparison_Report_20260418.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 备忘"
+              "title": "Outline of React_vs_NextJS_Comparison_Report_20260418"
             }
           },
           {
@@ -192,9 +192,14 @@
   },
   "active": "2c5e4122982fe1d0",
   "lastOpenFiles": [
+    "曾用过的提示词/运营产品 - 后端框架提示词.md",
+    "曾用过的提示词/智谱大模型应用.md",
+    "曾用过的提示词/starrocks wolf_v4造数据.md",
+    "曾用过的提示词/Python langchain工程创建prompt.md",
+    "曾用过的提示词/Matrix Readme.md",
+    "备忘.md",
     "学习笔记和教程/NewsData.io 深入浅出教程 - Python 全攻略.md",
     "分析报告/AI训练数据分类与专家标注价值_20260903.md",
-    "备忘.md",
     "分析报告/Meta入股Scale_AI战略拆解_20260903.md",
     "分析报告/Mercor_深度调研_20260903.md",
     "操作记录/Debezium 加 Prometheus 和 Grafana 监控.md",
@@ -213,11 +218,6 @@
     "学习笔记和教程/Harness_Engineering_深度技术报告.md",
     "学习笔记和教程/马尔可夫链 Markov Chain 教程.md",
     "学习笔记和教程/随机森林算法原理与应用.md",
-    "学习笔记和教程/蒙特卡洛算法与应用.md",
-    "我的项目/antagent/方案.md",
-    "学习笔记和教程/客户数据平台CDP学习笔记.md",
-    "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md",
-    "学习笔记和教程/GSD Get-Shit-Done 使用教程.md",
     "分析报告/Mercor_深度调研_20260903.html",
     "分析报告/claims.jsonl",
     "分析报告/evidence.jsonl",
