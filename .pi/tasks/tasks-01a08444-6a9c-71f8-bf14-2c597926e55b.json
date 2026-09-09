@@ -1,0 +1,17 @@
+{
+  "nextId": 2,
+  "tasks": [
+    {
+      "id": "1",
+      "subject": "写 WebMCP 程序员教程",
+      "description": "在 /Volumes/data/working/my-obsidian/学习笔记和教程/ 下写一份针对程序员的 WebMCP 教程，覆盖实现与使用，包含 Imperative API、Declarative API、React hook、安全考量、实战示例。",
+      "status": "completed",
+      "activeForm": "Writing WebMCP tutorial",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1788925695082,
+      "updatedAt": 1788925906766
+    }
+  ]
+}
