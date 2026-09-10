@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "8156b445bb96e932",
+        "id": "9eff5b9fbd6172ac",
         "type": "tabs",
         "children": [
           {
-            "id": "6905492cd9bcf087",
+            "id": "2c5e4122982fe1d0",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -41,9 +41,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false,
-                "showSearch": false,
-                "searchQuery": ""
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -55,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "知识库",
+                "query": "newsdata",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -76,7 +74,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -148,7 +147,7 @@
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of NewsData.io 深入浅出教程 - Python 全攻略"
             }
           },
           {
@@ -192,46 +191,46 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "6905492cd9bcf087",
+  "active": "2c5e4122982fe1d0",
   "lastOpenFiles": [
-    "学习笔记和教程/WebMCP 入门教程 - 让网站为 AI Agent 暴露结构化工具.md",
+    "学习笔记和教程/Paperclip AI Agent 编排平台安装与使用教程.md",
     "学习笔记和教程/Next.js 全栈开发入门教程 - 从零做一个用户登录系统.md",
-    "操作记录/postgres 监控配置（Prometheus + Grafana）.md",
-    "学习笔记和教程/NewsData.io 深入浅出教程 - Python 全攻略.md",
+    "学习笔记和教程/WebMCP 入门教程 - 让网站为 AI Agent 暴露结构化工具.md",
+    "分析报告/React_vs_NextJS_Comparison_Report_20260418.md",
+    "曾用过的提示词/运营产品 - 后端框架提示词.md",
+    "曾用过的提示词/智谱大模型应用.md",
+    "曾用过的提示词/starrocks wolf_v4造数据.md",
+    "曾用过的提示词/Python langchain工程创建prompt.md",
+    "曾用过的提示词/Matrix Readme.md",
     "备忘.md",
-    "分析报告/Meta入股Scale_AI战略拆解_20260903.md",
+    "学习笔记和教程/NewsData.io 深入浅出教程 - Python 全攻略.md",
     "分析报告/AI训练数据分类与专家标注价值_20260903.md",
+    "分析报告/Meta入股Scale_AI战略拆解_20260903.md",
+    "分析报告/Mercor_深度调研_20260903.md",
     "操作记录/Debezium 加 Prometheus 和 Grafana 监控.md",
+    "操作记录/postgres 监控配置（Prometheus + Grafana）.md",
     "操作记录/Debezium 加 jmx_exporter (暴露Prometheus指标).md",
     "编程经验/nginx-反向代理-iframe嵌入经验.md",
-    "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md",
+    "学习笔记和教程/Vercel Workflow SDK 入门教程：为 JavaScript 异步流程注入持久化能力.md",
+    "学习笔记和教程/Lightpanda Browser 入门手册.md",
+    "学习笔记和教程/Memgraph 架构设计与 Python 开发入门教程.md",
+    "学习笔记和教程/Neo4j 架构设计与 Python 开发入门教程.md",
+    "学习笔记和教程/Paperclip AI Agent 编排平台分析报告.md",
+    "学习笔记和教程/Pi Coding Agent 入门教程.md",
+    "学习笔记和教程/UI-UX-Pro-Max-Skill 项目调研报告.md",
+    "学习笔记和教程/DeepTutor 港大开源AI学习助手研究报告.md",
+    "分析报告/Mercor_深度调研_20260903.html",
+    "分析报告/claims.jsonl",
+    "分析报告/evidence.jsonl",
     "分析报告/sources.jsonl",
     "分析报告/run_manifest.json",
-    "分析报告/evidence.jsonl",
-    "分析报告/claims.jsonl",
-    "分析报告/Mercor_深度调研_20260903.md",
-    "分析报告/Mercor_深度调研_20260903.html",
-    "Mercor_深度调研_20260903.md",
-    "学习笔记和教程/ClickHouse 深度教程：从架构到实践.md",
-    "学习笔记和教程/Flink 学习记录.md",
-    "学习笔记和教程/LightRAG 使用教程 - 轻量级检索增强生成系统.md",
-    "待阅读的论文.md",
-    "学习笔记和教程/Cypher 查询语言入门教程.md",
-    "Untitled 2.md",
-    "Untitled 1.md",
-    "学习笔记和教程/Memgraph vs Neo4j vs Apache AGE 对比报告.md",
-    "学习笔记和教程/Memgraph 架构设计与 Python 开发入门教程.md",
-    "学习笔记和教程/Memgraph vs Neo4j 对比报告.md",
-    "学习笔记和教程/Neo4j 架构设计与 Python 开发入门教程.md",
-    "我的项目/antagent/方案.md",
-    "我的项目/memory/Memory 个人知识库系统.md",
+    "claims.jsonl",
+    "evidence.jsonl",
+    "sources.jsonl",
+    "run_manifest.json",
     "我的项目/全自动营销产品/自动营销-TOB型软件公司销售全流程.excalidraw",
     "我的项目/全自动营销产品/images/proactive-agent-stack.png",
     "我的项目/全自动营销产品/images/proactive-agent-evo.png",
-    "学习笔记和教程/_research/NATS_Tutorial_20260727/sources.jsonl",
-    "学习笔记和教程/_research/NATS_Tutorial_20260727/run_manifest.json",
-    "学习笔记和教程/_research/NATS_Tutorial_20260727/evidence.jsonl",
-    "学习笔记和教程/_research/NATS_Tutorial_20260727/claims.jsonl",
     "我的项目/plato/三权分立图.canvas",
     "我的项目/全自动营销产品/images/ChatGPT Image Jun 2, 2026, 04_06_58 PM.png",
     "我的项目/全自动营销产品/images/ChatGPT Image Jun 2, 2026, 03_11_57 PM.png",
