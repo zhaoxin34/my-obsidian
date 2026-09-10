@@ -70,14 +70,14 @@ mindmap
 
 ### 1.2 适用场景
 
-| 场景 | 你会用到什么端点 |
-| --- | --- |
-| 财经舆情监控 | `market` + `sentiment` + WebSocket |
-| 加密货币资讯面板 | `crypto` + `coin` + WebSocket |
-| 竞品公关监测 | `latest` + `domain` + `excludedomain` |
-| 学术/历史研究 | `archive` + `from_date` + `to_date` |
-| 新闻摘要/AI 训练数据 | `latest` / `archive` + `ai_summary` |
-| 突发事件告警 | WebSocket + 高优 `prioritydomain` |
+| 场景           | 你会用到什么端点                              |
+| ------------ | ------------------------------------- |
+| 财经舆情监控       | `market` + `sentiment` + WebSocket    |
+| 加密货币资讯面板     | `crypto` + `coin` + WebSocket         |
+| 竞品公关监测       | `latest` + `domain` + `excludedomain` |
+| 学术/历史研究      | `archive` + `from_date` + `to_date`   |
+| 新闻摘要/AI 训练数据 | `latest` / `archive` + `ai_summary`   |
+| 突发事件告警       | WebSocket + 高优 `prioritydomain`       |
 
 ### 1.3 为什么用 Python SDK 而不是裸 HTTP
 
@@ -93,12 +93,12 @@ mindmap
 
 ### 1.4 订阅计划速览
 
-| Plan | 月费 (USD) | 配额 | 单次页大小 | 备注 |
-| --- | --- | --- | --- | --- |
-| Free | $0 | 200 credits/day | 10 | 适合学习与原型 |
-| Basic | $199.99 | 20,000 credits/月 | 50 | 历史数据 6 个月 |
-| Professional | $349.99 | 50,000 credits/月 | 50 | 历史 2 年 + AI Tags + Sentiment |
-| Corporate | $1299.99 | 1,000,000 credits/月 | 50 | 历史 10 年 + AI Region + AI Org |
+| Plan         | 月费 (USD) | 配额                  | 单次页大小 | 备注                           |
+| ------------ | -------- | ------------------- | ----- | ---------------------------- |
+| Free         | $0       | 200 credits/day     | 10    | 适合学习与原型                      |
+| Basic        | $199.99  | 20,000 credits/月    | 50    | 历史数据 6 个月                    |
+| Professional | $349.99  | 50,000 credits/月    | 50    | 历史 2 年 + AI Tags + Sentiment |
+| Corporate    | $1299.99 | 1,000,000 credits/月 | 50    | 历史 10 年 + AI Region + AI Org |
 
 > **计量细节**：每次调用几乎都消耗 1 credit，`/archive` 端点固定 **5 credits/请求**；WebSocket 每篇文章到达每个连接的设备各扣 1 credit。
 
