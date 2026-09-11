@@ -40,7 +40,7 @@ sudo dnf install -y wezterm
 local wezterm = require "wezterm"
 local config = wezterm.config_builder()
 
--- 字体（与 [[Fedora-终端美化与字体]] 保持一致）
+-- 字体（与 [[03-Fedora-终端美化与字体]] 保持一致）
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 13.0
 
@@ -188,4 +188,4 @@ fi
 
 ## 后续
 
-- [[Fedora-远程控制方案]]（通过 wezterm + ssh 用同一套键位远程控制 Fedora）
+- [[08-Fedora-远程控制方案]]（通过 wezterm + ssh 用同一套键位远程控制 Fedora）

@@ -171,5 +171,5 @@ export FZF_DEFAULT_OPTS="--height 60% --layout=reverse --preview 'bat --style=nu
 
 ## 后续
 
-- [[Fedora-Neovim配置]]
-- [[Fedora-Wezterm与Zellij]]
+- [[05-Fedora-Neovim配置]]
+- [[06-Fedora-Wezterm与Zellij]]

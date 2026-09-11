@@ -51,7 +51,7 @@ gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Ner
 gsettings set org.gnome.desktop.interface font-name 'Noto Sans CJK SC 11'
 ```
 
-**wezterm / 其它终端**：见 [[Fedora-Wezterm与Zellij]]。
+**wezterm / 其它终端**：见 [[06-Fedora-Wezterm与Zellij]]。
 
 ## 2. GNOME Tweaks 与扩展管理器
 
@@ -140,7 +140,7 @@ gsettings set org.gnome.shell.extensions.user-theme name 'WhiteSur-Dark'
 
 ## 4. 终端配色
 
-推荐直接配在 wezterm 里（见 [[Fedora-Wezterm与Zellij]]），GNOME 自带终端配色：
+推荐直接配在 wezterm 里（见 [[06-Fedora-Wezterm与Zellij]]），GNOME 自带终端配色：
 
 ```bash
 # 装 Solarized
@@ -186,6 +186,6 @@ sudo dnf install -y xdg-desktop-portal xdg-desktop-portal-gtk
 
 ## 后续
 
-- [[Fedora-zsh与终端工具链]]
-- [[Fedora-Wezterm与Zellij]]
-- [[Fedora-Neovim配置]]
+- [[04-Fedora-zsh与终端工具链]]
+- [[06-Fedora-Wezterm与Zellij]]
+- [[05-Fedora-Neovim配置]]

@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "05-实战：用QLoRA微调Qwen"
             }
+          },
+          {
+            "id": "7b1a6b5c6b4ea2d2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -140,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习笔记和教程/LLM微调入门教程/05-实战：用QLoRA微调Qwen.md",
+                "file": "Untitled.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 05-实战：用QLoRA微调Qwen"
+              "title": "Outline of Untitled"
             }
           },
           {
@@ -190,8 +205,21 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "2c5e4122982fe1d0",
+  "active": "7b1a6b5c6b4ea2d2",
   "lastOpenFiles": [
+    "Untitled.md",
+    "操作记录/fedora安装使用教程/09-Fedora-开发环境与常用软件.md",
+    "操作记录/fedora安装使用教程/08-Fedora-远程控制方案.md",
+    "操作记录/fedora安装使用教程/07-Fedora-pi-agent安装与配置.md",
+    "操作记录/fedora安装使用教程/06-Fedora-Wezterm与Zellij.md",
+    "操作记录/fedora安装使用教程/05-Fedora-Neovim配置.md",
+    "操作记录/fedora安装使用教程/04-Fedora-zsh与终端工具链.md",
+    "操作记录/fedora安装使用教程/03-Fedora-终端美化与字体.md",
+    "操作记录/fedora安装使用教程/02-Fedora-Docker安装与使用.md",
+    "操作记录/fedora安装使用教程/01-Fedora安装与初始化.md",
+    "操作记录/fedora安装使用教程/00-Fedora上手教程.md",
+    "操作记录/fedora安装使用教程",
+    "学习笔记和教程/LLM微调入门教程/05-实战：用QLoRA微调Qwen.md",
     "操作记录/Fedora安装与初始化.md",
     "操作记录/Fedora上手教程.md",
     "操作记录/Fedora-远程控制方案.md",
@@ -206,18 +234,6 @@
     "学习笔记和教程/Paperclip AI Agent 编排平台安装与使用教程.md",
     "学习笔记和教程/Next.js 全栈开发入门教程 - 从零做一个用户登录系统.md",
     "学习笔记和教程/WebMCP 入门教程 - 让网站为 AI Agent 暴露结构化工具.md",
-    "分析报告/React_vs_NextJS_Comparison_Report_20260418.md",
-    "曾用过的提示词/运营产品 - 后端框架提示词.md",
-    "曾用过的提示词/智谱大模型应用.md",
-    "曾用过的提示词/starrocks wolf_v4造数据.md",
-    "曾用过的提示词/Python langchain工程创建prompt.md",
-    "曾用过的提示词/Matrix Readme.md",
-    "备忘.md",
-    "分析报告/AI训练数据分类与专家标注价值_20260903.md",
-    "分析报告/Meta入股Scale_AI战略拆解_20260903.md",
-    "分析报告/Mercor_深度调研_20260903.md",
-    "操作记录/Debezium 加 Prometheus 和 Grafana 监控.md",
-    "操作记录/postgres 监控配置（Prometheus + Grafana）.md",
     "分析报告/Mercor_深度调研_20260903.html",
     "分析报告/claims.jsonl",
     "分析报告/evidence.jsonl",
@@ -227,7 +243,6 @@
     "evidence.jsonl",
     "sources.jsonl",
     "run_manifest.json",
-    "我的项目/全自动营销产品/自动营销-TOB型软件公司销售全流程.excalidraw",
     "我的项目/全自动营销产品/images/proactive-agent-stack.png",
     "我的项目/全自动营销产品/images/proactive-agent-evo.png",
     "我的项目/plato/三权分立图.canvas",

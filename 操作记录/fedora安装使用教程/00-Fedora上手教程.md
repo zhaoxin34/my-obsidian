@@ -9,15 +9,15 @@
 
 | # | 章节 | 用途 |
 | - | ---- | ---- |
-| 1 | [[Fedora安装与初始化]] | 装机、镜像源、系统更新、基础工具 |
-| 2 | [[Fedora-Docker安装与使用]] | Docker + Compose + 国内镜像加速 |
-| 3 | [[Fedora-终端美化与字体]] | Nerd Font、GNOME 主题、图标、扩展 |
-| 4 | [[Fedora-zsh与终端工具链]] | zsh + oh-my-zsh + starship + eza/btop/yazi |
-| 5 | [[Fedora-Neovim配置]] | neovim + lazy.nvim + LSP |
-| 6 | [[Fedora-Wezterm与Zellij]] | 终端模拟器 + 多窗格复用 |
-| 7 | [[Fedora-pi-agent安装与配置]] | pi coding agent 部署 |
-| 8 | [[Fedora-远程控制方案]] | SSH / Mosh / Tailscale / RustDesk |
-| 9 | [[Fedora-开发环境与常用软件]] | Python / Node / Java / Chrome / git |
+| 1 | [[01-Fedora安装与初始化]] | 装机、镜像源、系统更新、基础工具 |
+| 2 | [[02-Fedora-Docker安装与使用]] | Docker + Compose + 国内镜像加速 |
+| 3 | [[03-Fedora-终端美化与字体]] | Nerd Font、GNOME 主题、图标、扩展 |
+| 4 | [[04-Fedora-zsh与终端工具链]] | zsh + oh-my-zsh + starship + eza/btop/yazi |
+| 5 | [[05-Fedora-Neovim配置]] | neovim + lazy.nvim + LSP |
+| 6 | [[06-Fedora-Wezterm与Zellij]] | 终端模拟器 + 多窗格复用 |
+| 7 | [[07-Fedora-pi-agent安装与配置]] | pi coding agent 部署 |
+| 8 | [[08-Fedora-远程控制方案]] | SSH / Mosh / Tailscale / RustDesk |
+| 9 | [[09-Fedora-开发环境与常用软件]] | Python / Node / Java / Chrome / git |
 
 ## 推荐安装顺序
 
@@ -40,9 +40,9 @@ graph LR
 
 ## 通用注意事项
 
-- 国内网络下需要走代理，参考 [[Fedora安装与初始化#代理配置]]
+- 国内网络下需要走代理，参考 [[01-Fedora安装与初始化#代理配置]]
 - 教程中所有 `dnf install` 都需要 `sudo`
-- 如果遇到 dnf 下载慢，先看 [[Fedora安装与初始化#DNF 镜像加速]]
+- 如果遇到 dnf 下载慢，先看 [[01-Fedora安装与初始化#DNF 镜像加速]]
 - Fedora 默认是 Wayland，不是 X11，部分远程工具要专门选 Wayland 节点
 
 ## 我的判断

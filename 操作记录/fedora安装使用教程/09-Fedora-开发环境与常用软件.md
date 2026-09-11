@@ -48,7 +48,7 @@ pyenv global 3.12
 
 ## 2. Node.js
 
-见 [[Fedora-pi-agent安装与配置#1. 前置：Node.js]]，推荐 **fnm** 管理多版本。
+见 [[07-Fedora-pi-agent安装与配置#1. 前置：Node.js]]，推荐 **fnm** 管理多版本。
 
 ```bash
 # 验证
@@ -214,4 +214,4 @@ Mac / Fedora 切换时 `bash install.sh` 即可同步。
 
 ## 后续
 
-- 回到 [[Fedora上手教程]] 检查清单
+- 回到 [[00-Fedora上手教程]] 检查清单

@@ -190,5 +190,5 @@ curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/i
 
 ## 后续
 
-- [[Fedora-pi-agent安装与配置]]（用 pi 操作 docker 容器）
-- [[Fedora-远程控制方案]]（如需把 Docker 端口暴露到 Mac）
+- [[07-Fedora-pi-agent安装与配置]]（用 pi 操作 docker 容器）
+- [[08-Fedora-远程控制方案]]（如需把 Docker 端口暴露到 Mac）

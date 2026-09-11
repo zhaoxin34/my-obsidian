@@ -1,7 +1,7 @@
 # Fedora Neovim 配置
 
 > 装 neovim（建议 0.10+），用 lazy.nvim 管理插件，基础配置覆盖 LSP / treesitter / telescope。
-> 字体请先装 [[Fedora-终端美化与字体#JetBrains Mono Nerd Font]]。
+> 字体请先装 [[03-Fedora-终端美化与字体#JetBrains Mono Nerd Font]]。
 
 ## 1. 安装 neovim
 
@@ -211,11 +211,11 @@ ln -s ~/code/dotfiles/nvim ~/.config/nvim
 
 ## 常见问题
 
-- **Chinese 字符显示乱码**：终端字体没装 Nerd Font，见 [[Fedora-终端美化与字体]]
+- **Chinese 字符显示乱码**：终端字体没装 Nerd Font，见 [[03-Fedora-终端美化与字体]]
 - **LSP 不启动**：`:LspInfo` 看 server 是否 attach；缺 server 看 `:Mason`
 - **Treesitter 解析失败**：`:TSUpdate` 重新编译
 
 ## 后续
 
-- [[Fedora-Wezterm与Zellij]]（在终端里跑 neovim 体验更稳）
-- [[Fedora-pi-agent安装与配置]]（让 pi 帮你改 nvim 配置）
+- [[06-Fedora-Wezterm与Zellij]]（在终端里跑 neovim 体验更稳）
+- [[07-Fedora-pi-agent安装与配置]]（让 pi 帮你改 nvim 配置）
