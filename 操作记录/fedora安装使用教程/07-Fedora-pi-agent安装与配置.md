@@ -158,4 +158,4 @@ ln -s ~/code/dotfiles/pi ~/.pi/agent
 
 ## 后续
 
-- [[Fedora-远程控制方案]]（你可以 Mac 上 ssh 进 Fedora 后用 wezterm + pi agent）
+- [[08-Fedora-远程控制方案]]（你可以 Mac 上 ssh 进 Fedora 后用 wezterm + pi agent）

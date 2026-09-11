@@ -163,7 +163,7 @@ sudo firewall-cmd --permanent --add-service=https
 sudo firewall-cmd --reload
 ```
 
-> Docker 安装后会自己加 iptables 规则，但 firewalld 经常与之冲突；如果遇到容器无法联网，参考 [[Fedora-Docker安装与使用#防火墙冲突]]
+> Docker 安装后会自己加 iptables 规则，但 firewalld 经常与之冲突；如果遇到容器无法联网，参考 [[02-Fedora-Docker安装与使用#防火墙冲突]]
 
 ## SELinux
 
@@ -180,7 +180,7 @@ sudo setenforce 0
 ## 用户与 sudo
 
 ```bash
-# 把自己加入 docker 组（等装 Docker 之后看 [[Fedora-Docker安装与使用#非 root 用户使用 docker]]）
+# 把自己加入 docker 组（等装 Docker 之后看 [[02-Fedora-Docker安装与使用#非 root 用户使用 docker]]）
 # 把 zhaoxin 加到 wheel（其实装机时勾了 administrator 就已经是了）
 sudo usermod -aG wheel zhaoxin
 
@@ -198,6 +198,6 @@ sudo timedatectl set-timezone Asia/Shanghai
 
 ## 后续步骤
 
-- [[Fedora-终端美化与字体]] ← 先装字体，避免后面终端全是方块
-- [[Fedora-Docker安装与使用]]
-- [[Fedora-zsh与终端工具链]]
+- [[03-Fedora-终端美化与字体]] ← 先装字体，避免后面终端全是方块
+- [[02-Fedora-Docker安装与使用]]
+- [[04-Fedora-zsh与终端工具链]]
