@@ -1,0 +1,125 @@
+{
+  "nextId": 11,
+  "tasks": [
+    {
+      "id": "1",
+      "subject": "撰写 Fedora 安装与初始化教程",
+      "description": "覆盖 Fedora Workstation 下载、镜像烧录、安装、首次启动、软件源替换（DNF 镜像加速）、系统更新、基础工具安装、用户与 sudo、firewalld、SSH 服务启用",
+      "status": "completed",
+      "activeForm": "撰写 Fedora 安装与初始化教程",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1789134020954,
+      "updatedAt": 1789134133336
+    },
+    {
+      "id": "2",
+      "subject": "撰写 Fedora Docker 教程",
+      "description": "覆盖 Docker 仓库添加（避开 docker.io 国内访问问题）、docker-ce 安装、镜像加速（/etc/docker/daemon.json）、docker compose、非 root 用户加入 docker 组、常用命令",
+      "status": "completed",
+      "activeForm": "撰写 Fedora Docker 教程",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1789134020954,
+      "updatedAt": 1789134133337
+    },
+    {
+      "id": "3",
+      "subject": "撰写 Fedora 终端美化与字体教程",
+      "description": "GNOME 主题安装、WhiteSur/Orchis 主题、Papirus 图标、MesloLG/JetBrainsMono Nerd Font、字体配置、GNOME Tweaks、常用扩展（Dash to Dock、Blur my Shell、User Themes）",
+      "status": "completed",
+      "activeForm": "撰写 Fedora 终端美化与字体教程",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1789134020955,
+      "updatedAt": 1789134133338
+    },
+    {
+      "id": "4",
+      "subject": "撰写 Fedora zsh 与终端工具链",
+      "description": "zsh 安装、oh-my-zsh、p10k/starship 主题、zsh-autosuggestions/zsh-vi-mode、atuin、eza、ripgrep、fzf、ast-grep、btop、yazi、zoxide、lazygit",
+      "status": "completed",
+      "activeForm": "撰写 Fedora zsh 与终端工具链教程",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1789134020955,
+      "updatedAt": 1789134133339
+    },
+    {
+      "id": "5",
+      "subject": "撰写 Fedora Neovim 配置教程",
+      "description": "neovim 安装（rpm 源或 AppImage/源码）、lazy.nvim、treesitter、telescope、常用 LSP（pyright/tsserver/jdtls 等）、mermaid-cli、字体要求",
+      "status": "completed",
+      "activeForm": "撰写 Fedora Neovim 配置教程",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1789134020955,
+      "updatedAt": 1789134133340
+    },
+    {
+      "id": "6",
+      "subject": "撰写 Fedora Wezterm 与 Zellij 教程",
+      "description": "wezterm 安装（rpm 包/源码）、字体配置、配色；zellij 安装、layout、键位、与 wezterm 的关系",
+      "status": "completed",
+      "activeForm": "撰写 Fedora Wezterm 与 Zellij 教程",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1789134020955,
+      "updatedAt": 1789134133340
+    },
+    {
+      "id": "7",
+      "subject": "撰写 Fedora pi-agent 安装与配置",
+      "description": "Node.js 安装（NodeSource/Fedora 模块）、npm 全局路径、pi-coding-agent 安装、首次配置、provider 设置、skills 市场、proxy 配置",
+      "status": "completed",
+      "activeForm": "撰写 Fedora pi-agent 教程",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1789134020956,
+      "updatedAt": 1789134133341
+    },
+    {
+      "id": "8",
+      "subject": "撰写 Fedora 远程控制方案教程",
+      "description": "SSH + key + sshd_config、Mosh 抗断线、Tailscale/ZeroTier 组网、Chrome Remote Desktop 图形、RustDesk 开源远程、Fedora Wayland 屏幕共享注意事项",
+      "status": "completed",
+      "activeForm": "撰写 Fedora 远程控制方案教程",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1789134020956,
+      "updatedAt": 1789134133342
+    },
+    {
+      "id": "9",
+      "subject": "撰写 Fedora 开发环境与常用软件",
+      "description": "Python 3 + uv/poetry、Node.js、Java + jenv、Chrome/Chromium、git 配置、ripgrep、SQL 客户端、输入法",
+      "status": "completed",
+      "activeForm": "撰写 Fedora 开发环境与常用软件教程",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1789134020956,
+      "updatedAt": 1789134133342
+    },
+    {
+      "id": "10",
+      "subject": "撰写 Fedora 上手教程总览",
+      "description": "教程总览，按需导航的索引页，所有子教程的 wiki-link 列表",
+      "status": "completed",
+      "activeForm": "撰写 Fedora 上手教程总览",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1789134020956,
+      "updatedAt": 1789134133343
+    }
+  ]
+}
