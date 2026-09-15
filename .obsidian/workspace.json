@@ -41,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -146,7 +148,7 @@
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of omarchy配置记录"
+              "title": "Outline"
             }
           },
           {
