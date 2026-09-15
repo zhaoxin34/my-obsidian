@@ -130,26 +130,7 @@ curl -L -o /tmp/dbeaver.appimage \
 
 ## 7. 输入法（中文）
 
-Fedora 自带 ibus，但默认未装中文。Wayland 下推荐 **Fcitx5**：
-
-```bash
-sudo dnf install -y fcitx5 fcitx5-chinese-addons fcitx5-gtk fcitx5-qt fcitx5-configtool
-
-# 环境变量（Wayland）
-echo 'export GTK_IM_MODULE=fcitx' >> ~/.zshrc
-echo 'export QT_IM_MODULE=fcitx' >> ~/.zshrc
-echo 'export XMODIFIERS=@im=fcitx' >> ~/.zshrc
-echo 'export INPUT_METHOD=fcitx' >> ~/.zshrc
-echo 'export SDL_IM_MODULE=fcitx' >> ~/.zshrc
-
-# 启动
-fcitx5 &
-# 配置工具
-fcitx5-configtool
-```
-
-> Wayland 下还要确保 portal 选了 fcitx：
-> `sudo dnf install -y xdg-desktop-portal-gtk`
+完整安装步骤请看 [[01-01-网络工具与输入法#2. Rime 输入法（fcitx5-rime）]]（含 fcitx5 安装 / 环境变量 / Wayland 集成 / 与 Mac 同步配置 / 同步用户数据），本文不再重复。
 
 ## 8. 其他常用
 

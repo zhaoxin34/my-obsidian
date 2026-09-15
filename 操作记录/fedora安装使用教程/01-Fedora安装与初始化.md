@@ -198,6 +198,7 @@ sudo timedatectl set-timezone Asia/Shanghai
 
 ## 后续步骤
 
-- [[03-Fedora-终端美化与字体]] ← 先装字体，避免后面终端全是方块
+- [[01-01-网络工具与输入法]] ← **先装 Mihomo 代理 + Rime 输入法**（Docker / dnf / npm 都需要代理，中文输入也是日常刚需）
 - [[02-Fedora-Docker安装与使用]]
+- [[03-Fedora-终端美化与字体]] ← 再装字体，否则后面终端全是方块
 - [[04-Fedora-zsh与终端工具链]]
