@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作记录/WezTerm 操作.md",
+                "file": "操作记录/omarchy配置记录.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "WezTerm 操作"
+              "title": "omarchy配置记录"
             }
           }
         ]
@@ -41,9 +41,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false,
-                "showSearch": false,
-                "searchQuery": ""
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -55,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "w11",
+                "query": "newsdata",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -76,8 +74,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -143,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "操作记录/WezTerm 操作.md",
+                "file": "操作记录/omarchy配置记录.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of omarchy配置记录"
             }
           },
           {
@@ -196,9 +193,9 @@
   "active": "2c5e4122982fe1d0",
   "lastOpenFiles": [
     "操作记录/Omarchy 安装 Mihomo (Clash Meta) 操作记录.md",
-    "操作记录/omarchy配置记录.md",
     "操作记录/fedora安装使用教程/01-01-网络工具与输入法.md",
     "学习笔记和教程/随机森林算法原理与应用.md",
+    "操作记录/omarchy配置记录.md",
     "操作记录/fedora安装使用教程/02-Fedora-Docker安装与使用.md",
     "学习笔记和教程/LLM微调入门教程/05-实战：用QLoRA微调Qwen.md",
     "Untitled.md",
