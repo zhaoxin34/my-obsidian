@@ -1,7 +1,7 @@
 # Omarchy 安装 Mihomo (Clash Meta) 操作记录
 
 > 在另一台机器（mac）已有 Clash Verge + 订阅的前提下，把同一份订阅 / 节点搬到 Omarchy 主机，复用 mac 作为上游代理。
-> 重点：GFW / 订阅 403 / omarchy 网络受限 / TUN 模式 / GUI 替代（TUI）的全流程坑。
+> 重点：GFW / 订阅 403 / omarchy 网络受限 / TUN 模式 / **必须用 system service（root）才能 TUN 接管全流量** / GUI 替代（TUI）的全流程坑。
 
 ## 0. 环境与前提
 
@@ -9,10 +9,12 @@
 |---|---|---|---|
 | 已有 mac | macOS | `192.168.31.67` | 跑 Clash Verge，`allow-lan: true`，端口 `7890`（mixed HTTP+SOCKS5） |
 | 目标机 | Omarchy（Arch 内核，Hyprland 桌面） | `192.168.31.36` | 跑 mihomo + TUN 接管所有流量 |
-| 订阅 | 貝雪雲 (besnow) | — | URL 含 token + name，**Cloudflare 403 屏蔽所有非常规 IP**（详见故障 1） |
+| 订阅 | 貝雪雲 (besnow) | — | URL 含 token + name，**Cloudflare 403 屏蔽所有非常规 IP**（详见故障 2） |
 | 用户 | — | — | mac `~/.bashrc` / `~/.zshrc` 已被你**注释掉**所有代理 export，**本 playbook 不再触碰**这两个文件 |
 
 > 关键事实：omarchy 主机**无法直连** GitHub / AUR / besnow.uk / 任何国际站点（GFW）。所有出网必须经 `mac:7890` 代理。
+
+> **大坑预警**：mihomo TUN 模式**必须以 root 跑**（system service）。user systemd 受 Linux capability 限制，加 iptables/nftables 规则和 default route 都会失败。详见故障 8。
 
 ---
 
@@ -64,25 +66,28 @@ yes | yay -S --noconfirm --answeredit None --answerdiff None --removemake mihomo
 
 ---
 
-## 3. 赋予 TUN 能力（必须 sudo）
+## 3. 赋予 TUN 能力（即使 system service 是 root，也建议设）
 
 ```bash
-sudo setcap cap_net_admin,cap_net_bind_service=+ep /usr/bin/mihomo
+sudo setcap cap_net_admin,cap_net_bind_service,cap_net_raw=+ep /usr/bin/mihomo
 getcap /usr/bin/mihomo
-# 期望：/usr/bin/mihomo cap_net_bind_service,cap_net_admin=ep
+# 期望：/usr/bin/mihomo cap_net_bind_service,cap_net_admin,cap_net_raw=ep
 ```
 
 > 不 setcap 的话，mihomo 启动时会报 `operation not permitted` 起不来 TUN。
 > **每次 mihomo-bin 升级后要重跑**（新二进制覆盖会丢 cap）。
+> 增加了 `cap_net_raw` 是因为某些场景下 mihomo 需要原始 socket（健康检查等）。
 
 ---
 
-## 4. 准备配置目录 + secret
+## 4. 准备配置目录 + secret（system service 用 `/etc/mihomo/`）
+
+mihomo 标准位置是 `/etc/mihomo/`（macOS 习惯放 `~/Library/Application Support/...`，Linux 标准是 `/etc/`）。
 
 ```bash
-mkdir -p ~/.config/mihomo ~/.config/systemd/user
+# 4.1 建临时目录 + secret（先在 user home 搞，后面再 sudo mv）
+mkdir -p ~/.config/mihomo
 
-# 4.1 生成 controller secret（32 hex）
 SECRET=$(openssl rand -hex 16)
 echo "$SECRET" > ~/.config/mihomo/.secret
 chmod 600 ~/.config/mihomo/.secret
@@ -118,9 +123,15 @@ scp ~/Library/Application\ Support/io.github.clash-verge-rev.clash-verge-rev/geo
 
 ---
 
-## 6. 改 config.yaml（3 处修改）
+## 6. 改 config.yaml（Linux 必须加 3 个关键项）
 
-mac 的订阅配置是 clash-verge 风格，omarchy 上 mihomo 要做 3 处小改：
+mac 的订阅配置是 clash-verge 风格，**直接用不行**——Linux 上 mihomo 必须额外配置：
+
+| 字段 | 为什么必须加（mac 上不需要） |
+|---|---|
+| `tun.auto-redirect: true` | Linux only，让 mihomo 调 nftables/iptables 把 DNS 重定向到 mihomo |
+| `tun.dns-hijack: any:53` | 让 TUN 抓 DNS 包自己回 fake-IP |
+| `tun.dns-hijack: tcp://any:53` | TCP DNS 也接管（DoH 客户端可能用 TCP） |
 
 ```bash
 SECRET=$(cat ~/.config/mihomo/.secret)
@@ -128,13 +139,11 @@ SECRET=$(cat ~/.config/mihomo/.secret)
 # 6.1 allow-lan: true → false（mac 是 LAN 共享，omarchy 只本机用）
 sed -i 's|allow-lan: true|allow-lan: false|' ~/.config/mihomo/config.yaml
 
-# 6.2 secret 写进 external-controller 后（独立顶层 key，不能是子 key）
-#    原 mac 行：external-controller: '127.0.0.1:9090'
-#    用 awk 在 proxies: 段之前插入我们自己的：tun + geodata-mode + geox-url + secret
+# 6.2 在 proxies: 段之前插入 tun + auto-redirect + dns-hijack + geodata-mode + secret
 awk -v SECRET="$SECRET" '
 /^proxies:$/ && !done_tun {
   print ""
-  print "# --- omarchy TUN additions (placed before proxies) ---"
+  print "# --- omarchy TUN additions (Linux only) ---"
   print "geodata-mode: false"
   print "geox-url:"
   print "  geoip: \"file:///home/zhaoxin/.config/mihomo/Country.mmdb\""
@@ -145,8 +154,10 @@ awk -v SECRET="$SECRET" '
   print "  stack: system"
   print "  auto-route: true"
   print "  auto-detect-interface: true"
+  print "  auto-redirect: true"
   print "  dns-hijack:"
   print "    - any:53"
+  print "    - tcp://any:53"
   print ""
   done_tun=1
 }
@@ -167,17 +178,31 @@ mihomo -t -f ~/.config/mihomo/config.yaml
 
 **关键排版坑**（已踩过）：
 - `secret` **不能**写在 `external-controller:` 下面做子 key（它是 string，不是 map）。YAML 解析会报 `did not find expected key`。
-- `tun.dns-hijack` 的正确格式是 `[{addr}:{port}]`（如 `- any:53`），**不要**写 `- tcp:53`（mihomo 会 `unable to parse IP`）。
+- `tun.dns-hijack` 的正确格式是 `[{addr}:{port}]`（如 `- any:53`），**不要**写 `- tcp:53`（mihomo 会 `unable to parse IP`）。**TCP 端口要写完整** `tcp://any:53`。
 - `tun` 块必须放在**顶层**——不能插到 `dns:` 段内部（会破坏缩进）。
 - `geodata-mode: false` + `geox-url.geoip: file://...` 才会**用本地 MMDB**，否则会去 GitHub 拉（omarchy 拉不到）。
+- 移动到 system service 后（§7）config.yaml 的路径要改成 `/etc/mihomo/config.yaml`，下面所有路径同步替换。
 
 ---
 
-## 7. systemd user service
+## 7. systemd system service（root 跑，必须 sudo）
+
+**这是关键**：mihomo TUN 必须以 root 跑。user systemd 受 Linux capability 限制，加不上 iptables/nftables 规则 + default route。详见故障 8。
 
 ```bash
-# 7.1 写 service 文件
-cat > ~/.config/systemd/user/mihomo.service <<'UNIT_EOF'
+# 7.1 移 config 到 /etc/mihomo/（system service 标准位置）
+sudo mkdir -p /etc/mihomo
+# 注意 bash 通配符 * 不匹配隐藏文件，要单独 cp .secret
+sudo cp -r ~/.config/mihomo/* /etc/mihomo/
+sudo cp ~/.config/mihomo/.secret /etc/mihomo/.secret
+sudo chown -R root:root /etc/mihomo
+sudo chmod 700 /etc/mihomo
+sudo chmod 600 /etc/mihomo/.secret
+sudo chmod 755 /etc/mihomo/config.yaml
+sudo chmod 644 /etc/mihomo/{Country.mmdb,geosite.dat}
+
+# 7.2 写 system service（不是 user service！）
+sudo tee /etc/systemd/system/mihomo.service > /dev/null <<'EOF'
 [Unit]
 Description=mihomo (Clash Meta) daemon
 Documentation=https://wiki.metacubex.one/
@@ -186,55 +211,85 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-Environment=http_proxy=http://192.168.31.67:7890
-Environment=https_proxy=http://192.168.31.67:7890
-Environment=all_proxy=socks5://192.168.31.67:7890
-Environment=no_proxy=127.0.0.1,localhost,192.168.31.0/24
-ExecStart=/usr/bin/mihomo -d /home/zhaoxin/.config/mihomo
+ExecStart=/usr/bin/mihomo -d /etc/mihomo
 Restart=on-failure
 RestartSec=5
 LimitNOFILE=1048576
+# system service 可以用 AmbientCapabilities 拿到 caps（user service 不行）
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW
 
 [Install]
-WantedBy=default.target
-UNIT_EOF
+WantedBy=multi-user.target
+EOF
 
-# 7.2 启用
-systemctl --user daemon-reload
-systemctl --user enable --now mihomo.service
-systemctl --user status mihomo.service --no-pager
+# 7.3 启用 + 启动
+sudo systemctl daemon-reload
+sudo systemctl enable --now mihomo.service
+sleep 3
+sudo systemctl status mihomo.service --no-pager
 # 期望：Active: active (running)
-#       LISTEN 7890 / LISTEN 9090（用 ss -tlnp 验）
-#       ip tuntap list → Meta: tun
+#       Main PID 下显示 /usr/bin/mihomo -d /etc/mihomo
+#       CGroup: /system.slice/mihomo.service
+
+ss -tlnp | grep -E ':(7890|9090)'
+# 期望 LISTEN 127.0.0.1:7890 / 127.0.0.1:9090
+
+ip tuntap list
+# 期望：Meta: tun
 ```
 
-**坑**：
-- 第一次启动可能 `Start TUN listening error: parse dns-hijack url error`，**这不代表失败**——mihomo 仍然会起 mixed proxy，TUN 用默认空配置。重修 dns-hijack 后 `systemctl --user restart`。
-- 想 SSH 断电后 mihomo 仍跑，需要 `sudo loginctl enable-linger zhaoxin`（**要 sudo**）。
+**关键注意**：
+- 第一次启动时如果**旧的 user systemd mihomo 还活着**，新的 system mihomo 启动会因端口冲突失败（log 里会看到 `bind: address already in use` 和 `configure tun interface: device or resource busy`）。必须先杀掉旧的：
+  ```bash
+  sudo pkill -9 -u zhaoxin mihomo
+  sudo systemctl restart mihomo.service
+  ```
+- `WantedBy=multi-user.target`（**不是** `default.target`）。user service 用 `default.target`，system service 用 `multi-user.target`。
 
 ---
 
 ## 8. 验收（必跑）
 
 ```bash
-# 8.1 HTTP 代理
-curl -sS --max-time 10 -x http://127.0.0.1:7890 -I https://www.google.com
-# 期望：HTTP/2 200
+# 8.1 service 状态
+sudo systemctl status mihomo.service --no-pager
+# 期望：Active: active (running)
 
-# 8.2 SOCKS5
-curl -sS --max-time 10 --socks5-hostname 127.0.0.1:7890 -I https://www.youtube.com
+# 8.2 mixed proxy 端口
+ss -tlnp | grep -E ':(7890|9090)'
 
 # 8.3 TUN 设备
 ip tuntap list
 # 期望：Meta: tun
 ip route | grep 198.18
-# 期望：198.18.0.0/30 dev Meta ...
+# 期望：198.18.0.0/30 dev Meta（fake-IP 段路由）
 
-# 8.4 Dashboard API
-curl -sS -H "Authorization: Bearer $(cat ~/.config/mihomo/.secret)" \
+# 8.4 mixed proxy（直连）
+curl -sS --max-time 10 -x http://127.0.0.1:7890 -I https://www.google.com
+# 期望：HTTP/2 200
+
+# 8.5 SOCKS5
+curl -sS --max-time 10 --socks5-hostname 127.0.0.1:7890 -I https://www.youtube.com
+
+# 8.6 TUN 真接管（不配代理直连）
+curl -sS --max-time 8 -I https://github.com
+# 期望：HTTP/2 200（直连被 GFW 挡，200 = TUN 接管成功）
+# 这是验证 TUN 是否真工作的**决定性**测试
+
+# 8.7 Dashboard API
+curl -sS -H "Authorization: Bearer $(cat /etc/mihomo/.secret)" \
     http://127.0.0.1:9090/version
 # 期望：{"meta":true,"version":"v1.19.x"}
+
+# 8.8 终极测试：git clone 一个公共 repo（验证 DNS + TCP + TUN 全链路）
+cd /tmp && rm -rf Hello-World 2>/dev/null
+git clone --depth=1 https://github.com/octocat/Hello-World
+ls Hello-World
+# 期望：README 文件落盘
 ```
+
+如果 8.6 / 8.8 失败，看故障 8。
 
 ---
 
@@ -246,7 +301,7 @@ yay -S --noconfirm --answeredit None --answerdiff None --removemake mihomo-tui-b
 
 # 9.2 写配置（mihomo-tui 走 mihomo controller API）
 mkdir -p ~/.config/mihomo-tui
-SECRET=$(cat ~/.config/mihomo/.secret)
+SECRET=$(cat /etc/mihomo/.secret)
 cat > ~/.config/mihomo-tui/config.yaml <<EOF
 mihomo-api: http://127.0.0.1:9090
 mihomo-secret: "$SECRET"
@@ -274,47 +329,61 @@ TUI 键位（potoo0/mihomo-tui）：
 
 ---
 
-## 10. 控制脚本 mihomo-ctl
+## 10. 控制脚本 mihomo-ctl（system service 版）
+
+注意：所有 systemctl 命令都加 `sudo`（system service 在 system bus，不在 user bus）。
 
 ```bash
-cat > ~/.local/bin/mihomo-ctl <<'BASH_EOF'
+sudo tee /usr/local/bin/mihomo-ctl > /dev/null <<'BASH_EOF'
 #!/bin/bash
-SECRET=$(cat ~/.config/mihomo/.secret 2>/dev/null)
+# mihomo 控制脚本（system service 版）
+SECRET=$(cat /etc/mihomo/.secret 2>/dev/null)
 API="http://127.0.0.1:9090"
 AUTH=(-H "Authorization: Bearer $SECRET")
 
+sudo_needed() {
+  if ! sudo -n true 2>/dev/null; then
+    echo "(needs sudo: $1)"
+    sudo -n "$@" 2>&1 || sudo "$@"
+  fi
+}
+
 case "${1:-status}" in
-  status)   systemctl --user status mihomo --no-pager | head -10
+  status)   sudo systemctl status mihomo --no-pager | head -10
             echo '--- listening ---'
             ss -tlnp 2>/dev/null | grep -E ':(7890|9090)\s'
             echo '--- TUN ---'
             ip tuntap list 2>/dev/null ;;
-  restart)  systemctl --user restart mihomo && sleep 2 && echo 'restarted' ;;
-  stop)     systemctl --user stop mihomo ;;
-  start)    systemctl --user start mihomo ;;
-  logs)     journalctl --user -u mihomo -f ;;
-  log)      journalctl --user -u mihomo -n 50 --no-pager ;;
+  restart)  sudo systemctl restart mihomo && sleep 2 && echo 'restarted' ;;
+  stop)     sudo systemctl stop mihomo ;;
+  start)    sudo systemctl start mihomo ;;
+  logs)     sudo journalctl -u mihomo -f ;;
+  log)      sudo journalctl -u mihomo -n 50 --no-pager ;;
   proxies)  curl -sS "${AUTH[@]}" $API/proxies | python3 -m json.tool 2>/dev/null | head -40 ;;
   groups)   curl -sS "${AUTH[@]}" $API/proxies | python3 -c 'import json,sys; d=json.load(sys.stdin); [print(k, "->", v.get("type")) for k,v in d.get("proxies",{}).items() if v.get("type") in ("select","url-test","fallback","load-balance")]' 2>/dev/null ;;
-  refresh)  sudo systemctl restart mihomo 2>/dev/null || systemctl --user restart mihomo ;;
+  refresh)  echo 're-download from mac: scp omc mac:Library/.../RrB3nwVaJ7Rz.yaml /etc/mihomo/config.yaml.bak'
+            sudo systemctl restart mihomo ;;
   test)     echo 'HTTP proxy:'; curl -sS --max-time 5 -x http://127.0.0.1:7890 -I https://www.google.com 2>&1 | head -1
-            echo 'SOCKS5:';     curl -sS --max-time 5 --socks5-hostname 127.0.0.1:7890 -I https://www.youtube.com 2>&1 | head -1 ;;
+            echo 'SOCKS5:';     curl -sS --max-time 5 --socks5-hostname 127.0.0.1:7890 -I https://www.youtube.com 2>&1 | head -1
+            echo 'TUN (no proxy):'; curl -sS --max-time 5 -I https://github.com 2>&1 | head -1 ;;
   tui)      command -v mihomo-tui >/dev/null 2>&1 || { echo 'mihomo-tui not installed (yay -S mihomo-tui-bin)'; exit 1; }
             exec mihomo-tui ;;
   *)        echo "Usage: mihomo-ctl {status|start|stop|restart|logs|log|proxies|groups|refresh|test|tui}" ;;
 esac
 BASH_EOF
-chmod +x ~/.local/bin/mihomo-ctl
+sudo chmod +x /usr/local/bin/mihomo-ctl
 ```
 
 常用：
 ```bash
-mihomo-ctl            # 等价 status
-mihomo-ctl tui        # 启动 TUI（最常用）
-mihomo-ctl test       # HTTP/SOCKS 快速验证
-mihomo-ctl log        # 最近 50 行日志
-mihomo-ctl groups     # 列所有代理组
+sudo mihomo-ctl            # 等价 status
+sudo mihomo-ctl tui        # 启动 TUI
+sudo mihomo-ctl test       # HTTP/SOCKS/TUN 三合一验证
+sudo mihomo-ctl log        # 最近 50 行日志
+sudo mihomo-ctl groups     # 列所有代理组
 ```
+
+> 为什么放 `/usr/local/bin` 而不是 `~/.local/bin`？因为 system service 路径是 `/etc/mihomo/`，脚本要 sudo 才能读 .secret。放 `/usr/local/bin` 全局可见，需要 `sudo mihomo-ctl`。
 
 ---
 
@@ -344,7 +413,7 @@ curl --max-time 5 -x http://192.168.31.67:7890 -I https://www.google.com  # 必 
 
 **修**：**不要试图在线拉**。直接从 mac 把订阅文件 scp 过来（§5.2）。订阅文件本身是完整 Clash YAML（混合端口 + 节点 + 代理组 + 规则），mihomo 直接吃。
 
-> 以后想自动刷新：写脚本在 mac 上跑 Clash Verge 的"刷新订阅"功能，再 scp 到 omarchy + `systemctl --user restart mihomo`。
+> 以后想自动刷新：写脚本在 mac 上跑 Clash Verge 的"刷新订阅"功能，再 scp 到 omarchy + `sudo systemctl restart mihomo`。
 
 ---
 
@@ -372,13 +441,13 @@ ERRO DNS FallbackGeosite[0] format error
 
 ---
 
-### 故障 4：TUN 启动报错
+### 故障 4：TUN 启动报错（dns-hijack 格式）
 
 **症状 A**：`Start TUN listening error: parse dns-hijack url error: ParseAddr("tcp")` —— `dns-hijack` 写了 `- tcp:53`。
-**修**：改成 `- any:53`（`any` 是关键字，匹配所有 53 端口请求）。
+**修**：改成 `- tcp://any:53`（带协议前缀，`any` 是关键字）。
 
 **症状 B**：TUN 不起来但 mixed proxy 正常 —— 通常是 setcap 没成功。
-**修**：`sudo setcap cap_net_admin,cap_net_bind_service=+ep /usr/bin/mihomo`，重跑 `systemctl --user restart mihomo`。
+**修**：`sudo setcap cap_net_admin,cap_net_bind_service,cap_net_raw=+ep /usr/bin/mihomo`，重跑 `sudo systemctl restart mihomo`。
 
 ---
 
@@ -406,18 +475,122 @@ ERRO DNS FallbackGeosite[0] format error
 **根因**：`setcap` 是在旧二进制上设置的，新二进制覆盖会丢。
 **修**：
 ```bash
-sudo setcap cap_net_admin,cap_net_bind_service=+ep /usr/bin/mihomo
-sudo systemctl restart mihomo    # 如果 mihomo 是 system service
-# 或：systemctl --user restart mihomo
+yay -S --noconfirm mihomo-bin
+sudo setcap cap_net_admin,cap_net_bind_service,cap_net_raw=+ep /usr/bin/mihomo
+sudo systemctl restart mihomo
 ```
-**建议**：升级前 `mihomo-ctl stop`，升级后重设 cap 再 `mihomo-ctl start`。
+**建议**：升级前 `sudo mihomo-ctl stop`。
+
+---
+
+### 故障 8：TUN 启动但流量不接管（user systemd 限制）— **本 playbook 的最大坑**
+
+**症状**：
+- `mihomo -t` validate 通过
+- `ip tuntap list` 看到 `Meta: tun`
+- 端口 7890/9090 在监听
+- `curl -x http://127.0.0.1:7890 https://github.com` **通**
+- **`curl https://github.com`（不配代理）超时或 LAN 直连**
+- mihomo log 里**完全没有** `TCP ... github.com` 这类条目
+- iptables NAT / mangle 表是空的（或只有 ufw/docker 链）
+- `ip route show table all | grep 198.18` 只看到 `198.18.0.0/30`（fake-IP 段），**没** default route via Meta
+- `getent hosts github.com` 返回真实 IP（`20.205.243.166`），不是 fake-IP
+
+**根因**：mihomo 之前用 user systemd 跑（`~/.config/systemd/user/mihomo.service`）。user systemd 服务即使 setcap 加了 cap_net_admin，**子进程拿不到这些 caps**（user systemd 拒绝 AmbientCapabilities / CapabilityBoundingSet，会报 `Failed at step CAPABILITIES spawning /bin/sh: Operation not permitted`）。后果：
+- mihomo 自己的 auto-route 只加 fake-IP 范围（/30）的 ip rule + table 2022，不会加 default route 覆盖真实外网 IP
+- mihomo 加不上 iptables / nftables 的 DNS 重定向规则（写 /run/user/<uid>/ 或 nft 句柄都需要 cap_net_admin）
+- systemd-resolved 没改成指向 198.18.0.2（user 服务无法改 /etc/systemd/resolved.conf.d/）
+
+**修**：mihomo 必须以 **root 跑**（system service）。详见 §7。步骤：
+
+```bash
+# 1. 停掉 user service（从 user shell 跑，或者忽略这步直接 pkill）
+systemctl --user stop mihomo 2>/dev/null
+sudo pkill -9 -u zhaoxin mihomo  # 确保旧进程死透
+
+# 2. 移 config 到 /etc/mihomo/
+sudo mkdir -p /etc/mihomo
+sudo cp -r ~/.config/mihomo/* /etc/mihomo/   # * 不匹配隐藏文件
+sudo cp ~/.config/mihomo/.secret /etc/mihomo/.secret
+sudo chown -R root:root /etc/mihomo
+sudo chmod 700 /etc/mihomo
+sudo chmod 600 /etc/mihomo/.secret
+
+# 3. 写 /etc/systemd/system/mihomo.service（带 AmbientCapabilities）
+sudo tee /etc/systemd/system/mihomo.service > /dev/null <<'EOF'
+[Unit]
+Description=mihomo (Clash Meta) daemon
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/mihomo -d /etc/mihomo
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=1048576
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# 4. 启动 + 验证
+sudo systemctl daemon-reload
+sudo systemctl enable --now mihomo.service
+sleep 3
+sudo systemctl status mihomo.service --no-pager
+
+# 5. 终极测试
+curl https://github.com   # 应该 200（直连被 GFW 挡，200 = TUN 接管成功）
+git clone https://github.com/octocat/Hello-World /tmp/test-tun  # 应该成功
+```
+
+**判断是否成功**：
+- `curl https://github.com` → 200（TUN 真的接管）
+- `sudo nft list ruleset | grep -iE '198.18|Meta'` → 看到 mihomo 加的 nftables 规则
+- `sudo journalctl -u mihomo -n 50 --no-pager | grep -E 'TCP|UDP'` → 看到 mihomo 处理的 TCP/UDP 流量
+
+---
+
+### 故障 9：system service 启动后端口冲突 / TUN device busy
+
+**症状**：system service 启动时 log 里出现：
+```
+External controller listen error: listen tcp 127.0.0.1:9090: bind: address already in use
+Start Mixed(http+socks) server error: listen tcp 127.0.0.1:7890: bind: address already in use
+[TUN] default interface changed by monitor, => wlp3s0
+Start TUN listening error: configure tun interface: device or resource busy
+```
+
+**根因**：**旧的 user systemd mihomo 进程没被杀死**，占了 7890/9090 和 TUN 设备。
+
+**修**：
+```bash
+sudo pkill -9 mihomo  # 或者 sudo pkill -9 -u zhaoxin mihomo（更精确）
+sleep 2
+sudo systemctl restart mihomo.service
+sleep 3
+ss -tlnp | grep -E ':(7890|9090)'  # 应该只剩新进程在 listen
+ip tuntap list                      # 应该只剩一个 Meta: tun
+sudo systemctl status mihomo.service --no-pager  # Active: active (running)
+```
+
+---
+
+### 故障 10：arch 用 nftables 而不是 iptables，所以 iptables 检查是空的
+
+**症状**：`sudo iptables -t nat -L` 看不到 mihomo 的 DNS redirect 规则，但 TUN 实际工作。
+**根因**：Arch Linux 默认是 nftables 后端，`iptables` 命令其实是 nft 的兼容层（或者 iptables-nft 包）。
+**修**：用 `sudo nft list ruleset` 查 mihomo 的规则，能看到就说明生效了。**或者直接信 TUN 工作的事实**（curl 直连 github.com 返回 200 = 工作）。
 
 ---
 
 ## 12. 一次性密码 / 凭据
 
 - mac Clash Verge `secret`：**无**（mac 用默认配置，没设 secret）
-- omarchy mihomo controller secret：见 `~/.config/mihomo/.secret`（32 hex）
+- omarchy mihomo controller secret：见 `/etc/mihomo/.secret`（32 hex，root only，chmod 600）
 - besnow 订阅 token：在订阅 URL 里（不存本地；想换得去 besnow 网站）
 
 ---
@@ -425,46 +598,74 @@ sudo systemctl restart mihomo    # 如果 mihomo 是 system service
 ## 13. 完整文件清单（最终态）
 
 ```
-~/.config/mihomo/
-├── config.yaml          # 主配置（mac 订阅基础 + 我们的 TUN/MMDB 块）
+/etc/mihomo/
+├── config.yaml          # 主配置（mac 订阅基础 + Linux TUN/auto-redirect/dns-hijack）
 ├── Country.mmdb         # 从 mac 复制
 ├── geosite.dat          # 从 mac 复制
-└── .secret              # controller secret（chmod 600）
+└── .secret              # controller secret（root only, chmod 600）
 
-~/.config/systemd/user/
-└── mihomo.service       # systemd user unit
+/etc/systemd/system/
+└── mihomo.service       # system service（root 跑）
 
 ~/.config/mihomo-tui/
 └── config.yaml          # TUI 客户端配置
 
-~/.local/bin/
-└── mihomo-ctl           # 控制脚本
+/usr/local/bin/
+└── mihomo-ctl           # 控制脚本（system service 版）
 ```
 
 - `/usr/bin/mihomo` （AUR `mihomo-bin`）
 - `/usr/bin/mihomo-tui` （AUR `mihomo-tui-bin`）
 
+> 旧位置 `~/.config/mihomo/` 和 `~/.config/systemd/user/mihomo.service` 可以删了（system service 不再用）：
+> ```bash
+> sudo rm -rf ~/.config/mihomo
+> rm ~/.config/systemd/user/mihomo.service
+> ```
+
 ---
 
-## 14. 速查：升级 mihomo-bin 后的 3 步
+## 14. 速查：升级 mihomo-bin 后的 4 步
 
 ```bash
 yay -S --noconfirm mihomo-bin
-sudo setcap cap_net_admin,cap_net_bind_service=+ep /usr/bin/mihomo
-mihomo-ctl restart
+sudo setcap cap_net_admin,cap_net_bind_service,cap_net_raw=+ep /usr/bin/mihomo
+sudo systemctl restart mihomo.service
+sudo mihomo-ctl test    # 验证 TUN 还在工作
 ```
 
 ---
 
-## 15. 速查：mihomo 不通时的 5 条诊断
+## 15. 速查：mihomo 不通时的 6 条诊断
 
 ```bash
-mihomo-ctl status    # 服务在跑？端口在听？TUN 设备在？
-mihomo-ctl log | tail -30   # 最近日志
-journalctl --user -u mihomo -n 50 --no-pager
-ip tuntap list       # TUN 设备名（应该 Meta: tun）
-curl -x http://127.0.0.1:7890 -I https://www.google.com   # mixed proxy
+sudo systemctl status mihomo    # service 在跑？
+ss -tlnp | grep -E ':(7890|9090)'  # 端口在听？
+ip tuntap list                    # TUN 设备（应该 Meta: tun）
+sudo journalctl -u mihomo -n 50 --no-pager  # 最近日志
+curl -x http://127.0.0.1:7890 -I https://www.google.com   # mixed proxy 通不通
+curl https://github.com                                 # TUN 真工作了吗（直连应该被 GFW 挡，能 200 = TUN 接管成功）
 ```
 
-如果 mixed proxy 通但全局流量不通 → TUN 挂了（`sudo setcap` 后 `mihomo-ctl restart`）。
-如果 mixed proxy 也不通 → 检查 `mac:7890` 是否仍可达（`curl -x http://192.168.31.67:7890 ...`）。
+如果 mixed proxy 通但 TUN 不接管 → **大概率是故障 8**（user systemd 限制）→ 迁移到 system service。
+如果 mixed proxy 也不通 → 检查 `mac:7890` 是否仍可达（`curl -x http://192.168.31.67:7890 ...`），以及 mac 的 Clash Verge 是否开了 `allow-lan: true`。
+
+---
+
+## 16. mac 和 omarchy 的角色对照（重要）
+
+| | mac | omarchy |
+|---|---|---|
+| 跑的 client | Clash Verge（GUI） | mihomo（TUI/CLI） |
+| 跑的 core | 同一个 mihomo 内核 | 同一个 mihomo 内核 |
+| 订阅源 | 貝雪雲（同一份 URL） | 貝雪雲（同 mac 缓存复制过来） |
+| 配置文件 | clash-verge 自带 | `~/.config/mihomo/config.yaml`（mac 缓存 → 改 3 处） |
+| 进程身份 | 用户（GUI app） | **root**（system service） |
+| mixed port | 7890（`allow-lan: true`，供 omarchy 用） | 7890（本机用） |
+| TUN | mac utun | Linux tun（Meta） |
+| DNS 接管 | clash-verge 自动改系统 DNS | mihomo 自己改（`auto-redirect: true` + `dns-hijack`） |
+
+两台机器**互不直接通信**，各走各的代理。如果以后要 omarchy 拉更新：
+- 在 mac 上让 Clash Verge 刷新订阅
+- scp 新 YAML 到 omarchy `/etc/mihomo/config.yaml.bak`
+- （可选）覆盖 `/etc/mihomo/config.yaml` + `sudo systemctl restart mihomo`
