@@ -13,30 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作记录/omarchy配置记录.md",
+                "file": "操作记录/Omarchy 安装 Mihomo (Clash Meta) 操作记录.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "omarchy配置记录"
-            }
-          },
-          {
-            "id": "69b7e9cdde96c4e8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Untitled 1.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Untitled 1"
+              "title": "Omarchy 安装 Mihomo (Clash Meta) 操作记录"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -155,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Untitled 1.md",
+                "file": "操作记录/Omarchy 安装 Mihomo (Clash Meta) 操作记录.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Untitled 1"
+              "title": "Outline of Omarchy 安装 Mihomo (Clash Meta) 操作记录"
             }
           },
           {
@@ -205,17 +190,17 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "69b7e9cdde96c4e8",
+  "active": "2c5e4122982fe1d0",
   "lastOpenFiles": [
-    "操作记录/Omarchy 复用 mac 的 zsh 配置.md",
-    "Untitled 1.md",
     "操作记录/omarchy配置记录.md",
+    "Untitled.md",
+    "Untitled 1.md",
+    "操作记录/Omarchy 复用 mac 的 zsh 配置.md",
     "操作记录/Omarchy 安装 Mihomo (Clash Meta) 操作记录.md",
     "操作记录/fedora安装使用教程/01-01-网络工具与输入法.md",
     "学习笔记和教程/随机森林算法原理与应用.md",
     "操作记录/fedora安装使用教程/02-Fedora-Docker安装与使用.md",
     "学习笔记和教程/LLM微调入门教程/05-实战：用QLoRA微调Qwen.md",
-    "Untitled.md",
     "操作记录/fedora安装使用教程/09-Fedora-开发环境与常用软件.md",
     "操作记录/fedora安装使用教程/08-Fedora-远程控制方案.md",
     "操作记录/fedora安装使用教程/07-Fedora-pi-agent安装与配置.md",
