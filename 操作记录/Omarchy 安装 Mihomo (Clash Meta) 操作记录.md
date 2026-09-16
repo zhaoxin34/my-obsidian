@@ -5,12 +5,12 @@
 
 ## 0. 环境与前提
 
-| 角色 | 机器 | IP | 用途 |
-|---|---|---|---|
-| 已有 mac | macOS | `192.168.31.67` | 跑 Clash Verge，`allow-lan: true`，端口 `7890`（mixed HTTP+SOCKS5） |
-| 目标机 | Omarchy（Arch 内核，Hyprland 桌面） | `192.168.31.36` | 跑 mihomo + TUN 接管所有流量 |
-| 订阅 | 貝雪雲 (besnow) | — | URL 含 token + name，**Cloudflare 403 屏蔽所有非常规 IP**（详见故障 2） |
-| 用户 | — | — | mac `~/.bashrc` / `~/.zshrc` 已被你**注释掉**所有代理 export，**本 playbook 不再触碰**这两个文件 |
+| 角色     | 机器                           | IP  | 用途                                                                          |
+| ------ | ---------------------------- | --- | --------------------------------------------------------------------------- |
+| 已有 mac | macOS                        |     | 跑 Clash Verge，`allow-lan: true`，端口 `7890`（mixed HTTP+SOCKS5）                |
+| 目标机    | Omarchy（Arch 内核，Hyprland 桌面） |     | 跑 mihomo + TUN 接管所有流量                                                       |
+| 订阅     | 貝雪雲 (besnow)                 | —   | URL 含 token + name，**Cloudflare 403 屏蔽所有非常规 IP**（详见故障 2）                    |
+| 用户     | —                            | —   | mac `~/.bashrc` / `~/.zshrc` 已被你**注释掉**所有代理 export，**本 playbook 不再触碰**这两个文件 |
 
 > 关键事实：omarchy 主机**无法直连** GitHub / AUR / besnow.uk / 任何国际站点（GFW）。所有出网必须经 `mac:7890` 代理。
 
@@ -127,11 +127,11 @@ scp ~/Library/Application\ Support/io.github.clash-verge-rev.clash-verge-rev/geo
 
 mac 的订阅配置是 clash-verge 风格，**直接用不行**——Linux 上 mihomo 必须额外配置：
 
-| 字段 | 为什么必须加（mac 上不需要） |
-|---|---|
-| `tun.auto-redirect: true` | Linux only，让 mihomo 调 nftables/iptables 把 DNS 重定向到 mihomo |
-| `tun.dns-hijack: any:53` | 让 TUN 抓 DNS 包自己回 fake-IP |
-| `tun.dns-hijack: tcp://any:53` | TCP DNS 也接管（DoH 客户端可能用 TCP） |
+| 字段                             | 为什么必须加（mac 上不需要）                                          |
+| ------------------------------ | --------------------------------------------------------- |
+| `tun.auto-redirect: true`      | Linux only，让 mihomo 调 nftables/iptables 把 DNS 重定向到 mihomo |
+| `tun.dns-hijack: any:53`       | 让 TUN 抓 DNS 包自己回 fake-IP                                  |
+| `tun.dns-hijack: tcp://any:53` | TCP DNS 也接管（DoH 客户端可能用 TCP）                               |
 
 ```bash
 SECRET=$(cat ~/.config/mihomo/.secret)
