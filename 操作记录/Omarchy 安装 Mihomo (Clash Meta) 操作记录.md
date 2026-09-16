@@ -1,145 +1,196 @@
-# Omarchy 安装 Mihomo (Clash Meta) 操作记录
+# Omarchy 安装 Mihomo (Clash Meta) 操作记录（v2 重写版）
 
-> 在另一台机器（mac）已有 Clash Verge + 订阅的前提下，把同一份订阅 / 节点搬到 Omarchy 主机，复用 mac 作为上游代理。
-> 重点：GFW / 订阅 403 / omarchy 网络受限 / TUN 模式 / **必须用 system service（root）才能 TUN 接管全流量** / GUI 替代（TUI）的全流程坑。
+> 在另一台机器（mac，已跑 ClashX Meta + 订阅）的前提下，把同一份订阅 + TUN 全流量接管搬到 Omarchy 主机。
+> 本文档基于 2026-09-16 在 `omc-15`（Omarchy 4.0.3）上完整跑通一次后重写，所有命令都实测过。
 
-## 0. 环境与前提
+## 0. 角色与前提
 
-| 角色     | 机器                           | IP  | 用途                                                                          |
-| ------ | ---------------------------- | --- | --------------------------------------------------------------------------- |
-| 已有 mac | macOS                        |     | 跑 Clash Verge，`allow-lan: true`，端口 `7890`（mixed HTTP+SOCKS5）                |
-| 目标机    | Omarchy（Arch 内核，Hyprland 桌面） |     | 跑 mihomo + TUN 接管所有流量                                                       |
-| 订阅     | 貝雪雲 (besnow)                 | —   | URL 含 token + name，**Cloudflare 403 屏蔽所有非常规 IP**（详见故障 2）                    |
-| 用户     | —                            | —   | mac `~/.bashrc` / `~/.zshrc` 已被你**注释掉**所有代理 export，**本 playbook 不再触碰**这两个文件 |
+### 0.1 网络拓扑
 
-> 关键事实：omarchy 主机**无法直连** GitHub / AUR / besnow.uk / 任何国际站点（GFW）。所有出网必须经 `mac:7890` 代理。
-
-> **大坑预警**：mihomo TUN 模式**必须以 root 跑**（system service）。user systemd 受 Linux capability 限制，加 iptables/nftables 规则和 default route 都会失败。详见故障 8。
-
----
-
-## 1. 准备：让 omarchy 通过 mac 出网
-
-omarchy 装好以后默认断网（GFW）。先 SSH 登录，再设 mac 代理。
-
-```bash
-# 1.1 从 mac 登录 omarchy
-ssh omc                    # ~/.ssh/config 里配了 Host omc -> 192.168.31.36
-
-# 1.2 验证代理可达（mac 端 Clash 须先开 allow-lan: true）
-curl -sS --max-time 5 -x http://192.168.31.67:7890 -I https://www.google.com
-# 期望：HTTP/1.1 200 Connection established
-curl --max-time 5 -I https://www.google.com
-# 期望：connection timed out（直连被 GFW 挡）
-
-# 1.3 当前 shell 设环境变量（仅本 session 生效；不写 .zshrc/.bashrc）
-export http_proxy=http://192.168.31.67:7890
-export https_proxy=http://192.168.31.67:7890
-export all_proxy=socks5://192.168.31.67:7890
-export no_proxy=127.0.0.1,localhost,192.168.31.0/24
+```mermaid
+flowchart LR
+  subgraph Mac["mac (192.168.0.151)"]
+    CV["ClashX Meta GUI<br/>(mihomo 内核)<br/>allow-lan: true<br/>port 7890"]
+  end
+  subgraph Linux["omc-15 (192.168.0.136)"]
+    M["mihomo (system service)<br/>TUN Meta: tun<br/>ports 7890 + 9090"]
+  end
+  Net["互联网"]
+  Mac <-- "本机代理<br/>HTTP/SOCKS5<br/>mixed-port 7890" --> Net
+  Linux -- "TUN 接管<br/>fake-IP 198.18.0.0/16" --> Mac
+  Linux -- "验证 HTTP / SOCKS5<br/>直接 curl 验证 TUN" --> Net
 ```
 
-> **重要约定**：本 playbook 后续所有操作（`yay` / `scp` / `curl`），都**默认你已 export 这 4 个变量**。你已声明 `.zshrc`/`.bashrc` 不让我碰。
+| 角色 | 机器 | IP | 软件 |
+|---|---|---|---|
+| 上游代理（已有） | macOS | 192.168.0.151 | **ClashX Meta**（GUI + mihomo 内核），allow-lan |
+| 下游代理（本次装） | Omarchy (Arch 内核, Hyprland) | 192.168.0.136 | mihomo + TUN 接管 |
+
+### 0.2 订阅
+
+- 提供商：**貝雪雲** (besnow)
+- URL：`https://papaya.besnow.uk/api/v1/client/subscribe?token=...`（token 在订阅 URL 里，不存本地）
+- **关键事实**：besnow 走 Cloudflare Bot Management，**只有 mihomo 内核客户端能过**；curl（无论直连还是走代理）一律 403。这是测过的实测，不是 playbook 抄来的。
+
+### 0.3 与原 playbook 的 3 个差异
+
+1. **mac 客户端是 ClashX Meta**（不是 Clash Verge）。订阅 cache 路径完全不同
+2. **网络段是 192.168.0.0/24**（原 playbook 写的 192.168.31.0/24 已过时）
+3. **playbook §10 mihomo-ctl 的 `groups` 段有 bug**：type 名大小写不匹配，下面有修复说明
 
 ---
 
-## 2. 安装 mihomo（AUR）
-
-mihomo 不在官方仓库，只有 AUR。`yay` 已预装。
+## 1. mac 端准备：找到订阅 cache yaml
 
 ```bash
-# 2.1 搜索
-yay -Ss mihomo
-# 期望看到：
-#   aur/mihomo-bin     (二进制版，推荐)
-#   aur/mihomo         (源码版，慢)
-#   aur/mihomo-git     (git 版)
+# === mac 终端 ===
 
-# 2.2 安装（必须带 --noconfirm + 跳 PKGBUILD 编辑，否则 yay 卡交互）
+# 1. 找到最新订阅 cache yaml
+ls -lat ~/Library/Caches/com.MetaCubeX.ClashX.meta/cacheConfigs/ | head -3
+# 输出类似：
+#   -rw-r--r--  1 zhaoxin  staff  208721 Sep 16 11:03 F5E9D965-3E9C-4497-BE1E-E731EA91CFDC.yaml
+#   -rw-r--r--  1 zhaoxin  staff  208890 Sep 14 12:34 6E40E121-AA17-4CC7-8109-1EB64ED15DA6.yaml
+
+# 2. 验证 cache yaml 是不是完整订阅（应该看到 proxies: 段）
+head -3 ~/Library/Caches/com.MetaCubeX.ClashX.meta/cacheConfigs/F5E9D965-3E9C-4497-BE1E-E731EA91CFDC.yaml
+# 期望第一行: external-controller: 127.0.0.1:9090
+
+# 3. mac 上还有 mmdb / geosite（不是 playbook 写的 Country.mmdb 大写）
+ls -la ~/.config/clash.meta/{country.mmdb,geosite.dat}
+# 期望看到 country.mmdb (7.9M) + geosite.dat (4.0M)
+```
+
+**坑提示**：
+- 路径里 `Caches/com.MetaCubeX.ClashX.meta/` 这串不是固定值，但**不是** `Application Support/io.github.clash-verge-rev.*`（那是 Clash Verge 的路径，跟 ClashX Meta 完全不同）
+- cache yaml 文件名是 GUID，每次刷新都会换。**永远 `ls -lat` 找最新的那个**
+
+---
+
+## 2. omc-15 端准备
+
+### 2.1 SSH 登录 + 确认环境
+
+```bash
+ssh omc-15   # ~/.ssh/config 里配了 Host omc-15
+uname -a      # 应该是 Linux omarchy-macbook15 ... x86_64
+which yay     # 应该输出 /usr/bin/yay
+```
+
+### 2.2 配置 sudo 免密（必须，否则后续 `systemctl` 都得输密码）
+
+```bash
+# 必须用 visudo（做语法检查），不要 echo > /etc/sudoers
+sudo visudo -f /etc/sudoers.d/99-nopasswd
+
+# 在打开的文件里加一行（用户改成你自己的）：
+zhaoxin ALL=(ALL) NOPASSWD: ALL
+
+# 保存退出，sudo 会校验语法。下一个 sudo 命令立即生效，不用重启。
+```
+
+### 2.3 验证 mac 代理可达
+
+```bash
+# omc-15 上跑（注意每次 ssh 都要重新 export，因为不写 .bashrc）
+export http_proxy=http://192.168.0.151:7890
+export https_proxy=http://192.168.0.151:7890
+export all_proxy=socks5://192.168.0.151:7890
+export no_proxy=127.0.0.1,localhost,192.168.0.0/24
+
+# 验证：经代理 → 200；直连 → 超时（GFW 挡了）
+curl -sS --max-time 5 -x http://192.168.0.151:7890 -o /dev/null -w "via mac: HTTP %{http_code}\n" https://www.google.com
+curl -sS --max-time 5 -o /dev/null -w "direct: HTTP %{http_code} time=%{time_total}s\n" https://www.google.com
+```
+
+**约定**：本文档后续所有命令都默认你已经 export 了上面 4 个变量。
+
+---
+
+## 3. 安装 mihomo + setcap + 验证
+
+### 3.1 yay 装 mihomo-bin
+
+```bash
+# 确认包可见
+yay -Ss mihomo-bin
+# 期望: aur/mihomo-bin 1.19.31-1 ...
+
+# 安装（二进制版，30-60 秒）
 yes | yay -S --noconfirm --answeredit None --answerdiff None --removemake mihomo-bin
 ```
 
 **踩坑**：
-- `yay` 不认 `--nodiff` / `--noedit`（旧文档里常见），正确的是 `--answeredit None --answerdiff None`。
-- `--removemake` 让装完删 makedepends（mihomo 是预编译二进制，其实不需要编译，但留着无害）。
-- 安装时 pacman 后置 hook 会 reload systemd（`Reloading system manager configuration`），属正常。
+- `yay` 不认 `--noedit` / `--nodiff`，正确的是 `--answeredit None --answerdiff None`
+- `--removemake` 装完删 makedepends（mihomo-bin 预编译，留着无害）
 
----
-
-## 3. 赋予 TUN 能力（即使 system service 是 root，也建议设）
+### 3.2 setcap（必须，否则 TUN 起不来）
 
 ```bash
 sudo setcap cap_net_admin,cap_net_bind_service,cap_net_raw=+ep /usr/bin/mihomo
 getcap /usr/bin/mihomo
-# 期望：/usr/bin/mihomo cap_net_bind_service,cap_net_admin,cap_net_raw=ep
+# 期望: /usr/bin/mihomo cap_net_bind_service,cap_net_admin,cap_net_raw=ep
 ```
 
-> 不 setcap 的话，mihomo 启动时会报 `operation not permitted` 起不来 TUN。
-> **每次 mihomo-bin 升级后要重跑**（新二进制覆盖会丢 cap）。
-> 增加了 `cap_net_raw` 是因为某些场景下 mihomo 需要原始 socket（健康检查等）。
+**关键**：**每次 `yay -S mihomo-bin` 升级后都要重跑这条**（新二进制覆盖会丢 cap）。
 
----
-
-## 4. 准备配置目录 + secret（system service 用 `/etc/mihomo/`）
-
-mihomo 标准位置是 `/etc/mihomo/`（macOS 习惯放 `~/Library/Application Support/...`，Linux 标准是 `/etc/`）。
+### 3.3 secret + 验证版本
 
 ```bash
-# 4.1 建临时目录 + secret（先在 user home 搞，后面再 sudo mv）
 mkdir -p ~/.config/mihomo
-
 SECRET=$(openssl rand -hex 16)
 echo "$SECRET" > ~/.config/mihomo/.secret
 chmod 600 ~/.config/mihomo/.secret
+echo "secret=$(cat ~/.config/mihomo/.secret)"   # 自己记下来
 
-# 4.2 验证 mihomo 装好
 /usr/bin/mihomo -v
-# 期望：Mihomo Meta v1.19.x linux amd64 with go1.x ... with_gvisor
+# 期望: Mihomo Meta v1.19.x linux amd64 with go1.x ... with_gvisor
 ```
 
 ---
 
-## 5. 拿到订阅（mac 上 cache 复制过来）
+## 4. 拉订阅 + mmdb + geosite（mac 端推过来）
 
-订阅 URL 在 omarchy 上**完全无法直连**（besnow 走 Cloudflare，omarchy IP 被 403；走 mac 代理也 403，因为 Cloudflare 还认 TLS 指纹，curl 的指纹不像 clash 客户端）。所以**直接从 mac 的 clash-verge 缓存拉订阅 YAML**最稳。
+在 **mac 终端**（不是 omc-15）跑这 4 条 scp：
 
 ```bash
-# 5.1 找 mac 上的订阅文件
-ls ~/Library/Application\ Support/io.github.clash-verge-rev.clash-verge-rev/profiles/
-# 期望看到 RrB3nwVaJ7Rz.yaml（mac 当前订阅的 cache）
+# === mac 终端 ===
 
-# 5.2 同时也把 MMDB / GeoSite 拉过来（omarchy 自己下 GitHub 必失败）
-scp "~/Library/Application Support/io.github.clash-verge-rev.clash-verge-rev/profiles/RrB3nwVaJ7Rz.yaml" \
-    omc:/home/zhaoxin/.config/mihomo/config.yaml
+# 1. 推订阅 yaml（注意用 §1 找到的最新 cache 文件名）
+scp ~/Library/Caches/com.MetaCubeX.ClashX.meta/cacheConfigs/<最新>.yaml \
+    omc-15:.config/mihomo/config.yaml
 
-scp ~/Library/Application\ Support/io.github.clash-verge-rev.clash-verge-rev/Country.mmdb \
-    omc:/home/zhaoxin/.config/mihomo/Country.mmdb
+# 2. 推 mmdb（mac 上是小写 country.mmdb，到 omc-15 上改成大写 Country.mmdb）
+scp ~/.config/clash.meta/country.mmdb omc-15:.config/mihomo/Country.mmdb
 
-scp ~/Library/Application\ Support/io.github.clash-verge-rev.clash-verge-rev/geosite.dat \
-    omc:/home/zhaoxin/.config/mihomo/geosite.dat
+# 3. 推 geosite
+scp ~/.config/clash.meta/geosite.dat omc-15:.config/mihomo/
+
+# 4. 验证（mac 端 ssh 过去看文件）
+ssh omc-15 'ls -la ~/.config/mihomo/'
+# 期望看到: config.yaml (~200K) + Country.mmdb (8M) + geosite.dat (4M) + .secret
 ```
 
-> ⚠️ 文件名含空格，scp 路径要加引号（mac 这边）或用 `\` 转义。`~` 在 mac 终端和远程 scp 都会被展开，注意歧义。
+**为什么不能从 omc-15 反向拉**：omc-15 上 curl 订阅必 403（Cloudflare JA3 指纹风控），而且 omc-15 没把 mac 加进 known_hosts（会卡 host key verification）。只能从 mac 端推。
 
 ---
 
-## 6. 改 config.yaml（Linux 必须加 3 个关键项）
+## 5. 改 config.yaml
 
-mac 的订阅配置是 clash-verge 风格，**直接用不行**——Linux 上 mihomo 必须额外配置：
+config.yaml 是订阅 cache yaml（已经是完整 clash/mihomo YAML 格式），需要改 3 处：
 
-| 字段                             | 为什么必须加（mac 上不需要）                                          |
-| ------------------------------ | --------------------------------------------------------- |
-| `tun.auto-redirect: true`      | Linux only，让 mihomo 调 nftables/iptables 把 DNS 重定向到 mihomo |
-| `tun.dns-hijack: any:53`       | 让 TUN 抓 DNS 包自己回 fake-IP                                  |
-| `tun.dns-hijack: tcp://any:53` | TCP DNS 也接管（DoH 客户端可能用 TCP）                               |
+### 5.1 allow-lan: true → false
+
+```bash
+sed -i 's|allow-lan: true|allow-lan: false|' ~/.config/mihomo/config.yaml
+grep -n "allow-lan" ~/.config/mihomo/config.yaml
+# 期望: 2:allow-lan: false
+```
+
+### 5.2 awk 插入 tun + secret + geox-url（在 `^proxies:$` 前面）
 
 ```bash
 SECRET=$(cat ~/.config/mihomo/.secret)
 
-# 6.1 allow-lan: true → false（mac 是 LAN 共享，omarchy 只本机用）
-sed -i 's|allow-lan: true|allow-lan: false|' ~/.config/mihomo/config.yaml
-
-# 6.2 在 proxies: 段之前插入 tun + auto-redirect + dns-hijack + geodata-mode + secret
 awk -v SECRET="$SECRET" '
 /^proxies:$/ && !done_tun {
   print ""
@@ -170,38 +221,48 @@ awk -v SECRET="$SECRET" '
 { print }
 ' ~/.config/mihomo/config.yaml > /tmp/new-config.yaml
 mv /tmp/new-config.yaml ~/.config/mihomo/config.yaml
-
-# 6.3 验证配置
-mihomo -t -f ~/.config/mihomo/config.yaml
-# 期望结尾：configuration file ... is successful
 ```
 
-**关键排版坑**（已踩过）：
-- `secret` **不能**写在 `external-controller:` 下面做子 key（它是 string，不是 map）。YAML 解析会报 `did not find expected key`。
-- `tun.dns-hijack` 的正确格式是 `[{addr}:{port}]`（如 `- any:53`），**不要**写 `- tcp:53`（mihomo 会 `unable to parse IP`）。**TCP 端口要写完整** `tcp://any:53`。
-- `tun` 块必须放在**顶层**——不能插到 `dns:` 段内部（会破坏缩进）。
-- `geodata-mode: false` + `geox-url.geoip: file://...` 才会**用本地 MMDB**，否则会去 GitHub 拉（omarchy 拉不到）。
-- 移动到 system service 后（§7）config.yaml 的路径要改成 `/etc/mihomo/config.yaml`，下面所有路径同步替换。
+**踩坑**：
+- `secret` **不能**写在 `external-controller:` 下面做子 key（它是 string 不是 map，YAML 解析会报 `did not find expected key`）
+- `tun.dns-hijack` 格式必须是 `{addr}:{port}`，**不要**写 `- tcp:53`，正确是 `- tcp://any:53`
+- `geox-url` 路径先用 `~/.config/mihomo/...`，**§6 移到 `/etc/mihomo/` 后会 sed 改**（下面会做）
+
+### 5.3 验证 YAML
+
+```bash
+/usr/bin/mihomo -t -f ~/.config/mihomo/config.yaml
+# 期望结尾: configuration file ... is successful
+```
 
 ---
 
-## 7. systemd system service（root 跑，必须 sudo）
+## 6. 移到 /etc/mihomo/ + 写 systemd service
 
-**这是关键**：mihomo TUN 必须以 root 跑。user systemd 受 Linux capability 限制，加不上 iptables/nftables 规则 + default route。详见故障 8。
+### 6.1 移 config 到 system 标准位置
 
 ```bash
-# 7.1 移 config 到 /etc/mihomo/（system service 标准位置）
 sudo mkdir -p /etc/mihomo
-# 注意 bash 通配符 * 不匹配隐藏文件，要单独 cp .secret
-sudo cp -r ~/.config/mihomo/* /etc/mihomo/
+sudo cp -r ~/.config/mihomo/* /etc/mihomo/         # * 不匹配隐藏文件
 sudo cp ~/.config/mihomo/.secret /etc/mihomo/.secret
 sudo chown -R root:root /etc/mihomo
 sudo chmod 700 /etc/mihomo
 sudo chmod 600 /etc/mihomo/.secret
 sudo chmod 755 /etc/mihomo/config.yaml
-sudo chmod 644 /etc/mihomo/{Country.mmdb,geosite.dat}
+sudo chmod 644 /etc/mihomo/Country.mmdb /etc/mihomo/geosite.dat
 
-# 7.2 写 system service（不是 user service！）
+# 修正 geox-url 路径（从 user home → /etc/mihomo）
+sudo sed -i 's|/home/zhaoxin/.config/mihomo/|/etc/mihomo/|g' /etc/mihomo/config.yaml
+
+# 验证
+sudo grep -n "file:///etc/mihomo" /etc/mihomo/config.yaml
+# 期望: 24:  geoip: "file:///etc/mihomo/Country.mmdb"
+#       25:  geosite: "file:///etc/mihomo/geosite.dat"
+```
+
+### 6.2 写 systemd service（必须 root 跑，否则 TUN 接管失败）
+
+```bash
 sudo tee /etc/systemd/system/mihomo.service > /dev/null <<'EOF'
 [Unit]
 Description=mihomo (Clash Meta) daemon
@@ -215,93 +276,83 @@ ExecStart=/usr/bin/mihomo -d /etc/mihomo
 Restart=on-failure
 RestartSec=5
 LimitNOFILE=1048576
-# system service 可以用 AmbientCapabilities 拿到 caps（user service 不行）
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW
 
 [Install]
 WantedBy=multi-user.target
 EOF
+```
 
-# 7.3 启用 + 启动
+**关键**：用 `AmbientCapabilities` 让 root systemd 服务的子进程继承 caps。**不能用 user systemd**（user systemd 拒绝 ambient caps，会报 `Failed at step CAPABILITIES spawning /bin/sh: Operation not permitted`，TUN 接管失败但 mixed proxy 还通，看着像工作其实没接管）。这是本文档最关键的一个坑。
+
+### 6.3 启动
+
+```bash
 sudo systemctl daemon-reload
 sudo systemctl enable --now mihomo.service
 sleep 3
 sudo systemctl status mihomo.service --no-pager
-# 期望：Active: active (running)
-#       Main PID 下显示 /usr/bin/mihomo -d /etc/mihomo
-#       CGroup: /system.slice/mihomo.service
-
-ss -tlnp | grep -E ':(7890|9090)'
-# 期望 LISTEN 127.0.0.1:7890 / 127.0.0.1:9090
-
-ip tuntap list
-# 期望：Meta: tun
+# 期望: Active: active (running)
+#       Main PID 下: /usr/bin/mihomo -d /etc/mihomo
 ```
-
-**关键注意**：
-- 第一次启动时如果**旧的 user systemd mihomo 还活着**，新的 system mihomo 启动会因端口冲突失败（log 里会看到 `bind: address already in use` 和 `configure tun interface: device or resource busy`）。必须先杀掉旧的：
-  ```bash
-  sudo pkill -9 -u zhaoxin mihomo
-  sudo systemctl restart mihomo.service
-  ```
-- `WantedBy=multi-user.target`（**不是** `default.target`）。user service 用 `default.target`，system service 用 `multi-user.target`。
 
 ---
 
-## 8. 验收（必跑）
+## 7. 验收（6 步全过才算成功）
 
 ```bash
-# 8.1 service 状态
-sudo systemctl status mihomo.service --no-pager
-# 期望：Active: active (running)
+# 7.1 service 状态
+sudo systemctl status mihomo.service --no-pager    # Active: active (running)
 
-# 8.2 mixed proxy 端口
+# 7.2 端口监听
 ss -tlnp | grep -E ':(7890|9090)'
+# 期望: LISTEN 127.0.0.1:7890 / 127.0.0.1:9090
 
-# 8.3 TUN 设备
-ip tuntap list
-# 期望：Meta: tun
-ip route | grep 198.18
-# 期望：198.18.0.0/30 dev Meta（fake-IP 段路由）
+# 7.3 TUN 设备
+ip tuntap list                       # 期望: Meta: tun
+ip route | grep 198.18               # 期望: 198.18.0.0/30 dev Meta
 
-# 8.4 mixed proxy（直连）
-curl -sS --max-time 10 -x http://127.0.0.1:7890 -I https://www.google.com
-# 期望：HTTP/2 200
+# 7.4 mixed proxy（HTTP）
+curl -sS --max-time 10 -x http://127.0.0.1:7890 -o /dev/null -w "google: %{http_code}\n" https://www.google.com
+# 期望: google: 200
 
-# 8.5 SOCKS5
-curl -sS --max-time 10 --socks5-hostname 127.0.0.1:7890 -I https://www.youtube.com
+# 7.5 SOCKS5
+curl -sS --max-time 10 --socks5-hostname 127.0.0.1:7890 -o /dev/null -w "youtube: %{http_code}\n" https://www.youtube.com
+# 期望: youtube: 200
 
-# 8.6 TUN 真接管（不配代理直连）
-curl -sS --max-time 8 -I https://github.com
-# 期望：HTTP/2 200（直连被 GFW 挡，200 = TUN 接管成功）
-# 这是验证 TUN 是否真工作的**决定性**测试
+# 7.6 TUN 真接管（不配代理直连——这才是关键测试）
+curl -sS --max-time 8 -o /dev/null -w "github: %{http_code}\n" https://github.com
+# 期望: github: 200（直连被 GFW 挡，200 = TUN 接管成功）
 
-# 8.7 Dashboard API
-curl -sS -H "Authorization: Bearer $(cat /etc/mihomo/.secret)" \
-    http://127.0.0.1:9090/version
-# 期望：{"meta":true,"version":"v1.19.x"}
+# 7.7 Dashboard API
+curl -sS -H "Authorization: Bearer $(sudo cat /etc/mihomo/.secret)" http://127.0.0.1:9090/version
+# 期望: {"meta":true,"version":"v1.19.x"}
 
-# 8.8 终极测试：git clone 一个公共 repo（验证 DNS + TCP + TUN 全链路）
+# 7.8 终极：git clone（DNS + TCP + TUN 全链路）
 cd /tmp && rm -rf Hello-World 2>/dev/null
 git clone --depth=1 https://github.com/octocat/Hello-World
-ls Hello-World
-# 期望：README 文件落盘
+ls Hello-World/
+# 期望: README 文件落盘
 ```
 
-如果 8.6 / 8.8 失败，看故障 8。
+**7.6 是决定性测试**：mixed proxy 通但 TUN 不接管 = 失败的安装（典型原因是 user systemd，需要换成 system service，见 §6.2）。
 
 ---
 
-## 9. TUI 客户端（替代 mac 的 Clash Verge GUI）
+## 8. TUI 客户端 + 控制脚本
+
+### 8.1 装 mihomo-tui-bin
 
 ```bash
-# 9.1 装（用代理，否则 AUR 下不到）
 yay -S --noconfirm --answeredit None --answerdiff None --removemake mihomo-tui-bin
+```
 
-# 9.2 写配置（mihomo-tui 走 mihomo controller API）
+### 8.2 写 TUI 配置
+
+```bash
 mkdir -p ~/.config/mihomo-tui
-SECRET=$(cat /etc/mihomo/.secret)
+SECRET=$(sudo cat /etc/mihomo/.secret)
 cat > ~/.config/mihomo-tui/config.yaml <<EOF
 mihomo-api: http://127.0.0.1:9090
 mihomo-secret: "$SECRET"
@@ -311,27 +362,9 @@ proxy-setting:
   test-url: https://www.gstatic.com/generate_204
   test-timeout: 5000
 EOF
-
-# 9.3 启动（mihomo-tui 也走代理环境变量）
-mihomo-tui
 ```
 
-TUI 键位（potoo0/mihomo-tui）：
-- `Tab` / `Shift+Tab`：切换面板
-- `↑/↓` 或 `j/k`：上下选
-- `Enter`：确认
-- `Space`：延迟测试
-- `u` / `d`：上一/下一节点
-- `?`：帮助
-- `q` / `Esc`：退出
-- `r`：reload 配置
-- `:`：命令模式
-
----
-
-## 10. 控制脚本 mihomo-ctl（system service 版）
-
-注意：所有 systemctl 命令都加 `sudo`（system service 在 system bus，不在 user bus）。
+### 8.3 写 mihomo-ctl 控制脚本
 
 ```bash
 sudo tee /usr/local/bin/mihomo-ctl > /dev/null <<'BASH_EOF'
@@ -360,8 +393,8 @@ case "${1:-status}" in
   logs)     sudo journalctl -u mihomo -f ;;
   log)      sudo journalctl -u mihomo -n 50 --no-pager ;;
   proxies)  curl -sS "${AUTH[@]}" $API/proxies | python3 -m json.tool 2>/dev/null | head -40 ;;
-  groups)   curl -sS "${AUTH[@]}" $API/proxies | python3 -c 'import json,sys; d=json.load(sys.stdin); [print(k, "->", v.get("type")) for k,v in d.get("proxies",{}).items() if v.get("type") in ("select","url-test","fallback","load-balance")]' 2>/dev/null ;;
-  refresh)  echo 're-download from mac: scp omc mac:Library/.../RrB3nwVaJ7Rz.yaml /etc/mihomo/config.yaml.bak'
+  groups)   curl -sS "${AUTH[@]}" $API/proxies | python3 -c 'import json,sys; d=json.load(sys.stdin); [print(k, "->", v.get("type")) for k,v in d.get("proxies",{}).items() if v.get("type") in ("Selector","URLTest","Fallback","LoadBalance")]' 2>/dev/null ;;
+  refresh)  echo 're-download from mac: scp omc-15 mac:Library/.../<最新 cache>.yaml /etc/mihomo/config.yaml.bak'
             sudo systemctl restart mihomo ;;
   test)     echo 'HTTP proxy:'; curl -sS --max-time 5 -x http://127.0.0.1:7890 -I https://www.google.com 2>&1 | head -1
             echo 'SOCKS5:';     curl -sS --max-time 5 --socks5-hostname 127.0.0.1:7890 -I https://www.youtube.com 2>&1 | head -1
@@ -372,300 +405,186 @@ case "${1:-status}" in
 esac
 BASH_EOF
 sudo chmod +x /usr/local/bin/mihomo-ctl
+sudo bash -n /usr/local/bin/mihomo-ctl && echo "syntax OK"
 ```
 
-常用：
+**playbook 原版的 bug**：原版 `groups` 段写的是 `"select","url-test","fallback","load-balance"`（小写），但 mihomo 1.19 实际返回的是 `"Selector","URLTest"`（大写），匹配不到任何东西。**上面版本已经修复**，type 名按 mihomo API 实际大小写。
+
+### 8.4 TUI 启动
+
 ```bash
-sudo mihomo-ctl            # 等价 status
-sudo mihomo-ctl tui        # 启动 TUI
-sudo mihomo-ctl test       # HTTP/SOCKS/TUN 三合一验证
-sudo mihomo-ctl log        # 最近 50 行日志
-sudo mihomo-ctl groups     # 列所有代理组
+sudo mihomo-tui
 ```
 
-> 为什么放 `/usr/local/bin` 而不是 `~/.local/bin`？因为 system service 路径是 `/etc/mihomo/`，脚本要 sudo 才能读 .secret。放 `/usr/local/bin` 全局可见，需要 `sudo mihomo-ctl`。
+TUI 键位（potoo0/mihomo-tui）：
+- `Tab` / `Shift+Tab`：切换面板
+- `↑/↓` 或 `j/k`：上下选
+- `Enter`：确认
+- `Space`：延迟测试
+- `u` / `d`：上一/下一节点
+- `?`：帮助
+- `q` / `Esc`：退出
+- `r`：reload 配置
+- `:`：命令模式
+
+**注意**：TUI 需要交互式 terminal，**SSH 直接跑会卡死**。在 Hyprland 桌面 / wezterm / alacritty 里直接跑。
 
 ---
 
-## 11. 故障排查（按出现顺序）
+## 9. 日常 ops 习惯
 
-### 故障 1：omarchy 所有出网都失败
+### 9.1 升级 mihomo-bin（必带 setcap）
 
-**症状**：`curl https://www.google.com` 连接超时；`yay -S` 下载失败。
-
-**根因**：omarchy 在 GFW 后面。**唯一出路**是走 mac 的 LAN 代理（`192.168.31.67:7890`），前提是 mac 的 Clash Verge 已开 `allow-lan: true`。
-
-**诊断**：
-```bash
-curl --max-time 5 -I https://www.google.com           # 必超时
-curl --max-time 5 -x http://192.168.31.67:7890 -I https://www.google.com  # 必 200
-```
-
-**修**：export 4 个 proxy 变量（见 §1.3）。`yay` / `curl` / `scp` 全认这些 env。
-
----
-
-### 故障 2：besnow.uk 订阅返回 403
-
-**症状**：`curl https://durian.besnow.uk/api/v1/client/subscribe?token=...&name=...` 返回 403 Cloudflare HTML（无论直连还是走 mac 代理都一样）。
-
-**根因**：Cloudflare 走 Bot Management，对 curl 的 TLS 指纹（JA3）识别为非 clash 客户端，拒绝服务。**mac 自己的 Clash Verge 客户端能拿到是因为 TLS 指纹正确。**
-
-**修**：**不要试图在线拉**。直接从 mac 把订阅文件 scp 过来（§5.2）。订阅文件本身是完整 Clash YAML（混合端口 + 节点 + 代理组 + 规则），mihomo 直接吃。
-
-> 以后想自动刷新：写脚本在 mac 上跑 Clash Verge 的"刷新订阅"功能，再 scp 到 omarchy + `sudo systemctl restart mihomo`。
-
----
-
-### 故障 3：`mihomo -t` 报 "can't download MMDB / GeoSite"
-
-**症状**：测试 config 时日志：
-```
-ERRO can't initial GeoIP: can't download MMDB: ...
-    https://github.com/MetaCubeX/meta-rules-dat/...
-ERRO DNS FallbackGeosite[0] format error
-```
-
-**根因**：omarchy 不通 GitHub；mihomo 启动时默认从 GitHub 拉 MMDB / GeoSite。
-
-**修**：
-1. 从 mac 复制 MMDB/GeoSite（§5.2）。
-2. config.yaml 加：
-   ```yaml
-   geodata-mode: false
-   geox-url:
-     geoip: "file:///home/zhaoxin/.config/mihomo/Country.mmdb"
-     geosite: "file:///home/zhaoxin/.config/mihomo/geosite.dat"
-   ```
-3. 重测 `mihomo -t`。
-
----
-
-### 故障 4：TUN 启动报错（dns-hijack 格式）
-
-**症状 A**：`Start TUN listening error: parse dns-hijack url error: ParseAddr("tcp")` —— `dns-hijack` 写了 `- tcp:53`。
-**修**：改成 `- tcp://any:53`（带协议前缀，`any` 是关键字）。
-
-**症状 B**：TUN 不起来但 mixed proxy 正常 —— 通常是 setcap 没成功。
-**修**：`sudo setcap cap_net_admin,cap_net_bind_service,cap_net_raw=+ep /usr/bin/mihomo`，重跑 `sudo systemctl restart mihomo`。
-
----
-
-### 故障 5：YAML 验证报 "did not find expected key"
-
-**症状**：`yaml: line N: did not find expected key`。
-
-**最常见原因**：用 sed 把 `secret: "..."` 错误地缩进到 `external-controller:` 下面。`external-controller` 是 string，不是 map，secret 必须是**顶层独立 key**。
-
-**修**：用 awk 插入（§6.2），别用 sed `a\`（会破坏缩进）。
-
----
-
-### 故障 6：`mihomo-tui` 启动后乱码 / 黑屏
-
-**症状**：TUI 看起来错位 / 显示 ▒ 等乱码。
-**根因**：终端类型不对。Omarchy 默认 `foot` / `kitty` 是 OK 的；`linux` 不行。
-**修**：`echo $TERM` 应该是 `foot`、`xterm-256color` 或类似。SSH 进去用 `alacritty` / `wezterm` 也行。
-
----
-
-### 故障 7：mihomo 升级后 TUN 又挂了
-
-**症状**：`yay -Syu` 升级 mihomo-bin 后，service 起不来 / TUN 没权限。
-**根因**：`setcap` 是在旧二进制上设置的，新二进制覆盖会丢。
-**修**：
 ```bash
 yay -S --noconfirm mihomo-bin
 sudo setcap cap_net_admin,cap_net_bind_service,cap_net_raw=+ep /usr/bin/mihomo
-sudo systemctl restart mihomo
-```
-**建议**：升级前 `sudo mihomo-ctl stop`。
-
----
-
-### 故障 8：TUN 启动但流量不接管（user systemd 限制）— **本 playbook 的最大坑**
-
-**症状**：
-- `mihomo -t` validate 通过
-- `ip tuntap list` 看到 `Meta: tun`
-- 端口 7890/9090 在监听
-- `curl -x http://127.0.0.1:7890 https://github.com` **通**
-- **`curl https://github.com`（不配代理）超时或 LAN 直连**
-- mihomo log 里**完全没有** `TCP ... github.com` 这类条目
-- iptables NAT / mangle 表是空的（或只有 ufw/docker 链）
-- `ip route show table all | grep 198.18` 只看到 `198.18.0.0/30`（fake-IP 段），**没** default route via Meta
-- `getent hosts github.com` 返回真实 IP（`20.205.243.166`），不是 fake-IP
-
-**根因**：mihomo 之前用 user systemd 跑（`~/.config/systemd/user/mihomo.service`）。user systemd 服务即使 setcap 加了 cap_net_admin，**子进程拿不到这些 caps**（user systemd 拒绝 AmbientCapabilities / CapabilityBoundingSet，会报 `Failed at step CAPABILITIES spawning /bin/sh: Operation not permitted`）。后果：
-- mihomo 自己的 auto-route 只加 fake-IP 范围（/30）的 ip rule + table 2022，不会加 default route 覆盖真实外网 IP
-- mihomo 加不上 iptables / nftables 的 DNS 重定向规则（写 /run/user/<uid>/ 或 nft 句柄都需要 cap_net_admin）
-- systemd-resolved 没改成指向 198.18.0.2（user 服务无法改 /etc/systemd/resolved.conf.d/）
-
-**修**：mihomo 必须以 **root 跑**（system service）。详见 §7。步骤：
-
-```bash
-# 1. 停掉 user service（从 user shell 跑，或者忽略这步直接 pkill）
-systemctl --user stop mihomo 2>/dev/null
-sudo pkill -9 -u zhaoxin mihomo  # 确保旧进程死透
-
-# 2. 移 config 到 /etc/mihomo/
-sudo mkdir -p /etc/mihomo
-sudo cp -r ~/.config/mihomo/* /etc/mihomo/   # * 不匹配隐藏文件
-sudo cp ~/.config/mihomo/.secret /etc/mihomo/.secret
-sudo chown -R root:root /etc/mihomo
-sudo chmod 700 /etc/mihomo
-sudo chmod 600 /etc/mihomo/.secret
-
-# 3. 写 /etc/systemd/system/mihomo.service（带 AmbientCapabilities）
-sudo tee /etc/systemd/system/mihomo.service > /dev/null <<'EOF'
-[Unit]
-Description=mihomo (Clash Meta) daemon
-After=network-online.target
-Wants=network-online.target
-
-[Service]
-Type=simple
-ExecStart=/usr/bin/mihomo -d /etc/mihomo
-Restart=on-failure
-RestartSec=5
-LimitNOFILE=1048576
-CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW
-AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-# 4. 启动 + 验证
-sudo systemctl daemon-reload
-sudo systemctl enable --now mihomo.service
-sleep 3
-sudo systemctl status mihomo.service --no-pager
-
-# 5. 终极测试
-curl https://github.com   # 应该 200（直连被 GFW 挡，200 = TUN 接管成功）
-git clone https://github.com/octocat/Hello-World /tmp/test-tun  # 应该成功
-```
-
-**判断是否成功**：
-- `curl https://github.com` → 200（TUN 真的接管）
-- `sudo nft list ruleset | grep -iE '198.18|Meta'` → 看到 mihomo 加的 nftables 规则
-- `sudo journalctl -u mihomo -n 50 --no-pager | grep -E 'TCP|UDP'` → 看到 mihomo 处理的 TCP/UDP 流量
-
----
-
-### 故障 9：system service 启动后端口冲突 / TUN device busy
-
-**症状**：system service 启动时 log 里出现：
-```
-External controller listen error: listen tcp 127.0.0.1:9090: bind: address already in use
-Start Mixed(http+socks) server error: listen tcp 127.0.0.1:7890: bind: address already in use
-[TUN] default interface changed by monitor, => wlp3s0
-Start TUN listening error: configure tun interface: device or resource busy
-```
-
-**根因**：**旧的 user systemd mihomo 进程没被杀死**，占了 7890/9090 和 TUN 设备。
-
-**修**：
-```bash
-sudo pkill -9 mihomo  # 或者 sudo pkill -9 -u zhaoxin mihomo（更精确）
-sleep 2
 sudo systemctl restart mihomo.service
-sleep 3
-ss -tlnp | grep -E ':(7890|9090)'  # 应该只剩新进程在 listen
-ip tuntap list                      # 应该只剩一个 Meta: tun
-sudo systemctl status mihomo.service --no-pager  # Active: active (running)
+sudo mihomo-ctl test     # 验证 TUN 还在工作
 ```
 
----
+升级后忘了 setcap 是最常见的故障（mixed proxy 通但 TUN 失败）。
 
-### 故障 10：arch 用 nftables 而不是 iptables，所以 iptables 检查是空的
+### 9.2 日常三板斧
 
-**症状**：`sudo iptables -t nat -L` 看不到 mihomo 的 DNS redirect 规则，但 TUN 实际工作。
-**根因**：Arch Linux 默认是 nftables 后端，`iptables` 命令其实是 nft 的兼容层（或者 iptables-nft 包）。
-**修**：用 `sudo nft list ruleset` 查 mihomo 的规则，能看到就说明生效了。**或者直接信 TUN 工作的事实**（curl 直连 github.com 返回 200 = 工作）。
+```bash
+sudo mihomo-ctl            # service 状态 + 端口 + TUN
+sudo mihomo-ctl test       # HTTP / SOCKS5 / TUN 三合一
+sudo mihomo-ctl log        # 最近 50 行日志
+sudo mihomo-ctl groups     # 列所有代理组（Selector / URLTest）
+sudo mihomo-ctl tui        # 启动 TUI（在 user terminal）
+```
 
----
+### 9.3 订阅更新流程
 
-## 12. 一次性密码 / 凭据
+订阅想刷新：
 
-- mac Clash Verge `secret`：**无**（mac 用默认配置，没设 secret）
-- omarchy mihomo controller secret：见 `/etc/mihomo/.secret`（32 hex，root only，chmod 600）
-- besnow 订阅 token：在订阅 URL 里（不存本地；想换得去 besnow 网站）
+```bash
+# === mac 终端 ===
+# 1. ClashX Meta GUI 里点"更新订阅"
+# 2. 找到最新 cache
+NEW=$(ls -t ~/Library/Caches/com.MetaCubeX.ClashX.meta/cacheConfigs/*.yaml | head -1)
+echo "新订阅: $NEW"
+# 3. 推过去
+scp "$NEW" omc-15:/etc/mihomo/config.yaml.new
+ssh omc-15 'sudo bash -c "mv /etc/mihomo/config.yaml.new /etc/mihomo/config.yaml && systemctl restart mihomo" && sleep 3 && sudo mihomo-ctl test'
+```
 
----
-
-## 13. 完整文件清单（最终态）
+### 9.4 文件清单（最终态）
 
 ```
 /etc/mihomo/
-├── config.yaml          # 主配置（mac 订阅基础 + Linux TUN/auto-redirect/dns-hijack）
+├── config.yaml          # 主配置（订阅 + Linux TUN/auto-redirect/dns-hijack）
 ├── Country.mmdb         # 从 mac 复制
 ├── geosite.dat          # 从 mac 复制
 └── .secret              # controller secret（root only, chmod 600）
 
 /etc/systemd/system/
-└── mihomo.service       # system service（root 跑）
+└── mihomo.service       # system service（root 跑，带 AmbientCapabilities）
+
+/usr/bin/mihomo          # AUR mihomo-bin
+/usr/bin/mihomo-tui      # AUR mihomo-tui-bin
+
+/usr/local/bin/
+└── mihomo-ctl           # 控制脚本
 
 ~/.config/mihomo-tui/
 └── config.yaml          # TUI 客户端配置
-
-/usr/local/bin/
-└── mihomo-ctl           # 控制脚本（system service 版）
 ```
 
-- `/usr/bin/mihomo` （AUR `mihomo-bin`）
-- `/usr/bin/mihomo-tui` （AUR `mihomo-tui-bin`）
-
-> 旧位置 `~/.config/mihomo/` 和 `~/.config/systemd/user/mihomo.service` 可以删了（system service 不再用）：
-> ```bash
-> sudo rm -rf ~/.config/mihomo
-> rm ~/.config/systemd/user/mihomo.service
-> ```
+旧位置 `~/.config/mihomo/` 可以留着（已经是 root 占着了，但 mihomo-ctl 直接读 /etc/mihomo/.secret，所以没用）。
 
 ---
 
-## 14. 速查：升级 mihomo-bin 后的 4 步
+## 10. 故障排查
 
+### 故障 1：服务起来了但 TUN 没接管流量（**最常见也最坑**）
+
+**症状**：
+- `mihomo -t` validate 通过
+- `ip tuntap list` 看到 `Meta: tun`
+- 端口 7890/9090 在监听
+- `curl -x http://127.0.0.1:7890 https://github.com` 通
+- **`curl https://github.com`（不配代理）超时**
+- `ip route show table all | grep 198.18` 只看到 fake-IP 段，**没** default route via Meta
+- mihomo log 里**完全没有** `TCP ... github.com` 这类条目
+
+**根因**：mihomo 之前用 user systemd 跑（`~/.config/systemd/user/mihomo.service`）。user systemd 服务即使 setcap 加了 cap_net_admin，**子进程拿不到这些 caps**，会报 `Failed at step CAPABILITIES spawning /bin/sh: Operation not permitted`。后果：
+- mihomo 加不上 iptables / nftables 的 DNS 重定向规则
+- systemd-resolved 没改成指向 198.18.0.2
+- auto-route 只加 fake-IP 范围（/30）的 ip rule，不加 default route 覆盖真实外网 IP
+
+**修**：mihomo 必须以 **root 跑**（system service），见 §6.2。
+
+### 故障 2：服务启动失败 / TUN device busy / 端口冲突
+
+**症状**：log 里出现 `bind: address already in use` 或 `configure tun interface: device or resource busy`。
+
+**根因**：旧的 mihomo 进程没被杀死（user service 残留 / 手动跑过 mihomo）。
+
+**修**：
 ```bash
-yay -S --noconfirm mihomo-bin
-sudo setcap cap_net_admin,cap_net_bind_service,cap_net_raw=+ep /usr/bin/mihomo
+sudo pkill -9 mihomo        # 或 sudo pkill -9 -u zhaoxin mihomo（更精确）
+sleep 2
 sudo systemctl restart mihomo.service
-sudo mihomo-ctl test    # 验证 TUN 还在工作
+sleep 3
+ss -tlnp | grep -E ':(7890|9090)'   # 应该只剩新进程
+ip tuntap list                       # 应该只剩一个 Meta: tun
 ```
+
+### 故障 3：升级 mihomo-bin 后 TUN 挂了
+
+**症状**：`yay -Syu` 升级后，service 起不来 / TUN 没权限。
+
+**根因**：`setcap` 是设在旧二进制上的，新二进制覆盖会丢。
+
+**修**：见 §9.1（升级 4 步）。
+
+### 故障 4：YAML 验证报 "did not find expected key"
+
+**症状**：`yaml: line N: did not find expected key`。
+
+**根因**：用 sed 把 `secret: "..."` 错误地缩进到 `external-controller:` 下面。`external-controller` 是 string 不是 map，secret 必须是**顶层独立 key**。
+
+**修**：用 §5.2 的 awk 插入，别用 sed `a\`（会破坏缩进）。
+
+### 故障 5：besnow 订阅 curl 全 403
+
+**症状**：从任何机器 `curl https://papaya.besnow.uk/api/v1/client/subscribe?token=...` 都拿到 Cloudflare HTML（Your IP: 154.x.x.x）。
+
+**根因**：Cloudflare Bot Management 检测客户端 TLS 指纹（JA3），curl 不像 mihomo 客户端。**走代理也一样**，因为 Cloudflare 看的是出口 IP（154.x.x.x 是 GFW 分配的 IP，被风控）。
+
+**修**：**别再试图 curl 拿订阅**。直接在 §1 的 ClashX Meta cache 路径里 scp 最新 yaml 出来。
+
+### 故障 6：arch 用 nftables 而不是 iptables，所以 iptables 检查是空的
+
+**症状**：`sudo iptables -t nat -L` 看不到 mihomo 的 DNS redirect 规则，但 TUN 实际工作。
+
+**根因**：Arch 默认是 nftables 后端，`iptables` 命令其实是兼容层。
+
+**修**：用 `sudo nft list ruleset` 查 mihomo 的规则，能看到就说明生效。**或者直接信 TUN 工作的事实**（§7.6 `curl github.com` 返回 200 = 工作）。
+
+### 故障 7：`mihomo-ctl groups` 没输出（历史 playbook bug）
+
+**症状**：`sudo mihomo-ctl groups` 命令跑完啥也没输出。
+
+**根因**：playbook 原版用了小写 type 名 `("select","url-test","fallback","load-balance")`，但 mihomo 1.19 实际返回大写 `("Selector","URLTest")`。
+
+**修**：用本文档 §8.3 给的版本（已经修好）。
 
 ---
 
-## 15. 速查：mihomo 不通时的 6 条诊断
+## 11. mac 和 omc-15 的角色对照
 
-```bash
-sudo systemctl status mihomo    # service 在跑？
-ss -tlnp | grep -E ':(7890|9090)'  # 端口在听？
-ip tuntap list                    # TUN 设备（应该 Meta: tun）
-sudo journalctl -u mihomo -n 50 --no-pager  # 最近日志
-curl -x http://127.0.0.1:7890 -I https://www.google.com   # mixed proxy 通不通
-curl https://github.com                                 # TUN 真工作了吗（直连应该被 GFW 挡，能 200 = TUN 接管成功）
-```
-
-如果 mixed proxy 通但 TUN 不接管 → **大概率是故障 8**（user systemd 限制）→ 迁移到 system service。
-如果 mixed proxy 也不通 → 检查 `mac:7890` 是否仍可达（`curl -x http://192.168.31.67:7890 ...`），以及 mac 的 Clash Verge 是否开了 `allow-lan: true`。
-
----
-
-## 16. mac 和 omarchy 的角色对照（重要）
-
-| | mac | omarchy |
+| | mac | omc-15 |
 |---|---|---|
-| 跑的 client | Clash Verge（GUI） | mihomo（TUI/CLI） |
+| 跑的 client | ClashX Meta（GUI） | mihomo（TUI/CLI） |
 | 跑的 core | 同一个 mihomo 内核 | 同一个 mihomo 内核 |
-| 订阅源 | 貝雪雲（同一份 URL） | 貝雪雲（同 mac 缓存复制过来） |
-| 配置文件 | clash-verge 自带 | `~/.config/mihomo/config.yaml`（mac 缓存 → 改 3 处） |
+| 订阅源 | 貝雪雲（同一份 URL） | 貝雪雲（从 mac 缓存复制） |
+| 配置文件 | `~/.config/clash.meta/config.yaml`（启动配置 + 订阅 URL） | `/etc/mihomo/config.yaml`（订阅 cache + Linux TUN 配置） |
 | 进程身份 | 用户（GUI app） | **root**（system service） |
-| mixed port | 7890（`allow-lan: true`，供 omarchy 用） | 7890（本机用） |
+| mixed port | 7890（`allow-lan: true`，供 omc-15 用） | 7890（本机用） |
 | TUN | mac utun | Linux tun（Meta） |
-| DNS 接管 | clash-verge 自动改系统 DNS | mihomo 自己改（`auto-redirect: true` + `dns-hijack`） |
+| DNS 接管 | ClashX Meta 自动改系统 DNS | mihomo 自己改（`auto-redirect: true` + `dns-hijack`） |
+| 订阅 cache | `~/Library/Caches/com.MetaCubeX.ClashX.meta/cacheConfigs/*.yaml` | （直接吃 mac 推过来的） |
 
-两台机器**互不直接通信**，各走各的代理。如果以后要 omarchy 拉更新：
-- 在 mac 上让 Clash Verge 刷新订阅
-- scp 新 YAML 到 omarchy `/etc/mihomo/config.yaml.bak`
-- （可选）覆盖 `/etc/mihomo/config.yaml` + `sudo systemctl restart mihomo`
+**两台机器互不直接通信**，各走各的代理。omc-15 的 TUN 把所有出网都接管到本地 mihomo，再走 mac 的 ClashX Meta 出国际。
