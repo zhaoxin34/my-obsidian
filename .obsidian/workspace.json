@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "学习笔记和教程/linux相关教程/Linux ufw 防火墙原理、配置与操作实战 - 以 sshd 为例.md",
+                "file": "temp.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Linux ufw 防火墙原理、配置与操作实战 - 以 sshd 为例"
+              "title": "temp"
             }
           }
         ],
@@ -157,7 +157,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习笔记和教程/linux相关教程/Linux ufw 防火墙原理、配置与操作实战 - 以 sshd 为例.md",
+                "file": "temp.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -202,19 +202,22 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "github-sync:Sync with Remote": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "claudian:Open Claudian": false
     }
   },
   "active": "e5ce5b3f0a2d8b03",
   "lastOpenFiles": [
+    "学习笔记和教程/linux相关教程/Linux ufw 防火墙原理、配置与操作实战 - 以 sshd 为例.md",
+    "temp.md",
     "分析报告/Fundamental_vs_Palantir_Research_20260424/research_report.md",
     "操作记录/Omarchy 配置 Systemd Timer 定时任务.md",
     "antagent/核心架构.md",
     "编程经验/透明代理TUN模式与ufw冲突-conntrack破坏问题.md",
-    "Untitled.md",
     "操作记录/Omarchy 安装 Mihomo (Clash Meta) 操作记录.md",
     "学习笔记和教程/linux相关教程/Omarchy 与 Hyprland 操作和配置教程.md",
-    "学习笔记和教程/linux相关教程/Linux ufw 防火墙原理、配置与操作实战 - 以 sshd 为例.md",
     "学习笔记和教程/linux相关教程/Linux systemctl 原理、配置与操作实战 - 以 sshd 为例.md",
     "学习笔记和教程/linux相关教程",
     "操作记录/Omarchy 复用 mac 的 zsh 配置.md",
