@@ -1,0 +1,41 @@
+{
+  "nextId": 4,
+  "tasks": [
+    {
+      "id": "1",
+      "subject": "规划教程结构",
+      "description": "设计教程章节大纲，融合安装、操作、配置三大主题",
+      "status": "completed",
+      "activeForm": "规划教程结构",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1789608633619,
+      "updatedAt": 1789608638880
+    },
+    {
+      "id": "2",
+      "subject": "撰写教程主体",
+      "description": "撰写完整的 Omarchy + Hyprland 操作与配置教程到 学习笔记和教程 目录",
+      "status": "in_progress",
+      "activeForm": "撰写教程主体",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1789608633620,
+      "updatedAt": 1789608638880
+    },
+    {
+      "id": "3",
+      "subject": "复核与精炼",
+      "description": "检查教程的可操作性、命令正确性、来源引用完整性",
+      "status": "in_progress",
+      "activeForm": "复核与精炼",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1789608633620,
+      "updatedAt": 1789608743533
+    }
+  ]
+}
