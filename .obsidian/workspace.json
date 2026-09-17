@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作记录/Git 使用和操作技巧.md",
+                "file": "操作记录/工作环境初始化.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Git 使用和操作技巧"
+              "title": "工作环境初始化"
             }
           }
         ],
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "操作记录/Git 使用和操作技巧.md",
+                "file": "操作记录/工作环境初始化.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Git 使用和操作技巧"
+              "title": "Outline of 工作环境初始化"
             }
           },
           {
@@ -207,6 +207,8 @@
   },
   "active": "fce94c2c94767c7d",
   "lastOpenFiles": [
+    "操作记录/安装llmfit.md",
+    "操作记录/Git 使用和操作技巧.md",
     "学习笔记和教程/linux相关教程/Linux systemctl 原理、配置与操作实战 - 以 sshd 为例.md",
     "编程经验/透明代理TUN模式与ufw冲突-conntrack破坏问题.md",
     "学习笔记和教程/linux相关教程/Linux ufw 防火墙原理、配置与操作实战 - 以 sshd 为例.md",
@@ -233,8 +235,6 @@
     "操作记录/fedora安装使用教程/00-Fedora上手教程.md",
     "操作记录/fedora安装使用教程",
     "操作记录/Fedora安装与初始化.md",
-    "操作记录/Fedora上手教程.md",
-    "操作记录/Fedora-远程控制方案.md",
     "分析报告/Mercor_深度调研_20260903.html",
     "分析报告/claims.jsonl",
     "分析报告/evidence.jsonl",
