@@ -68,7 +68,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "mihomo",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -89,11 +89,12 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 573
   },
   "right": {
     "id": "04cbc61875f8a98e",
@@ -205,7 +206,7 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "fce94c2c94767c7d",
+  "active": "89b70c27d8975c9f",
   "lastOpenFiles": [
     "操作记录/安装llmfit.md",
     "操作记录/Git 使用和操作技巧.md",
