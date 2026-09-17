@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作记录/omarchy配置记录.md",
+                "file": "学习笔记和教程/linux相关教程/Linux systemctl 原理、配置与操作实战 - 以 sshd 为例.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "omarchy配置记录"
+              "title": "Linux systemctl 原理、配置与操作实战 - 以 sshd 为例"
+            }
+          },
+          {
+            "id": "fce94c2c94767c7d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "学习笔记和教程/linux相关教程/Linux systemctl 原理、配置与操作实战 - 以 sshd 为例.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Linux systemctl 原理、配置与操作实战 - 以 sshd 为例"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -140,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "操作记录/omarchy配置记录.md",
+                "file": "学习笔记和教程/linux相关教程/Linux systemctl 原理、配置与操作实战 - 以 sshd 为例.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of omarchy配置记录"
+              "title": "Outline of Linux systemctl 原理、配置与操作实战 - 以 sshd 为例"
             }
           },
           {
@@ -190,14 +205,16 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "2c5e4122982fe1d0",
+  "active": "b746167d935cd3b2",
   "lastOpenFiles": [
+    "学习笔记和教程/linux相关教程/Linux ufw 防火墙原理、配置与操作实战 - 以 sshd 为例.md",
+    "学习笔记和教程/linux相关教程/Linux systemctl 原理、配置与操作实战 - 以 sshd 为例.md",
+    "操作记录/omarchy配置记录.md",
+    "学习笔记和教程/linux相关教程",
     "操作记录/Omarchy 安装 Mihomo (Clash Meta) 操作记录.md",
     "操作记录/Omarchy 复用 mac 的 zsh 配置.md",
-    "操作记录/omarchy配置记录.md",
     "操作记录/Ollama 安装和使用.md",
-    "学习笔记和教程/Omarchy 与 Hyprland 操作和配置教程.md",
-    "学习笔记和教程/Linux systemctl 原理、配置与操作实战 - 以 sshd 为例.md",
+    "学习笔记和教程/linux相关教程/Omarchy 与 Hyprland 操作和配置教程.md",
     "Untitled.md",
     "Untitled 1.md",
     "操作记录/fedora安装使用教程/01-01-网络工具与输入法.md",
@@ -217,8 +234,6 @@
     "操作记录/Fedora安装与初始化.md",
     "操作记录/Fedora上手教程.md",
     "操作记录/Fedora-远程控制方案.md",
-    "操作记录/Fedora-终端美化与字体.md",
-    "操作记录/Fedora-开发环境与常用软件.md",
     "分析报告/Mercor_深度调研_20260903.html",
     "分析报告/claims.jsonl",
     "分析报告/evidence.jsonl",
@@ -227,7 +242,6 @@
     "claims.jsonl",
     "evidence.jsonl",
     "sources.jsonl",
-    "run_manifest.json",
     "我的项目/全自动营销产品/images/proactive-agent-stack.png",
     "我的项目/全自动营销产品/images/proactive-agent-evo.png",
     "我的项目/plato/三权分立图.canvas",
