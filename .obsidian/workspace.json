@@ -182,8 +182,9 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "60e2db1650c22659",
+  "active": "b746167d935cd3b2",
   "lastOpenFiles": [
+    "学习笔记和教程/Omarchy/Hyprland 进阶指南.md",
     "学习笔记和教程/Omarchy/Omarchy 配置 Systemd Timer 定时任务.md",
     "学习笔记和教程/Omarchy/Omarchy 安装 Mihomo (Clash Meta) 操作记录.md",
     "学习笔记和教程/Omarchy/Omarchy 复用 mac 的 zsh 配置.md",
@@ -212,7 +213,6 @@
     "操作记录/Omarchy 安装 Mihomo (Clash Meta) 操作记录.md",
     "操作记录/Omarchy 复用 mac 的 zsh 配置.md",
     "操作记录/Ollama 安装和使用.md",
-    "Untitled.md",
     "操作记录/fedora安装使用教程",
     "分析报告/Mercor_深度调研_20260903.html",
     "分析报告/claims.jsonl",
