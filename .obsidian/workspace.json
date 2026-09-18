@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "temp.md",
+                "file": "操作记录/Git 使用和操作技巧.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "temp"
+              "title": "Git 使用和操作技巧"
             }
           }
         ],
@@ -70,7 +70,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "w11",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -209,10 +209,10 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "89b70c27d8975c9f",
+  "active": "e5ce5b3f0a2d8b03",
   "lastOpenFiles": [
-    "学习笔记和教程/linux相关教程/Linux ufw 防火墙原理、配置与操作实战 - 以 sshd 为例.md",
     "temp.md",
+    "学习笔记和教程/linux相关教程/Linux ufw 防火墙原理、配置与操作实战 - 以 sshd 为例.md",
     "分析报告/Fundamental_vs_Palantir_Research_20260424/research_report.md",
     "操作记录/Omarchy 配置 Systemd Timer 定时任务.md",
     "antagent/核心架构.md",
