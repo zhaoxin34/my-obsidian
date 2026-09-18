@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1789719759922-oa1aod64a",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789719760048-woz5id2",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1789719759917-j8yl8np",
+      "timestamp": 1789719759917,
+      "rawDisplayText": "hi",
+      "canonicalText": "hi",
+      "context": {
+        "linkedContent": {
+          "path": "操作记录/Chrome Dev Tool 配置 MCP.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "88de65a2615a366404fdfd86bc354f32929270ce50be0af4a2bb771e29bf83ef",
+      "providerUserMessageId": "b9e9a2ad-2487-4ad1-9be8-5e202d14e7dc",
+      "providerAssistantMessageId": "f779cdcb-1707-44e7-96a7-0ce1a4fd3415"
+    }
+  ]
+}

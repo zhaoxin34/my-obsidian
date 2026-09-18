@@ -1,0 +1,24 @@
+{
+  "id": "conv-1789719759922-oa1aod64a",
+  "providerId": "claude",
+  "title": "**Conversation Title:** 问候",
+  "titleGenerationStatus": "success",
+  "createdAt": 1789719759927,
+  "lastActivityAt": 1789719773237,
+  "sessionId": "8099a80f-562d-4817-b2de-afede34f1870",
+  "selectedModel": "claude-code/MiniMax-M2.7",
+  "providerState": {
+    "providerSessionId": "8099a80f-562d-4817-b2de-afede34f1870"
+  },
+  "linkedContentPath": "操作记录/Chrome Dev Tool 配置 MCP.md",
+  "usage": {
+    "model": "MiniMax-M2.7",
+    "inputTokens": 5691,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 23851,
+    "contextWindow": 200000,
+    "contextTokens": 29542,
+    "percentage": 15,
+    "contextWindowIsAuthoritative": true
+  }
+}

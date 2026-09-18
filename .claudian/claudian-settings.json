@@ -1,0 +1,133 @@
+{
+  "userName": "Joky",
+  "permissionMode": "yolo",
+  "model": "claude-code/MiniMax-M2.7",
+  "thinkingBudget": "high",
+  "effortLevel": "high",
+  "serviceTier": "default",
+  "enableAutoTitleGeneration": true,
+  "titleGenerationLocale": "",
+  "titleGenerationModel": "",
+  "excludedTags": [],
+  "mediaFolder": "",
+  "systemPrompt": "",
+  "sharedEnvironmentVariables": "",
+  "envSnippets": [],
+  "customContextLimits": {},
+  "customModelAliases": {},
+  "keyboardNavigation": {
+    "scrollUpKey": "w",
+    "scrollDownKey": "s",
+    "focusInputKey": "i"
+  },
+  "requireCommandOrControlEnterToSend": true,
+  "locale": "zh-CN",
+  "providerConfigs": {
+    "claude": {
+      "enabled": true,
+      "responseStyle": "Default",
+      "safeMode": "acceptEdits",
+      "cliPath": "",
+      "cliPathsByHost": {},
+      "loadUserSettings": true,
+      "enableChrome": false,
+      "customModels": "",
+      "defaultModel": "opus",
+      "lastModel": "haiku",
+      "modelEnvironmentType": "",
+      "titleModelEnvironmentType": "",
+      "environmentVariables": "ANTHROPIC_BASE_URL=https://api.minimaxi.com/anthropic\nCLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1\nANTHROPIC_MODEL=\"MiniMax-M2.7\"\nANTHROPIC_SMALL_FAST_MODEL=\"MiniMax-M2.7\"\nANTHROPIC_DEFAULT_SONNET_MODEL=\"MiniMax-M2.7\"\nANTHROPIC_DEFAULT_OPUS_MODEL=\"MiniMax-M2.7\"\nANTHROPIC_DEFAULT_HAIKU_MODEL=\"MiniMax-M2.7\"\nANTHROPIC_AUTH_TOKEN=sk-cp-myfB6u4psXdcHDjTty3stOKIm8OcXJJ34cnPS6nT444CiOQu6vNBEq0WPIMhGXcBZqBPoeRbVF2vk9VU8kSXBRRd7RfnPg8ZjjvC9zdGuian3wiQoxF5JpU",
+      "environmentHash": "runtime-input:v1:11f2299bfd358015cb7ef97e67ddf49b85736910eb7543c6a919fe405dfd2ccf"
+    },
+    "codex": {
+      "enabled": false,
+      "safeMode": "workspace-write",
+      "cliPath": "",
+      "cliPathsByHost": {},
+      "customModels": "",
+      "discoveredModels": [],
+      "modelAliases": {},
+      "visibleModels": null,
+      "enableUltraEffort": false,
+      "responseStyle": "pragmatic",
+      "reasoningSummary": "detailed",
+      "environmentVariables": "",
+      "environmentHash": "",
+      "catalogTimestamp": 0,
+      "catalogFingerprint": "",
+      "installationMethodsByHost": {},
+      "wslDistroOverridesByHost": {}
+    },
+    "grok": {
+      "catalogsByHost": {},
+      "cliPath": "",
+      "cliPathsByHost": {},
+      "enabled": false,
+      "environmentHash": "",
+      "environmentVariables": "",
+      "modelAliases": {},
+      "preferredReasoningByModel": {},
+      "visibleModels": null
+    },
+    "opencode": {
+      "cliPath": "",
+      "cliPathsByHost": {},
+      "enabled": false,
+      "environmentHash": "",
+      "environmentVariables": "",
+      "modelAliases": {},
+      "preferredThinkingByModel": {},
+      "selectedMode": "",
+      "thinkingOptionsByModel": {},
+      "visibleModels": []
+    },
+    "pi": {
+      "cliPath": "",
+      "cliPathsByHost": {},
+      "discoveredModels": [],
+      "enabled": true,
+      "environmentHash": "",
+      "environmentVariables": "",
+      "modelAliases": {},
+      "preferredThinkingByModel": {},
+      "toolMode": "all",
+      "visibleModels": []
+    }
+  },
+  "settingsProvider": "claude",
+  "lastSelectedChatModel": {
+    "providerId": "claude",
+    "model": "MiniMax-M2.7"
+  },
+  "savedProviderModel": {
+    "claude": "claude-code/MiniMax-M2.7"
+  },
+  "savedProviderEffort": {
+    "claude": "high"
+  },
+  "savedProviderServiceTier": {},
+  "savedProviderThinkingBudget": {},
+  "savedProviderPermissionMode": {
+    "claude": "yolo"
+  },
+  "pendingProviderSessionInvalidations": {},
+  "lastCustomModel": "",
+  "maxWarmAgentProcesses": 5,
+  "enableAutoScroll": true,
+  "showMessageTimestamps": false,
+  "deferMathRenderingDuringStreaming": true,
+  "expandFileEditsByDefault": false,
+  "chatViewPlacement": "main-tab",
+  "enableDualPane": false,
+  "dualPaneSide": "right",
+  "restoreTabsOnStartup": true,
+  "collabEnabled": false,
+  "collabProjectsFolder": "workspace",
+  "collabGitPath": "",
+  "sessionManagerOrganization": "list",
+  "sessionManagerSort": "last-updated",
+  "pinnedLinkedContentPaths": [],
+  "hiddenProviderCommands": {},
+  "maxTabs": 3,
+  "tabBarPosition": "input"
+}
