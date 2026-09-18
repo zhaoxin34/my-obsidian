@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作记录/工作环境初始化.md",
+                "file": "学习笔记和教程/linux相关教程/Omarchy 与 Hyprland 操作和配置教程.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "工作环境初始化"
+              "title": "Omarchy 与 Hyprland 操作和配置教程"
             }
           }
         ],
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "操作记录/工作环境初始化.md",
+                "file": "学习笔记和教程/linux相关教程/Omarchy 与 Hyprland 操作和配置教程.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 工作环境初始化"
+              "title": "Outline of Omarchy 与 Hyprland 操作和配置教程"
             }
           },
           {
@@ -205,8 +205,9 @@
       "claudian:Open Claudian": false
     }
   },
-  "active": "b746167d935cd3b2",
+  "active": "fce94c2c94767c7d",
   "lastOpenFiles": [
+    "操作记录/工作环境初始化.md",
     "操作记录/Omarchy 配置 Systemd Timer 定时任务.md",
     "操作记录/Omarchy 下修复 pi fetch 工具（mihomo fake-IP 冲突）.md",
     "temp.md",
@@ -233,7 +234,6 @@
     "操作记录/fedora安装使用教程/06-Fedora-Wezterm与Zellij.md",
     "操作记录/fedora安装使用教程/05-Fedora-Neovim配置.md",
     "操作记录/fedora安装使用教程/04-Fedora-zsh与终端工具链.md",
-    "操作记录/fedora安装使用教程/03-Fedora-终端美化与字体.md",
     "操作记录/fedora安装使用教程",
     "分析报告/Mercor_深度调研_20260903.html",
     "分析报告/claims.jsonl",
