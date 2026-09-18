@@ -42,3 +42,26 @@ git rm -r --cached directory/
 # 多个文件/目录
 git rm -r --cached dir1/ dir2/file.txt
 ```
+
+## 按 URL 配置代理
+
+*比全局 http.proxy 更精准*
+
+```bash
+# HTTPS 协议
+git config --global http.https://github.com.proxy http://127.0.0.1:7890
+
+# SSH 协议写在 ~/.ssh/config
+sudo pacman -S corkscrew
+```
+
+```ssh-config
+Host github.com
+    ProxyCommand corkscrew 127.0.0.1:7890 %h %p
+```
+
+*豁免内网不走代理*
+
+```bash
+git config --global http.http://git.internal.com.proxy ""
+```
