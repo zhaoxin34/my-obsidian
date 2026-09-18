@@ -160,31 +160,9 @@
               "icon": "calendar-with-checkmark",
               "title": "Calendar"
             }
-          },
-          {
-            "id": "94ad6e8756e1a377",
-            "type": "leaf",
-            "state": {
-              "type": "claudian-view",
-              "state": {
-                "tabWorkspace": {
-                  "version": 1,
-                  "openTabs": [
-                    {
-                      "tabId": "tab-1789719865952-229ld0k",
-                      "conversationId": null,
-                      "draftModel": "claude-code/MiniMax-M2.7"
-                    }
-                  ],
-                  "activeTabId": "tab-1789719865952-229ld0k"
-                }
-              },
-              "icon": "bot",
-              "title": "Claudian"
-            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -204,8 +182,20 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "94ad6e8756e1a377",
+  "active": "60e2db1650c22659",
   "lastOpenFiles": [
+    "学习笔记和教程/Omarchy/Omarchy 配置 Systemd Timer 定时任务.md",
+    "学习笔记和教程/Omarchy/Omarchy 安装 Mihomo (Clash Meta) 操作记录.md",
+    "学习笔记和教程/Omarchy/Omarchy 复用 mac 的 zsh 配置.md",
+    "学习笔记和教程/Omarchy/Omarchy 与 Hyprland 操作和配置教程.md",
+    "学习笔记和教程/Omarchy/Omarchy 下修复 pi fetch 工具（mihomo fake-IP 冲突）.md",
+    "学习笔记和教程/Omarchy",
+    "Omarchy/Omarchy 与 Hyprland 操作和配置教程.md",
+    "Omarchy/Omarchy 安装 Mihomo (Clash Meta) 操作记录.md",
+    "Omarchy/Omarchy 复用 mac 的 zsh 配置.md",
+    "Omarchy/Omarchy 下修复 pi fetch 工具（mihomo fake-IP 冲突）.md",
+    "Omarchy/Omarchy 配置 Systemd Timer 定时任务.md",
+    "Omarchy",
     "操作记录/Chrome Dev Tool 配置 MCP.md",
     "学习笔记和教程/linux相关教程/Linux systemctl 原理、配置与操作实战 - 以 sshd 为例.md",
     "学习笔记和教程/linux相关教程/Omarchy 与 Hyprland 操作和配置教程.md",
@@ -223,16 +213,6 @@
     "操作记录/Omarchy 复用 mac 的 zsh 配置.md",
     "操作记录/Ollama 安装和使用.md",
     "Untitled.md",
-    "Untitled 1.md",
-    "操作记录/fedora安装使用教程/01-01-网络工具与输入法.md",
-    "学习笔记和教程/随机森林算法原理与应用.md",
-    "操作记录/fedora安装使用教程/02-Fedora-Docker安装与使用.md",
-    "学习笔记和教程/LLM微调入门教程/05-实战：用QLoRA微调Qwen.md",
-    "操作记录/fedora安装使用教程/09-Fedora-开发环境与常用软件.md",
-    "操作记录/fedora安装使用教程/08-Fedora-远程控制方案.md",
-    "操作记录/fedora安装使用教程/07-Fedora-pi-agent安装与配置.md",
-    "操作记录/fedora安装使用教程/06-Fedora-Wezterm与Zellij.md",
-    "操作记录/fedora安装使用教程/05-Fedora-Neovim配置.md",
     "操作记录/fedora安装使用教程",
     "分析报告/Mercor_深度调研_20260903.html",
     "分析报告/claims.jsonl",
@@ -240,8 +220,6 @@
     "分析报告/sources.jsonl",
     "分析报告/run_manifest.json",
     "claims.jsonl",
-    "evidence.jsonl",
-    "sources.jsonl",
     "我的项目/全自动营销产品/images/proactive-agent-stack.png",
     "我的项目/全自动营销产品/images/proactive-agent-evo.png",
     "我的项目/plato/三权分立图.canvas",
