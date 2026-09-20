@@ -305,37 +305,37 @@ Host github.com
 
 这一节列出最常用的配置项。完整列表见 `man ssh_config`。
 
-| 选项 | 用途 | 示例 |
-|------|------|------|
-| `Host` | 块标识 + 模式匹配 | `Host *.example.com` |
-| `HostName` | 真实主机名或 IP（命令行给的只是别名） | `HostName 10.0.0.5` |
-| `User` | 登录用户名 | `User deploy` |
-| `Port` | SSH 端口 | `Port 2222` |
-| `IdentityFile` | 私钥路径（可多个） | `IdentityFile ~/.ssh/id_ed25519_work` |
-| `IdentitiesOnly` | 只用本块指定的 key，不让 agent 参与 | `IdentitiesOnly yes` |
-| `PreferredAuthentications` | 认证方式顺序 | `PreferredAuthentications publickey` |
-| `PubkeyAuthentication` | 是否允许公钥认证 | `PubkeyAuthentication yes` |
-| `PasswordAuthentication` | 是否允许密码认证 | `PasswordAuthentication no` |
-| `ForwardAgent` | 转发 ssh-agent 套接字 | `ForwardAgent yes` |
-| `ForwardX11` | 转发 X11 | `ForwardX11 yes` |
-| `LocalForward` | 本地端口转发 | `LocalForward 8080 localhost:80` |
-| `RemoteForward` | 远程端口转发 | `RemoteForward 9000 localhost:3000` |
-| `DynamicForward` | SOCKS 代理 | `DynamicForward 1080` |
-| `ProxyJump` | 跳板机 | `ProxyJump bastion.example.com` |
-| `ProxyCommand` | 自定义连接命令 | `ProxyCommand ssh -W %h:%p jump` |
-| `ControlMaster` | 连接复用 | `ControlMaster auto` |
-| `ControlPath` | 控制套接字路径 | `ControlPath ~/.ssh/cm-%C` |
-| `ControlPersist` | 主连接空闲保留时长 | `ControlPersist 10m` |
-| `ServerAliveInterval` | 客户端保活探测间隔 | `ServerAliveInterval 60` |
-| `ServerAliveCountMax` | 最多多少次无应答算断开 | `ServerAliveCountMax 3` |
-| `TCPKeepAlive` | 是否开启 TCP 层 keepalive | `TCPKeepAlive yes` |
-| `Compression` | 是否压缩 | `Compression yes` |
-| `ConnectTimeout` | TCP 连接超时（秒） | `ConnectTimeout 10` |
-| `ConnectionAttempts` | 失败重试次数 | `ConnectionAttempts 3` |
-| `LogLevel` | 日志详细度 | `LogLevel VERBOSE` |
-| `StrictHostKeyChecking` | 主机密钥校验严格度 | `StrictHostKeyChecking ask` |
-| `UserKnownHostsFile` | 用户 known_hosts 路径 | `UserKnownHostsFile ~/.ssh/known_hosts` |
-| `AddKeysToAgent` | 是否自动把用过的 key 加入 agent | `AddKeysToAgent yes` |
+| 选项                         | 用途                      | 示例                                      |
+| -------------------------- | ----------------------- | --------------------------------------- |
+| `Host`                     | 块标识 + 模式匹配              | `Host *.example.com`                    |
+| `HostName`                 | 真实主机名或 IP（命令行给的只是别名）    | `HostName 10.0.0.5`                     |
+| `User`                     | 登录用户名                   | `User deploy`                           |
+| `Port`                     | SSH 端口                  | `Port 2222`                             |
+| `IdentityFile`             | 私钥路径（可多个）               | `IdentityFile ~/.ssh/id_ed25519_work`   |
+| `IdentitiesOnly`           | 只用本块指定的 key，不让 agent 参与 | `IdentitiesOnly yes`                    |
+| `PreferredAuthentications` | 认证方式顺序                  | `PreferredAuthentications publickey`    |
+| `PubkeyAuthentication`     | 是否允许公钥认证                | `PubkeyAuthentication yes`              |
+| `PasswordAuthentication`   | 是否允许密码认证                | `PasswordAuthentication no`             |
+| `ForwardAgent`             | 转发 ssh-agent 套接字        | `ForwardAgent yes`                      |
+| `ForwardX11`               | 转发 X11                  | `ForwardX11 yes`                        |
+| `LocalForward`             | 本地端口转发                  | `LocalForward 8080 localhost:80`        |
+| `RemoteForward`            | 远程端口转发                  | `RemoteForward 9000 localhost:3000`     |
+| `DynamicForward`           | SOCKS 代理                | `DynamicForward 1080`                   |
+| `ProxyJump`                | 跳板机                     | `ProxyJump bastion.example.com`         |
+| `ProxyCommand`             | 自定义连接命令                 | `ProxyCommand ssh -W %h:%p jump`        |
+| `ControlMaster`            | 连接复用                    | `ControlMaster auto`                    |
+| `ControlPath`              | 控制套接字路径                 | `ControlPath ~/.ssh/cm-%C`              |
+| `ControlPersist`           | 主连接空闲保留时长               | `ControlPersist 10m`                    |
+| `ServerAliveInterval`      | 客户端保活探测间隔               | `ServerAliveInterval 60`                |
+| `ServerAliveCountMax`      | 最多多少次无应答算断开             | `ServerAliveCountMax 3`                 |
+| `TCPKeepAlive`             | 是否开启 TCP 层 keepalive    | `TCPKeepAlive yes`                      |
+| `Compression`              | 是否压缩                    | `Compression yes`                       |
+| `ConnectTimeout`           | TCP 连接超时（秒）             | `ConnectTimeout 10`                     |
+| `ConnectionAttempts`       | 失败重试次数                  | `ConnectionAttempts 3`                  |
+| `LogLevel`                 | 日志详细度                   | `LogLevel VERBOSE`                      |
+| `StrictHostKeyChecking`    | 主机密钥校验严格度               | `StrictHostKeyChecking ask`             |
+| `UserKnownHostsFile`       | 用户 known_hosts 路径       | `UserKnownHostsFile ~/.ssh/known_hosts` |
+| `AddKeysToAgent`           | 是否自动把用过的 key 加入 agent   | `AddKeysToAgent yes`                    |
 
 ---
 
@@ -388,13 +388,13 @@ Host *
 
 #### 5 个值的语义
 
-| 值 | 行为 |
-|----|------|
-| `no`（默认） | 永远不成为 master |
-| `yes` | 总是成为 master，如果有同名套接字则复用 |
-| `ask` | 同 `yes`，但用 askpass 二次确认 |
-| `auto` | 有 master 则复用，否则成为 master |
-| `autoask` | 同 `auto`，但需要 askpass 确认 |
+| 值         | 行为                       |
+| --------- | ------------------------ |
+| `no`（默认）  | 永远不成为 master             |
+| `yes`     | 总是成为 master，如果有同名套接字则复用  |
+| `ask`     | 同 `yes`，但用 askpass 二次确认  |
+| `auto`    | 有 master 则复用，否则成为 master |
+| `autoask` | 同 `auto`，但需要 askpass 确认  |
 
 #### 通过复用套接字管理 master
 
