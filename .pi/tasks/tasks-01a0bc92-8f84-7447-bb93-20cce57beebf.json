@@ -1,0 +1,60 @@
+{
+  "nextId": 6,
+  "tasks": [
+    {
+      "id": "1",
+      "subject": "撰写教程前言与 SSH 协议原理章节",
+      "description": "写前言 + SSH 协议握手原理（TCP 握手、版本交换、KEX 协商、密钥交换、主机密钥认证、用户认证、通道复用、forward secrecy）",
+      "status": "completed",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1789870364905,
+      "updatedAt": 1789870474870
+    },
+    {
+      "id": "2",
+      "subject": "撰写配置文件基础与核心选项章节",
+      "description": "~/.ssh/config 基础：文件格式、加载顺序、权限、Host 模式匹配、基础选项（HostName/User/Port/IdentityFile/IdentitiesOnly）",
+      "status": "completed",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1789870364905,
+      "updatedAt": 1789870474871
+    },
+    {
+      "id": "3",
+      "subject": "撰写高级特性详解章节",
+      "description": "ProxyJump vs ProxyCommand、ControlMaster 多路复用（含 mux 协议）、ssh-agent + ForwardAgent、端口转发三种模式（-L/-R/-D）、Include/Match",
+      "status": "completed",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1789870364906,
+      "updatedAt": 1789870474872
+    },
+    {
+      "id": "4",
+      "subject": "撰写主机密钥、密钥类型、保活优化、调试章节",
+      "description": "known_hosts + TOFU、StrictHostKeyChecking、证书认证、Ed25519 vs RSA vs ECDSA、保活参数、ssh -vvv 调试",
+      "status": "completed",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1789870364906,
+      "updatedAt": 1789870474872
+    },
+    {
+      "id": "5",
+      "subject": "撰写实战配置示例与参考资料",
+      "description": "完整 config 模板、多 GitHub 账号、跳板机、配置组织、进阶主题、参考资料清单",
+      "status": "completed",
+      "metadata": {},
+      "blocks": [],
+      "blockedBy": [],
+      "createdAt": 1789870364906,
+      "updatedAt": 1789870474873
+    }
+  ]
+}
