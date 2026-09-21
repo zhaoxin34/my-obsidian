@@ -98,33 +98,33 @@ psql -U username -h hostname -d dbname -p 5432
 
 ### 3.2 表操作
 
-| 操作 | MySQL | PostgreSQL |
-|------|-------|------------|
-| 列出表 | `SHOW TABLES;` | `\dt` |
-| 查看表结构 | `DESC table;` 或 `DESCRIBE table;` | `\d table` |
-| 查看建表语句 | `SHOW CREATE TABLE table;` | `\d+ table`（含完整 SQL） |
-| 查看详细表信息 | `SHOW TABLE STATUS;` | `\dt+` |
-| 删除表 | `DROP TABLE table;` | `DROP TABLE table;` |
-| 重命名表 | `RENAME TABLE t1 TO t2;` | `ALTER TABLE t1 RENAME TO t2;` |
+| 操作      | MySQL                             | PostgreSQL                     |
+| ------- | --------------------------------- | ------------------------------ |
+| 列出表     | `SHOW TABLES;`                    | `\dt`                          |
+| 查看表结构   | `DESC table;` 或 `DESCRIBE table;` | `\d table`                     |
+| 查看建表语句  | `SHOW CREATE TABLE table;`        | `\d+ table`（含完整 SQL）           |
+| 查看详细表信息 | `SHOW TABLE STATUS;`              | `\dt+`                         |
+| 删除表     | `DROP TABLE table;`               | `DROP TABLE table;`            |
+| 重命名表    | `RENAME TABLE t1 TO t2;`          | `ALTER TABLE t1 RENAME TO t2;` |
 
 ### 3.3 索引操作
 
-| 操作 | MySQL | PostgreSQL |
-|------|-------|------------|
-| 列出索引 | `SHOW INDEX FROM table;` | `\di` 或 `\d table` |
-| 创建索引 | `CREATE INDEX idx ON t(col);` | `CREATE INDEX idx ON t(col);` |
-| 删除索引 | `DROP INDEX idx;` | `DROP INDEX idx;` |
+| 操作   | MySQL                                | PostgreSQL                           |
+| ---- | ------------------------------------ | ------------------------------------ |
+| 列出索引 | `SHOW INDEX FROM table;`             | `\di` 或 `\d table`                   |
+| 创建索引 | `CREATE INDEX idx ON t(col);`        | `CREATE INDEX idx ON t(col);`        |
+| 删除索引 | `DROP INDEX idx;`                    | `DROP INDEX idx;`                    |
 | 唯一索引 | `CREATE UNIQUE INDEX idx ON t(col);` | `CREATE UNIQUE INDEX idx ON t(col);` |
 
 ### 3.4 用户/角色操作
 
-| 操作 | MySQL | PostgreSQL |
-|------|-------|------------|
-| 列出用户 | `SELECT user FROM mysql.user;` | `\du` |
-| 创建用户 | `CREATE USER 'user'@'host';` | `CREATE USER user;` |
-| 删除用户 | `DROP USER 'user'@'host';` | `DROP USER user;` |
+| 操作   | MySQL                                     | PostgreSQL                             |
+| ---- | ----------------------------------------- | -------------------------------------- |
+| 列出用户 | `SELECT user FROM mysql.user;`            | `\du`                                  |
+| 创建用户 | `CREATE USER 'user'@'host';`              | `CREATE USER user;`                    |
+| 删除用户 | `DROP USER 'user'@'host';`                | `DROP USER user;`                      |
 | 修改密码 | `SET PASSWORD FOR 'user'@'host' = 'pwd';` | `ALTER USER user WITH PASSWORD 'pwd';` |
-| 授予权限 | `GRANT ALL ON db.* TO 'user'@'host';` | `GRANT ALL ON DATABASE db TO user;` |
+| 授予权限 | `GRANT ALL ON db.* TO 'user'@'host';`     | `GRANT ALL ON DATABASE db TO user;`    |
 
 ---
 

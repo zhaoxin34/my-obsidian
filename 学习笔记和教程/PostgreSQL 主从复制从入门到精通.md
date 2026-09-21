@@ -31,11 +31,11 @@ PostgreSQL 单机部署虽然简单，但生产中我们几乎不会这样用。
 
 ### 1.1 三个核心目标
 
-| 目标 | 说明 | 实现方式 |
-|------|------|----------|
-| **高可用 (HA)** | 主库挂了，从库接管，业务不停 | 流复制 + 自动故障切换 |
-| **读扩展** | 把读请求分摊到多台从库，减轻主库压力 | 流复制 + 应用层读写分离 |
-| **灾难恢复 (DR)** | 机房级故障时，异地从库接管 | 流复制 + WAL 归档 |
+| 目标            | 说明                 | 实现方式          |
+| ------------- | ------------------ | ------------- |
+| **高可用 (HA)**  | 主库挂了，从库接管，业务不停     | 流复制 + 自动故障切换  |
+| **读扩展**       | 把读请求分摊到多台从库，减轻主库压力 | 流复制 + 应用层读写分离 |
+| **灾难恢复 (DR)** | 机房级故障时，异地从库接管      | 流复制 + WAL 归档  |
 
 ### 1.2 典型应用场景
 
@@ -72,20 +72,20 @@ PostgreSQL 原生**不推荐主主复制**（multi-master），原因：
 
 ### 2.1 关键术语
 
-| 术语 | 全称 | 说明 |
-|------|------|------|
-| **WAL** | Write-Ahead Log | 预写日志，所有变更先写 WAL 再写数据文件 |
-| **LSN** | Log Sequence Number | WAL 中每个字节的位置（如 `0/16A8B40`） |
-| **流复制** | Streaming Replication | 主库将 WAL 实时流式推送给从库 |
-| **物理复制** | Physical Replication | 复制数据块的二进制变化，最常用 |
-| **逻辑复制** | Logical Replication | 复制 SQL 变更（INSERT/UPDATE/DELETE） |
-| **同步复制** | Synchronous Replication | 主库提交事务前等待从库确认 |
-| **异步复制** | Asynchronous Replication | 主库提交事务即返回，从库异步追平 |
-| **复制槽** | Replication Slot | 主库为每个从库保留 WAL 状态的机制 |
-| **Promote** | Promote | 把从库提升为新主库 |
-| **Failover** | Failover | 主库故障后自动/手动切换到从库 |
-| **Switchover** | Switchover | 计划内的主从切换（如主库维护） |
-| **WAL Sender/Receiver** | - | 主库发 WAL、从库收 WAL 的后台进程 |
+| 术语                      | 全称                       | 说明                              |
+| ----------------------- | ------------------------ | ------------------------------- |
+| **WAL**                 | Write-Ahead Log          | 预写日志，所有变更先写 WAL 再写数据文件          |
+| **LSN**                 | Log Sequence Number      | WAL 中每个字节的位置（如 `0/16A8B40`）     |
+| **流复制**                 | Streaming Replication    | 主库将 WAL 实时流式推送给从库               |
+| **物理复制**                | Physical Replication     | 复制数据块的二进制变化，最常用                 |
+| **逻辑复制**                | Logical Replication      | 复制 SQL 变更（INSERT/UPDATE/DELETE） |
+| **同步复制**                | Synchronous Replication  | 主库提交事务前等待从库确认                   |
+| **异步复制**                | Asynchronous Replication | 主库提交事务即返回，从库异步追平                |
+| **复制槽**                 | Replication Slot         | 主库为每个从库保留 WAL 状态的机制             |
+| **Promote**             | Promote                  | 把从库提升为新主库                       |
+| **Failover**            | Failover                 | 主库故障后自动/手动切换到从库                 |
+| **Switchover**          | Switchover               | 计划内的主从切换（如主库维护）                 |
+| **WAL Sender/Receiver** | -                        | 主库发 WAL、从库收 WAL 的后台进程           |
 
 ### 2.2 复制拓扑一览
 
@@ -151,14 +151,14 @@ LSN 是一个 64 位地址，格式为 `时间线ID/偏移量`：
 
 **复制中的关键 LSN**：
 
-| LSN 类型 | 含义 |
-|---------|------|
-| `pg_current_wal_lsn()` | 主库最新写入位置 |
-| `pg_last_wal_replay_lsn()` | 从库已重放位置 |
-| `sent_lsn` | 主库已发送给从库 |
-| `write_lsn` | 从库已写入本地 WAL |
-| `flush_lsn` | 从库已 fsync WAL |
-| `replay_lsn` | 从库已 apply 到数据文件 |
+| LSN 类型                     | 含义              |
+| -------------------------- | --------------- |
+| `pg_current_wal_lsn()`     | 主库最新写入位置        |
+| `pg_last_wal_replay_lsn()` | 从库已重放位置         |
+| `sent_lsn`                 | 主库已发送给从库        |
+| `write_lsn`                | 从库已写入本地 WAL     |
+| `flush_lsn`                | 从库已 fsync WAL   |
+| `replay_lsn`               | 从库已 apply 到数据文件 |
 
 **复制延迟** = `pg_current_wal_lsn() - pg_last_wal_replay_lsn()`
 
