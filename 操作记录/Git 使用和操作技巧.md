@@ -50,12 +50,11 @@ git rm -r --cached dir1/ dir2/file.txt
 ```bash
 # HTTPS 协议
 git config --global http.https://github.com.proxy http://127.0.0.1:7890
+git config --global --list
 
 # SSH 协议写在 ~/.ssh/config
 sudo pacman -S corkscrew
-```
 
-```ssh-config
 Host github.com
     ProxyCommand corkscrew 127.0.0.1:7890 %h %p
 ```
