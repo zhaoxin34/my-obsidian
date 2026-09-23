@@ -11,6 +11,7 @@
 
 -- 只读权限 
 grant all on wolf.* to 'xin'@'%';
+SHOW GRANTS FOR 'xin'@'%';
 ```
 
 *修改表名*
