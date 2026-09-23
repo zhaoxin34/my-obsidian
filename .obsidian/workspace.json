@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作记录/Git 使用和操作技巧.md",
+                "file": "操作记录/Starrocks 操作.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Git 使用和操作技巧"
+              "title": "Starrocks 操作"
             }
           }
         ]
@@ -142,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "操作记录/Git 使用和操作技巧.md",
+                "file": "操作记录/Starrocks 操作.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -184,6 +184,7 @@
   },
   "active": "774a9496c979a787",
   "lastOpenFiles": [
+    "操作记录/Git 使用和操作技巧.md",
     "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md",
     "学习笔记和教程/PostgreSQL 主从复制从入门到精通.md",
     "学习笔记和教程/SSH config 深入教程：从原理到高级配置.md",
@@ -210,7 +211,6 @@
     "操作记录/Omarchy 下修复 pi fetch 工具（mihomo fake-IP 冲突）.md",
     "temp.md",
     "操作记录/安装llmfit.md",
-    "操作记录/Git 使用和操作技巧.md",
     "编程经验/透明代理TUN模式与ufw冲突-conntrack破坏问题.md",
     "学习笔记和教程/linux相关教程",
     "操作记录/fedora安装使用教程",
