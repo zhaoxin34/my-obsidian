@@ -64,3 +64,9 @@ Host github.com
 ```bash
 git config --global http.http://git.internal.com.proxy ""
 ```
+
+## 存储密码
+
+`git config --global credential.helper store`
+
+然后在git clone或pull，输入一次用户名密码就好了，就会存储
