@@ -1,5 +1,3 @@
-# DDD 领域驱动设计入门教程：从三层架构到领域建模
-
 > 本教程面向**长期使用 Spring Boot + 三层架构（MVC）的专业程序员**，目标是把"领域驱动设计（Domain-Driven Design）"这套看似高大上的方法论，落到你每天写的 Service / Repository / Controller 上。
 >
 > 读完本文你将：
