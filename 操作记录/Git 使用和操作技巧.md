@@ -70,3 +70,10 @@ git config --global http.http://git.internal.com.proxy ""
 `git config --global credential.helper store`
 
 然后在git clone或pull，输入一次用户名密码就好了，就会存储
+
+## 存储token登录
+
+ ~/.git-credentials `mod 600`
+```text
+https://datatist:{token}@gitlab.datatist.c
+```
