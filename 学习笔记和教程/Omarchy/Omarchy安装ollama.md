@@ -6,5 +6,5 @@ systemctl status ollama
 
 安装embedding模型
 ```bash
-ollama pull qllama/bge-small-zh-v1.5
+ollama pull bge-m3
 ```
