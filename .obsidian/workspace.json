@@ -178,8 +178,7 @@
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
       "github-sync:Sync with Remote": false,
-      "obsidian-excalidraw-plugin:New drawing": false,
-      "realclaudian:Open Claudian": false
+      "obsidian-excalidraw-plugin:New drawing": false
     }
   },
   "active": "774a9496c979a787",
