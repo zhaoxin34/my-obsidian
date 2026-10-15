@@ -21,10 +21,10 @@ flowchart LR
   Linux -- "验证 HTTP / SOCKS5<br/>直接 curl 验证 TUN" --> Net
 ```
 
-| 角色 | 机器 | IP | 软件 |
-|---|---|---|---|
-| 上游代理（已有） | macOS | 192.168.0.151 | **ClashX Meta**（GUI + mihomo 内核），allow-lan |
-| 下游代理（本次装） | Omarchy (Arch 内核, Hyprland) | 192.168.0.136 | mihomo + TUN 接管 |
+| 角色        | 机器                          | IP            | 软件                                         |
+| --------- | --------------------------- | ------------- | ------------------------------------------ |
+| 上游代理（已有）  | macOS                       | 192.168.0.151 | **ClashX Meta**（GUI + mihomo 内核），allow-lan |
+| 下游代理（本次装） | Omarchy (Arch 内核, Hyprland) | 192.168.0.136 | mihomo + TUN 接管                            |
 
 ### 0.2 订阅
 

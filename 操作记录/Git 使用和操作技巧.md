@@ -50,12 +50,11 @@ git rm -r --cached dir1/ dir2/file.txt
 ```bash
 # HTTPS 协议
 git config --global http.https://github.com.proxy http://127.0.0.1:7890
+git config --global --list
 
 # SSH 协议写在 ~/.ssh/config
 sudo pacman -S corkscrew
-```
 
-```ssh-config
 Host github.com
     ProxyCommand corkscrew 127.0.0.1:7890 %h %p
 ```
@@ -64,4 +63,17 @@ Host github.com
 
 ```bash
 git config --global http.http://git.internal.com.proxy ""
+```
+
+## 存储密码
+
+`git config --global credential.helper store`
+
+然后在git clone或pull，输入一次用户名密码就好了，就会存储
+
+## 存储token登录
+
+ ~/.git-credentials `mod 600`
+```text
+https://datatist:{token}@gitlab.datatist.c
 ```
