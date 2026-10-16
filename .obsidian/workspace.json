@@ -25,12 +25,14 @@
             "id": "3d138c8d788ac88c",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.14.4"
+                "file": "Mercor_深度调研_20260903.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.14.4"
+              "icon": "lucide-file",
+              "title": "Mercor_深度调研_20260903"
             }
           }
         ],
@@ -196,13 +198,15 @@
   },
   "active": "3d138c8d788ac88c",
   "lastOpenFiles": [
+    "操作记录/Git 使用和操作技巧.md",
+    "Mercor_深度调研_20260903.md",
+    "Untitled.md",
     "学习笔记和教程/mise + JDK 多版本管理实战 - Spring Boot 项目场景.md",
     "学习笔记和教程/Omarchy/Omarchy安装ollama.md",
     "学习笔记和教程/DDD 领域驱动设计入门教程：从三层架构到领域建模.md",
     "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md",
     "学习笔记和教程/PostgreSQL 主从复制从入门到精通.md",
     "学习笔记和教程/SSH config 深入教程：从原理到高级配置.md",
-    "Untitled.md",
     "分析报告/Claude_Code开发电商网站最佳实践调研报告.md",
     "学习笔记和教程/Omarchy/Hyprland 进阶指南.md",
     "学习笔记和教程/Omarchy/Omarchy 配置 Systemd Timer 定时任务.md",
@@ -222,8 +226,6 @@
     "学习笔记和教程/linux相关教程/Omarchy 与 Hyprland 操作和配置教程.md",
     "操作记录/工作环境初始化.md",
     "操作记录/Omarchy 配置 Systemd Timer 定时任务.md",
-    "操作记录/Omarchy 下修复 pi fetch 工具（mihomo fake-IP 冲突）.md",
-    "temp.md",
     "学习笔记和教程/linux相关教程",
     "操作记录/fedora安装使用教程",
     "分析报告/Mercor_深度调研_20260903.html",
