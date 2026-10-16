@@ -25,13 +25,14 @@
             "id": "3d138c8d788ac88c",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "markdown",
               "state": {
-                "file": "文档列表.base",
-                "viewName": "Table"
+                "file": "学习笔记和教程/Hindsight 架构深度解析 - Retain Recall Reflect 完整机制.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-table",
-              "title": "文档列表"
+              "icon": "lucide-file",
+              "title": "Hindsight 架构深度解析 - Retain Recall Reflect 完整机制"
             }
           }
         ],
@@ -197,10 +198,10 @@
   },
   "active": "3d138c8d788ac88c",
   "lastOpenFiles": [
+    "文档列表.base",
     "学习笔记和教程/Hindsight 架构深度解析 - Retain Recall Reflect 完整机制.md",
     "Untitled.base",
     "Untitled.md",
-    "文档列表.base",
     "Mercor_深度调研_20260903.md",
     "操作记录/Git 使用和操作技巧.md",
     "学习笔记和教程/mise + JDK 多版本管理实战 - Spring Boot 项目场景.md",
@@ -226,7 +227,6 @@
     "操作记录/Chrome Dev Tool 配置 MCP.md",
     "学习笔记和教程/linux相关教程/Linux systemctl 原理、配置与操作实战 - 以 sshd 为例.md",
     "学习笔记和教程/linux相关教程/Omarchy 与 Hyprland 操作和配置教程.md",
-    "操作记录/工作环境初始化.md",
     "学习笔记和教程/linux相关教程",
     "操作记录/fedora安装使用教程",
     "分析报告/Mercor_深度调研_20260903.html",
