@@ -34,7 +34,7 @@ LLM 自身没有跨会话的长期记忆。常见的"伪记忆"做法是塞进 c
 Hindsight 的定位是 **biomimetic agent memory system**（仿生记忆系统），把对人类记忆的类比做成了工程化组件：
 
 | 人类记忆机制 | Hindsight 对应组件 |
-|---|---|
+| --- | --- |
 | 短时工作记忆 | Recall 返回的 top-k memories |
 | 长期情景记忆 | Retain 持久化的事实 + 实体 + 链接 |
 | 长期语义记忆（"我知道 X 是 Y"） | Observations（合并去重的稳定信念） |
@@ -57,7 +57,7 @@ Hindsight 的定位是 **biomimetic agent memory system**（仿生记忆系统�
 一个 bank 内同时存在 **5 种记忆类型**：
 
 | 类型 | 谁产生 | 例子 | 持久位置 |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `experience` 事实 | bank 自己的 agent 第一人称行为 | "我给 Bob 推荐了 Python" | `memories` 表 |
 | `world` 事实 | LLM 从外部对话/文档中抽取 | "Alice 在 Google 工作" | `memories` 表 |
 | `observation` | 后台 consolidation 合并多个 fact | "用户从 React 改投 Vue" | `observations` 表（带 `proof_count` 与证据 quote） |
@@ -66,7 +66,7 @@ Hindsight 的定位是 **biomimetic agent memory system**（仿生记忆系统�
 
 除了以上 5 种主数据，还维护一个 **事件中心图（event-centric graph）** —— 这是 Hindsight 与传统 KG 的根本区别：
 
-```
+```text
 传统 KG（Hindsight 称之为 "map"）：
   [Alice] ──WORKS_AT──> [Google]
   ↑ 直接实体间关系；改现状要改写历史
@@ -87,7 +87,7 @@ Hindsight 的 "scrapbook" 模型：
 Retain 时为每条事实建立 4 类边（**全部预计算**于写入时，而非查询时）：
 
 | 边类型 | 用途 | 触发查询举例 |
-|---|---|---|
+| --- | --- | --- |
 | 实体连接 | 共享同一实体的事实 | "告诉我关于 Alice 的一切" |
 | 时间连接 | 时间邻近的事实 | "那时还发生了什么" |
 | 语义连接（kNN 预计算） | 嵌入空间近邻 | "类似主题的事实" |
@@ -124,7 +124,7 @@ flowchart LR
 **1. 抽取模式（`retain_extraction_mode`）**
 
 | 模式 | 用途 | LLM 调用 |
-|---|---|---|
+| --- | --- | --- |
 | `concise`（默认） | 通用、选择性、高吞吐 | 是 |
 | `verbose` | 保留更丰富上下文与关系 | 是 |
 | `verbatim` | 保留原 chunk 文本 + 仅 LLM 抽取元数据 | 是 |
@@ -296,7 +296,7 @@ await client.banks.trigger_consolidation(
 ### 失效处理
 
 | 动作 | 影响 |
-|---|---|
+| --- | --- |
 | 删 document | 该 doc 派生的所有 observation 删除 |
 | 删单个 memory（by type） | 来源 observation 删除 |
 | 删整 bank | 全部 observation 删除 |
@@ -332,7 +332,7 @@ flowchart TD
 ### 4 路检索各自负责什么
 
 | 策略 | 解决 | 命中条件 |
-|---|---|---|
+| --- | --- | --- |
 | **语义** | "Alice's job" → "Alice is a software engineer" | 嵌入相似 |
 | **关键词 BM25** | "Google" / "PostgreSQL" / "TensorFlow" 准确名 | 词项匹配 |
 | **图遍历** | "Alice 的 manager 的 team" 这类多跳 | 共享实体 + 预计算语义边 + 因果边 |
@@ -343,7 +343,7 @@ flowchart TD
 ### BM25 后端：5 种可插拔实现
 
 | 后端 | 实现 | Citus 兼容 | 多语言 |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `native`（默认） | PG `tsvector` + `ts_rank_cd`（实为 TF-IDF 非真 BM25） | ✅ | 仅欧语 + `simple` |
 | `vchord` | `vchord_bm25` 扩展 | ❌ | 通过 `llmlingua2` |
 | `pg_textsearch` | Timescale 扩展，硬编码英文 | ❌ | 仅英文 |
@@ -379,7 +379,7 @@ boost = 1 + α × (signal - 0.5)
 ```
 
 | Boost | α | 最大调整 | 奖励什么 |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Recency | 0.2 | ±10% | 线性 365 天衰减 |
 | Temporal proximity | 0.2 | ±10% | 距查询时间窗中心近 |
 | Proof count | 0.1 | ±5% | observation 的证据数对数归一 |
@@ -400,7 +400,7 @@ results = client.recall(bank_id, query, max_tokens=8192, budget="high")
 - 二者**完全正交**：高 budget+低 tokens = 深度搜精选；低 budget+高 tokens = 浅搜广纳
 
 | 场景 | budget | max_tokens |
-|---|---|---|
+| --- | --- | --- |
 | 聊天机器人 | low | 2048 |
 | 文档问答 | mid | 4096 |
 | 研究查询 | high | 8192 |
@@ -482,7 +482,7 @@ flowchart TD
 3 个 1-5 的 trait：
 
 | Trait | Low (1) | High (5) |
-|---|---|---|
+| --- | --- | --- |
 | **Skepticism** | Trusting | Skeptical，质疑 |
 | **Literalism** | 灵活，会"读字里行间" | 字面，钉是钉铆是铆 |
 | **Empathy** | 客观只讲事实 | 考虑情绪语境 |
@@ -562,7 +562,7 @@ result = client.create_mental_model(
 ### 两种刷新模式
 
 | 模式 | 行为 | 适用 |
-|---|---|---|
+| --- | --- | --- |
 | `full`（默认） | 每次从头重新生成整篇 | 短文档、FAQ、需要重构输出时 |
 | `delta` | 发出 `add_section/append_block/replace_block/...` 等操作 | 长寿命 playbook、只让变化部分动 |
 
@@ -599,7 +599,7 @@ trigger 不会被丢弃，是 parked 等待窗口关闭。手动 refresh（API/C
 区别：
 
 | 维度 | Mental Model | Knowledge Page |
-|---|---|---|
+| --- | --- | --- |
 | 形态 | 问题的"答案" | 带 frontmatter 的 markdown 文档 |
 | 组织 | 平铺，按 tags 过滤 | 嵌套文件夹 |
 | 数据源 | 默认所有 fact type | **默认仅 observations** |
@@ -613,7 +613,7 @@ trigger 不会被丢弃，是 parked 等待窗口关闭。手动 refresh（API/C
 ### API 详情对比
 
 | List 端点 | Get 端点 |
-|---|---|
+| --- | --- |
 | 默认返回 `metadata`（id/name/tags/is_stale/last_refreshed_at/last_memory_seen_at） | 默认返回 `full`（含 reflect_response） |
 | `detail="content"` 加 source_query/content/trigger | `detail="content"` 不带 reflect_response |
 | `detail="full"` 全量 | `detail="metadata"` 只取元数据 |
@@ -635,7 +635,7 @@ trigger 不会被丢弃，是 parked 等待窗口关闭。手动 refresh（API/C
 默认 embedding `BAAI/bge-small-en-v1.5` 和 reranker `cross-encoder/ms-marco-MiniLM-L-6-v2` **只支持英文**。要让非英文工作良好：
 
 | 组件 | 英文默认 | 多语言推荐 |
-|---|---|---|
+| --- | --- | --- |
 | **LLM** | 任何 | 必须支持目标语（GPT-4 / Claude / Gemini / Llama 3 均可） |
 | **Embedding** | `bge-small-en-v1.5` | `BAAI/bge-m3`（100+ 语，最佳）；`intfloat/multilingual-e5-large`；`paraphrase-multilingual-MiniLM-L12-v2`（更轻量） |
 | **Reranker** | `ms-marco-MiniLM-L-6-v2` | `BAAI/bge-reranker-v2-m3`（最佳）；`mmarco-mMiniLMv2-L12-H384-v1`（更轻） |
@@ -690,7 +690,7 @@ Hindsight **没有**数据库抽象层（"no storage abstraction"）。官方理
 ### PostgreSQL 提供的全部能力
 
 | 能力 | 实现 |
-|---|---|
+| --- | --- |
 | 向量检索 | pgvector + HNSW |
 | 全文检索 | tsvector + GIN |
 | 关系数据 | 原生 PG |
@@ -806,7 +806,7 @@ export HINDSIGHT_API_RERANKER_PROVIDER=flashrank
 ### Recall budget → pipeline 参数
 
 | budget | recall_budget（fixed） | semantic LIMIT | BM25 LIMIT | graph nodes | temporal nodes |
-|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- |
 | low | 100 | 100 | 100 | 100 | 100 |
 | mid | 300 | 300 | 300 | 300 | 300 |
 | high | 1000 | 1000 | 1000 | 1000 | 1000 |
@@ -833,7 +833,7 @@ export HINDSIGHT_API_RERANKER_PROVIDER=flashrank
 ## RAG vs Hindsight：本质差异
 
 | 维度 | 传统 RAG | Hindsight |
-|---|---|---|
+| --- | --- | --- |
 | 检索策略 | 单一语义相似 | 4 路并行（语义 + BM25 + 图 + 时间） |
 | 多跳推理 | 受限于 chunk 内容 | 跨实体图遍历 |
 | 时间查询 | 关键词匹配 | 时间表达式解析 + 范围过滤 + 桶内扩散 |
@@ -846,7 +846,7 @@ export HINDSIGHT_API_RERANKER_PROVIDER=flashrank
 ### 何时用哪个
 
 | 场景 | 选 RAG | 选 Hindsight |
-|---|---|---|
+| --- | --- | --- |
 | 静态语料库文档问答 | ✅ | |
 | 搜索无时间要求 | ✅ | |
 | AI 助手需要持久记忆 | | ✅ |
