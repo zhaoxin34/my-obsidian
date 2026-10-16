@@ -25,14 +25,13 @@
             "id": "3d138c8d788ac88c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "Mercor_深度调研_20260903.md",
-                "mode": "source",
-                "source": false
+                "file": "文档列表.base",
+                "viewName": "Table"
               },
-              "icon": "lucide-file",
-              "title": "Mercor_深度调研_20260903"
+              "icon": "lucide-table",
+              "title": "文档列表"
             }
           }
         ],
@@ -198,9 +197,11 @@
   },
   "active": "3d138c8d788ac88c",
   "lastOpenFiles": [
-    "操作记录/Git 使用和操作技巧.md",
-    "Mercor_深度调研_20260903.md",
+    "Untitled.base",
     "Untitled.md",
+    "文档列表.base",
+    "Mercor_深度调研_20260903.md",
+    "操作记录/Git 使用和操作技巧.md",
     "学习笔记和教程/mise + JDK 多版本管理实战 - Spring Boot 项目场景.md",
     "学习笔记和教程/Omarchy/Omarchy安装ollama.md",
     "学习笔记和教程/DDD 领域驱动设计入门教程：从三层架构到领域建模.md",
@@ -225,15 +226,12 @@
     "学习笔记和教程/linux相关教程/Linux systemctl 原理、配置与操作实战 - 以 sshd 为例.md",
     "学习笔记和教程/linux相关教程/Omarchy 与 Hyprland 操作和配置教程.md",
     "操作记录/工作环境初始化.md",
-    "操作记录/Omarchy 配置 Systemd Timer 定时任务.md",
     "学习笔记和教程/linux相关教程",
     "操作记录/fedora安装使用教程",
     "分析报告/Mercor_深度调研_20260903.html",
     "分析报告/claims.jsonl",
     "分析报告/evidence.jsonl",
     "分析报告/sources.jsonl",
-    "分析报告/run_manifest.json",
-    "claims.jsonl",
     "我的项目/全自动营销产品/images/proactive-agent-stack.png",
     "我的项目/全自动营销产品/images/proactive-agent-evo.png",
     "我的项目/plato/三权分立图.canvas",
