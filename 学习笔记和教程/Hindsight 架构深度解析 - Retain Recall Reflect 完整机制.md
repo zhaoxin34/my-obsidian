@@ -56,13 +56,13 @@ Hindsight 的定位是 **biomimetic agent memory system**（仿生记忆系统�
 
 一个 bank 内同时存在 **5 种记忆类型**：
 
-| 类型 | 谁产生 | 例子 | 持久位置 |
-| --- | --- | --- | --- |
-| `experience` 事实 | bank 自己的 agent 第一人称行为 | "我给 Bob 推荐了 Python" | `memories` 表 |
-| `world` 事实 | LLM 从外部对话/文档中抽取 | "Alice 在 Google 工作" | `memories` 表 |
-| `observation` | 后台 consolidation 合并多个 fact | "用户从 React 改投 Vue" | `observations` 表（带 `proof_count` 与证据 quote） |
-| `mental_model` | 开发者创建，由 reflect 生成并自动 refresh | 团队沟通偏好文档 | `mental_models` 表（markdown + provenance） |
-| `knowledge_page` | 开发者创建，本质是 mental_model 的 wiki 化包装 | `Architecture/Error-Handling.md` | 文件夹树 + 文件投影 |
+| 类型               | 谁产生                               | 例子                               | 持久位置                                        |
+| ---------------- | --------------------------------- | -------------------------------- | ------------------------------------------- |
+| `experience` 事实  | bank 自己的 agent 第一人称行为             | "我给 Bob 推荐了 Python"              | `memories` 表                                |
+| `world` 事实       | LLM 从外部对话/文档中抽取                   | "Alice 在 Google 工作"              | `memories` 表                                |
+| `observation`    | 后台 consolidation 合并多个 fact        | "用户从 React 改投 Vue"               | `observations` 表（带 `proof_count` 与证据 quote） |
+| `mental_model`   | 开发者创建，由 reflect 生成并自动 refresh     | 团队沟通偏好文档                         | `mental_models` 表（markdown + provenance）    |
+| `knowledge_page` | 开发者创建，本质是 mental_model 的 wiki 化包装 | `Architecture/Error-Handling.md` | 文件夹树 + 文件投影                                 |
 
 除了以上 5 种主数据，还维护一个 **事件中心图（event-centric graph）** —— 这是 Hindsight 与传统 KG 的根本区别：
 
@@ -123,13 +123,13 @@ flowchart LR
 
 **1. 抽取模式（`retain_extraction_mode`）**
 
-| 模式 | 用途 | LLM 调用 |
-| --- | --- | --- |
-| `concise`（默认） | 通用、选择性、高吞吐 | 是 |
-| `verbose` | 保留更丰富上下文与关系 | 是 |
-| `verbatim` | 保留原 chunk 文本 + 仅 LLM 抽取元数据 | 是 |
-| `custom` | 自写抽取规则 | 是 |
-| `chunks` | 原始 chunk 直接存，不调 LLM | 否 |
+| 模式            | 用途                         | LLM 调用 |
+| ------------- | -------------------------- | ------ |
+| `concise`（默认） | 通用、选择性、高吞吐                 | 是      |
+| `verbose`     | 保留更丰富上下文与关系                | 是      |
+| `verbatim`    | 保留原 chunk 文本 + 仅 LLM 抽取元数据 | 是      |
+| `custom`      | 自写抽取规则                     | 是      |
+| `chunks`      | 原始 chunk 直接存，不调 LLM        | 否      |
 
 **2. `retain_mission` 是什么**
 
