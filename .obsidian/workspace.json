@@ -34,9 +34,21 @@
               "icon": "lucide-file",
               "title": "Hindsight 架构深度解析 - Retain Recall Reflect 完整机制"
             }
+          },
+          {
+            "id": "cce8d4171bf10567",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.14.5"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.14.5"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -196,7 +208,7 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "3d138c8d788ac88c",
+  "active": "cce8d4171bf10567",
   "lastOpenFiles": [
     "Untitled.md",
     "学习笔记和教程/Hindsight 架构深度解析 - Retain Recall Reflect 完整机制.md",
