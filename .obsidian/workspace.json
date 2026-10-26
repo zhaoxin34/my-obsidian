@@ -51,12 +51,14 @@
             "id": "2ab51b1e1690bdb9",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.14.5"
+                "file": "学习笔记和教程/Fastify 深度教程 - 从 Spring Boot 到 Node.js 高性能微服务.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.14.5"
+              "icon": "lucide-file",
+              "title": "Fastify 深度教程 - 从 Spring Boot 到 Node.js 高性能微服务"
             }
           }
         ],
@@ -181,7 +183,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "操作记录/Git 使用和操作技巧.md",
+                "file": "学习笔记和教程/Fastify 深度教程 - 从 Spring Boot 到 Node.js 高性能微服务.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -201,7 +203,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -220,8 +222,9 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "2ab51b1e1690bdb9",
+  "active": "54cfc999c31c1ea2",
   "lastOpenFiles": [
+    "学习笔记和教程/Fastify 深度教程 - 从 Spring Boot 到 Node.js 高性能微服务.md",
     "Untitled.md",
     "学习笔记和教程/Hindsight 架构深度解析 - Retain Recall Reflect 完整机制.md",
     "文档列表.base",
