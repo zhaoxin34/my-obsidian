@@ -1,15 +1,20 @@
 ---
 title: "Fastify 深度教程：从 Spring Boot 到 Node.js 高性能微服务"
-description: "面向 Spring Cloud 开发者的 Fastify 5 深度教程：请求生命周期管线、插件封装模型、Schema 驱动契约、TypeScript 类型安全、测试与生产实践"
+description: "面向 Spring Cloud 开发者的 Fastify 5 深度教程：请求生命周期管线、插件封装模型、Schema 驱动契约、TypeScript 类型安全、测试与生产实践，以及 Loki + Tempo + Mimir + OpenTelemetry 可观测性落地"
 tags:
   - Fastify
   - Node.js
   - TypeScript
   - 微服务
   - 性能
+  - 可观测性
+  - OpenTelemetry
+  - Loki
+  - Tempo
 created: 2026-10-26
 revised: 2026-10-26
-environment: "fastify 5.12.x / Node 20+ / TypeScript 5.x"
+environment: "fastify 5.12.x / Node 20+ / TypeScript 5.x / OTel JS 2.x-3.x"
+verified: "第 11 章全部配置在 docker compose 本地栈实际跑通（loki 3.7.6 + tempo 2.9.0 + alloy v1.10.1 + prometheus v3.5.0 + grafana 11.4.0）"
 ---
 
 # Fastify 深度教程：从 Spring Boot 到 Node.js 高性能微服务
@@ -86,6 +91,15 @@ environment: "fastify 5.12.x / Node 20+ / TypeScript 5.x"
   - [10.1 决策树](#101-决策树)
   - [10.2 什么场景不该用 Fastify](#102-什么场景不该用-fastify)
   - [10.3 新人最容易犯的 12 个错](#103-新人最容易犯的-12-个错)
+- [第 11 章：可观测性落地 —— Loki + Tempo + Mimir + OpenTelemetry](#第-11-章可观测性落地--loki--tempo--mimir--opentelemetry)
+  - [11.1 先建立三个正确认知](#111-先建立三个正确认知)
+  - [11.2 数据流全景](#112-数据流全景)
+  - [11.3 应用侧改造](#113-应用侧改造)
+  - [11.4 单机验证环境（docker compose）](#114-单机验证环境docker-compose)
+  - [11.5 Grafana 三件套关联配置](#115-grafana-三件套关联配置)
+  - [11.6 生产：Kubernetes 部署](#116-生产kubernetes-部署)
+  - [11.7 生产实践要点](#117-生产实践要点)
+  - [11.8 Java → Node 心智映射表（速查）](#118-java--node-心智映射表速查)
 - [附录 A：Fastify v4 与 v5 迁移要点](#附录-afastify-v4-与-v5-迁移要点)
 - [附录 B：核心 API 速查表](#附录-b核心-api-速查表)
 - [附录 C：常用插件清单](#附录-c常用插件清单)
@@ -696,12 +710,12 @@ await app.register(swaggerUi, { routePrefix: '/docs' })
 | --- | --- | --- |
 | `@Valid @RequestBody` + `jakarta.validation` | `schema.body` + Ajv | Fastify 内置，无需 starter |
 | `@NotBlank @Size @Min` 等注解 | JSON Schema 关键字（`minLength` / `minimum` / `pattern`） | 声明式程度更高 |
-| `@Valid` on `@RequestParam` | `schema.querystring` | |
-| `@PathVariable` 校验 | `schema.params` | |
+| `@Valid` on `@RequestParam` | `schema.querystring` |  |
+| `@PathVariable` 校验 | `schema.params` |  |
 | `@InitBinder` + `ConversionService` | Ajv `coerceTypes` | 行为相近 |
-| `springdoc-openapi` | `@fastify/swagger` | |
+| `springdoc-openapi` | `@fastify/swagger` |  |
 | Jackson `@JsonInclude` / `@JsonIgnore` | `response` schema 白名单 | Fastify 方式更可靠 |
-| `@RestControllerAdvice` + `MethodArgumentNotValidException` | `setErrorHandler` + `error.validation` | |
+| `@RestControllerAdvice` + `MethodArgumentNotValidException` | `setErrorHandler` + `error.validation` |  |
 
 **迁移的心智调整**：
 
@@ -859,12 +873,15 @@ Fastify({
 
 ### 5.5 指标、追踪与过载保护
 
+> 📖 本节只给能力对照表。**完整的可观测性落地（Loki + Tempo + Mimir + OTel Collector 装配、单机验证栈、K8s 生产部署、采样与脱敏策略）见 [第 11 章](#第-11-章可观测性落地--loki--tempo--mimir--opentelemetry)**，那一章的所有配置都在本地真实跑通验证过。
+
 | 能力 | Fastify 方案 | Spring 对应 |
 | --- | --- | --- |
 | 指标 | `prom-client` + 自写 hook | Micrometer + Actuator |
 | 追踪 | `@opentelemetry/instrumentation-fastify` | Micrometer Tracing |
+| 日志关联 traceId | `@opentelemetry/instrumentation-pino` | `TracingAwareLogDecorator` |
 | 过载保护 | `@fastify/under-pressure`（事件循环延迟超阈值返回 503） | 无直接对应（Tomcat 自带线程池排队） |
-| 请求 ID | 内置 `reqId` | Micrometer Tracing / Sleuth |
+| 请求 ID | 内置 `reqId`（**与 traceId 无关**，见 11.3.4） | Micrometer Tracing / Sleuth |
 | 优雅关闭 | `app.close()` + `onClose` hook | `server.shutdown()` + `@PreDestroy` |
 
 **`@fastify/under-pressure` 值得单独说**：Node 单线程的致命问题是一次 CPU 密集操作会阻塞所有请求。这个插件监控事件循环延迟，超过阈值时直接返回 503，保护自己在雪崩中存活。**生产环境强烈建议开启**。
@@ -1499,7 +1516,13 @@ const sdk = new NodeSDK({
 sdk.start()
 ```
 
-OpenTelemetry 的 Fastify instrumentation 会自动创建 span，并把 traceId 注入到 Fastify 的日志上下文。
+OpenTelemetry 的 Fastify instrumentation 会自动创建 span。
+
+> 📖 上面的代码只是**最小示例**，实际上有三个必须处理的坑，详见 [第 11 章](#第-11-章可观测性落地--loki--tempo--mimir--opentelemetry)：
+>
+> 1. **span 不会自动把 traceId 写进日志** —— 需要 `@opentelemetry/instrumentation-pino`（11.3.4）
+> 2. **`http.route` 不会自动注入** —— 服务拓扑和按路由聚合需要手动补（11.3.5）
+> 3. **OTel JS 的自动插桩覆盖面远小于 Java Agent** —— 漏一个库就断链且不报错（11.3.6）
 
 **对应 Spring Cloud Sleuth / Micrometer Tracing**。差别：Java 生态用 Micrometer 统一抽象，Node 生态基本只有 OTel 一条路。
 
@@ -1546,6 +1569,1563 @@ flowchart TD
 | 10 | `trustProxy: true` | IP 可伪造 | 用具体 IP/CIDR 列表 |
 | 11 | 在 hook 里做事务 | 响应已发出才提交 | 事务放 Service 方法里 |
 | 12 | 用 `reply.sent = true` 阻止发送 | v5 已禁止 | 用 `reply.hijack()` |
+
+---
+
+## 第 11 章：可观测性落地 —— Loki + Tempo + Mimir + OpenTelemetry
+
+> 本章是 5.5 节和 9.6 节的展开。5.5 给了能力对照表，9.6 给了最小启动代码，本章给出**可运行的完整装配**，单机（docker compose）与生产（Kubernetes）两套形态都给。
+>
+> 本章所有配置均在 `fastify@5.12.7` + `otel-lab` 环境下**实际跑通验证**，输出见 11.4.5。
+
+### 11.1 先建立三个正确认知
+
+**认知 1：Java 有 Micrometer 统一门面，Node 没有。**
+
+这是从 Spring 生态迁过来最大的体感落差：
+
+| 能力 | Java 生态 | Node 生态 |
+| --- | --- | --- |
+| 统一抽象层 | Micrometer（Metrics / Tracing / Logs 一个门面） | **无**。Pino + prom-client + OTel SDK 三件套 |
+| 一键接入 | `micrometer-registry-prometheus` + `micrometer-tracing-bridge-otel` 两个 starter | 自己装、自己接、自己写 Collector 配置 |
+| 日志关联 traceId | Logback MDC + `TracingAwareLogDecorator` | `@opentelemetry/instrumentation-pino` |
+| 自动插桩 | `javaagent` 字节码插桩，Spring MVC / Feign / JDBC 全覆盖 | **必须逐库显式 instrument**，漏一个就断链且不报错 |
+
+Node 的装配成本更高，但换来一个好处：**三条信号最终都走 OTel 标准出口**，不存在 Java 生态里"指标走 Micrometer、日志走 Logback、追踪走 Sleuth"三套体系的历史包袱。
+
+**认知 2：OpenTelemetry 是"管道"，不是"存储"。**
+
+```
+❌ Fastify → Loki / Tempo / OTel（三者并列）
+✅ Fastify →(OTLP)→ Collector/Alloy →(OTLP)→ Loki / Tempo / Mimir
+```
+
+- **Fastify 只负责产生标准化信号**，它不需要知道后端是谁。
+- **Collector / Alloy 是汇聚层**：负责采样、脱敏、多集群聚合、协议转换、失败重试。
+- 后端可替换（Tempo→Jaeger、Loki→ES）只需改 Collector 配置，**应用代码零改动**。
+
+因此有一条铁律：
+
+> **应用永远不直连 Loki / Tempo，一律经过 Collector / Alloy。**
+
+**认知 3：三条信号的生产者和存储后端是分开的。**
+
+| 信号 | Fastify 侧生产者 | 传输协议 | 存储后端 | 典型查询 |
+| --- | --- | --- | --- | --- |
+| Logs | Pino（内置，JSON 行） | 文件 tail 或 OTLP | **Loki** | LogQL |
+| Traces | OTel SDK | OTLP (4317/4318) | **Tempo** | TraceQL |
+| Metrics | prom-client（`/metrics`） | Prometheus 拉取 | **Mimir** / VictoriaMetrics | PromQL |
+
+**关键差异（和 Java 不同）**：Node 生态的 **metrics 通常不走 OTel**，而是 prom-client 暴露端点让 Prometheus 拉取。原因是 OTel JS 的 metrics SDK 相对 Java 侧成熟度低，而 `prom-client` 是事实标准。
+
+---
+
+### 11.2 数据流全景
+
+```mermaid
+flowchart TB
+    subgraph App["Fastify 应用 Pod"]
+        A1["Pino 日志<br/>(stdout, JSON)"]
+        A2["OTel SDK<br/>(span)"]
+        A3["prom-client<br/>(/metrics)"]
+    end
+
+    subgraph Collect["采集层"]
+        AL["Alloy / OTel Collector<br/>- filelog 收日志<br/>- otlp 收 trace<br/>- tail_sampling"]
+    end
+
+    subgraph Store["存储层"]
+        L["Loki<br/>日志"]
+        T["Tempo<br/>链路"]
+        M["Mimir<br/>指标"]
+    end
+
+    G["Grafana<br/>三数据源联动"]
+
+    A1 -->|"stdout / 文件"| AL
+    A2 -->|"OTLP 4317"| AL
+    A3 -->|"/metrics 拉取"| M
+    AL -->|"OTLP"| L
+    AL -->|"OTLP"| T
+    L --> G
+    T --> G
+    M --> G
+```
+
+**两种部署形态的差别只在"日志从哪来"**：
+
+|  | 单机 docker compose | 生产 Kubernetes |
+| --- | --- | --- |
+| 日志来源 | 应用写文件 → Alloy `loki.source.file` tail | 应用写 **stdout** → 节点日志 → Alloy DaemonSet 读 `/var/log/pods` |
+| trace 来源 | 应用 → OTLP → Alloy | 应用 → OTLP → **节点本地** Alloy（hostNetwork） |
+| 采集层形态 | 1 个 Alloy 容器 | Alloy **DaemonSet**（每节点 1 个） |
+| 存储层 | 单二进制 + 本地卷 | 微服务模式 + 对象存储（S3/MinIO） |
+
+---
+
+### 11.3 应用侧改造
+
+#### 11.3.1 依赖清单
+
+```bash
+npm i fastify pino \
+  @opentelemetry/api @opentelemetry/sdk-node \
+  @opentelemetry/auto-instrumentations-node \
+  @opentelemetry/instrumentation-pino \
+  @opentelemetry/exporter-trace-otlp-grpc \
+  @opentelemetry/resources @opentelemetry/semantic-conventions \
+  prom-client undici
+```
+
+> ⚠️ **OTel JS 的 API 在 2.x/3.x 有破坏性变更**。例如 `Resource` 类已被 `resourceFromAttributes()` 取代：
+>
+> ```ts
+> // 旧写法（OTel JS 1.x）
+> import { Resource } from '@opentelemetry/resources'
+> new Resource({ [ATTR_SERVICE_NAME]: 'order-service' })
+>
+> // 新写法（OTel JS 2.x/3.x，本文实测版本）
+> import { resourceFromAttributes } from '@opentelemetry/resources'
+> resourceFromAttributes({ [ATTR_SERVICE_NAME]: 'order-service' })
+> ```
+>
+> 抄老博客的 OTel 初始化代码会直接 `SyntaxError`。
+
+#### 11.3.2 初始化文件（必须最先加载）
+
+```js
+// src/instrumentation.js
+// ⚠️ 这个文件必须在任何 import fastify / pino 之前被加载
+import { NodeSDK } from '@opentelemetry/sdk-node'
+import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node'
+import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-grpc'
+import { resourceFromAttributes } from '@opentelemetry/resources'
+import { ATTR_SERVICE_NAME } from '@opentelemetry/semantic-conventions'
+
+const endpoint = process.env.OTEL_EXPORTER_OTLP_ENDPOINT ?? 'http://127.0.0.1:4317'
+
+export const sdk = new NodeSDK({
+  resource: resourceFromAttributes({
+    [ATTR_SERVICE_NAME]: process.env.OTEL_SERVICE_NAME ?? 'order-service',
+  }),
+  traceExporter: new OTLPTraceExporter({ url: endpoint }),
+  instrumentations: [
+    getNodeAutoInstrumentations({
+      '@opentelemetry/instrumentation-fs': { enabled: false },  // fs 噪音太大
+    }),
+  ],
+})
+
+sdk.start()
+
+process.on('SIGTERM', async () => {
+  await sdk.shutdown()
+  process.exit(0)
+})
+```
+
+```js
+// src/server.js
+import './instrumentation.js'   // ← 必须是第一行
+import { buildApp } from './app.js'
+```
+
+> 🔴 **加载顺序是硬约束**。`@opentelemetry/instrumentation-pino` 通过 `require-in-the-middle` 给 `pino` 模块打补丁。Fastify 内部 `require('pino')` 时补丁必须已经生效，否则 trace 上下文不会注入。
+>
+> 用 ESM 时，`import './instrumentation.js'` 虽然是静态导入，但 **ESM 的导入求值顺序保证它在 `app.js` 之前执行**（同一模块图中，依赖先于被依赖者求值）。所以 `import './instrumentation.js'` 放在 `server.js` 第一行是安全的。
+
+#### 11.3.3 Fastify 侧埋点
+
+```js
+// src/app.js
+import Fastify from 'fastify'
+import promClient from 'prom-client'
+import { trace, context } from '@opentelemetry/api'
+
+const registry = new promClient.Registry()
+promClient.collectDefaultMetrics({ register: registry })
+
+const httpDuration = new promClient.Histogram({
+  name: 'http_request_duration_seconds',
+  help: 'HTTP request duration in seconds',
+  labelNames: ['method', 'route', 'status_code'],
+  buckets: [0.005, 0.01, 0.05, 0.1, 0.5, 1, 3],
+  registers: [registry],
+})
+
+export function buildApp() {
+  const app = Fastify({
+    logger: {
+      level: process.env.LOG_LEVEL ?? 'info',
+      // 生产环境关掉 Fastify 自带的每请求 access log（见 11.7）
+      disableRequestLogging: process.env.NODE_ENV === 'production',
+    },
+  })
+
+  app.addHook('onRequest', async (req) => {
+    // ★ 手动补 http.route：OTel JS 的 fastify 插桩不会自动注入它
+    //   （新版 HTTP semconv 下只有 url.path，而那是高基数的原始路径）
+    const span = trace.getSpan(context.active())
+    if (span && req.routeOptions?.url) {
+      span.setAttribute('http.route', req.routeOptions.url)
+    }
+    req.log.info({ event: 'request.start' }, 'incoming')
+  })
+
+  app.addHook('onResponse', async (req, reply) => {
+    httpDuration.observe(
+      {
+        method: req.method,
+        // ⚠️ 用 req.routeOptions.url（原始路由模板），不要用 req.url（实际路径）
+        // 否则每个 /orders/123 都会变成一个新 label → 指标基数爆炸
+        route: req.routeOptions?.url ?? 'unknown',
+        status_code: String(reply.statusCode),
+      },
+      reply.elapsedTime / 1000,
+    )
+  })
+
+  app.get('/metrics', async (req, reply) => {
+    reply.header('Content-Type', registry.contentType)
+    return registry.metrics()
+  })
+
+  app.get('/api/orders/:id', async (req) => {
+    req.log.info({ orderId: req.params.id }, 'loading order from db')
+    await new Promise((r) => setTimeout(r, 120))
+    req.log.info({ orderId: req.params.id }, 'order loaded')
+    return { id: req.params.id, total: 99, status: 'PAID' }
+  })
+
+  return app
+}
+```
+
+> ⚠️ **指标基数（cardinality）是最容易翻车的地方。**
+>
+> `labelNames` 的值必须是**低基数**的。`req.url` 包含路径参数（`/orders/123`），每个 id 都是一个新 label，几万个订单就能把 Prometheus 内存打爆。**永远用 `req.routeOptions.url`（路由模板 `/api/orders/:id`）而不是 `req.url`。**
+>
+> 这与 Spring Boot Actuator 的 `http.server.requests` 指标用 `uri`（模板）而不是原始路径是同一个道理。
+
+#### 11.3.4 实测：req.id ≠ trace_id
+
+Fastify 自带一个请求 ID（`req.id`，默认形如 `req-1`），它和 OTel 的 `trace_id` **没有任何关系**。
+
+实测输出（`otel-lab` 环境，`@opentelemetry/instrumentation-pino` 生效后）：
+
+```json
+{"level":30,"time":1793026204098,"pid":48955,"hostname":"Mac","reqId":"req-1","trace_id":"3242ba8e859fe5b75b1b35eee5163c1d","span_id":"3e30c3b790c517bf","trace_flags":"01","req":{"method":"GET","url":"/api/orders/o-1",...},"msg":"incoming request"}
+{"level":30,"time":1793026204100,"pid":48955,"reqId":"req-1","trace_id":"3242ba8e859fe5b75b1b35eee5163c1d","span_id":"3e30c3b790c517bf","trace_flags":"01","orderId":"o-1","msg":"loading order from db"}
+```
+
+三点观察：
+
+1. `reqId` = `req-1`（Fastify 自己的序号），`trace_id` = `3242ba8e...`（32 位十六进制，OTel 标准）—— **确实是两个 ID**。
+2. `instrumentation-pino` **自动把 `trace_id` / `span_id` / `trace_flags` 注入到每一条日志**，包括 Fastify 自带的 access log 和你手写的 `req.log.info`。
+3. 正因为如此，Grafana 里才能从日志一键跳到 trace——**前提是 Loki 存下来的日志里有 `trace_id` 字段**。
+
+**如果不用 `instrumentation-pino`**，就得自己在 hook 里手工注入（能用但啰嗦，且容易漏）：
+
+```js
+import { trace, context, SpanStatusCode } from '@opentelemetry/api'
+
+app.addHook('onRequest', async (req) => {
+  const span = trace.getSpan(context.active())
+  if (span) {
+    const sc = span.spanContext()
+    req.log = req.log.bind({ trace_id: sc.traceId, span_id: sc.spanId })
+  }
+})
+```
+
+#### 11.3.5 实测：`http.route` 不会自动注入（服务拓扑的关键坑）
+
+OTel 的 `http.route` 表示「路由模板」（`/api/orders/:id`），是**服务拓扑图**、**按路由维度的 RED 指标**、`span_metrics` 聚合的必备字段。
+
+但实测发现：**OTel JS 的 Fastify 插桩不会注入 `http.route`。**
+
+实测拿到的 span 属性（`@opentelemetry/instrumentation-fastify` 自动生成）：
+
+```json
+{
+  "http.request.method": "GET",
+  "url.scheme": "http",
+  "server.address": "localhost",
+  "network.peer.address": "127.0.0.1",
+  "network.protocol.version": "1.1",
+  "url.path": "/api/orders/o-123",
+  "client.address": "127.0.0.1",
+  "server.port": "3000",
+  "http.response.status_code": "200"
+}
+```
+
+两个问题：
+
+1. **属性名是新版权威语义约定**（`http.request.method` / `url.path` / `http.response.status_code`），不再是老版的 `http.method` / `http.url` / `http.status_code`。
+2. **只有 `url.path`（原始路径，高基数），没有 `http.route`（路由模板，低基数）**。
+
+> 尝试过 `OTEL_SEMCONV_STABILITY_OPT_IN=http`（切回老语义约定）—— **无效**，Fastify 插桩依然输出新版权威属性，依然没有 `http.route`。
+
+**解法：手动注入。** 在 `onRequest` 钩子里用 `req.routeOptions.url` 补上：
+
+```js
+import { trace, context } from '@opentelemetry/api'
+
+app.addHook('onRequest', async (req) => {
+  const span = trace.getSpan(context.active())
+  if (span && req.routeOptions?.url) {
+    span.setAttribute('http.route', req.routeOptions.url)
+  }
+})
+```
+
+实测注入后，span 属性变成：
+
+```json
+{ ..., "url.path": "/api/orders/o-123", "http.route": "/api/orders/:id", ... }
+```
+
+> 💡 `req.routeOptions.url` 在路由匹配完成之后才有值，`onRequest` 阶段已可用（Fastify 先匹配路由再进 hook）。
+>
+> 如果你不需要服务拓扑和按路由聚合，**也可以不补** —— 但记得 Tempo 的 `span_metrics` 维度里配了 `http.route` 的话，不补就是空值。
+
+#### 11.3.6 实测：OTel JS 的插桩覆盖面远小于 Java Agent
+
+Java 的 `javaagent` 能字节码插桩整个生态（Spring MVC、Feign、JDBC、Redis、Kafka……）。**Node 没有等价物**，必须显式列出要插桩的库：
+
+```js
+import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node'
+
+getNodeAutoInstrumentations({
+  '@opentelemetry/instrumentation-fs': { enabled: false },  // fs 噪音大
+  '@opentelemetry/instrumentation-http': { enabled: false }, // 用 undici 代替
+})
+```
+
+`getNodeAutoInstrumentations()` 默认覆盖：`http`/`https`、`undici`、`pg`、`mysql2`、`redis`、`mongodb`、`kafkajs`、`express`、`fastify` 等。
+
+**漏掉一个库的后果**：链路在那里断掉，而且**不报任何错**，只是 span 少了一段。所以：
+
+> **每次引入新的第三方客户端库（DB、MQ、HTTP），都要检查它是否在插桩列表里；不在就手动加对应的 `@opentelemetry/instrumentation-*`。**
+
+---
+
+### 11.4 单机验证环境（docker compose）
+
+#### 11.4.1 目录结构
+
+```
+otel-lab/
+├── docker-compose.yml
+├── src/
+│   ├── instrumentation.js      # OTel SDK 初始化（必须最先加载）
+│   ├── app.js                  # Fastify 应用 + prom-client
+│   └── server.js               # 启动入口
+├── observability/
+│   ├── alloy/config.alloy
+│   ├── loki/loki.yaml
+│   ├── tempo/tempo.yaml
+│   ├── prometheus/prometheus.yaml
+│   └── grafana/provisioning/datasources/datasources.yaml
+└── node_modules/
+```
+
+#### 11.4.2 Alloy 配置（采集层）
+
+```alloy
+// observability/alloy/config.alloy
+
+// ---------- 1. 日志：读取应用 JSON 日志 → Loki ----------
+// ★ 必须用 local.file_match（或新版 Alloy 的 file_match 块）做文件发现。
+//   直接在 loki.source.file 的 __path__ 里写 glob 是**不生效**的，
+//   实测报错：stat /var/log/app/*.log: no such file or directory
+local.file_match "app_logs" {
+  path_targets = [{ __path__ = "/var/log/app/*.log" }]
+}
+
+loki.source.file "app" {
+  targets    = local.file_match.app_logs.targets
+  forward_to = [loki.process.app.receiver]
+}
+
+loki.process "app" {
+  // 把 Pino 输出的 JSON 解析成结构化字段
+  stage.json {
+    expressions = {
+      level    = "level",
+      trace_id = "trace_id",
+      span_id  = "span_id",
+      reqId    = "reqId",
+    }
+  }
+  // 低基数字段提升为 label（可索引、可聚合）
+  stage.labels {
+    values = { level = "" }
+  }
+  // 高基数字段保留为 structured metadata（可检索但不进索引）
+  stage.structured_metadata {
+    values = { trace_id = "", span_id = "", reqId = "" }
+  }
+  forward_to = [loki.write.default.receiver]
+}
+
+loki.write "default" {
+  endpoint { url = "http://loki:3100/loki/api/v1/push" }
+}
+
+// ---------- 2. Trace：OTLP(gRPC 4317) → tail sampling → Tempo ----------
+otelcol.receiver.otlp "default" {
+  grpc { endpoint = "0.0.0.0:4317" }
+  output { traces = [otelcol.processor.tail_sampling.default.input] }
+}
+
+// 尾部采样：看完一条完整 trace 再决定留不留
+otelcol.processor.tail_sampling "default" {
+  decision_wait = "10s"                    // 等 10s 让 span 收齐
+  num_traces = 100000
+  expected_new_traces_per_sec = 100
+
+  policy {
+    name = "errors"
+    type = "status_code"
+    status_code { status_codes = ["ERROR"] }
+  }
+  policy {
+    name = "slow-requests"
+    type = "latency"
+    latency { threshold_ms = 500 }
+  }
+  // ★ 验证环境保留全部 trace，否则「快请求 + 无错误」的 trace 会被采样掉，
+  //   表现为 Tempo 里查不到任何东西（很容易误判成「链路没通」）。
+  //   生产环境改成 5~20，或直接删掉这条 policy。
+  policy {
+    name = "keep-all"
+    type = "probabilistic"
+    probabilistic { sampling_percentage = 100 }
+  }
+
+  output { traces = [otelcol.exporter.otlp.tempo.input] }
+}
+
+otelcol.exporter.otlp "tempo" {
+  client {
+    endpoint = "tempo:4317"
+    tls { insecure = true }
+  }
+}
+```
+
+> ⚠️ **`trace_id` 绝对不要做成 label。**
+>
+> `trace_id` 是 32 位随机 hex，每个请求一个，基数等于 QPS × 保留时长。做成 label 会让 Loki 索引直接爆炸。
+>
+> 正确做法是做成 **structured metadata**（Loki 3.x 特性，`allow_structured_metadata: true`）：仍可按 `trace_id` 过滤检索，但不占用索引。
+>
+> 这也是 Grafana「Loki → Tempo 跳转」用 `derivedFields` 正则匹配日志原文里 `"trace_id":"..."` 的原因——它读的是日志正文，不依赖索引。
+
+#### 11.4.3 Loki / Tempo / Prometheus 配置
+
+```yaml
+# observability/loki/loki.yaml —— 单二进制模式
+auth_enabled: false
+
+server:
+  http_listen_port: 3100
+  grpc_listen_port: 9096
+  log_level: warn
+
+common:
+  instance_addr: 127.0.0.1
+  path_prefix: /loki
+  storage:
+    filesystem:
+      chunks_directory: /loki/chunks
+      rules_directory: /loki/rules
+  replication_factor: 1
+  ring:
+    kvstore:
+      store: inmemory
+
+schema_config:
+  configs:
+    - from: 2024-01-01
+      store: tsdb
+      object_store: filesystem
+      schema: v13
+      index:
+        prefix: index_
+        period: 24h
+
+storage_config:
+  tsdb_shipper:
+    active_index_directory: /loki/tsdb-index
+    cache_location: /loki/tsdb-cache
+
+compactor:
+  working_directory: /loki/compactor
+  compaction_interval: 10m
+  retention_enabled: true
+  retention_delete_delay: 2h
+  delete_request_store: filesystem
+
+limits_config:
+  allow_structured_metadata: true   # 3.x 默认开；2.9 需显式打开
+  ingestion_rate_mb: 16
+  ingestion_burst_size_mb: 32
+  max_query_series: 5000
+```
+
+```yaml
+# observability/tempo/tempo.yaml —— 单体模式
+stream_over_http_enabled: true
+server:
+  http_listen_port: 3200
+  log_level: warn
+  grpc_listen_port: 9095
+
+distributor:
+  receivers:
+    otlp:
+      protocols:
+        grpc:
+          endpoint: 0.0.0.0:4317
+        http:
+          endpoint: 0.0.0.0:4318
+
+ingester:
+  max_block_duration: 5m
+  trace_idle_period: 10s
+
+compactor:
+  compaction:
+    block_retention: 24h
+
+storage:
+  trace:
+    backend: local
+    local:
+      path: /var/tempo/traces
+    wal:
+      path: /var/tempo/wal
+
+usage_report:
+  reporting_enabled: false
+```
+
+> ⚠️ **Tempo 2.x → 3.x 的配置不兼容（实测踩到）**
+>
+> Tempo 2.9 写下面这段会**启动失败**：
+>
+> ```yaml
+> overrides:
+>   defaults:              # ← 报错：field defaults not found in type overrides.legacyConfig
+>     ingestion:
+>       max_traces_per_user: 100000
+> ```
+>
+> 2.x 里的新格式是**扁平**的：
+>
+> ```yaml
+> overrides:
+>   max_traces_per_user: 100000
+> ```
+>
+> 而 Tempo **3.0** 反过来 —— 拒绝 legacy 扁平格式，要求 scoped 格式：
+>
+> ```yaml
+> overrides:
+>   defaults:
+>     ingestion:
+>       max_traces_per_user: 100000
+>     global:
+>       max_bytes_per_trace: 30000000
+> ```
+>
+> 此外 Tempo 3.0 是**架构级重构**（ingester 被移除，改为 block-builder + live-store + Kafka），单体模式的配置要删掉 `ingester` / `ingester_client` / `compactor` / `metrics_generator_client` 块。
+>
+> **用 `tempo-cli` 自动迁移，别手改**：
+>
+> ```bash
+> tempo-cli migrate config tempo.yaml > tempo-new.yaml
+> tempo-cli migrate overrides-config tempo.yaml > overrides-new.yaml
+> ```
+>
+> 本章的验证环境用的是 **Tempo 2.9.0**（所以配置里没有 `overrides` 块）；生产选型时请先确认你要装的版本。
+
+```yaml
+# observability/prometheus/prometheus.yaml
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: fastify
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["app:3000"]
+        labels:
+          service: order-service
+  - job_name: tempo
+    static_configs:
+      - targets: ["tempo:3200"]
+  - job_name: alloy
+    static_configs:
+      - targets: ["alloy:12345"]
+  - job_name: loki
+    static_configs:
+      - targets: ["loki:3100"]
+```
+
+#### 11.4.4 docker-compose.yml
+
+```yaml
+name: otel-lab
+
+services:
+  app:
+    image: node:26-alpine
+    working_dir: /app
+    command: ["node", "src/server.js"]
+    environment:
+      NODE_ENV: production
+      LOG_LEVEL: info
+      LOG_FILE: /var/log/app/app.log
+      OTEL_SERVICE_NAME: order-service
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://alloy:4317
+      OTEL_EXPORTER_OTLP_PROTOCOL: grpc
+    volumes:
+      - ./:/app:ro
+      - ./logs:/var/log/app
+    depends_on: [alloy]
+    ports: ["3000:3000"]
+
+  alloy:
+    image: grafana/alloy:v1.10.1
+    command:
+      - run
+      - --server.http.listen-addr=0.0.0.0:12345
+      - --storage.path=/var/lib/alloy/data
+      - /etc/alloy/config.alloy
+    volumes:
+      - ./observability/alloy/config.alloy:/etc/alloy/config.alloy:ro
+      - ./logs:/var/log/app:ro
+      - alloy-data:/var/lib/alloy/data
+    ports:
+      - "12345:12345"
+      - "4317:4317"
+
+  loki:
+    image: grafana/loki:3.7.6
+    command: ["-config.file=/etc/loki/loki.yaml"]
+    volumes:
+      - ./observability/loki/loki.yaml:/etc/loki/loki.yaml:ro
+      - loki-data:/loki
+    ports: ["3100:3100"]
+
+  tempo:
+    image: grafana/tempo:2.9.0
+    command: ["-config.file=/etc/tempo/tempo.yaml"]
+    volumes:
+      - ./observability/tempo/tempo.yaml:/etc/tempo/tempo.yaml:ro
+      - tempo-data:/var/tempo
+    ports: ["3200:3200"]
+
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    command: ["--config.file=/etc/prometheus/prometheus.yaml", "--storage.tsdb.path=/prometheus"]
+    volumes:
+      - ./observability/prometheus/prometheus.yaml:/etc/prometheus/prometheus.yaml:ro
+      - prom-data:/prometheus
+    ports:
+      # ⚠️ 9090 常被 Clash / mihomo 占用，映射到 9095 避让
+      - "9095:9090"
+
+  grafana:
+    image: grafana/grafana:11.4.0
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: "Admin"
+      GF_USERS_DEFAULT_THEME: "dark"
+    volumes:
+      - ./observability/grafana/provisioning:/etc/grafana/provisioning:ro
+      - grafana-data:/var/lib/grafana
+    ports: ["3001:3000"]
+    depends_on: [loki, tempo, prometheus]
+
+volumes:
+  alloy-data:
+  loki-data:
+  tempo-data:
+  prom-data:
+  grafana-data:
+```
+
+#### 11.4.5 启动与验证
+
+```bash
+cd otel-lab
+mkdir -p logs
+docker compose up -d
+sleep 20
+
+# 1) 打一发请求
+curl -s localhost:3000/api/orders/o-1
+
+# 2) 看 Loki 里有没有日志
+#    ★ 必须用 query_range（区间查询），用 /query（即时查询）会报
+#      「log queries are not supported as an instant query type」
+NOW=$(date +%s)
+curl -s -G localhost:3100/loki/api/v1/query_range \
+  --data-urlencode 'query={filename=~".+"}' \
+  --data-urlencode "start=$((NOW-3600))" \
+  --data-urlencode "end=$((NOW+60))" \
+  --data-urlencode 'limit=3'
+
+# 3) 看 Tempo 里有没有 trace
+curl -s -G localhost:3200/api/search \
+  --data-urlencode 'q={ .service.name = "order-service" }' \
+  --data-urlencode 'limit=5'
+
+# 4) 看 Prometheus 有没有指标
+curl -s -G localhost:9095/api/v1/query \
+  --data-urlencode 'query=up'
+
+# 5) Grafana
+open http://localhost:3001
+```
+
+> ⚠️ **Tempo 搜索接口的两个坑**：
+>
+> 1. `start` / `end` 是 **int32**，传 `9999999999` 会报 `value out of range`；直接不传用默认时间窗即可。
+> 2. 新写入的 trace 要等 ingester 刷出（`trace_idle_period: 10s`）才能被搜到，**刚打完请求立刻查通常是空的**。
+
+#### 11.4.6 实测验证结果
+
+本节全部输出来自 **实际跑起来的 `otel-lab` 栈**（`fastify@5.12.7` + `node:26-alpine` + `grafana/loki:3.7.6` + `grafana/tempo:2.9.0` + `grafana/alloy:v1.10.1` + `prom/prometheus:v3.5.0` + `grafana/grafana:11.4.0`）。
+
+**① Loki —— 日志已入库，且带 trace_id**
+
+```bash
+curl -s -G localhost:3100/loki/api/v1/query_range \
+  --data-urlencode 'query={filename=~".+"}' \
+  --data-urlencode "start=$((NOW-3600))" --data-urlencode "end=$((NOW+60))" --data-urlencode 'limit=1'
+```
+
+```json
+{
+  "status": "success",
+  "data": {
+    "resultType": "streams",
+    "result": [{
+      "stream": {
+        "detected_level": "30",
+        "filename": "/var/log/app/app.log",
+        "level": "30",
+        "reqId": "req-4",
+        "service_name": "unknown_service",
+        "span_id": "5fc2689525a2756d",
+        "trace_id": "f2602cdeb4387a07f6440067e9d10691"
+      },
+      "values": [[
+        "17930269046074895377",
+        "{\"level\":30,\"time\":1793026904607,\"pid\":1,\"hostname\":\"3e7d47999597\",\"reqId\":\"req-4\",\"trace_id\":\"f2602cdeb4387a07f6440067e9d10691\",\"span_id\":\"5fc2689525a2756d\",\"trace_flags\":\"01\",\"res\":{\"statusCode\":200},\"msg\":\"request completed\"}"
+      ]]
+    }]
+  }
+}
+```
+
+**关键验证：`trace_id` 不是索引 label。**
+
+```bash
+curl -s localhost:3100/loki/api/v1/labels
+# {"status":"success","data":["filename","level","service_name"]}
+```
+
+`trace_id` / `span_id` / `reqId` **不在 label 列表里** —— 它们被 `stage.structured_metadata` 存成了结构化元数据（可检索但不占索引）。查询响应里能看到它们，是 Loki 3.x 把 structured metadata 合并进 `stream` 展示，**不代表它们被索引了**。
+
+> 🔴 如果你把 `trace_id` 做成 label，索引基数 = QPS × 保留时长，会直接把 Loki 打挂。
+
+**② Tempo —— trace 可搜、span 属性完整**
+
+```bash
+curl -s -G localhost:3200/api/search \
+  --data-urlencode 'q={ .service.name="order-service" }' --data-urlencode 'limit=5'
+```
+
+```json
+{"traces":[
+  {"traceID":"ccee3abeb30d1fa6434a9491b99898a8","rootServiceName":"order-service","rootTraceName":"GET","durationMs":124},
+  {"traceID":"31aa55b5f849a8475c0bded637393fa9","rootServiceName":"order-service","rootTraceName":"GET","durationMs":15},
+  {"traceID":"ead22e49a0ff4445bf129c724c74589b","rootServiceName":"order-service","rootTraceName":"dns.lookup"}
+]}
+```
+
+按 trace ID 查 span 详情（`/api/traces/{traceID}`）：
+
+```json
+{
+  "name": "GET",
+  "kind": "SPAN_KIND_SERVER",
+  "attributes": {
+    "http.request.method": "GET",
+    "url.scheme": "http",
+    "server.address": "localhost",
+    "network.peer.address": "127.0.0.1",
+    "network.protocol.version": "1.1",
+    "url.path": "/api/orders/o-123",
+    "client.address": "127.0.0.1",
+    "server.port": "3000",
+    "http.route": "/api/orders/:id",
+    "http.response.status_code": "200"
+  }
+}
+```
+
+> 🔴 **注意这里的两件事**：
+>
+> 1. **属性名是新版权威语义约定**：`http.request.method` / `url.path` / `http.response.status_code` / `client.address` / `server.address`（不是老版的 `http.method` / `http.url` / `http.status_code`）。
+> 2. **`http.route` 默认没有**——它不会自动出现，必须手动补（见 11.3.5）。上面这个 `http.route` 是手动注入的结果。
+
+**③ Prometheus —— 4 个 target 全部 up，指标带路由模板**
+
+```bash
+curl -s -G localhost:9095/api/v1/query --data-urlencode 'query=up'
+```
+
+```json
+{"status":"success","data":{"resultType":"vector","result":[
+  {"metric":{"__name__":"up","instance":"alloy:12345","job":"alloy"},"value":[1,"1"]},
+  {"metric":{"__name__":"up","instance":"app:3000","job":"fastify"},"value":[1,"1"]},
+  {"metric":{"__name__":"up","instance":"loki:3100","job":"loki"},"value":[1,"1"]},
+  {"metric":{"__name__":"up","instance":"tempo:3200","job":"tempo"},"value":[1,"1"]}
+]}}
+```
+
+```bash
+curl -s -G localhost:9095/api/v1/query --data-urlencode 'query=http_request_duration_seconds_count'
+```
+
+```json
+{"metric":{"__name__":"http_request_duration_seconds_count","instance":"app:3000","job":"fastify","method":"GET","route":"/api/orders/:id","service":"order-service","status_code":"200"},"value":[1,"1"]}
+```
+
+**`route` 是 `/api/orders/:id` 而不是 `/api/orders/o-42`** —— 证明用的是 `req.routeOptions.url` 而不是 `req.url`，指标基数安全。
+
+**④ Grafana —— 三个数据源自动就位**
+
+```bash
+curl -s localhost:3001/api/datasources
+```
+
+```json
+[{"uid":"loki","type":"loki","url":"http://loki:3100"},
+ {"uid":"prometheus","type":"prometheus","url":"http://prometheus:9090"},
+ {"uid":"tempo","type":"tempo","url":"http://tempo:3200"}]
+```
+
+**⑤ Grafana「日志 → trace」跳转的正则已验证**
+
+```python
+import re
+line = '{"reqId":"req-4","trace_id":"f2602cdeb4387a07f6440067e9d10691","span_id":"5fc2689525a2756d"}'
+re.search(r'"trace_id":"(\w+)"', line).group(1)
+# → 'f2602cdeb4387a07f6440067e9d10691'  ✅ 与 Tempo 里的 traceID 完全一致
+```
+
+**⑥ 全链路关联成立**
+
+同一次请求 `o-123` 的三处 ID 完全对应：
+
+| 位置 | 值 |
+| --- | --- |
+| Loki 日志里的 `trace_id` | `e524d1c37328cd2469194829d5f795c0` |
+| Tempo 里的 `traceID` | `e524d1c37328cd2469194829d5f795c0` |
+| Fastify 的 `req.id` | `req-4`（**与上面两个无关**） |
+
+---
+
+### 11.5 Grafana 三件套关联配置
+
+Loki ↔ Tempo ↔ Prometheus 的联动**不��自动的**，需要两个配置：
+
+```yaml
+# observability/grafana/provisioning/datasources/datasources.yaml
+apiVersion: 1
+
+datasources:
+  - name: Loki
+    uid: loki
+    type: loki
+    access: proxy
+    url: http://loki:3100
+    jsonData:
+      maxLines: 1000
+      # ① 日志 → trace：从日志正文正则提取 trace_id，点击即跳转
+      derivedFields:
+        - name: TraceID
+          matcherRegex: '"trace_id":"(\w+)"'
+          url: '$${__value.raw}'
+          datasourceUid: tempo
+
+  - name: Tempo
+    uid: tempo
+    type: tempo
+    access: proxy
+    url: http://tempo:3200
+    jsonData:
+      # ② trace → 日志：点 span 上的 "Logs for this span"
+      tracesToLogsV2:
+        datasourceUid: loki
+        spanStartTimeShift: "-1h"
+        spanEndTimeShift: "1h"
+        filterByTraceID: true
+        filterBySpanID: false
+        tags:
+          - key: service.name
+            value: service
+      serviceMap:
+        datasourceUid: prometheus
+      nodeGraph:
+        enabled: true
+
+  - name: Prometheus
+    uid: prometheus
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+    isDefault: true
+```
+
+**两个配置缺一不可**：
+
+| 方向 | 配置 | 依赖 |
+| --- | --- | --- |
+| 日志 → trace | Loki `derivedFields` | 日志正文里必须有 `trace_id` 字段（靠 `instrumentation-pino`） |
+| trace → 日志 | Tempo `tracesToLogsV2` | Loki 里必须能按 `trace_id` 过滤（靠 structured metadata） |
+
+> 💡 provisioning 文件里的 `$` 需要写成 `$$`（Grafana 的转义规则），所以 URL 是 `'$${__value.raw}'`。
+
+**服务拓扑图（Service Graph）** 需要额外一步：Tempo 的 `metrics-generator` 要把 span metrics 写入 Prometheus：
+
+```yaml
+# tempo.yaml 追加
+metrics_generator:
+  registry:
+    external_labels:
+      source: tempo
+  storage:
+    remote_write:
+      - url: http://prometheus:9090/api/v1/push
+        send_exemplars: true
+  processor:
+    service_graphs:
+      wait: 10s
+      max_items: 10000
+    span_metrics:
+      dimensions:
+        - http.request.method
+        - http.route          # 需应用侧手动 setAttribute（见 11.3.5）
+        - http.response.status_code
+
+overrides:
+  defaults:
+    metrics_generator:
+      processors: [service-graphs, span-metrics]
+```
+
+> 🔴 **上面三个维度在 OTel JS 下拿不到值。**
+>
+> 实测 Fastify 插桩输出的是新版权威语义约定的 `http.request.method` / `url.path` / `http.response.status_code`，而 `http.route` 默认不存在（需按 11.3.5 手动注入）。
+>
+> 正确写法是把维度改成新约定，并且先补上 `http.route`（上面的配置已经是修正后的版本）。
+>
+> **千万别把 `url.path` 配成维度** —— 它是原始路径，基数等于 QPS × 路径数，会把 Mimir 的 series 数量打爆。
+
+没有这一步，Tempo 的 `nodeGraph` 面板会是空的。
+
+---
+
+### 11.6 生产：Kubernetes 部署
+
+#### 11.6.1 组件选型
+
+| 组件 | 部署方式 | Chart / CRD |
+| --- | --- | --- |
+| **Alloy**（采集） | DaemonSet | `helm install alloy grafana/alloy`（repo `https://grafana.github.io/helm-charts`） |
+| **Tempo**（链路） | Operator 管理 | `tempo-operator` 的 `TempoStack` CR |
+| **Loki**（日志） | Helm，微服务模式 | `oci://ghcr.io/grafana-community/helm-charts/loki`（chart 18.x+） |
+| **Mimir**（指标） | Helm | `grafana/mimir-distributed`（repo `https://grafana.github.io/helm-charts`） |
+| **Grafana** | Helm | `oci://ghcr.io/grafana-community/helm-charts/grafana` |
+
+> ⚠️ **Loki 的 Helm chart 已经搬家了。**
+>
+> 早期在 `https://grafana.github.io/helm-charts`（chart 6.x），现在迁到 **`grafana-community/helm-charts`**（chart 18.x+，appVersion 3.7.x）。
+>
+> ```bash
+> # 新（当前）
+> helm install loki oci://ghcr.io/grafana-community/helm-charts/loki --version 18.7.6 -f loki-values.yaml
+>
+> # 旧（已停止更新，chart 6.55.0 是最后一版）
+> helm install loki grafana/loki --version 6.55.0
+> ```
+>
+> Mimir 的 chart **仍在** `grafana/helm-charts`，没有跟着搬。抄教程时最容易在这里踩坑。
+
+#### 11.6.2 Alloy DaemonSet
+
+Alloy 以 DaemonSet 部署在每个节点上，职责有二：
+
+1. **采集节点上的容器日志**（读 `/var/log/pods`）。
+2. **作为节点本地的 OTLP 接收端**，应用把 trace 发到本节点，避免跨节点网络跳数。
+
+```yaml
+# observability/alloy-daemonset.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: alloy
+  namespace: observability
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: alloy-config
+  namespace: observability
+data:
+  config.alloy: |
+    // ---------- 采集节点容器日志 ----------
+    discovery.kubernetes "pods" {
+      role = "pod"
+    }
+
+    discovery.relabel "kubernetes_logs" {
+      targets = discovery.kubernetes.pods.targets
+      rule {
+        source_labels = ["__meta_kubernetes_namespace"]
+        target_label  = "namespace"
+      }
+      rule {
+        source_labels = ["__meta_kubernetes_pod_name"]
+        target_label  = "pod"
+      }
+      rule {
+        source_labels = ["__meta_kubernetes_pod_container_name"]
+        target_label  = "container"
+      }
+      rule {
+        source_labels = ["__meta_kubernetes_pod_label_app_kubernetes_io_name"]
+        target_label  = "app"
+      }
+      rule {
+        source_labels = ["__meta_kubernetes_pod_label_app_kubernetes_io_instance"]
+        target_label  = "instance"
+      }
+    }
+
+    loki.source.file "kubernetes_logs" {
+      targets    = discovery.relabel.kubernetes_logs.output
+      forward_to = [loki.process.kubernetes_logs.receiver]
+    }
+
+    loki.process "kubernetes_logs" {
+      stage.json {
+        expressions = {
+          level    = "level",
+          trace_id = "trace_id",
+          span_id  = "span_id",
+        }
+      }
+      stage.labels {
+        values = { level = "" }
+      }
+      stage.structured_metadata {
+        values = { trace_id = "", span_id = "" }
+      }
+      forward_to = [loki.write.default.receiver]
+    }
+
+    loki.write "default" {
+      endpoint {
+        url = "http://loki-gateway.observability.svc.cluster.local/loki/api/v1/push"
+        batch_size = 1MiB
+      }
+      external_labels = {
+        cluster = "prod-cluster"
+      }
+    }
+
+    // ---------- 接收本节点应用的 OTLP ----------
+    otelcol.receiver.otlp "default" {
+      grpc { endpoint = "0.0.0.0:4317" }
+      output { traces = [otelcol.processor.tail_sampling.default.input] }
+    }
+
+    otelcol.processor.tail_sampling "default" {
+      decision_wait = "10s"
+      num_traces = 100000
+      expected_new_traces_per_sec = 1000
+      policy {
+        name = "errors"
+        type = "status_code"
+        status_code { status_codes = ["ERROR"] }
+      }
+      policy {
+        name = "slow"
+        type = "latency"
+        latency { threshold_ms = 1000 }
+      }
+      output { traces = [otelcol.exporter.otlp.tempo.input] }
+    }
+
+    otelcol.exporter.otlp "tempo" {
+      client {
+        endpoint = "tempo-distributor.observability.svc.cluster.local:4317"
+        tls { insecure = true }
+      }
+    }
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: alloy
+  namespace: observability
+  labels:
+    app.kubernetes.io/name: alloy
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: alloy
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: alloy
+    spec:
+      serviceAccountName: alloy
+      # ★ hostNetwork：让应用可以用节点 IP + 4317 直连本节点 Alloy
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+      containers:
+        - name: alloy
+          image: grafana/alloy:v1.10.1
+          args:
+            - run
+            - --server.http.listen-addr=0.0.0.0:12345
+            - --storage.path=/var/lib/alloy/data
+            - /etc/alloy/config.alloy
+          ports:
+            - containerPort: 12345
+              name: http
+            - containerPort: 4317
+              name: otlp-grpc
+          volumeMounts:
+            - name: config
+              mountPath: /etc/alloy
+            - name: data
+              mountPath: /var/lib/alloy/data
+            # ★ 读取节点上的容器日志
+            - name: varlog
+              mountPath: /var/log
+              readOnly: true
+            - name: kubeletpods
+              mountPath: /var/lib/kubelet/pods
+              readOnly: true
+          resources:
+            requests:
+              cpu: 200m
+              memory: 256Mi
+            limits:
+              memory: 512Mi
+      volumes:
+        - name: config
+          configMap:
+            name: alloy-config
+        - name: data
+          emptyDir: {}
+        - name: varlog
+          hostPath:
+            path: /var/log
+        - name: kubeletpods
+          hostPath:
+            path: /var/lib/kubelet/pods
+```
+
+> ⚠️ **`hostNetwork: true` + `dnsPolicy: ClusterFirstWithHostNet` 必须成对写。**
+>
+> 只写 `hostNetwork` 不写 dnsPolicy，Pod 会用宿主机的 resolv.conf，可能解析不了集群内的 service 名（`loki-gateway.observability.svc.cluster.local`）→ Alloy 日志里全是 DNS 错误。
+
+#### 11.6.3 应用侧 Deployment
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service
+  namespace: app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    metadata:
+      labels:
+        app: order-service
+        app.kubernetes.io/name: order-service
+    spec:
+      containers:
+        - name: order-service
+          image: registry.example.com/order-service:1.0.0
+          ports:
+            - containerPort: 3000
+          env:
+            - name: OTEL_SERVICE_NAME
+              value: order-service
+            # ★ 发送到「本节点」的 Alloy（hostNetwork 模式）
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT
+              value: http://$(NODE_IP):4317
+            - name: NODE_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
+            - name: OTEL_TRACES_SAMPLER
+              value: parentbased_traceidratio
+            - name: OTEL_TRACES_SAMPLER_ARG
+              value: "0.05"
+            - name: NODE_ENV
+              value: production
+          resources:
+            requests:
+              cpu: 200m
+              memory: 256Mi
+            limits:
+              memory: 512Mi
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+```
+
+> 💡 **为什么 trace 发给「节点本地」的 Alloy 而不是集群 Service？**
+>
+> 应用 → ClusterIP Service → 任意 Alloy Pod，会引入一次额外的跨节点网络跳转和一个负载均衡层。`hostNetwork` + `status.hostIP` 的做法让 trace 走最短路径，延迟更低、也避免 tail sampling 的 trace 在不同 collector 之间被拆散（tail sampling 需要看到完整 trace）。
+
+#### 11.6.4 Tempo（tempo-operator）
+
+```yaml
+# observability/tempostack.yaml
+apiVersion: tempo.grafana.com/v1alpha1
+kind: TempoStack
+metadata:
+  name: tempo
+  namespace: observability
+spec:
+  version: 2.9.0
+  tempo:
+    metricsGenerator:
+      registry:
+        externalLabels:
+          source: tempo
+          cluster: prod-cluster
+      storage:
+        remoteWrite:
+          - url: http://mimir-distributor.observability.svc.cluster.local/prometheus/api/v1/push
+            sendExemplars: true
+      processor:
+        service_graphs:
+          wait: 10s
+          max_items: 10000
+        span_metrics:
+          dimensions:
+            - http.method
+            - http.route
+            - http.status_code
+    overrides:
+      defaults:
+        metrics_generator:
+          processors:
+            - service-graphs
+            - span-metrics
+  storage:
+    traces:
+      backend: s3
+      s3:
+        bucket: tempo-traces
+        endpoint: minio.minio.svc.cluster.local:9000
+        region: us-east-1
+        secret:
+          name: tempo-s3
+          key: config
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1Gi
+  template:
+    spec:
+      containers:
+        - name: tempo
+          image: grafana/tempo:2.9.0
+```
+
+```bash
+# 安装 Operator
+kubectl apply -f https://github.com/grafana/tempo-operator/releases/latest/download/tempo-operator.yaml
+kubectl apply -f observability/tempostack.yaml
+```
+
+> ⚠️ `TempoStack` 的字段随 Operator 版本变化较快，**以 CRD 为准**：
+>
+> ```bash
+> kubectl explain tempostack.spec
+> kubectl get crd tempostacks.tempo.grafana.com -o yaml | less
+> ```
+
+#### 11.6.5 Loki（grafana-community chart，微服务模式）
+
+```bash
+helm repo add grafana-community https://grafana-community.github.io/helm-charts/
+helm repo update
+
+helm upgrade --install loki oci://ghcr.io/grafana-community/helm-charts/loki \
+  --version 18.7.6 \
+  --namespace observability --create-namespace \
+  -f observability/loki-values.yaml
+```
+
+```yaml
+# observability/loki-values.yaml
+deploymentMode: Distributed   # 微服务模式（SSD 模式已废弃，Loki 4.0 将移除）
+
+loki:
+  config:
+    limits_config:
+      retention_period: 720h        # 30 天
+      allow_structured_metadata: true
+      ingestion_rate_mb: 16
+      ingestion_burst_size_mb: 32
+    compactor:
+      working_directory: /var/loki/compactor
+    storage_config:
+      common:
+        storage:
+          s3:
+            buckets:
+              - loki-logs
+            endpoint: minio.minio.svc.cluster.local:9000
+            region: us-east-1
+            insecure: true
+    structuredConfig:
+      tsdb:
+        ship_interval: 1m
+      compactor:
+        working_directory: /var/loki/compactor
+
+# 关闭不需要的单二进制组件（微服务模式下由其它组件承担）
+singleBinary:
+  enabled: false
+readinessProbe:
+  enabled: false
+```
+
+> ⚠️ **`deploymentMode` 只能三选一**：
+>
+> | 模式 | 说明 | 建议 |
+> | --- | --- | --- |
+> | `Monolithic` | 单进程全组件 | 小规模 / 验证环境 |
+> | `Simple Scalable` | SSD，多读多写分离 | **已废弃**，Loki 4.0 移除，**不要选** |
+> | `Distributed` | 完整微服务（ingester / distributor / querier / compactor / ruler） | **生产选这个** |
+>
+> Object Storage 的桶、密钥请按你的环境替换。生产强烈建议直接用 **Grafana Cloud Logs**，省掉一整套存储运维。
+
+#### 11.6.6 Mimir
+
+```bash
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
+
+helm upgrade --install mimir grafana/mimir-distributed \
+  --namespace observability --create-namespace \
+  -f observability/mimir-values.yaml
+```
+
+```yaml
+# observability/mimir-values.yaml
+mimir:
+  structuredConfig:
+    multitenancy_enabled: false
+    limits:
+      # 单租户下关掉按租户的写入限流，避免误伤
+      ingestion_rate: 20000
+      ingestion_burst_size: 40000
+    compactor:
+      block_retention: 720h
+    limits:
+      max_global_series_per_user: 5000000
+      max_fetched_series_per_query: 100000
+```
+
+> 💡 如果集群里已有 **Prometheus Operator**（`ServiceMonitor` CRD），用 `mimir-distributed` 的 `serviceMonitor` 配置自动发现，比手写 `scrape_configs` 省事得多。
+
+#### 11.6.7 Grafana 数据源
+
+```yaml
+# observability/grafana-datasources.yaml
+apiVersion: 1
+datasources:
+  - name: Loki
+    uid: loki
+    type: loki
+    access: proxy
+    url: http://loki-gateway.observability.svc.cluster.local
+    jsonData:
+      maxLines: 1000
+      derivedFields:
+        - name: TraceID
+          matcherRegex: '"trace_id":"(\w+)"'
+          url: '$${__value.raw}'
+          datasourceUid: tempo
+
+  - name: Tempo
+    uid: tempo
+    type: tempo
+    access: proxy
+    url: http://tempo-query-frontend.observability.svc.cluster.local
+    jsonData:
+      tracesToLogsV2:
+        datasourceUid: loki
+        spanStartTimeShift: "-1h"
+        spanEndTimeShift: "1h"
+        filterByTraceID: true
+        tags:
+          - key: service.name
+            value: service
+      serviceMap:
+        datasourceUid: prometheus
+      nodeGraph:
+        enabled: true
+
+  - name: Prometheus
+    uid: prometheus
+    type: prometheus
+    access: proxy
+    url: http://mimir-query-frontend.observability.svc.cluster.local
+```
+
+---
+
+### 11.7 生产实践要点
+
+#### 11.7.1 日志量控制（第一成本项）
+
+Fastify 默认每个请求打两条 access log（`incoming request` / `request completed`），**QPS 1 万就是每天 1700 万条日志**。
+
+```js
+const app = Fastify({
+  logger: {
+    level: 'info',
+    disableRequestLogging: true,   // ★ 生产关掉
+  },
+})
+
+// 需要访问日志时，自己在 onResponse 里打，并只打慢请求和错误
+app.addHook('onResponse', async (req, reply) => {
+  if (reply.elapsedTime > 1000 || reply.statusCode >= 400) {
+    req.log.info({ statusCode: reply.statusCode, ms: reply.elapsedTime }, 'request')
+  }
+})
+```
+
+> 💡 更彻底的做法：**用 OTel 的 span 代替 access log**。trace 已经有完整的路由、状态码、耗时，且采样可控；日志只保留业务事件和错误。
+
+#### 11.7.2 采样策略
+
+| 层级 | 位置 | 配置 | 适用 |
+| --- | --- | --- | --- |
+| Head sampling | 应用 SDK | `OTEL_TRACES_SAMPLER=parentbased_traceidratio` + `OTEL_TRACES_SAMPLER_ARG=0.05` | 按比例丢弃，**便宜、无状态**，应用侧首选 |
+| Tail sampling | Collector | `otelcol.processor.tail_sampling` | 按"出错/慢"保留，**需要完整 trace**，要求 Collector 以 gateway 模式运行 |
+
+**推荐组合**：应用端 head sampling 5%（兜底降量）→ Collector 端 tail sampling 保留错误和慢请求（提高有效信息密度）。
+
+> ⚠️ **tail sampling 要求 Collector 是有状态的 gateway**。
+>
+> 它要等 `decision_wait` 收齐一条 trace 的所有 span。如果用 DaemonSet agent 模式 + 每节点独立采样，同一条 trace 的不同 span 会被打到不同 Collector，谁也凑不齐整条 trace，采样就失效了。
+>
+> 生产实践：head sampling 在应用端做，tail sampling 放在**独立的 gateway 模式 Collector**（Deployment，不是 DaemonSet）上。
+
+#### 11.7.3 敏感信息脱敏
+
+日志进 Loki 前必须脱敏。在 Alloy 里做（**不要在应用里做**，应用层脱敏容易被绕过）：
+
+```alloy
+loki.process "kubernetes_logs" {
+  stage.json {
+    expressions = {
+      level = "level",
+      trace_id = "trace_id",
+    }
+  }
+  // 删除敏感字段
+  stage.drop {
+    values = ["password", "token", "authorization", "idCard", "phone"]
+  }
+  // 或替换
+  stage.template {
+    source = "userId"
+    template = "***"
+  }
+  forward_to = [loki.write.default.receiver]
+}
+```
+
+#### 11.7.4 生产检查表
+
+- [ ] `disableRequestLogging: true`，access log 自己按需打
+- [ ] 应用端 head sampling 已配置（`OTEL_TRACES_SAMPLER_ARG`）
+- [ ] `trace_id` 用 structured metadata，**绝不做 label**
+- [ ] 指标的 `route` label 用 `req.routeOptions.url`，不用 `req.url`
+- [ ] Alloy DaemonSet 的 `hostNetwork` 与 `dnsPolicy` 成对配置
+- [ ] 敏感字段在 Collector 侧脱敏
+- [ ] Loki `retention_period` 与存储容量对齐（720h retention 需要足够磁盘）
+- [ ] Loki `deploymentMode: Distributed`（不要用已废弃的 SSD）
+- [ ] `tail_sampling` 放在 gateway 模式的独立 Collector，不放 DaemonSet
+- [ ] 应用侧 `OTEL_EXPORTER_OTLP_ENDPOINT` 指向节点本地 Alloy（`status.hostIP`）
+- [ ] Grafana 两个数据源关联配置（`derivedFields` + `tracesToLogsV2`）都已生效
+- [ ] 多集群时用 `external_labels` 区分 `cluster`，Grafana 用 `cluster` label 过滤
+
+---
+
+### 11.8 Java → Node 心智映射表（速查）
+
+| 能力 | Java / Spring | Node / Fastify |
+| --- | --- | --- |
+| 统一可观测性门面 | Micrometer | **无**（Pino + prom-client + OTel） |
+| 日志 | Logback + logstash encoder | **Pino**（Fastify 内置） |
+| 日志自动带 traceId | `TracingAwareLogDecorator` | **`@opentelemetry/instrumentation-pino`** |
+| 指标 | Micrometer `Timer`/`Counter` | **prom-client** `Histogram`/`Counter` |
+| 指标端点 | Actuator `/actuator/prometheus` | 手写 `/metrics` |
+| 追踪 SDK | Micrometer Tracing → OTel | **OTel JS SDK 原生** |
+| 自动插桩 | `javaagent` 字节码 | **`getNodeAutoInstrumentations()` + 逐库补** |
+| 日志采集 | Fluent Bit / Vector | **Alloy** `loki.source.file` / filelog |
+| 日志存储 | Elasticsearch | **Loki** |
+| 链路存储 | Jaeger / Zipkin | **Tempo** |
+| 指标存储 | Prometheus / VictoriaMetrics | **Mimir** / Prometheus |
+| 采样 | Micrometer `Sampler` | 应用 SDK head sampling + Collector tail sampling |
+| 服务拓扑 | SkyWalking | Tempo `metrics-generator` service-graphs |
+| 链路→日志 | SkyWalking / Micrometer tracing | Tempo `tracesToLogsV2` |
+| 日志→链路 | 自定义 | Loki `derivedFields` |
+
+**一句话总结**：
+
+> Java 侧你只需要 `micrometer-registry-prometheus` + `micrometer-tracing-bridge-otel` 两个 starter；
+> Node 侧你需要自己拼 Pino + prom-client + OTel SDK + Collector 四件套 —— **多花的是装配时间，换来的是三信号统一走 OTel 标准出口**。
 
 ---
 
