@@ -39,12 +39,14 @@
             "id": "cce8d4171bf10567",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.14.5"
+                "file": "学习笔记和教程/PostgreSQL 快速入门 - MySQL 用户指南.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.14.5"
+              "icon": "lucide-file",
+              "title": "PostgreSQL 快速入门 - MySQL 用户指南"
             }
           }
         ],

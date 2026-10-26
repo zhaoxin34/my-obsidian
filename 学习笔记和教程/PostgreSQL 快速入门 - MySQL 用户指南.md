@@ -158,39 +158,39 @@ CREATE TABLE users (
 
 ### 4.2 字符串类型
 
-| MySQL | PostgreSQL | 说明 |
-|-------|------------|------|
+| MySQL          | PostgreSQL              | 说明                    |
+| -------------- | ----------------------- | --------------------- |
 | `VARCHAR(255)` | `VARCHAR(255)` 或 `TEXT` | PostgreSQL TEXT 无长度限制 |
-| `TEXT` | `TEXT` | 一致 |
-| `CHAR(10)` | `CHAR(10)` | 定长，不足补空格 |
-| `ENUM` | `ENUM` 或 `CHECK` | PostgreSQL 支持两种方式 |
+| `TEXT`         | `TEXT`                  | 一致                    |
+| `CHAR(10)`     | `CHAR(10)`              | 定长，不足补空格              |
+| `ENUM`         | `ENUM` 或 `CHECK`        | PostgreSQL 支持两种方式     |
 
 ### 4.3 数值类型
 
-| MySQL | PostgreSQL | 说明 |
-|-------|------------|------|
-| `TINYINT` | `SMALLINT` | - |
-| `INT` | `INT` 或 `INTEGER` | 一致 |
-| `BIGINT` | `BIGINT` | 一致 |
-| `FLOAT` | `REAL` | 单精度 |
-| `DOUBLE` | `DOUBLE PRECISION` | 双精度 |
+| MySQL           | PostgreSQL                        | 说明                     |
+| --------------- | --------------------------------- | ---------------------- |
+| `TINYINT`       | `SMALLINT`                        | -                      |
+| `INT`           | `INT` 或 `INTEGER`                 | 一致                     |
+| `BIGINT`        | `BIGINT`                          | 一致                     |
+| `FLOAT`         | `REAL`                            | 单精度                    |
+| `DOUBLE`        | `DOUBLE PRECISION`                | 双精度                    |
 | `DECIMAL(10,2)` | `DECIMAL(10,2)` 或 `NUMERIC(10,2)` | PostgreSQL NUMERIC 更精确 |
 
 ### 4.4 日期时间类型
 
-| MySQL | PostgreSQL | 说明 |
-|-------|------------|------|
-| `DATETIME` | `TIMESTAMP` | 日期时间 |
-| `TIMESTAMP` | `TIMESTAMP WITH TIME ZONE` | 带时区 |
-| `DATE` | `DATE` | 仅日期 |
-| `TIME` | `TIME` | 仅时间 |
-| 无 | `INTERVAL` | 时间间隔（PostgreSQL 特有） |
+| MySQL       | PostgreSQL                 | 说明                  |
+| ----------- | -------------------------- | ------------------- |
+| `DATETIME`  | `TIMESTAMP`                | 日期时间                |
+| `TIMESTAMP` | `TIMESTAMP WITH TIME ZONE` | 带时区                 |
+| `DATE`      | `DATE`                     | 仅日期                 |
+| `TIME`      | `TIME`                     | 仅时间                 |
+| 无           | `INTERVAL`                 | 时间间隔（PostgreSQL 特有） |
 
 ### 4.5 二进制数据
 
-| MySQL | PostgreSQL |
-|-------|------------|
-| `BLOB` | `BYTEA` |
+| MySQL  | PostgreSQL |
+| ------ | ---------- |
+| `BLOB` | `BYTEA`    |
 
 ### 4.6 时间戳默认值
 
@@ -330,17 +330,17 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO myuser;
 
 ### 6.2 常用权限类型
 
-| 权限 | 说明 |
-|------|------|
-| `SELECT` | 读取数据 |
-| `INSERT` | 插入数据 |
-| `UPDATE` | 更新数据 |
-| `DELETE` | 删除数据 |
-| `TRUNCATE` | 清空表 |
-| `REFERENCES` | 外键引用 |
-| `TRIGGER` | 创建触发器 |
-| `CONNECT` | 连接数据库 |
-| `TEMPORARY` | 创建临时表 |
+| 权限           | 说明    |
+| ------------ | ----- |
+| `SELECT`     | 读取数据  |
+| `INSERT`     | 插入数据  |
+| `UPDATE`     | 更新数据  |
+| `DELETE`     | 删除数据  |
+| `TRUNCATE`   | 清空表   |
+| `REFERENCES` | 外键引用  |
+| `TRIGGER`    | 创建触发器 |
+| `CONNECT`    | 连接数据库 |
+| `TEMPORARY`  | 创建临时表 |
 
 ---
 
@@ -491,19 +491,19 @@ WITH RECURSIVE cte AS (
 
 ### 9.2 快速对照速记
 
-| 记忆法 | MySQL | PostgreSQL |
-|--------|-------|------------|
-| 退出 | `quit` 或 `exit` | `\q` |
-| 列出 | `SHOW DATABASES` | `\l` |
-| 切换 | `USE db` | `\c db` |
-| 表 | `SHOW TABLES` | `\dt` |
-| 结构 | `DESC table` | `\d table` |
-| 索引 | `SHOW INDEX` | `\di` |
-| 用户 | `mysql.user` | `\du` |
-| 执行 | `SOURCE file` | `\i file` |
-| 导出 | `INTO OUTFILE` | `\copy TO` |
-| 导入 | `LOAD DATA` | `\copy FROM` |
-| 时长 | `BENCHMARK` | `\timing` |
+| 记忆法 | MySQL            | PostgreSQL   |
+| --- | ---------------- | ------------ |
+| 退出  | `quit` 或 `exit`  | `\q`         |
+| 列出  | `SHOW DATABASES` | `\l`         |
+| 切换  | `USE db`         | `\c db`      |
+| 表   | `SHOW TABLES`    | `\dt`        |
+| 结构  | `DESC table`     | `\d table`   |
+| 索引  | `SHOW INDEX`     | `\di`        |
+| 用户  | `mysql.user`     | `\du`        |
+| 执行  | `SOURCE file`    | `\i file`    |
+| 导出  | `INTO OUTFILE`   | `\copy TO`   |
+| 导入  | `LOAD DATA`      | `\copy FROM` |
+| 时长  | `BENCHMARK`      | `\timing`    |
 
 ---
 
