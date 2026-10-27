@@ -2550,13 +2550,13 @@ overrides:
 
 #### 11.6.1 组件选型
 
-| 组件 | 部署方式 | Chart / CRD |
-| --- | --- | --- |
-| **Alloy**（采集） | DaemonSet | `helm install alloy grafana/alloy`（repo `https://grafana.github.io/helm-charts`） |
-| **Tempo**（链路） | Operator 管理 | `tempo-operator` 的 `TempoStack` CR |
-| **Loki**（日志） | Helm，微服务模式 | `oci://ghcr.io/grafana-community/helm-charts/loki`（chart 18.x+） |
-| **Mimir**（指标） | Helm | `grafana/mimir-distributed`（repo `https://grafana.github.io/helm-charts`） |
-| **Grafana** | Helm | `oci://ghcr.io/grafana-community/helm-charts/grafana` |
+| 组件            | 部署方式        | Chart / CRD                                                                      |
+| ------------- | ----------- | -------------------------------------------------------------------------------- |
+| **Alloy**（采集） | DaemonSet   | `helm install alloy grafana/alloy`（repo `https://grafana.github.io/helm-charts`） |
+| **Tempo**（链路） | Operator 管理 | `tempo-operator` 的 `TempoStack` CR                                               |
+| **Loki**（日志）  | Helm，微服务模式  | `oci://ghcr.io/grafana-community/helm-charts/loki`（chart 18.x+）                  |
+| **Mimir**（指标） | Helm        | `grafana/mimir-distributed`（repo `https://grafana.github.io/helm-charts`）        |
+| **Grafana**   | Helm        | `oci://ghcr.io/grafana-community/helm-charts/grafana`                            |
 
 > ⚠️ **Loki 的 Helm chart 已经搬家了。**
 >
