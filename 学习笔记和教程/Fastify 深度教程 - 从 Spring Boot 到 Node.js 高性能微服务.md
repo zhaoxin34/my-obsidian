@@ -706,16 +706,16 @@ await app.register(swaggerUi, { routePrefix: '/docs' })
 
 ### 4.7 与 Spring 校验链的对照
 
-| Spring | Fastify | 备注 |
-| --- | --- | --- |
-| `@Valid @RequestBody` + `jakarta.validation` | `schema.body` + Ajv | Fastify 内置，无需 starter |
-| `@NotBlank @Size @Min` 等注解 | JSON Schema 关键字（`minLength` / `minimum` / `pattern`） | 声明式程度更高 |
-| `@Valid` on `@RequestParam` | `schema.querystring` |  |
-| `@PathVariable` 校验 | `schema.params` |  |
-| `@InitBinder` + `ConversionService` | Ajv `coerceTypes` | 行为相近 |
-| `springdoc-openapi` | `@fastify/swagger` |  |
-| Jackson `@JsonInclude` / `@JsonIgnore` | `response` schema 白名单 | Fastify 方式更可靠 |
-| `@RestControllerAdvice` + `MethodArgumentNotValidException` | `setErrorHandler` + `error.validation` |  |
+| Spring                                                      | Fastify                                              | 备注                    |
+| ----------------------------------------------------------- | ---------------------------------------------------- | --------------------- |
+| `@Valid @RequestBody` + `jakarta.validation`                | `schema.body` + Ajv                                  | Fastify 内置，无需 starter |
+| `@NotBlank @Size @Min` 等注解                                  | JSON Schema 关键字（`minLength` / `minimum` / `pattern`） | 声明式程度更高               |
+| `@Valid` on `@RequestParam`                                 | `schema.querystring`                                 |                       |
+| `@PathVariable` 校验                                          | `schema.params`                                      |                       |
+| `@InitBinder` + `ConversionService`                         | Ajv `coerceTypes`                                    | 行为相近                  |
+| `springdoc-openapi`                                         | `@fastify/swagger`                                   |                       |
+| Jackson `@JsonInclude` / `@JsonIgnore`                      | `response` schema 白名单                                | Fastify 方式更可靠         |
+| `@RestControllerAdvice` + `MethodArgumentNotValidException` | `setErrorHandler` + `error.validation`               |                       |
 
 **迁移的心智调整**：
 
@@ -795,12 +795,12 @@ app.setErrorHandler((error, request, reply) => {
 
 关键属性：
 
-| 属性 | 说明 |
-| --- | --- |
-| `error.statusCode` | 校验错误固定为 400；自定义错误由你设置 |
-| `error.validation` | 校验失败的详情（Ajv 错误数组） |
+| 属性                        | 说明                                                 |
+| ------------------------- | -------------------------------------------------- |
+| `error.statusCode`        | 校验错误固定为 400；自定义错误由你设置                              |
+| `error.validation`        | 校验失败的详情（Ajv 错误数组）                                  |
 | `error.validationContext` | `'body' \| 'querystring' \| 'params' \| 'headers'` |
-| `error.code` | Fastify 内置错误码，如 `FST_ERR_CTP_BODY_TOO_LARGE` |
+| `error.code`              | Fastify 内置错误码，如 `FST_ERR_CTP_BODY_TOO_LARGE`       |
 
 **推荐用 `@fastify/sensible`**（Fastify 官方维护）替代手写异常类，它提供了 `httpErrors.notFound()`、`badRequest()` 等一整套：
 
@@ -875,14 +875,14 @@ Fastify({
 
 > 📖 本节只给能力对照表。**完整的可观测性落地（Loki + Tempo + Mimir + OTel Collector 装配、单机验证栈、K8s 生产部署、采样与脱敏策略）见 [第 11 章](#第-11-章可观测性落地--loki--tempo--mimir--opentelemetry)**，那一章的所有配置都在本地真实跑通验证过。
 
-| 能力 | Fastify 方案 | Spring 对应 |
-| --- | --- | --- |
-| 指标 | `prom-client` + 自写 hook | Micrometer + Actuator |
-| 追踪 | `@opentelemetry/instrumentation-fastify` | Micrometer Tracing |
-| 日志关联 traceId | `@opentelemetry/instrumentation-pino` | `TracingAwareLogDecorator` |
-| 过载保护 | `@fastify/under-pressure`（事件循环延迟超阈值返回 503） | 无直接对应（Tomcat 自带线程池排队） |
-| 请求 ID | 内置 `reqId`（**与 traceId 无关**，见 11.3.4） | Micrometer Tracing / Sleuth |
-| 优雅关闭 | `app.close()` + `onClose` hook | `server.shutdown()` + `@PreDestroy` |
+| 能力           | Fastify 方案                                 | Spring 对应                           |
+| ------------ | ------------------------------------------ | ----------------------------------- |
+| 指标           | `prom-client` + 自写 hook                    | Micrometer + Actuator               |
+| 追踪           | `@opentelemetry/instrumentation-fastify`   | Micrometer Tracing                  |
+| 日志关联 traceId | `@opentelemetry/instrumentation-pino`      | `TracingAwareLogDecorator`          |
+| 过载保护         | `@fastify/under-pressure`（事件循环延迟超阈值返回 503） | 无直接对应（Tomcat 自带线程池排队）               |
+| 请求 ID        | 内置 `reqId`（**与 traceId 无关**，见 11.3.4）      | Micrometer Tracing / Sleuth         |
+| 优雅关闭         | `app.close()` + `onClose` hook             | `server.shutdown()` + `@PreDestroy` |
 
 **`@fastify/under-pressure` 值得单独说**：Node 单线程的致命问题是一次 CPU 密集操作会阻塞所有请求。这个插件监控事件循环延迟，超过阈值时直接返回 503，保护自己在雪崩中存活。**生产环境强烈建议开启**。
 
