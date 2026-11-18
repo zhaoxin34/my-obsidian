@@ -2,5 +2,6 @@
   "cssTheme": "Primary",
   "theme": "moonstone",
   "interfaceFontFamily": "Arial",
-  "monospaceFontFamily": "JetBrainsMonoNL Nerd Font Mono"
+  "monospaceFontFamily": "JetBrainsMonoNL Nerd Font Mono",
+  "showRibbon": true
 }
