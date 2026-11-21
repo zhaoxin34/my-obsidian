@@ -60,9 +60,21 @@
               "icon": "lucide-book-up",
               "title": "Release Notes 1.15.1"
             }
+          },
+          {
+            "id": "b5764503cf917294",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.15.1"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.15.1"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -223,7 +235,7 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "a93f0d8d5ebcb99b",
+  "active": "b5764503cf917294",
   "lastOpenFiles": [
     "学习笔记和教程/OAuth 2.0 入门教程：从授权码+PKCE到生产实践.md",
     "学习笔记和教程/Fastify 深度教程 - 从 Spring Boot 到 Node.js 高性能微服务.md",
