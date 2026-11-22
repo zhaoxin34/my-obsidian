@@ -108,7 +108,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "nginx",
+                "query": "react",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -129,8 +129,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -235,7 +234,7 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "b5764503cf917294",
+  "active": "b746167d935cd3b2",
   "lastOpenFiles": [
     "学习笔记和教程/OAuth 2.0 入门教程：从授权码+PKCE到生产实践.md",
     "学习笔记和教程/Fastify 深度教程 - 从 Spring Boot 到 Node.js 高性能微服务.md",
