@@ -65,12 +65,14 @@
             "id": "b5764503cf917294",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.15.1"
+                "file": "操作记录/工作环境初始化.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.15.1"
+              "icon": "lucide-file",
+              "title": "工作环境初始化"
             }
           }
         ],
@@ -234,7 +236,7 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "b746167d935cd3b2",
+  "active": "b5764503cf917294",
   "lastOpenFiles": [
     "学习笔记和教程/OAuth 2.0 入门教程：从授权码+PKCE到生产实践.md",
     "学习笔记和教程/Fastify 深度教程 - 从 Spring Boot 到 Node.js 高性能微服务.md",
