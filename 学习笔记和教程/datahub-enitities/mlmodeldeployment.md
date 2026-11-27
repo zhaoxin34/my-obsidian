@@ -148,11 +148,11 @@ import datahub.emitter.mce_builder as builder
 import datahub.metadata.schema_classes as models
 from datahub.emitter.mcp import MetadataChangeProposalWrapper
 from datahub.emitter.rest_emitter import DatahubRestEmitter
-from datahub.ingestion.graph.client import DataHubClientConfig, DataHubGraph
+from datahub.ingestion.graph.client import DatahubClientConfig, DataHubGraph
 
 gms_endpoint = "http://localhost:8080"
 emitter = DatahubRestEmitter(gms_server=gms_endpoint, extra_headers={})
-graph = DataHubGraph(DataHubClientConfig(server=gms_endpoint))
+graph = DataHubGraph(DatahubClientConfig(server=gms_endpoint))
 
 deployment_urn = builder.make_ml_model_deployment_urn(
     platform="sagemaker",
