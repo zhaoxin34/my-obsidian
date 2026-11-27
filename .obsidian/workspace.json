@@ -74,9 +74,23 @@
               "icon": "lucide-file",
               "title": "Untitled"
             }
+          },
+          {
+            "id": "364fa1c56014b82b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled 1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled 1"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -237,34 +251,34 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "dede5c5ca4e9ad6d",
+  "active": "364fa1c56014b82b",
   "lastOpenFiles": [
-    "Untitled.md",
-    "学习笔记和教程/datahub-enitities/versionset.md",
-    "学习笔记和教程/datahub-enitities/tag.md",
-    "学习笔记和教程/datahub-enitities/semanticmodel.md",
-    "学习笔记和教程/datahub-enitities/role.md",
-    "学习笔记和教程/datahub-enitities/mlmodelgroup.md",
-    "学习笔记和教程/datahub-enitities/metric.md",
-    "学习笔记和教程/datahub-enitities/dataproduct.md",
-    "学习笔记和教程/datahub-enitities/dataprocess.md",
-    "学习笔记和教程/datahub-enitities/assertion.md",
-    "学习笔记和教程/datahub-enitities/api.md",
-    "学习笔记和教程/datahub-enitities/test.md",
-    "学习笔记和教程/datahub-enitities/telemetry.md",
-    "学习笔记和教程/datahub-enitities/structuredproperty.md",
-    "学习笔记和教程/datahub-enitities/service.md",
-    "学习笔记和教程/datahub-enitities/searchtemplate.md",
-    "学习笔记和教程/datahub-enitities/schemafield.md",
-    "学习笔记和教程/datahub-enitities/repository.md",
-    "学习笔记和教程/datahub-enitities/query.md",
-    "学习笔记和教程/datahub-enitities/post.md",
-    "学习笔记和教程/datahub-enitities/platformresource.md",
-    "学习笔记和教程/datahub-enitities/ownershiptype.md",
-    "学习笔记和教程/datahub-enitities/notebook.md",
-    "学习笔记和教程/datahub-enitities/mlprimarykey.md",
-    "学习笔记和教程/datahub-enitities/mlmodeldeployment.md",
-    "学习笔记和教程/datahub-enitities/mlmodel.md",
+    "Untitled 1.md",
+    "学习笔记和教程/datahub-enitities/71-datahubopenapischema.md",
+    "学习笔记和教程/datahub-enitities/70-datahubconnection.md",
+    "学习笔记和教程/datahub-enitities/69-datahubpersona.md",
+    "学习笔记和教程/datahub-enitities/68-datahubstepstate.md",
+    "学习笔记和教程/datahub-enitities/67-globalsettings.md",
+    "学习笔记和教程/datahub-enitities/66-invitetoken.md",
+    "学习笔记和教程/datahub-enitities/65-datahubupgrade.md",
+    "学习笔记和教程/datahub-enitities/64-datahubaccesstoken.md",
+    "学习笔记和教程/datahub-enitities/63-telemetry.md",
+    "学习笔记和教程/datahub-enitities/62-dataplatforminstance.md",
+    "学习笔记和教程/datahub-enitities/61-datahubretention.md",
+    "学习笔记和教程/datahub-enitities/60-datahubexecutionrequest.md",
+    "学习笔记和教程/datahub-enitities/59-datahubsecret.md",
+    "学习笔记和教程/datahub-enitities/58-datahubingestionsource.md",
+    "学习笔记和教程/datahub-enitities/57-datahubpolicy.md",
+    "学习笔记和教程/datahub-enitities/56-dataplatform.md",
+    "学习笔记和教程/datahub-enitities/55-agentskill.md",
+    "学习笔记和教程/datahub-enitities/54-repository.md",
+    "学习笔记和教程/datahub-enitities/53-api.md",
+    "学习笔记和教程/datahub-enitities/52-aiagent.md",
+    "学习笔记和教程/datahub-enitities/51-service.md",
+    "学习笔记和教程/datahub-enitities/50-platformresource.md",
+    "学习笔记和教程/datahub-enitities/49-datahubfile.md",
+    "学习笔记和教程/datahub-enitities/48-datahubpagemodule.md",
+    "学习笔记和教程/datahub-enitities/47-searchtemplate.md",
     "学习笔记和教程/datahub-enitities",
     "文档列表.base",
     "Untitled.base",
