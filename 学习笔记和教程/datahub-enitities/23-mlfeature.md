@@ -315,7 +315,7 @@ ML 特征支持标签与术语表术语，用于分类、发现与治理：
 - 标签（通过 `globalTags` 方面）提供轻量级分类，例如 PII 标识、特征成熟度级别或业务域
 - 术语表术语（通过 `glossaryTerms` 方面）将特征关联到标准化的业务定义与概念
 
-阅读[这篇博客](https://medium.com/datahub-project/tags-and-terms-two-powerful-datahub-features-used-in-two-different-scenarios-b5b4791e892e)以了解何时使用标签、何时使用术语。
+阅读[这篇博客](https://medium.com/datahub-project/tags-and-terms-two-powerful-datahub-features-used-in-two-different-scenarios-b5b4791e892e)以了解何时使用标签、何时使用术语。以了解何时使用标签、何时使用术语。
 
 
 **Python SDK：为特征添加标签与术语**
@@ -962,4 +962,4 @@ raw_feature -> transformed_feature -> composite_feature
 `name` 字段拥有最高的搜索加权分数（8.0），因此特征名是主要的发现手段。请确保特征名称具有描述性，并在组织内遵循一致的命名约定。
 
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](23-mlfeature.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](23-mlfeature.md)。。

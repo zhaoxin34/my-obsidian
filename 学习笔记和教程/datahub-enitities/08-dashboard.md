@@ -275,7 +275,7 @@ print(f"Updated editable properties for dashboard {dashboard_urn}")
 
 ### 标签与术语表术语（Tags and Glossary Terms）
 
-仪表板可以附加标签（Tag）或术语（Term）。阅读[这篇博客](https://medium.com/datahub-project/tags-and-terms-two-powerful-datahub-features-used-in-two-different-scenarios-b5b4791e892e)以了解标签与术语的区别。
+仪表板可以附加标签（Tag）或术语（Term）。阅读[这篇博客](https://medium.com/datahub-project/tags-and-terms-two-powerful-datahub-features-used-in-two-different-scenarios-b5b4791e892e)以了解标签与术语的区别。以了解标签与术语的区别。
 
 #### 为仪表板添加标签
 
@@ -678,4 +678,4 @@ GraphQL 的 `Dashboard` 类型包含所有标准元数据字段，以及图表�
 - **Tag**：仪表板可以打标签以便于分类与发现
 - **CorpUser / CorpGroup**：仪表板拥有所有者并被用户使用
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](08-dashboard.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](08-dashboard.md)。。

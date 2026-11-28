@@ -442,4 +442,4 @@ CorpGroupUrn("cn=admins,ou=groups,dc=example,dc=com")
 2. 使用命名约定表示层级（例如 "engineering"、"engineering-platform"、"engineering-platform-data"）
 3. 使用域（domain）或标签来表示组织结构
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](11-corpgroup.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](11-corpgroup.md)。。

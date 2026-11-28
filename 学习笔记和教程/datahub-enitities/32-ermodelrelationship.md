@@ -788,7 +788,7 @@ ER 模型关系与 DataHub 的其他多个实体与功能集成：
 
 ### 数据集集成
 
-ER 模型关系与 [Dataset](01-dataset.md 实体本质相连。每个关系必须恰好引用两个数据集：
+ER 模型关系与 [Dataset](01-dataset.md) 实体本质相连。每个关系必须恰好引用两个数据集： 实体本质相连。每个关系必须恰好引用两个数据集：
 
 - 在 UI 中，可从数据集页面发现相关关系
 - GraphQL API 会自动解析源数据集与目标数据集的详情
@@ -796,7 +796,7 @@ ER 模型关系与 [Dataset](01-dataset.md 实体本质相连。每个关系必�
 
 ### Schema 字段集成
 
-尽管该实体将字段路径存储为字符串，但它们对应于被引用数据集中的 [SchemaField](26-schemafield.md 实体。这实现了：
+尽管该实体将字段路径存储为字符串，但它们对应于被引用数据集中的 [SchemaField](26-schemafield.md) 实体。这实现了： 实体。这实现了：
 
 - 在 UI 中可视化展示外键关系
 - 字段级血缘分析
@@ -868,4 +868,4 @@ ER Model Relationship 实体未来可能会演进为包含：
 - 与数据质量规则及约束校验的集成
 
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](32-ermodelrelationship.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](32-ermodelrelationship.md)。。

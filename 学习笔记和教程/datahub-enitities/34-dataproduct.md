@@ -327,7 +327,7 @@ DataHub 将**产品侧**与**资产侧**的 Data Product 权限区分开来：
 
 通过 `updateName` 重命名时，也接受对 Data Product URN 的 **Edit Entity** 作为域级管理权限的替代。
 
-详情参见 [Data Products 用户指南](https://docs.datahub.com/docs/dataproducts.md 和 [元数据策略——派生授权规则](https://docs.datahub.com/docs/authorization/policies.md#derived-authorization-rules。
+详情参见 [Data Products 用户指南](https://docs.datahub.com/docs/dataproducts.md) 和 [元数据策略——派生授权规则](https://docs.datahub.com/docs/authorization/policies.md#derived-authorization-rules。 和 [元数据策略——派生授权规则](https://docs.datahub.com/docs/authorization/policies.md#derived-authorization-rules)。
 
 ### GraphQL API
 
@@ -385,4 +385,4 @@ DataHub 支持通过 YAML 文件以即代码方式管理 Data Product。这支�
 有关配置此行为的更多细节，请参阅上文“与资产的关系”部分。
 
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](34-dataproduct.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](34-dataproduct.md)。。

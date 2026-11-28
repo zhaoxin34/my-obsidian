@@ -427,4 +427,4 @@ DataFlow 实体通过 DataHub 的 GraphQL API 暴露，并完整支持：
 
 在某些上下文中，你可能会在文档或 UI 里看到 "data pipelines" 之类的表述。这些是非正式术语，指的就是 DataFlow。元数据模型中的正式实体类型是 `dataFlow`，而不是 `dataPipeline`。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](04-dataflow.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](04-dataflow.md)。。

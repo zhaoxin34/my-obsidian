@@ -132,8 +132,8 @@ ML Experiment（Container）
 
 关于 ML 实验与训练运行的更多信息，请参阅：
 
-- [ML 模型实体文档](19-mlmodel.md#training-runs-and-experiments
-- [训练运行的 DataProcessInstance 文档](06-dataprocessinstance.md#tracking-ml-training-run-in-a-container
+- [ML 模型实体文档](19-mlmodel.md#training-runs-and-experiments)
+- [训练运行的 DataProcessInstance 文档](06-dataprocessinstance.md#tracking-ml-training-run-in-a-container)
 
 ### 可包含的实体
 
@@ -395,4 +395,4 @@ ContainerKey 中的 `env` 字段为向后兼容而做了特殊处理。在某些
 
 设置在容器上的访问控制可以被所包含的实体继承，不过该行为取决于具体平台的实现。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](13-container.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](13-container.md)。。

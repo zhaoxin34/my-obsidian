@@ -547,4 +547,4 @@ CorpUser 既可以表示自然人用户，也可以表示系统/服务账户。`
 DataHub UI 按此顺序解析，显示可获得的最具体值。
 
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](10-corpuser.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](10-corpuser.md)。。

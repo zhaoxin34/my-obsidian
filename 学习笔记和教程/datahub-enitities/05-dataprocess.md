@@ -9,7 +9,7 @@ source: https://docs.datahub.com/docs/generated/metamodel/entities/dataprocess.m
 
 > **已弃用**：该实体已弃用，不应用于新的实现。
 >
-> **请改用 [dataFlow](04-dataflow.md 和 [dataJob](03-datajob.md。**
+> **请改用 [dataFlow](04-dataflow.md) 和 [dataJob](03-datajob.md。** 和 [dataJob](03-datajob.md。**)
 >
 > `dataProcess` 实体是早期对数据处理任务建模的尝试，现已被更健壮、更灵活的 `dataFlow` 和 `dataJob` 实体取代，后者能更好地体现现代数据流水线的层级结构。
 
@@ -503,10 +503,10 @@ dataProcess 实体在 GraphQL API 中仅以最小程度暴露。现代的 GraphQ
 
 ## 附加资源
 
-- [DataFlow 实体文档](04-dataflow.md
-- [DataJob 实体文档](03-datajob.md
-- [血缘文档](https://docs.datahub.com/docs/features/feature-guides/lineage.md
-- [Airflow 集成指南](https://docs.datahub.com/docs/lineage/airflow.md
+- [DataFlow 实体文档](04-dataflow.md)
+- [DataJob 实体文档](03-datajob.md)
+- [血缘文档](https://docs.datahub.com/docs/features/feature-guides/lineage.md)
+- [Airflow 集成指南](https://docs.datahub.com/docs/lineage/airflow.md)
 
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](05-dataprocess.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](05-dataprocess.md)。。

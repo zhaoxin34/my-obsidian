@@ -9,7 +9,7 @@ source: https://docs.datahub.com/docs/generated/metamodel/entities/datacontract.
 
 数据契约（Data Contract）是数据资产的生产者与消费者之间的协议，用于定义关于数据质量、结构与运维特性的期望与保证。数据契约是一种正式承诺，通过明确数据消费者可以从数据生产者那里得到什么，从而帮助在数据管道中建立信任与可靠性。
 
-DataHub 中的数据契约构建在 [assertion](18-assertion.md（断言）之上，代表一组经过精心整理的、可验证的关于物理数据资产的保证。它采用**生产者导向**：每个物理数据资产有一个由其生产者所拥有的契约，其中声明消费者可以依赖的标准与 SLA。
+DataHub 中的数据契约构建在 [assertion](18-assertion.md（断言）之上，代表一组经过精心整理的、可验证的关于物理数据资产的保证。它采用**生产者导向**：每个物理数据资产有一个由其生产者所拥有的契约，其中声明消费者可以依赖的标准与) SLA。 SLA。
 
 ## 标识（Identity）
 
@@ -367,7 +367,7 @@ print(f"Updated status of data contract {contract_urn} to ACTIVE")
 
 ### 与断言的关系
 
-数据契约构建在 [assertion](18-assertion.md 实体之上。每个契约都包含对断言 URN 的引用，这些断言定义了实际的校验逻辑。这种分离带来以下好处：
+数据契约构建在 [assertion](18-assertion.md) 实体之上。每个契约都包含对断言 URN 的引用，这些断言定义了实际的校验逻辑。这种分离带来以下好处： 实体之上。每个契约都包含对断言 URN 的引用，这些断言定义了实际的校验逻辑。这种分离带来以下好处：
 
 - 在多个契约之间复用断言
 - 将断言逻辑与契约定义独立管理
@@ -378,7 +378,7 @@ print(f"Updated status of data contract {contract_urn} to ACTIVE")
 
 ### 与数据集的关系
 
-目前数据契约主要与 [dataset](01-dataset.md 实体关联。`dataContractProperties` aspect 中包含一个引用数据集 URN 的 `entity` 字段。该关系通过 `ContractFor` 关系类型记录。
+目前数据契约主要与 [dataset](01-dataset.md) 实体关联。`dataContractProperties` aspect 中包含一个引用数据集 URN 的 `entity` 字段。该关系通过 `ContractFor` 关系类型记录。 实体关联。`dataContractProperties` aspect 中包含一个引用数据集 URN 的 `entity` 字段。该关系通过 `ContractFor` 关系类型记录。
 
 一个数据集同一时间可以有一个生效的数据契约，不过契约可以被更新或替换。消费者可以查询数据集以获取其关联的契约，并了解可以依赖的保证。
 
@@ -452,4 +452,4 @@ YAML 格式特别适用于：
 不过，基于 YAML 的契约在摄取时会被转换为底层的 MCP（Metadata Change Proposal）格式，因此所有操作最终都使用相同的底层实体与 aspect 结构。
 
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](41-datacontract.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](41-datacontract.md)。。

@@ -467,7 +467,7 @@ nodes:
 # datahub ingest -c business_glossary.yml
 ```
 
-完整的 YAML 格式规范请参见 [Business Glossary Source](https://docs.datahub.com/docs/generated/ingestion/sources/business-glossary.md 文档。
+完整的 YAML 格式规范请参见 [Business Glossary Source](https://docs.datahub.com/docs/generated/ingestion/sources/business-glossary.md) 文档。 文档。
 
 
 
@@ -520,7 +520,7 @@ GraphQL API 为 GlossaryTerm 提供丰富的查询与变更能力：
 - `removeTerm`、`batchRemoveTerms`：从实体移除术语
 - `updateParentNode`：将术语移动到不同的父组
 
-详细示例参见 [GraphQL API 文档](https://docs.datahub.com/docs/api/graphql/overview.md。
+详细示例参见 [GraphQL API 文档](https://docs.datahub.com/docs/api/graphql/overview.md)。
 
 ### 与搜索和发现集成
 
@@ -539,7 +539,7 @@ GlossaryTerm 支持通过 DataHub 的策略系统进行细粒度访问控制：
 - **Manage All Glossary Children**：管理某术语组整个子树中任意术语的权限
 - 标准实体策略（查看、编辑、删除）适用于单个术语
 
-权限细节参见 [Business Glossary 文档](https://docs.datahub.com/docs/glossary/business-glossary.md。
+权限细节参见 [Business Glossary 文档](https://docs.datahub.com/docs/glossary/business-glossary.md)。
 
 ## 值得注意的例外情况
 
@@ -583,4 +583,4 @@ GlossaryTerm 支持 `schemaMetadata` aspect，该 aspect 很少被使用，但�
 - 建议创建新术语并迁移资产，而不是复用已弃用的术语名称
 
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](15-glossaryterm.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](15-glossaryterm.md)。。

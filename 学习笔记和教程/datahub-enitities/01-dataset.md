@@ -13,9 +13,9 @@ source: https://docs.datahub.com/docs/generated/metamodel/entities/dataset.md
 
 数据集由三部分信息唯一标识：
 
-- **所属平台**：承载该数据集的具体数据技术。例如 `hive`、`bigquery`、`redshift` 等。更多细节参见 [dataplatform](56-dataplatform.md。
+- **所属平台**：承载该数据集的具体数据技术。例如 `hive`、`bigquery`、`redshift` 等。更多细节参见 [dataplatform](56-dataplatform.md)。
 - **数据集在特定平台中的名称**：每个平台在系统内部都有唯一的命名方式。名称通常由若干结构化元素拼接而成，并以 `.` 分隔。例如关系型数据集通常命名为 `<db>.<schema>.<table>`，但像 MySQL 这类没有 `schema` 概念的平台除外，因此 MySQL 数据集命名为 `<db>.<table>`。当特定平台可能存在多个实例时（例如有多个不同的 MySQL 数据库实例，各含不同的数据资产），名称还可以包含实例 id，使命名的通用模式变为 `<platform_instance>.<db>.<schema>.<table>`。
-- **数据集所属的环境（environment）或 fabric**：这是标识上附带的额外限定符，用于区分位于生产环境与非生产环境（如 Staging、QA 等）中的数据集。支持的完整环境 / fabric 列表见 [FabricType.pdl](https://raw.githubusercontent.com/datahub-project/datahub/master/li-utils/src/main/pegasus/com/linkedin/common/FabricType.pdl)。
+- **数据集所属的环境（environment）或 fabric**：这是标识上附带的额外限定符，用于区分位于生产环境与非生产环境（如 Staging、QA 等）中的数据集。支持的完整环境 / fabric 列表见 [FabricType.pdl](https://raw.githubusercontent.com/datahub-project/datahub/master/li-utils/src/main/pegasus/com/linkedin/common/FabricType.pdl)。。
 
 数据集标识符的一个示例是 `urn:li:dataset:(urn:li:dataPlatform:redshift,userdb.public.customer_table,PROD)`。
 
@@ -47,7 +47,7 @@ source: https://docs.datahub.com/docs/generated/metamodel/entities/dataset.md
 ```
 
 - v1 字段路径：`address.zipcode`
-- v2 字段路径：`[version=2.0].[type=struct].address.[type=string].zipcode"`。更多示例及 v2 fieldPath 的正式规范见[此处](https://docs.datahub.com/docs/docs/advanced/field-path-spec-v2.md。
+- v2 字段路径：`[version=2.0].[type=struct].address.[type=string].zipcode"`。更多示例及 v2 fieldPath 的正式规范见[此处](https://docs.datahub.com/docs/docs/advanced/field-path-spec-v2.md)。
 
 理解字段路径很重要，因为字段上的标签、术语、文档都是以它们作为标识来表达的。除字段的类型和名称外，模式还包含附加到单个字段上的描述，以及主键与外键信息。
 
@@ -91,7 +91,7 @@ client.entities.upsert(dataset)
 
 ### 标签与术语表术语（Tags and Glossary Terms）
 
-数据集可以附加标签（Tag）或术语（Term）。阅读[这篇博客](https://medium.com/datahub-project/tags-and-terms-two-powerful-datahub-features-used-in-two-different-scenarios-b5b4791e892e)以了解标签与术语的区别，从而明白何时该使用哪一个。
+数据集可以附加标签（Tag）或术语（Term）。阅读[这篇博客](https://medium.com/datahub-project/tags-and-terms-two-powerful-datahub-features-used-in-two-different-scenarios-b5b4791e892e)以了解标签与术语的区别，从而明白何时该使用哪一个。以了解标签与术语的区别，从而明白何时该使用哪一个。
 
 #### 在数据集顶层添加标签或术语表术语
 
@@ -229,7 +229,7 @@ client.entities.update(dataset)
 
 ### 归属（Ownership）
 
-归属通过 `ownership` aspect 与数据集关联。所有者可以有若干不同类型，如 `DATAOWNER`、`PRODUCER`、`DEVELOPER`、`CONSUMER` 等。完整的归属类型列表及其含义见 [OwnershipType.pdl](https://raw.githubusercontent.com/datahub-project/datahub/master/metadata-models/src/main/pegasus/com/linkedin/common/OwnershipType.pdl)。归属可以从源系统继承，也可以在 DataHub 中通过 UI 额外添加。源端摄取连接器会在源系统支持时自动设置所有者。
+归属通过 `ownership` aspect 与数据集关联。所有者可以有若干不同类型，如 `DATAOWNER`、`PRODUCER`、`DEVELOPER`、`CONSUMER` 等。完整的归属类型列表及其含义见 [OwnershipType.pdl](https://raw.githubusercontent.com/datahub-project/datahub/master/metadata-models/src/main/pegasus/com/linkedin/common/OwnershipType.pdl)。归属可以从源系统继承，也可以在 DataHub 中通过 UI 额外添加。源端摄取连接器会在源系统支持时自动设置所有者。。归属可以从源系统继承，也可以在 DataHub 中通过 UI 额外添加。源端摄取连接器会在源系统支持时自动设置所有者。
 
 #### 添加所有者
 
@@ -418,7 +418,7 @@ emitter.emit_mcp(dataJobLineageMcp)
 
 #### 查询血缘信息
 
-标准的[获取实体的 GET API](/docs/metadata-service/#retrieving-entities)可用于读取上面示例创建的数据集 / datajob。
+标准的[获取实体的 GET API](https://docs.datahub.com/docs/metadata-service/#retrieving-entities)可用于读取上面示例创建的数据集 / datajob。可用于读取上面示例创建的数据集 / datajob。
 响应中同样会包含细粒度血缘信息。
 
 **获取实体快照，包含细粒度血缘**
@@ -636,4 +636,4 @@ client.entities.update(dataset)
 - **OpenAPI 端点**：OpenAPI 端点的 GET API 目前被建模为 Dataset，但在元数据模型中创建 Service/API 实体后，它们应真正被建模为该类实体。
 - **DataHub 的逻辑实体（Logical Entities）**（如 Dataset、Chart、Dashboard）：目前被表示为 Dataset，并带有 Entity 子类型。在元数据模型中创建逻辑 ER 模型后，它们应真正被建模为其中的实体。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](01-dataset.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](01-dataset.md)。。

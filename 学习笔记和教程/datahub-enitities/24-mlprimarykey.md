@@ -121,7 +121,7 @@ MLPrimaryKey 可以通过 `globalTags` 和 `glossaryTerms` aspect 附加标签�
 - **组织**：用项目或领域标签对相关主键进行分组
 - **业务上下文**：将主键关联到业务术语表项，从而提供业务上下文
 
-阅读[这篇博客](https://medium.com/datahub-project/tags-and-terms-two-powerful-datahub-features-used-in-two-different-scenarios-b5b4791e892e)以了解标签与术语的区别。
+阅读[这篇博客](https://medium.com/datahub-project/tags-and-terms-two-powerful-datahub-features-used-in-two-different-scenarios-b5b4791e892e)以了解标签与术语的区别。以了解标签与术语的区别。
 
 ### 所有权
 
@@ -460,4 +460,4 @@ MLPrimaryKey URN 中的特征命名空间通常应与其所在特征表的名称
 - 使用 DataHub 策略控制谁可以查看主键元数据
 - 关联到可能包含更多隐私元数据的上游数据集实体
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](24-mlprimarykey.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](24-mlprimarykey.md)。。

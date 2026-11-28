@@ -393,7 +393,7 @@ results = client.search.get_urns(filter=F.domain("urn:li:domain:marketing"))
 - 在发现过程中自动分配领域
 - 在相似资产之间保持一致的领域标记
 
-详细的摄取配置示例请参见 [Domains 功能指南](/docs/domains)。
+详细的摄取配置示例请参见 [Domains 功能指南](https://docs.datahub.com/docs/domains)。。
 
 ## 值得注意的例外
 
@@ -430,4 +430,4 @@ results = client.search.get_urns(filter=F.domain("urn:li:domain:marketing"))
 
 单项资产分配也可通过特定实体类型上的 "Edit Domain" 元数据策略进行控制。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](12-domain.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](12-domain.md)。。

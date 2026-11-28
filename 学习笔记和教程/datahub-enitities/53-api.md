@@ -28,7 +28,7 @@ URN 示例为 `urn:li:api:order-lookup-mcp`。对于 REST 端点，id 由所属�
 - **name**：显示名称，可搜索并支持自动补全。
 - **description**：该 API 的作用以及何时使用。
 - **externalUrl**：指向该 API 的注册条目、文档或源码的可选链接。
-- **sourceRepository**：该 API 产出所在的 [Repository](54-repository.md（`SourcedFrom`），点亮 `repo → service → api → app → dataset` 链路。
+- **sourceRepository**：该 API 产出所在的 [Repository](54-repository.md（`SourcedFrom`），点亮) `repo → service → api → app → dataset` 链路。 `repo → service → api → app → dataset` 链路。
 - **created** / **lastModified**：审计戳。
 
 ### 签名（Signature）
@@ -37,7 +37,7 @@ URN 示例为 `urn:li:api:order-lookup-mcp`。对于 REST 端点，id 由所属�
 
 - **schemaDefinition**：完整的输入/输出 schema，以不透明字符串表示（通常是 JSON Schema）—— 这是真相来源表示，即使结构化字段无法捕获某些构造也能无损回写。
 - **inputFields** / **outputFields**：结构化、类型化的视图，复用 DataHub 的 schema 字段模型，从而让嵌套/结构体/数组类型、可空性与字段描述都能用标准的 schema 组件渲染。每个字段的 `fieldPath` 即参数名；`nullable=false` 表示该参数为必填。
-- **inputDatasetEdges** / **outputDatasetEdges**：**按引用**表示的输入与输出 schema —— 指向已建模载荷的 [Dataset](01-dataset.md 实体的边（一个 protobuf message、一个 Avro record、一个共享 DTO）。当同一种 message 类型在许多 API 之间复用，或同时也流经 topic 与 table 时使用这些边，从而只定义一次 schema。这些是血缘边（`Consumes` 与 `Produces`），因此图谱呈现为 请求数据集 → API → 响应数据集。每个边都是一个 `Edge`，因此可以携带审计戳与 properties 包；目前尚无读取边属性的地方，所以诸如流式模式等协议细节属于未来工作。
+- **inputDatasetEdges** / **outputDatasetEdges**：**按引用**表示的输入与输出 schema —— 指向已建模载荷的 [Dataset](01-dataset.md) 实体的边（一个 protobuf message、一个 Avro record、一个共享 DTO）。当同一种 message 类型在许多 API 之间复用，或同时也流经 topic 与 table 时使用这些边，从而只定义一次 schema。这些是血缘边（`Consumes` 与 `Produces`），因此图谱呈现为 请求数据集 → API → 响应数据集。每个边都是一个 `Edge`，因此可以携带审计戳与 properties 包；目前尚无读取边属性的地方，所以诸如流式模式等协议细节属于未来工作。 实体的边（一个 protobuf message、一个 Avro record、一个共享 DTO）。当同一种 message 类型在许多 API 之间复用，或同时也流经 topic 与 table 时使用这些边，从而只定义一次 schema。这些是血缘边（`Consumes` 与 `Produces`），因此图谱呈现为 请求数据集 → API → 响应数据集。每个边都是一个 `Edge`，因此可以携带审计戳与 properties 包；目前尚无读取边属性的地方，所以诸如流式模式等协议细节属于未来工作。
 
 某一侧（输入或输出）应当要么内联表达，要么按引用表达。如果两者同时存在，以被引用数据集的 schema 为准，内联字段被视为缓存或部分视图。
 
@@ -63,12 +63,12 @@ output_datasets:
 
 API 通过入向边与"软件到数据"图谱的其余部分相连：
 
-- [Service](51-service.md 组合它（`ServiceComposesApi`）。
-- [AI Agents](52-aiagent.md 将其作为工具调用（`AgentUsesTool`）。
-- [Agent Skills](55-agentskill.md 需要它（`SkillRequiresTool`）。
+- [Service](51-service.md) 组合它（`ServiceComposesApi`）。 组合它（`ServiceComposesApi`）。
+- [AI Agents](52-aiagent.md) 将其作为工具调用（`AgentUsesTool`）。 将其作为工具调用（`AgentUsesTool`）。
+- [Agent Skills](55-agentskill.md) 需要它（`SkillRequiresTool`）。 需要它（`SkillRequiresTool`）。
 
 ### 治理与版本管理
 
 API 支持标准治理 aspects —— 所有权、标签、术语表术语、领域、结构化属性与机构记忆 —— 并且原生支持版本管理（`versionProperties`）。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](53-api.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](53-api.md)。。

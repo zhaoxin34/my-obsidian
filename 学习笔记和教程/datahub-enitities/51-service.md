@@ -7,7 +7,7 @@ source: https://docs.datahub.com/docs/generated/metamodel/entities/service.md
 
 # Service
 
-Service（服务）是目录中针对外部服务的一个条目，该服务对外暴露可调用的 API——例如 MCP server、REST API、GraphQL API、gRPC 服务等。Service 对其暴露的 [API](53-api.md 进行分组，承载完整的接口定义，并处于产出它的 [Repository](54-repository.md 与消费它的 [Applications](35-application.md/智能体之间，位于 `repo → service → api → app → dataset` 链路中。
+Service（服务）是目录中针对外部服务的一个条目，该服务对外暴露可调用的 API——例如 MCP server、REST API、GraphQL API、gRPC 服务等。Service 对其暴露的 [API](53-api.md) 进行分组，承载完整的接口定义，并处于产出它的 [Repository](54-repository.md 与消费它的 [Applications](35-application.md/智能体之间，位于 `repo → service → api → app → dataset` 链路中。 进行分组，承载完整的接口定义，并处于产出它的 [Repository](54-repository.md) 与消费它的 [Applications](35-application.md/智能体之间，位于 `repo → service → api → app → dataset` 链路中。 与消费它的 [Applications](35-application.md/智能体之间，位于) `repo → service → api → app → dataset` 链路中。 `repo → service → api → app → dataset` 链路中。
 
 服务的具体种类通过标准的 `subTypes` aspect 记录（例如 `MCP`、`REST_API`、`OPEN_API`、`GRPC`）。注意 Service 只承载目录信息（身份、描述、接口）；诸如 DataHub 的 Ask DataHub 集成所需认证等运维配置，单独存放在 `GlobalSettings.aiPlugins` 中，而不在实体上。
 
@@ -28,8 +28,8 @@ Service 由单个字段标识：
 - **displayName**：在 UI 和搜索结果中显示的名称，可通过自动补全搜索。
 - **description**：该服务提供什么。
 - **lifecycle**：生命周期阶段——`EXPERIMENTAL`、`PRODUCTION` 或 `DEPRECATED`——以徽章形式呈现，便于使用方一眼看出该服务是否可安全依赖。
-- **apis**：该服务组合/暴露的 [API](53-api.md（`ServiceComposesApi`）。这是一条血缘边，API 位于服务的下游，因此端点会正确地嵌套在其服务之下。
-- **sourceRepository**：产出该服务的 [Repository](54-repository.md（`SourcedFrom`）。
+- **apis**：该服务组合/暴露的 [API](53-api.md（`ServiceComposesApi`）。这是一条血缘边，API) 位于服务的下游，因此端点会正确地嵌套在其服务之下。 位于服务的下游，因此端点会正确地嵌套在其服务之下。
+- **sourceRepository**：产出该服务的 [Repository](54-repository.md（`SourcedFrom`）)。
 
 ### Service Definition
 
@@ -49,4 +49,4 @@ Service 由单个字段标识：
 
 Service 通过共享的事件子系统（`incidentsSummary`）展现运维健康状况，并支持标准的所有权、标签和状态 aspects。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](51-service.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](51-service.md)。。

@@ -598,4 +598,4 @@ DataHub 自身的摄取管道表示为带有特殊 aspect 的数据作业：
 
 这有助于在 UI 和 API 查询中对作业进行过滤与组织。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](03-datajob.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](03-datajob.md)。。

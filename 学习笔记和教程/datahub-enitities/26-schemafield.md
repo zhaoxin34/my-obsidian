@@ -351,7 +351,7 @@ emitter.emit(
 
 模式字段参与共享的事件（incident）子系统，该子系统允许将数据质量问题精确追踪到受影响的具体列，而非整个数据集。事件通过 `raiseIncident` GraphQL 变更（或 Python SDK）在字段上发起，并通过 `SchemaFieldEntity` GraphQL 类型上的 `incidents` 字段读回。该字段携带一个汇总的 `incidentsSummary` aspect，会随着事件的发起与解决自动维护。由于单个事件可以引用多个实体，因此一个事件可以在同一生命周期内关联受影响的列、其父数据集以及下游模型。
 
-在字段上读取事件遵循与其他字段元数据相同的 GraphQL 读取规则，因此取决于[功能开关依赖](#功能开关依赖)中描述的 `schemaFieldEntityFetchEnabled` 功能开关。发起与解决事件不受该开关影响。
+在字段上读取事件遵循与其他字段元数据相同的 GraphQL 读取规则，因此取决于[功能开关依赖](#功能开关依赖（Feature) Flag Dependency）)中描述的 `schemaFieldEntityFetchEnabled` 功能开关。发起与解决事件不受该开关影响。 Flag Dependency）)中描述的 `schemaFieldEntityFetchEnabled` 功能开关。发起与解决事件不受该开关影响。
 
 ### 子类型（SubTypes）
 
@@ -503,7 +503,7 @@ GraphQL API 以 `SchemaFieldEntity` 类型将模式字段实体作为一等实�
 - 字段级元数据必须从父数据集的 `schemaMetadata` / `editableSchemaMetadata` 读取
 - 字段本身仍可解析，数据集级的模式 aspect 不受影响
 
-该开关控制的是_读取_这些实体的成本 —— 每批渲染字段时一次批量获取 —— 而不决定它们是否存在。实体化是另一个独立的、默认关闭的关注点，参见[域与归属](#域与归属可选的-mcp-镜像)。
+该开关控制的是_读取_这些实体的成本 —— 每批渲染字段时一次批量获取 —— 而不决定它们是否存在。实体化是另一个独立的、默认关闭的关注点，参见[域与归属](#域与归属（可选的) MCP 镜像）)。 MCP 镜像）)。
 
 ### 字段路径编码
 
@@ -534,4 +534,4 @@ DataHub 支持两种字段路径格式：
 
 大多数简单模式都可以使用 v1 字段路径。在处理复杂类型或摄取连接器生成 v2 路径时，请使用 v2。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](26-schemafield.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](26-schemafield.md)。。

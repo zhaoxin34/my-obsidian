@@ -241,7 +241,7 @@ print(f"Added subject to query {query_urn}")
 - Schema 字段主体在检查访问权限前会解析为其父数据集。
 - 若操作者能通过部分但非全部主体进行读取，整个 Query 都会被隐藏。
 
-读检查在 GraphQL、Rest.li 和搜索中一致生效。参见 [Metadata Policies — derived authorization rules](https://docs.datahub.com/docs/authorization/policies.md#derived-authorization-rules。
+读检查在 GraphQL、Rest.li 和搜索中一致生效。参见 [Metadata Policies — derived authorization rules](https://docs.datahub.com/docs/authorization/policies.md#derived-authorization-rules)。
 
 该关系对于理解数据集使用情况和基于查询的血缘至关重要。
 
@@ -333,4 +333,4 @@ print(f"Added subject to query {query_urn}")
 
 这一区分有助于区分用户精心整理的查询（可能被文档化并命名）与从查询日志中自动发现的大量查询。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](33-query.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](33-query.md)。。

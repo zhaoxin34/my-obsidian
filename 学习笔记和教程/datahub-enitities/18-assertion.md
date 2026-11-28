@@ -680,7 +680,7 @@ Snowflake DMF（Data Metric Functions）的结果会作为断言结果摄取。�
   - 自定义 SQL 规则 → SQL 断言
 - **外部 DMF**（直接在 Snowflake 中创建，通过 `include_externally_managed_dmfs` 摄取）会输出为 `CUSTOM` 断言，来源为 `EXTERNAL`。
 
-详见 [Snowflake DMF 断言](/docs/assertions/snowflake/snowflake_dmfs.md#how-external-dmfs-differ-from-datahub-created-dmfs)。
+详见 [Snowflake DMF 断言](https://docs.datahub.com/docs/assertions/snowflake/snowflake_dmfs#how-external-dmfs-differ-from-datahub-created-dmfs)。。
 
 ## 注意事项与例外
 
@@ -688,7 +688,7 @@ Snowflake DMF（Data Metric Functions）的结果会作为断言结果摄取。�
 
 `DATASET` 断言类型是用于外部托管检查的**已废弃**遗留格式（历史上由 dbt 测试和 Great Expectations 使用）。它使用 `DatasetAssertionInfo`，采用通用结构。
 
-**新的外部集成必须使用 `AssertionType.CUSTOM` 配合 `CustomAssertionInfo`**，后者现已支持相同的结构化展示字段（scope、aggregation、operator、parameters、fields、nativeType）。推荐使用 GraphQL 的 `upsertCustomAssertion` / `reportAssertionResult` API，或 [Custom Assertions](/docs/api/tutorials/custom-assertions.md) 中记录的 Python 辅助方法。
+**新的外部集成必须使用 `AssertionType.CUSTOM` 配合 `CustomAssertionInfo`**，后者现已支持相同的结构化展示字段（scope、aggregation、operator、parameters、fields、nativeType）。推荐使用 GraphQL 的 `upsertCustomAssertion` / `reportAssertionResult` API，或 [Custom Assertions](https://docs.datahub.com/docs/api/tutorials/custom-assertions) 中记录的 Python 辅助方法。 中记录的 Python 辅助方法。
 
 原生类型模型（`FIELD`、`VOLUME`、`FRESHNESS`、`DATA_SCHEMA`、`SQL`）用于由 DataHub 原生评估或调度的断言，不应用于外部自行上报的场景。
 
@@ -723,4 +723,4 @@ DataHub 中有两个相关概念：
 
 
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](18-assertion.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](18-assertion.md)。。

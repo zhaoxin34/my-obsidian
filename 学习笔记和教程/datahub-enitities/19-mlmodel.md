@@ -13,12 +13,12 @@ ML Model（机器学习模型）实体表示在各类机器学习平台与框架
 
 ML 模型由三部分信息唯一标识：
 
-- 模型注册或部署所在的平台：即承载或管理该模型的具体 ML 平台。例如 `mlflow`、`sagemaker`、`vertexai`、`databricks` 等。更多细节参见 [dataplatform](56-dataplatform.md。
+- 模型注册或部署所在的平台：即承载或管理该模型的具体 ML 平台。例如 `mlflow`、`sagemaker`、`vertexai`、`databricks` 等。更多细节参见 [dataplatform](56-dataplatform.md)。
 - 模型名称：即模型在平台内部的唯一标识。命名规范因平台而异：
   - MLflow：通常使用注册模型名（例如 `recommendation-model`）
   - SageMaker：使用模型名或模型包组名（例如 `product-recommendation-v1`）
   - Vertex AI：使用模型资源名（例如 `projects/123/locations/us-central1/models/456`）
-- 模型训练所处的环境或来源：这与数据集的 fabric 概念类似，便于区分不同环境（PROD、DEV、QA 等）中的模型。支持的完整环境列表见 [FabricType.pdl](https://raw.githubusercontent.com/datahub-project/datahub/master/li-utils/src/main/pegasus/com/linkedin/common/FabricType.pdl)。
+- 模型训练所处的环境或来源：这与数据集的 fabric 概念类似，便于区分不同环境（PROD、DEV、QA 等）中的模型。支持的完整环境列表见 [FabricType.pdl](https://raw.githubusercontent.com/datahub-project/datahub/master/li-utils/src/main/pegasus/com/linkedin/common/FabricType.pdl)。。
 
 ML 模型标识符示例：`urn:li:mlModel:(urn:li:dataPlatform:mlflow,my-recommendation-model,PROD)`。
 
@@ -989,4 +989,4 @@ Model v3 (alias: "challenger")   # Now being tested
 各个方面（`intendedUse`、`mlModelFactorPrompts`、`mlModelEthicalConsiderations` 等）遵循 Model Cards for Model Reporting 框架（Mitchell 等，2019）。虽然这些方面是可选的，但对于生产模型强烈建议使用，以确保负责任的 AI 实践与透明的模型文档化。
 
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](19-mlmodel.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](19-mlmodel.md)。。

@@ -571,7 +571,7 @@ ML 训练运行是 DataProcessInstance 实体的一种专门用例。除标准�
 - **mlTrainingRunProperties**：ML 专用元数据，包括训练指标、超参数和输出 URL
 - **Relationships**：指向 ML 模型（通过 `mlModelProperties.trainingJobs`）和实验（通过 `container` aspect）的关联
 
-有关 ML 训练运行的完整文档（包括涉及实验、模型和数据集的完整工作流），请参阅 [ML Model 实体文档](19-mlmodel.md#training-runs-and-experiments。
+有关 ML 训练运行的完整文档（包括涉及实验、模型和数据集的完整工作流），请参阅 [ML Model 实体文档](19-mlmodel.md#training-runs-and-experiments)。
 
 
 **Python SDK：追踪一次独立的 ML 训练运行**
@@ -980,4 +980,4 @@ DataProcessInstance 的 URN 由 orchestrator、cluster 和 id 字段生成。这
 
 
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](06-dataprocessinstance.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](06-dataprocessinstance.md)。。

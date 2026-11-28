@@ -498,4 +498,4 @@ DataHub 中的笔记本支持若干重要使用场景：
 
 将笔记本纳入 DataHub 的元数据图谱后，组织便可以像对待生产数据资产一样，以同样的严谨度来管理分析代码。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](09-notebook.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](09-notebook.md)。。

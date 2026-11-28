@@ -44,7 +44,7 @@ urn:li:dataPlatform:dbt
 - **面向技术**：名称表示具体技术，而非厂商或产品线
 - **标准化**：DataHub 维护一份规范的平台名称列表以确保一致性
 
-官方支持的数据平台完整列表维护在 DataHub 的引导配置 [data-platforms.yaml](https://github.com/datahub-project/datahub/blob/master/metadata-service/configuration/src/main/resources/bootstrap_mcps/data-platforms.yaml) 中。
+官方支持的数据平台完整列表维护在 DataHub 的引导配置 [data-platforms.yaml](https://github.com/datahub-project/datahub/blob/master/metadata-service/configuration/src/main/resources/bootstrap_mcps/data-platforms.yaml) 中。 中。
 
 ### 自定义平台
 
@@ -410,4 +410,4 @@ DataHub 区分以下两类：
 
 通过将平台确立为一等实体，DataHub 为你所在组织的数据技术全景提供了完整视图。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](56-dataplatform.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](56-dataplatform.md)。。

@@ -46,12 +46,12 @@ AI Agent 由单个字段标识：
 
 `aiAgentDependencies` aspect 记录智能体所依赖的内容，形式为到其他一等实体的带类型关系：
 
-- **skills** → 智能体采用的 [Agent Skill](55-agentskill.md 实体（`AgentHasSkill`）。
-- **tools** → 智能体调用的 [API](53-api.md 实体（`AgentUsesTool`）。这是一条血缘边：工具位于智能体的上游，构成 `repo → service → api → agent` 链路的一部分。
+- **skills** → 智能体采用的 [Agent Skill](55-agentskill.md) 实体（`AgentHasSkill`）。 实体（`AgentHasSkill`）。
+- **tools** → 智能体调用的 [API](53-api.md) 实体（`AgentUsesTool`）。这是一条血缘边：工具位于智能体的上游，构成 `repo → service → api → agent` 链路的一部分。 实体（`AgentUsesTool`）。这是一条血缘边：工具位于智能体的上游，构成 `repo → service → api → agent` 链路的一部分。
 - **models** → 智能体运行所基于的 `mlModel` 实体（LLM）（`AgentUsesModel`）。
 
 ### 版本控制、治理与健康状况
 
 AI Agent 支持标准治理 aspects——所有权、标签、术语表术语、域、结构化属性和机构记忆——同时还支持原生版本控制（`versionProperties`，从而使智能体的连续修订归入一个版本集合）以及通过共享事件子系统的健康状况（`incidentsSummary`）。智能体也可以通过 `upstreamLineage` 参与血缘追踪。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](52-aiagent.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](52-aiagent.md)。。

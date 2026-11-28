@@ -126,7 +126,7 @@ print(f"Updated properties for application: {application_urn}")
 
 ### 标签与术语表术语
 
-与其他实体一样，应用可以附加标签或术语。请阅读[这篇博客](https://medium.com/datahub-project/tags-and-terms-two-powerful-datahub-features-used-in-two-different-scenarios-b5b4791e892e)，以了解标签与术语之间的区别，从而明确何时该使用哪一个。
+与其他实体一样，应用可以附加标签或术语。请阅读[这篇博客](https://medium.com/datahub-project/tags-and-terms-two-powerful-datahub-features-used-in-two-different-scenarios-b5b4791e892e)，以了解标签与术语之间的区别，从而明确何时该使用哪一个。，以了解标签与术语之间的区别，从而明确何时该使用哪一个。
 
 #### 为应用添加标签
 
@@ -229,7 +229,7 @@ print(f"Added term {term_to_add} to application {application_urn}")
 
 ### 所有权
 
-所有权通过 `ownership` aspect 关联到应用。所有者可以有若干不同类型，如 `TECHNICAL_OWNER`、`BUSINESS_OWNER`、`DATA_STEWARD` 等。完整的所有权类型列表及其含义请参见 [OwnershipType.pdl](https://raw.githubusercontent.com/datahub-project/datahub/master/metadata-models/src/main/pegasus/com/linkedin/common/OwnershipType.pdl)。
+所有权通过 `ownership` aspect 关联到应用。所有者可以有若干不同类型，如 `TECHNICAL_OWNER`、`BUSINESS_OWNER`、`DATA_STEWARD` 等。完整的所有权类型列表及其含义请参见 [OwnershipType.pdl](https://raw.githubusercontent.com/datahub-project/datahub/master/metadata-models/src/main/pegasus/com/linkedin/common/OwnershipType.pdl)。。
 
 下面的脚本展示了如何使用底层 Python SDK 为应用添加所有者。
 
@@ -553,4 +553,4 @@ Airflow Application → orchestrates → daily_etl_pipeline
 - 资源消耗指标
 - 依赖关系图可视化
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](35-application.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](35-application.md)。。

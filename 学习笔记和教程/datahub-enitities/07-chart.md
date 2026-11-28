@@ -170,7 +170,7 @@ DataHub 将来自摄取源的元数据（在 `chartInfo` 中）与用户在 Data
 
 ### 标签与术语表术语
 
-图表可以附加 Tag 或术语。阅读[这篇博客](https://medium.com/datahub-project/tags-and-terms-two-powerful-datahub-features-used-in-two-different-scenarios-b5b4791e892e)以了解 tag 与 term 的区别。
+图表可以附加 Tag 或术语。阅读[这篇博客](https://medium.com/datahub-project/tags-and-terms-two-powerful-datahub-features-used-in-two-different-scenarios-b5b4791e892e)以了解 tag 与 term 的区别。以了解 tag 与 term 的区别。
 
 #### 为图表添加标签
 
@@ -396,4 +396,4 @@ GraphQL 的 `Chart` 类型包含所有标准元数据字段，以及查询定义
 - **Tag**：图表可打标签以便分类和发现
 - **CorpUser / CorpGroup**：图表有所有者并被用户使用
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](07-chart.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](07-chart.md)。。

@@ -62,7 +62,7 @@ urn:li:tag:<tag_name>
 - **标签**是轻量、非正式的标签，用于快速归类。适合数据质量状态（`needs_review`）、安全分级（`confidential`）或项目关联（`q4_initiative`）等运营性关注点。
 - **术语表术语**是正式的业务词汇，具备丰富的元数据、关系与治理。适合 "Customer"、"Revenue" 或 "Product SKU" 等业务概念。
 
-详细对比请阅读 [这篇博客](https://medium.com/datahub-project/tags-and-terms-two-powerful-datahub-features-used-in-two-different-scenarios-b5b4791e892e)。
+详细对比请阅读 [这篇博客](https://medium.com/datahub-project/tags-and-terms-two-powerful-datahub-features-used-in-two-different-scenarios-b5b4791e892e)。。
 
 ### 所有权
 
@@ -290,4 +290,4 @@ for urn in results:
 
 标签是关于你数据的元数据，而非安全机制。访问控制请使用 DataHub 的授权功能。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](14-tag.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](14-tag.md)。。

@@ -5,10 +5,10 @@ source: https://docs.datahub.com/docs/generated/metamodel/entities/
 
 # DataHub 元模型实体说明（中文翻译）
 
-DataHub 官方文档 [Metadata Model → Entities](https://docs.datahub.com/docs/generated/metamodel/entities/) 全部实体说明页面的中文翻译，共 71 篇。
+DataHub 官方文档 [Metadata Model → Entities](https://docs.datahub.com/docs/generated/metamodel/entities/) 全部实体说明页面的中文翻译，共 71 篇。 全部实体说明页面的中文翻译，共 71 篇。
 
 - **编号规则**：文件名 `序号-实体名.md`（如 `01-dataset.md`），序号与官方文档左侧边栏中实体的排列顺序一致，从 01 到 71。
-- 每篇包含实体的标识（Identity）、核心能力、示例代码等；原始页面末尾由工具自动生成的 *Technical Reference Guide*（各 Aspect 与字段参考表）仍为英文，未翻译，可查[原页面](https://docs.datahub.com/docs/generated/metamodel/entities/)。
+- 每篇包含实体的标识（Identity）、核心能力、示例代码等；原始页面末尾由工具自动生成的 *Technical Reference Guide*（各 Aspect 与字段参考表）仍为英文，未翻译，可查[原页面](https://docs.datahub.com/docs/generated/metamodel/entities/)。。
 - 文件 frontmatter 中 `order` 字段与序号一致，Obsidian 中可按该字段排序。
 
 ## 实体清单（按官方顺序）

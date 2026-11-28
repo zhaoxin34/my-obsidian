@@ -29,12 +29,12 @@ Agent Skill 由单个字段标识：
 - **description**：技能做什么，以及何时使用它。
 - **instructions**：技能 `SKILL.md` 文件的 markdown 正文（不含 YAML frontmatter）——即技能被激活时加载的执行指引。
 - **sourceRepository**：技能定义所在的位置（见下文）。
-- **requiredTools**：该技能运行所需的 [API](53-api.md 实体（`SkillRequiresTool`）。
+- **requiredTools**：该技能运行所需的 [API](53-api.md) 实体（`SkillRequiresTool`）。 实体（`SkillRequiresTool`）。
 - **created** / **lastModified**：审计时间戳。
 
 ### 来源仓库
 
-`sourceRepository` 字段（一个 `SkillSourceRepository`）指向拥有该技能定义的 git 位置。它携带 `repositoryUrn`（首选，当 [Repository](54-repository.md 已在 DataHub 中编目时）或外部 `url`，以及指向仓库内定义文件的 `path`（例如 `customer-service/SKILL.md`）。
+`sourceRepository` 字段（一个 `SkillSourceRepository`）指向拥有该技能定义的 git 位置。它携带 `repositoryUrn`（首选，当 [Repository](54-repository.md) 已在 DataHub 中编目时）或外部 `url`，以及指向仓库内定义文件的 `path`（例如 `customer-service/SKILL.md`）。 已在 DataHub 中编目时）或外部 `url`，以及指向仓库内定义文件的 `path`（例如 `customer-service/SKILL.md`）。
 
 ### 与智能体的关系
 
@@ -44,4 +44,4 @@ Agent Skill 由单个字段标识：
 
 Agent Skill 支持标准治理 aspects——所有权、标签、术语表术语、域、结构化属性和机构记忆——并支持原生版本控制（`versionProperties`）。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](55-agentskill.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](55-agentskill.md)。。

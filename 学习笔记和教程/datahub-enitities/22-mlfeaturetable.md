@@ -13,7 +13,7 @@ source: https://docs.datahub.com/docs/generated/metamodel/entities/mlfeaturetabl
 
 机器学习特征表由两部分信息标识：
 
-- 承载该特征表的平台：即具体的特征库或 ML 平台技术。示例包括 `feast`、`tecton`、`sagemaker` 等。更多细节请参见 [dataplatform](56-dataplatform.md。
+- 承载该特征表的平台：即具体的特征库或 ML 平台技术。示例包括 `feast`、`tecton`、`sagemaker` 等。更多细节请参见 [dataplatform](56-dataplatform.md)。
 - 特征表的名称：在该具体平台内表示这一特征集合的唯一标识符。
 
 机器学习特征表标识符的示例为 `urn:li:mlFeatureTable:(urn:li:dataPlatform:feast,users_feature_table)`。
@@ -255,7 +255,7 @@ emitter.emit(pk_metadata_change_proposal)
 - 标签（通过 `globalTags` aspect）提供轻量级的分类
 - 术语表术语（通过 `glossaryTerms` aspect）关联到业务定义与概念
 
-阅读[这篇博客](https://medium.com/datahub-project/tags-and-terms-two-powerful-datahub-features-used-in-two-different-scenarios-b5b4791e892e)，以了解何时使用标签、何时使用术语。
+阅读[这篇博客](https://medium.com/datahub-project/tags-and-terms-two-powerful-datahub-features-used-in-two-different-scenarios-b5b4791e892e)，以了解何时使用标签、何时使用术语。，以了解何时使用标签、何时使用术语。
 
 ### 所有权
 
@@ -542,4 +542,4 @@ curl 'http://localhost:8080/relationships?direction=OUTGOING&urn=urn%3Ali%3AmlFe
 
 这一设计反映出：在 ML 系统中，特征是血缘的原子单位，而特征表是组织性构造。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](22-mlfeaturetable.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](22-mlfeaturetable.md)。。

@@ -432,7 +432,7 @@ nodes:
 # datahub ingest -c business_glossary.yml
 ```
 
-完整的 YAML 格式规范请参见 [Business Glossary Source](https://docs.datahub.com/docs/generated/ingestion/sources/business-glossary.md 文档。
+完整的 YAML 格式规范请参见 [Business Glossary Source](https://docs.datahub.com/docs/generated/ingestion/sources/business-glossary.md) 文档。 文档。
 
 
 
@@ -490,7 +490,7 @@ GraphQL API 为 GlossaryNode 提供专用操作：
 - `childrenCount`：该节点下的子节点数量
 - `parentNodes`：从节点到根的祖先路径
 
-UI 操作参见 [Business Glossary 文档](https://docs.datahub.com/docs/glossary/business-glossary.md。
+UI 操作参见 [Business Glossary 文档](https://docs.datahub.com/docs/glossary/business-glossary.md)。
 
 ### 访问控制与权限
 
@@ -607,4 +607,4 @@ GlossaryNode 支持 `displayProperties` aspect（在较新版本中添加），�
 这让重组变得高效，但需要谨慎以避免非预期的移动。
 
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](16-glossarynode.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](16-glossarynode.md)。。

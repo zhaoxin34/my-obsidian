@@ -75,4 +75,4 @@ URN 示例：`urn:li:metric:(urn:li:dataPlatform:dbt,analytics.orders_model,reve
 
 实体级扩展性使用 `structuredProperties` aspect，该 aspect 已为 `metric` 实体注册。结构化属性支持类型化取值、治理控制、搜索分面与 PATCH 语义 —— 对于尚不值得引入一等 PDL 字段的平台特定元数据（如 `additivity`、`filters`、`metricKind` 和 `measureShape`），它们是推荐的机制。当各平台的使用模式逐渐清晰后，这些字段可以在未来的版本修订中被提升到核心 schema 中。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](37-metric.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](37-metric.md)。。

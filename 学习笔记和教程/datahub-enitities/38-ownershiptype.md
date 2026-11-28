@@ -364,4 +364,4 @@ GraphQL 实体类型为 `CUSTOM_OWNERSHIP_TYPE`，映射到 `OwnershipTypeEntity
 - ID 不得包含保留字符，且必须符合 URL 安全要求
 - `__system__` 前缀为内置类型保留
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](38-ownershiptype.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](38-ownershiptype.md)。。

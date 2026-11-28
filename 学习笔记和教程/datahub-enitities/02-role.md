@@ -292,4 +292,4 @@ role 实体与访问管理功能正在活跃开发中，可能发生变化。计
 - 扩展对数据集以外更多实体类型的支持
 - 带审批流程的高级访问申请工作流
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](02-role.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](02-role.md)。。

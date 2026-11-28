@@ -7,7 +7,7 @@ source: https://docs.datahub.com/docs/generated/metamodel/entities/dataplatformi
 
 # Data Platform Instance
 
-Data Platform Instance（数据平台实例）表示某个数据平台的一次具体部署或实例。[dataPlatform](56-dataplatform.md 表示一种技术类型（如 MySQL、Snowflake、BigQuery），而 dataPlatformInstance 则表示该平台的某个特定运行实例（如 "production-mysql-cluster"、"dev-snowflake-account"、"analytics-bigquery-project"）。
+Data Platform Instance（数据平台实例）表示某个数据平台的一次具体部署或实例。[dataPlatform](56-dataplatform.md) 表示一种技术类型（如 MySQL、Snowflake、BigQuery），而 dataPlatformInstance 则表示该平台的某个特定运行实例（如 "production-mysql-cluster"、"dev-snowflake-account"、"analytics-bigquery-project"）。 表示一种技术类型（如 MySQL、Snowflake、BigQuery），而 dataPlatformInstance 则表示该平台的某个特定运行实例（如 "production-mysql-cluster"、"dev-snowflake-account"、"analytics-bigquery-project"）。
 
 对于在不同环境、区域或组织单元中运行同一平台技术多个实例的组织，该实体至关重要。它使 DataHub 能够区分来自不同平台实例的资产，并提供了一种组织和管理平台级元数据与凭据的方式。
 
@@ -106,7 +106,7 @@ DataHub 可以充当 Iceberg catalog，通过平台实例管理 Iceberg 表。`i
 
 这使 DataHub 能够以 REST catalog 的方式管理 Iceberg 表，负责数据访问的元数据操作与凭据发放。
 
-`datahub iceberg` CLI 提供了创建、更新、列出和删除 Iceberg warehouse 的命令。详情请参阅 [Iceberg 集成文档](https://datahubproject.io/docs/generated/ingestion/sources/iceberg)。
+`datahub iceberg` CLI 提供了创建、更新、列出和删除 Iceberg warehouse 的命令。详情请参阅 [Iceberg 集成文档](https://datahubproject.io/docs/generated/ingestion/sources/iceberg)。。
 
 ### 所有权与标签
 
@@ -513,4 +513,4 @@ DataHub 管理这些 warehouse 内 Iceberg 表的生命周期，负责：
 
 平台实例一旦创建，其键组成部分（platform URN 与 instance ID）便不可更改。如果需要重命名某个实例，必须创建新的平台实例实体并从旧实体迁移引用。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](62-dataplatforminstance.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](62-dataplatforminstance.md)。。

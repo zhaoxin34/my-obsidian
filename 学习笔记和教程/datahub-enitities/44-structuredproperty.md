@@ -567,8 +567,8 @@ GraphQL 层通过多个 resolver 暴露结构化属性：
 
 更多信息请参考：
 
-- [结构化属性功能指南](/docs/features/feature-guides/properties/overview.md)
-- [结构化属性 API 教程](/docs/api/tutorials/structured-properties.md)
+- [结构化属性功能指南](https://docs.datahub.com/docs/features/feature-guides/properties/overview)
+- [结构化属性 API 教程](https://docs.datahub.com/docs/api/tutorials/structured-properties)
 
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](44-structuredproperty.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](44-structuredproperty.md)。。

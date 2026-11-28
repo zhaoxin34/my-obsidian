@@ -17,7 +17,7 @@ ML Model Group 由三部分信息标识：
 
 - **Name**：模型组在特定平台内的唯一名称。这通常是一个人类可读的标识符，描述模型的用途或模型族。名称应有意义，并遵循你的组织命名约定。例如 `recommendation-models`、`fraud-detection-v2` 或 `customer-churn-prediction`。
 
-- **Origin (Fabric)**：模型组所属或生成的环境（fabric）。该限定符有助于区分不同环境中的模型，例如生产（PROD）、预发布（QA）、开发（DEV）或测试环境。支持的完整环境列表见 [FabricType.pdl](https://raw.githubusercontent.com/datahub-project/datahub/master/li-utils/src/main/pegasus/com/linkedin/common/FabricType.pdl)。
+- **Origin (Fabric)**：模型组所属或生成的环境（fabric）。该限定符有助于区分不同环境中的模型，例如生产（PROD）、预发布（QA）、开发（DEV）或测试环境。支持的完整环境列表见 [FabricType.pdl](https://raw.githubusercontent.com/datahub-project/datahub/master/li-utils/src/main/pegasus/com/linkedin/common/FabricType.pdl)。。
 
 ML Model Group 标识符的一个示例是 `urn:li:mlModelGroup:(urn:li:dataPlatform:mlflow,recommendation-models,PROD)`。
 
@@ -505,4 +505,4 @@ Kubeflow 模型注册表可以利用模型组按流水线或服务配置来组�
 这使你可以通过 DataHub UI 或搜索 API 轻松发现相关的模型组。
 
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](20-mlmodelgroup.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](20-mlmodelgroup.md)。。

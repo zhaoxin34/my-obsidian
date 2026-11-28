@@ -47,8 +47,8 @@ URN 示例：`urn:li:semanticModel:(urn:li:dataPlatform:dbt,analytics,orders_mod
   - **`alias`** —— 在其所属语义模型的 `SemanticModelRelationship` 连接路径中引用该数据集所用的逻辑别名。
   - **`semanticModel`** —— 所属 SemanticModel 的权威 URN（`IsPartOf`，非血缘）。搜索索引为 `semanticModel` / `hasSemanticModel`。列出某模型的即是对该字段的 ES 过滤。
 - **`viewProperties`** aspect（标准，已在 `dataset` 上注册）—— 当逻辑数据集由视图或内联查询支撑时，保存其原生 SQL（`viewLogic`），与任何其他由视图支撑的数据集完全一致。
-- **`schemaMetadata`** aspect（标准）—— 字段投影：该逻辑数据集暴露哪些列及其结构类型。字段级语义元数据（表达式、聚合、维度/度量/过滤分类）通过 `semanticFieldAnnotation` 叠加在其上 —— 参见下文 [字段与维度](#字段与维度)。
-- **`upstreamLineage`** aspect（标准）—— 回到该逻辑数据集所派生的物理表或查询的物理血缘 —— 参见下文 [血缘](#血缘)。
+- **`schemaMetadata`** aspect（标准）—— 字段投影：该逻辑数据集暴露哪些列及其结构类型。字段级语义元数据（表达式、聚合、维度/度量/过滤分类）通过 `semanticFieldAnnotation` 叠加在其上 —— 参见下文 [字段与维度](#字段与维度)。。
+- **`upstreamLineage`** aspect（标准）—— 回到该逻辑数据集所派生的物理表或查询的物理血缘 —— 参见下文 [血缘](#血缘)。。
 
 ### 字段与维度
 
@@ -94,7 +94,7 @@ SemanticModel 是其逻辑数据集与指标的容器（类似 Domain），而�
 | IsPartOf     | 入向   | `dataset`     | `semanticModelProperties.semanticModel` | 否       |
 | ModeledBy    | 入向   | `metric`      | `metricInfo.semanticModel`              | 否       |
 
-Metric → SMD 血缘存放在 `metricUpstreams.datasetUpstreams`（而不在语义模型上）—— 参见上文 [血缘](#血缘)。遍历随后通过各逻辑数据集的 `upstreamLineage` 继续（SemanticModelDataset → Physical Dataset）。
+Metric → SMD 血缘存放在 `metricUpstreams.datasetUpstreams`（而不在语义模型上）—— 参见上文 [血缘](#血缘)。遍历随后通过各逻辑数据集的 `upstreamLineage` 继续（SemanticModelDataset → Physical Dataset）。。遍历随后通过各逻辑数据集的 `upstreamLineage` 继续（SemanticModelDataset → Physical Dataset）。
 
 ## 值得注意的例外（Notable Exceptions）
 
@@ -110,4 +110,4 @@ Metric → SMD 血缘存放在 `metricUpstreams.datasetUpstreams`（而不在语
 
 实体级扩展性使用 `structuredProperties` aspect，该 aspect 已为 `semanticModel` 实体（以及支撑其逻辑数据集与字段的 `dataset`/`schemaField` 实体）注册。结构化属性支持类型化取值、治理控制、搜索分面与 PATCH 语义 —— 对于尚不值得引入一等 PDL 字段的平台特定元数据，它们是推荐的机制。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](36-semanticmodel.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](36-semanticmodel.md)。。

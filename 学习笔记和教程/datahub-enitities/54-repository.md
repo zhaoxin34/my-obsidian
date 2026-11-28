@@ -7,7 +7,7 @@ source: https://docs.datahub.com/docs/generated/metamodel/entities/repository.md
 
 # Repository
 
-Repository（代码仓库）是源代码仓库（GitHub、GitLab、内部 SCM 等）的一等表示。它是**软件到数据生命周期的起源节点**——`repo → service → api → app → dataset`——并产出编目在其他地方的 [Service](51-service.md、[API](53-api.md 和 [Application](35-application.md。Repository 不是表格类资产：它没有列、查询、统计、质量或预览。
+Repository（代码仓库）是源代码仓库（GitHub、GitLab、内部 SCM 等）的一等表示。它是**软件到数据生命周期的起源节点**——`repo → service → api → app → dataset`——并产出编目在其他地方的 [Service](51-service.md、[API](53-api.md) 和 [Application](35-application.md。Repository 不是表格类资产：它没有列、查询、统计、质量或预览。 和 [Application](35-application.md。Repository) 不是表格类资产：它没有列、查询、统计、质量或预览。 不是表格类资产：它没有列、查询、统计、质量或预览。
 
 ## 身份标识
 
@@ -40,10 +40,10 @@ Repository 由单个字段标识：
 
 `repositoryLineage` aspect 记录仓库之间的来源关系——目前为 `forkOf`，即该仓库是其 git fork 的来源仓库（`RepositoryForkOf`）。
 
-除 fork 血缘之外，Repository 是软件到数据链路的上游锚点：它产出的 Service 和 API 通过各自的 `SourcedFrom` 边指回它，[Agent Skill](55-agentskill.md 也可能将其列为事实来源。因此 Repository 概况页会以入向 `SourcedFrom` 关系的形式展现“它产出了什么”。
+除 fork 血缘之外，Repository 是软件到数据链路的上游锚点：它产出的 Service 和 API 通过各自的 `SourcedFrom` 边指回它，[Agent Skill](55-agentskill.md) 也可能将其列为事实来源。因此 Repository 概况页会以入向 `SourcedFrom` 关系的形式展现“它产出了什么”。 也可能将其列为事实来源。因此 Repository 概况页会以入向 `SourcedFrom` 关系的形式展现“它产出了什么”。
 
 ### 治理
 
 Repository 支持标准治理 aspects——所有权、标签、术语表术语、域、结构化属性和机构记忆——此外还支持浏览路径（`browsePathsV2`）以及标准的 `subTypes` aspect（例如 `GIT_REPOSITORY`）。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](54-repository.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](54-repository.md)。。

@@ -341,4 +341,4 @@ ML 模型部署经常与以下其他 DataHub 实体交互：
 - **Tag**：分类与组织标签
 - **DataPlatformInstance**：部署平台的具体实例
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](21-mlmodeldeployment.md)。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](21-mlmodeldeployment.md)。。
