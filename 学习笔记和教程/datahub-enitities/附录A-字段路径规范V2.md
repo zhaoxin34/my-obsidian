@@ -62,7 +62,7 @@ source: https://docs.datahub.com/docs/advanced/field-path-spec-v2
 <SimpleType> := int | float | double | string | fixed | enum
 ```
 
-对于[上面的示例](#示例有歧义的字段路径)，这种编码将产生下面 2 条分别对应 `A.f` 和 `B.f` 字段的唯一路径。
+对于[上面的示例](#示例：有歧义的字段路径)，这种编码将产生下面 2 条分别对应 `A.f` 和 `B.f` 字段的唯一路径。
 
 ```python
 unique_v2_field_paths = [

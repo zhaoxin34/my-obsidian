@@ -7,13 +7,13 @@ source: https://docs.datahub.com/docs/generated/metamodel/entities/corpuser.md
 
 # 企业用户
 
-CorpUser 表示企业中的单个用户（或账户）。这些实体构成 DataHub 内部的标识层，代表与数据资产交互、拥有资源、隶属于群组，并在组织内拥有角色与权限的人员。CorpUser 可以代表 LDAP 用户、Active Directory 账户、SSO 身份，或 DataHub 原生用户。
+CorpUser 表示企业中的单个用户（或账号）。这类实体构成 DataHub 的身份层，代表与数据资产交互、拥有资源、属于群组，并在组织内拥有角色与权限的人员。CorpUser 可以代表 LDAP 用户、Active Directory 账号、SSO 身份，或 DataHub 原生用户。
 
-## 标识
+## 身份
 
-CorpUser 由单一信息项唯一标识：
+CorpUser 通过唯一的一项信息来识别：
 
-- **Username**：用户在组织内的唯一标识符。它通常来自企业身份提供商（LDAP、Active Directory 等），对于 DataHub 原生用户也可以是电子邮件地址。
+- **Username**：用户在组织内的唯一标识符。它通常来自企业身份提供方（LDAP、Active Directory 等），对于 DataHub 原生用户也可以是电子邮件地址。
 
 CorpUser 的 URN 结构为：
 
@@ -29,92 +29,92 @@ urn:li:corpuser:john.doe@company.com
 urn:li:corpuser:jdoe@company.com
 ```
 
-用户名存储在 `corpUserKey` aspect 中，它是该实体的身份 aspect。username 字段被标记为可搜索，并在 DataHub UI 中支持自动补全功能。
+用户名存储在 `corpUserKey` aspect 中，它是该实体的身份 aspect。username 字段被标记为可搜索，并在 DataHub UI 中支持自动补全。
 
 ### 用户名约定
 
-用户名可以根据你的组织身份提供商采用不同约定：
+用户名可以遵循多种约定，取决于你所在组织的身份提供方：
 
 - **LDAP/Active Directory 用户名**：`jdoe`、`john.doe`、`john_doe`
 - **电子邮件地址**：`jdoe@company.com`、`john.doe@company.com`
-- **SSO 身份**：取决于你的 SSO 提供商的用户名格式
-- **DataHub 原生用户**：通常是电子邮件地址
+- **SSO 身份**：取决于你的 SSO 提供方的用户名格式
+- **DataHub 原生用户**：通常为电子邮件地址
 
-在你的 DataHub 部署中保持用户名格式的一致性非常重要，以确保身份解析和关系追踪正常进行。
+在你的 DataHub 部署中保持用户名格式的一致性非常重要，以确保身份解析与关系追踪能够正确进行。
 
 ## 重要能力
 
 ### 档案信息
 
-用户的基本档案信息存储在 `corpUserInfo` aspect 中。它通常由来自 LDAP、Active Directory、Azure AD、Okta 或其他 SSO 系统等身份提供商的摄取连接器自动填充。
+用户的核心档案信息存储在 `corpUserInfo` aspect 中。这些信息通常由来自 LDAP、Active Directory、Azure AD、Okta 或其他 SSO 系统等身份提供方的摄取连接器自动填充。
 
 **关键字段：**
 
-- **displayName**：用户在 UI 中应显示的名称
+- **displayName**：在 UI 中展示的用户姓名
 - **email**：用于联系用户的电子邮件地址
-- **title**：职位（例如 "Senior Data Engineer"）
-- **firstName** 和 **lastName**：用户姓名的组成部分
-- **fullName**：完整姓名，通常格式为 "firstName lastName"
-- **managerUrn**：用户直属经理的 URN 引用（另一个 CorpUser）
-- **departmentId** 和 **departmentName**：组织部门信息
-- **countryCode**：双字母国家代码（例如 "US"、"UK"）
-- **active**：用户账户是否处于活动状态（已弃用，推荐使用 `corpUserStatus`）
-- **system**：这是系统/服务账户还是自然人用户
+- **title**：职位名称（例如 "Senior Data Engineer"）
+- **firstName** 与 **lastName**：用户姓名的组成部分
+- **fullName**：全名，通常格式为 "firstName lastName"
+- **managerUrn**：指向该用户直接上级的 URN 引用（另一个 CorpUser）
+- **departmentId** 与 **departmentName**：组织部门信息
+- **countryCode**：两字母国家代码（例如 "US"、"UK"）
+- **active**：账号是否处于激活状态（已废弃，改用 `corpUserStatus`）
+- **system**：这是系统/服务账号而非真实用户
 
-`managerUrn` 字段在用户之间创建关系，从而支持在 DataHub 中可视化组织层级。
+`managerUrn` 字段在用户之间建立关系，从而支持在 DataHub 中可视化组织层级结构。
 
 ### 可编辑的用户信息
 
-`corpUserEditableInfo` aspect 包含用户可通过 DataHub UI 修改的信息，允许用户在身份提供商提供的内容之外补充自己的档案。
+`corpUserEditableInfo` aspect 包含用户可以通过 DataHub UI 修改的信息，允许用户在身份提供方所提供的内容之外补充个人档案。
 
 **关键字段：**
 
 - **aboutMe**：个人描述或简介
-- **displayName**：用户指定的显示名称（覆盖 corpUserInfo 中的名称）
-- **title**：用户指定的职位（覆盖 corpUserInfo 中的职位）
+- **displayName**：用户指定的显示名称（覆盖 corpUserInfo 中的同名值）
+- **title**：用户指定的职位（覆盖 corpUserInfo 中的同名值）
 - **teams**：用户所属的团队名称列表（例如 ["Data Platform", "Analytics"]）
-- **skills**：用户拥有的技能列表（例如 ["Python", "SQL", "Machine Learning"]）
+- **skills**：用户掌握的技能列表（例如 ["Python", "SQL", "Machine Learning"]）
 - **pictureLink**：头像图片的 URL
-- **slack**：用于沟通的 Slack 用户名
+- **slack**：用于沟通的 Slack 账号名
 - **phone**：联系电话
 - **email**：联系邮箱（可以与系统邮箱不同）
-- **platforms**：用户常用的数据平台的 URN
-- **persona**：用户的 DataHub persona 的 URN（基于角色的 persona，例如 "Data Analyst"）
+- **platforms**：用户常用数据平台的 URN
+- **persona**：用户的 DataHub persona（基于角色的人设，如 "Data Analyst"）
 
 ### 用户状态
 
-`corpUserStatus` aspect 跟踪用户账户的当前状态，取代了已弃用的 `corpUserInfo` 中的 `active` 字段。
+`corpUserStatus` aspect 跟踪用户账号的当前状态，取代了 `corpUserInfo` 中已废弃的 `active` 字段。
 
 **关键字段：**
 
-- **status**：用户的当前状态（例如 "ACTIVE"、"SUSPENDED"、"PROVISIONED"）
-- **lastModified**：审计标记，记录最后修改状态的人以及修改时间
+- **status**：用户当前状态（例如 "ACTIVE"、"SUSPENDED"、"PROVISIONED"）
+- **lastModified**：审计标记，记录最后修改状态的人及时间
 
-相比简单的布尔值 `active` 字段，该 aspect 提供了对用户账户状态更细粒度的控制。
+相比简单的布尔值 `active` 字段，该 aspect 提供了对用户账号状态更细粒度的控制。
 
 ### 群组成员关系
 
 用户可以通过两个不同的 aspect 成为群组成员：
 
-**groupMembership**：表示在 DataHub 内管理的 CorpGroups 中的成员关系，或从外部系统同步而来的成员关系。这会创建 `IsMemberOfGroup` 关系。
+**groupMembership**：表示在 DataHub 内管理的、或从外部系统同步而来的 CorpGroup 中的成员关系。这会创建 `IsMemberOfGroup` 关系。
 
-**nativeGroupMembership**：表示在外部身份提供商原生群组（如 Active Directory 组）中的成员关系。这会创建 `IsMemberOfNativeGroup` 关系。
+**nativeGroupMembership**：表示在外部身份提供方原生群组（如 Active Directory 组）中的成员关系。这会创建 `IsMemberOfNativeGroup` 关系。
 
 两个 aspect 都存储群组 URN 数组，允许用户同时属于多个群组。
 
 ### 角色成员关系
 
-`roleMembership` aspect 将用户与 DataHub 角色关联起来，这些角色定义了他们 在平台内的权限和访问能力。
+`roleMembership` aspect 将用户与 DataHub 角色关联起来，这些角色定义了他们在平台内的权限与访问能力。
 
 **关键字段：**
 
-- **roles**：分配给用户的 DataHubRole URN 数组
+- **roles**：用户被分配到的 DataHubRole URN 数组
 
-这会创建 `IsMemberOfRole` 关系，是 DataHub 基于角色的访问控制（RBAC）系统的核心。
+这会创建 `IsMemberOfRole` 关系，是 DataHub 基于角色的访问控制（RBAC）体系的基础。
 
 ### 认证凭据
 
-`corpUserCredentials` aspect 存储 DataHub 原生用户（直接在 DataHub 中创建，而非从外部身份提供商同步的用户）的认证信息。
+`corpUserCredentials` aspect 存储 DataHub 原生用户（即直接在 DataHub 中创建、而非从外部身份提供方同步的用户）的认证信息。
 
 **关键字段：**
 
@@ -127,19 +127,19 @@ urn:li:corpuser:jdoe@company.com
 
 ### 用户设置
 
-`corpUserSettings` aspect 存储用户针对 DataHub UI 和功能的个人偏好设置。
+`corpUserSettings` aspect 存储用户在 DataHub UI 与功能方面的个人偏好设置。
 
 **关键字段：**
 
-- **appearance**：控制 DataHub UI 外观与体验的设置
-  - `showSimplifiedHomepage`：是否显示仅包含数据集、图表和仪表板的简化首页
+- **appearance**：控制 DataHub UI 外观与观感的设置
+  - `showSimplifiedHomepage**：是否显示仅包含数据集、图表和仪表板的简化首页
   - `showThemeV2`：是否使用 V2 主题
 - **views**：Views 功能的设置
   - `defaultView`：用户的默认 DataHub 视图
-- **notificationSettings**：通知偏好
+- **notificationSettings**：通知偏好设置
 - **homePage**：首页体验的设置
   - `pageTemplate`：用户的默认页面模板
-  - `dismissedAnnouncementUrns**：用户已忽略的公告列表
+  - `dismissedAnnouncementUrns`：用户已忽略的公告列表
 
 ### 来源
 
@@ -147,14 +147,14 @@ urn:li:corpuser:jdoe@company.com
 
 **关键字段：**
 
-- **type**：取值为 "NATIVE" 或 "EXTERNAL"
-- **externalType**：外部身份提供商的名称（例如 "AzureAD"、"Okta"、"LDAP"）
+- **type**："NATIVE" 或 "EXTERNAL"
+- **externalType**：外部身份提供方的名称（例如 "AzureAD"、"Okta"、"LDAP"）
 
-该信息有助于了解用户数据的权威来源以及管理同步流程。
+这些信息有助于理解用户数据的真实来源（source of truth），并管理同步流程。
 
 ### Slack 集成
 
-`slackUserInfo` aspect 包含用户 Slack 身份的详细信息，从而在 DataHub 内支持丰富的 Slack 集成功能。
+`slackUserInfo` aspect 包含用户 Slack 身份的详细信息，从而支持 DataHub 内丰富的 Slack 集成功能。
 
 **关键字段：**
 
@@ -163,14 +163,14 @@ urn:li:corpuser:jdoe@company.com
 - **name**：Slack 用户名
 - **realName**：Slack 中的真实姓名
 - **displayName**：Slack 中的显示名称
-- **email**：与 Slack 账户关联的电子邮件地址
+- **email**：与 Slack 账号关联的电子邮件
 - **teamId**：Slack 团队/工作区 ID
-- **isDeleted**、**isAdmin**、**isOwner**、**isPrimaryOwner**、**isBot**：账户状态标志
-- **timezone** 和 **timezoneOffset**：用户的时区信息
-- **title**：来自 Slack 的职位
+- **isDeleted**、**isAdmin**、**isOwner**、**isPrimaryOwner**、**isBot**：账号状态标记
+- **timezone** 与 **timezoneOffset**：用户的时区信息
+- **title**：来自 Slack 的职位名称
 - **phone**：来自 Slack 的电话号码
 - **profilePictureUrl**：Slack 头像图片的 URL
-- **statusText** 和 **statusEmoji**：当前的 Slack 状态
+- **statusText** 与 **statusEmoji**：当前 Slack 状态
 
 ### 标签、结构化属性与表单
 
@@ -178,7 +178,7 @@ urn:li:corpuser:jdoe@company.com
 
 - **globalTags**：附加到用户实体用于分类的标签
 - **structuredProperties**：由你的组织数据模型定义的自定义属性
-- **forms**：可附加到用户以收集结构化信息的表单
+- **forms**：可附加到用户上以收集结构化信息的表单
 - **status**：用于软删除的通用状态 aspect
 
 这些通用 aspect 支持灵活的元数据管理，并与 DataHub 更广泛的元数据框架集成。
@@ -188,7 +188,6 @@ urn:li:corpuser:jdoe@company.com
 ### 创建 CorpUser
 
 创建 CorpUser 最简单的方式是使用高层 Python SDK：
-
 
 **Python SDK：创建基础用户**
 
@@ -226,12 +225,9 @@ print(f"Created user {user.urn}")
 
 ```
 
-
-
 ### 创建带群组成员关系的 CorpUser
 
-用户通常是群组成员。以下是创建用户并将其分配到群组的方法：
-
+用户通常是某些群组的成员。下面介绍如何创建用户并将其分配到群组：
 
 **Python SDK：创建带群组成员关系的用户**
 
@@ -267,12 +263,9 @@ print(f"Created user {user.urn} with group memberships")
 
 ```
 
-
-
 ### 更新用户档案信息
 
-要为已有用户更新可编辑的档案信息：
-
+要更新已有用户的可编辑档案信息：
 
 **Python SDK：更新用户档案**
 
@@ -307,12 +300,9 @@ print(f"Updated profile for user {user.urn}")
 
 ```
 
-
-
 ### 为用户添加标签
 
 可以为用户打标签以便分类和发现：
-
 
 **Python SDK：为用户添加标签**
 
@@ -365,12 +355,9 @@ else:
 
 ```
 
-
-
 ### 通过 REST API 查询用户
 
 可以使用 REST API 获取用户信息：
-
 
 **REST API：获取用户信息**
 
@@ -384,12 +371,9 @@ curl -X GET "http://localhost:8080/aspects/urn%3Ali%3Acorpuser%3Ajdoe?aspect=cor
   -H "Authorization: Bearer <your-access-token>"
 ```
 
-
-
 ### 搜索用户
 
 可以使用 GraphQL API 或搜索 API 搜索用户：
-
 
 **GraphQL：搜索用户**
 
@@ -423,13 +407,11 @@ query searchUsers {
 }
 ```
 
-
-
 ## 集成点
 
 ### 与其他实体的关系
 
-CorpUser 与其他 DataHub 实体有若干重要关系：
+CorpUser 与其他 DataHub 实体之间存在若干重要关系：
 
 **所有权关系：**
 
@@ -438,18 +420,18 @@ CorpUser 与其他 DataHub 实体有若干重要关系：
 
 **群组关系：**
 
-- 用户通过 `IsMemberOfGroup` 关系隶属于 CorpGroups
-- 群组也可以是资产的所有者，提供继承式所有权
+- 用户通过 `IsMemberOfGroup` 关系属于 CorpGroup
+- 群组也可以是资产的所有者，从而提供继承式所有权
 
 **角色关系：**
 
-- 用户通过 `IsMemberOfRole` 关系被分配 DataHub 角色
-- 角色定义 DataHub 内的权限和访问级别
+- 用户通过 `IsMemberOfRole` 关系被分配到 DataHub 角色
+- 角色定义了 DataHub 内的权限与访问级别
 
 **组织层级：**
 
 - `corpUserInfo` 中的 `managerUrn` 字段创建 `ReportsTo` 关系
-- 这使组织结构和汇报关系链得以可视化
+- 这支持对组织结构与汇报链的可视化
 
 **平台使用：**
 
@@ -458,24 +440,24 @@ CorpUser 与其他 DataHub 实体有若干重要关系：
 
 **Persona 分配：**
 
-- 用户可以通过 `persona` 字段被分配 DataHub persona
+- 用户可以通过 `persona` 字段被分配到 DataHub persona
 - 这有助于按角色对用户分类并定制其使用体验
 
-### 身份提供商集成
+### 身份提供方集成
 
-CorpUser 通常从外部身份提供商同步而来：
+CorpUser 通常从外部身份提供方同步而来：
 
 **LDAP/Active Directory：**
 
 - 大多数组织使用 LDAP 连接器自动同步用户信息
 - 用户名通常对应 LDAP 的 `uid` 或 `sAMAccountName`
-- 档案信息来自 LDAP 属性
+- 档案信息由 LDAP 属性填充
 
-**SSO 提供商（Okta、Azure AD 等）：**
+**SSO 提供方（Okta、Azure AD 等）：**
 
-- SSO 集成可在首次登录时自动置备用户
-- SSO 提供商的用户属性填充 `corpUserInfo` aspect
-- `origin` aspect 跟踪 SSO 提供商作为来源
+- SSO 集成可在用户首次登录时自动置备（provision）用户
+- 来自 SSO 提供方的用户属性填充 `corpUserInfo` aspect
+- `origin` aspect 将该 SSO 提供方记录为来源
 
 **DataHub 原生用户：**
 
@@ -490,61 +472,60 @@ CorpUser 是 DataHub 安全模型的核心：
 **认证：**
 
 - 原生用户使用用户名/密码认证
-- SSO 用户通过其身份提供商认证
-- API 令牌可以关联到用户以进行编程式访问
+- SSO 用户通过其身份提供方认证
+- API 令牌可以关联到用户以支持程序化访问
 
 **授权（RBAC）：**
 
-- 用户通过 `roleMembership` aspect 被分配角色
-- 角色定义用户可以执行的操作
-- 策略可以引用用户或群组以授予/限制访问
+- 用户通过 `roleMembership` aspect 被分配到角色
+- 角色定义了用户可以执行的操作
+- 策略可以引用用户或群组来授予/限制访问权限
 
 **元数据访问：**
 
 - 用户只能看到自己有权查看的元数据
-- 所有权和群组成员关系会影响用户可以编辑的内容
-- 策略可以针对特定用户，也可以基于群组
+- 所有权与群组成员关系会影响用户可以编辑的内容
+- 策略可以是针对用户的，也可以是基于群组的
 
 ## 值得注意的例外情况
 
 ### 系统用户
 
-CorpUser 既可以表示自然人用户，也可以表示系统/服务账户。`corpUserInfo` 中的 `system` 字段区分这两者：
+CorpUser 既可以表示真实用户，也可以表示系统/服务账号。`corpUserInfo` 中的 `system` 字段用于区分两者：
 
-- **自然人用户**（`system: false`）：与 DataHub 交互的真实人员
-- **系统账户**（`system: true`）：服务账户、自动化流程或系统级操作
+- **真实用户**（`system: false`）：与 DataHub 交互的真实人员
+- **系统账号**（`system: true`）：服务账号、自动化流程或系统级操作
 
-系统用户应被正确标记，以便在报表、所有权列表和访问审查中区分它们。
+系统用户应被正确标记，以便在报表、所有者列表和访问权限审查中加以区分。
 
-### 已弃用的 active 字段
+### 已废弃的 active 字段
 
-`corpUserInfo` 中的 `active` 字段已弃用。请改用 `corpUserStatus` aspect，它提供：
+`corpUserInfo` 中的 `active` 字段已废弃。请改用 `corpUserStatus` aspect，它提供：
 
-- 比仅区分活动/非活动更细粒度的状态选项
-- 状态变更的审计信息
-- 更好的置备工作流支持
+- 比简单的激活/停用更细粒度的状态选项
+- 关于状态变更的审计信息
+- 对置备流程更好的支持
 
-在处理用户时，优先检查 `corpUserStatus.status` 而非 `corpUserInfo.active`。
+处理用户时，优先检查 `corpUserStatus.status`，而不是 `corpUserInfo.active`。
 
 ### 用户名不可变性
 
-用户名（位于 `corpUserKey` 中）在用户创建后即不可更改。如果某用户的用户名在源系统中发生变更：
+用户名（位于 `corpUserKey` 中）在用户创建后不可变。如果某用户的用户名在源系统中发生变化：
 
 - 必须使用新用户名创建新的 CorpUser 实体
 - 所有权及其他关系需要迁移到新实体
-- 旧用户可以使用 `status` aspect 进行软删除
+- 旧用户可以使用 `status` aspect 软删除
 
 请仔细规划用户名策略，以避免频繁的用户名变更。
 
-### 显示名称的优先级
+### 显示名称优先级
 
-显示名称可能出现在多个 aspect 中，其优先级如下：
+显示名称可能出现在多个 aspect 中，优先级如下：
 
 1. `corpUserEditableInfo.displayName`（用户指定，优先级最高）
-2. `corpUserInfo.displayName`（来自身份提供商）
-3. `corpUserInfo.fullName`（未设置显示名称时的回退值）
+2. `corpUserInfo.displayName`（来自身份提供方）
+3. `corpUserInfo.fullName`（未设置显示名称时的兜底值）
 
-DataHub UI 按此顺序解析，显示可获得的最具体值。
+DataHub UI 会按此顺序解析，展示可获得的最具体值。
 
-
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](10-corpuser.md)。。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](10-corpuser.md)。

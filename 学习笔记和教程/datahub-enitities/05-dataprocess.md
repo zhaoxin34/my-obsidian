@@ -7,39 +7,39 @@ source: https://docs.datahub.com/docs/generated/metamodel/entities/dataprocess.m
 
 # 数据处理
 
-> **已弃用**：该实体已弃用，不应用于新的实现。
+> **已废弃**：该实体已废弃，不应在新实现中使用。
 >
-> **请改用 [dataFlow](04-dataflow.md) 和 [dataJob](03-datajob.md。** 和 [dataJob](03-datajob.md。**)
+> **请改用 [dataFlow](04-dataflow.md) 和 [dataJob](03-datajob.md)。**
 >
-> `dataProcess` 实体是早期对数据处理任务建模的尝试，现已被更健壮、更灵活的 `dataFlow` 和 `dataJob` 实体取代，后者能更好地体现现代数据流水线的层级结构。
+> `dataProcess` 实体是早期对数据处理任务建模的尝试，但已被更健壮、更灵活的 `dataFlow` 与 `dataJob` 实体取代，后者能更好地体现现代数据流水线的层级特性。
 
-## 弃用说明
+## 废弃说明
 
-弃用 `dataProcess` 实体是为了更清晰地划分：
+废弃 `dataProcess` 实体是为了更清晰地划分：
 
 - **DataFlow**：表示整体的流水线/工作流（例如一个 Airflow DAG、dbt 项目、Spark 应用）
 - **DataJob**：表示流水线中的单个任务（例如一个 Airflow task、dbt model、Spark job）
 
-这种两级层次结构更符合现代编排系统组织数据处理工作的方式，并为血缘跟踪、所有权分配和运维监控提供了更大的灵活性。
+这种两级层次结构更契合现代编排系统组织数据处理工作的方式，也为血缘追踪、所有权分配和运行监控提供了更大灵活性。
 
-### 为什么被弃用？
+### 为何被废弃？
 
 最初的 `dataProcess` 实体存在若干局限：
 
-1. **没有层次结构**：无法表示流水线与其组成任务之间的关系
+1. **没有层级结构**：无法表示流水线与其组成任务之间的关系
 2. **编排器支持有限**：扁平结构无法很好地映射到基于 DAG 的编排平台，如 Airflow、Prefect 或 Dagster
-3. **语义不清晰**：无法确定 dataProcess 代表的是整条流水线还是单个任务
-4. **血缘建模薄弱**：缺少任务级粒度，血缘关系不够精确
+3. **语义不清**：难以判断一个 dataProcess 表示的是整条流水线还是单个任务
+4. **血缘建模不佳**：缺少任务级粒度，血缘关系不够精确
 
-新的 `dataFlow` 和 `dataJob` 模型通过提供清晰的父子关系解决了这些局限，映射真实的数据处理架构。
+新的 `dataFlow` 与 `dataJob` 模型通过提供清晰的父子关系解决了这些局限，映射出真实的数据处理架构。
 
-## 标识（历史参考）
+## 身份（历史参考）
 
 DataProcess 实体由三个组成部分标识：
 
 - **Name**：流程名称（通常是 ETL 作业名称）
 - **Orchestrator**：工作流管理平台（例如 `airflow`、`azkaban`）
-- **Origin (Fabric)**：流程运行的环境（PROD、DEV 等）
+- **Origin（Fabric）**：流程运行所在的环境（PROD、DEV 等）
 
 URN 结构为：
 
@@ -58,21 +58,21 @@ urn:li:dataProcess:(sales_aggregation,azkaban,DEV)
 
 ### DataProcessInfo Aspect
 
-`dataProcessInfo` aspect 捕获流程的输入与输出：
+`dataProcessInfo` aspect 记录流程的输入与输出：
 
 - **Inputs**：流程消费的数据集 URN 数组
 - **Outputs**：流程产出的数据集 URN 数组
 
-这通过与数据集之间的 "Consumes" 关系建立了基本的血缘关系。
+它通过与数据集之间的 “Consumes” 关系建立了基本的血缘关系。
 
-### 通用 Aspects
+### 通用 Aspect
 
 与其他实体一样，dataProcess 支持：
 
-- **所有权**：为流程分配所有者
-- **状态**：将流程标记为已移除
-- **全局标签**：分类与归类
-- **机构记忆**：指向文档的链接
+- **Ownership**：为流程分配所有者
+- **Status**：将流程标记为已移除
+- **Global Tags**：分类与分级
+- **Institutional Memory**：指向文档的链接
 
 ## 迁移指南
 
@@ -83,68 +83,68 @@ urn:li:dataProcess:(sales_aggregation,azkaban,DEV)
 - Airflow DAG
 - dbt 项目
 - Prefect flow
-- Dagster pipeline
-- Azkaban workflow
-- 任何相关数据处理任务的容器
+- Dagster 流水线
+- Azkaban 工作流
+- 任何包含相关数据处理任务的容器
 
 **在表示以下内容时使用 DataJob：**
 
-- DAG 中的 Airflow task
-- 项目中的 dbt model
-- flow 中的 Prefect task
-- pipeline 中的 Dagster op/asset
+- DAG 中的 Airflow 任务
+- 项目中的 dbt 模型
+- flow 中的 Prefect 任务
+- 流水线中的 Dagster op/asset
 - 单个处理步骤
 
 **两者结合使用：**
 
 - 为流水线创建一个 DataFlow
-- 为流水线中的每个任务创建 DataJob
-- 将 DataJob 链接到其父 DataFlow
+- 为该流水线中的每个任务创建 DataJob
+- 将 DataJob 链接到其父级 DataFlow
 
 ### 概念映射
 
-| DataProcess 概念 | 新模型对应物             | 说明                             |
+| DataProcess 概念 | 新模型对应物          | 说明                         |
 | ------------------- | -------------------------- | -------------------------------- |
-| 含任务的流程        | DataFlow + DataJobs       | 拆分为两个实体                  |
-| 流程名称            | DataFlow flowId           | 成为父级标识符                  |
-| 单步骤流程          | DataFlow + 1 个 DataJob   | 仍需同时创建两个实体             |
-| 编排器              | DataFlow orchestrator     | 概念相同，建模更佳               |
-| 来源/Fabric         | DataFlow cluster          | 通常与对应环境一致               |
-| 输入/输出           | DataJob dataJobInputOutput| 移至作业层级以提升精确性         |
+| 含任务的流程        | DataFlow + DataJobs        | 拆分为两个实体               |
+| 流程名称            | DataFlow flowId            | 成为父级标识符               |
+| 单步骤流程          | DataFlow + 1 个 DataJob    | 仍需同时创建两个实体         |
+| 编排器              | DataFlow orchestrator      | 概念相同，建模更佳           |
+| 来源/Fabric         | DataFlow cluster           | 通常与环境对应               |
+| 输入/输出           | DataJob dataJobInputOutput | 下移到作业层级以提升精确性   |
 
 ### 迁移步骤
 
-从 `dataProcess` 迁移到 `dataFlow`/`dataJob`：
+要从 `dataProcess` 迁移到 `dataFlow`/`dataJob`：
 
-1. **确定流程结构**：判断你的 dataProcess 代表的是流水线（包含多个步骤）还是单个任务
+1. **识别你的流程结构**：判断你的 dataProcess 表示的是一条流水线（包含多个步骤）还是单个任务
 
 2. **创建 DataFlow**：表示整体的流水线/工作流
 
    - 使用相同的 orchestrator 值
    - 使用流程名称作为 flow ID
-   - 使用 cluster 标识符（通常与 origin/fabric 一致）
+   - 使用 cluster 标识符（通常与 origin/fabric 对应）
 
 3. **创建 DataJob**：在 flow 内创建一个或多个作业
 
    - 对于单步骤流程：创建一个以流程命名的作业
    - 对于多步骤流程：为每个步骤创建一个作业
-   - 将每个作业链接到其父 DataFlow
+   - 将每个作业链接到其父级 DataFlow
 
-4. **迁移血缘**：将输入/输出数据集关系从流程层级移至作业层级
+4. **迁移血缘**：将输入/输出数据集关系从流程层级移到作业层级
 
-5. **迁移元数据**：将所有权、标签和文档转移到相应实体（通常流水线级元数据归 DataFlow，任务级元数据归具体 DataJob）
+5. **迁移元数据**：将所有权、标签和文档转移到相应的实体（通常是流水线级元数据放在 DataFlow，任务级元数据放在具体的 DataJob）
 
 ### 迁移示例
 
-**示例 1：简单单任务流程**
+**示例 1：简单的单任务流程**
 
-旧 dataProcess：
+旧的 dataProcess：
 
 ```
 urn:li:dataProcess:(daily_report,airflow,PROD)
 ```
 
-新结构：
+新的结构：
 
 ```
 DataFlow: urn:li:dataFlow:(airflow,daily_report,prod)
@@ -153,13 +153,13 @@ DataJob:  urn:li:dataJob:(urn:li:dataFlow:(airflow,daily_report,prod),daily_repo
 
 **示例 2：多步骤 ETL 流水线**
 
-旧 dataProcess：
+旧的 dataProcess：
 
 ```
 urn:li:dataProcess:(customer_pipeline,airflow,PROD)
 ```
 
-新结构：
+新的结构：
 
 ```
 DataFlow: urn:li:dataFlow:(airflow,customer_pipeline,prod)
@@ -170,10 +170,9 @@ DataJob:  urn:li:dataJob:(urn:li:dataFlow:(airflow,customer_pipeline,prod),load_
 
 ## 代码示例
 
-### 查询已存在的 DataProcess 实体
+### 查询已有的 DataProcess 实体
 
-如果为迁移目的需要查询已存在的 dataProcess 实体：
-
+如果出于迁移目的需要查询已有的 dataProcess 实体：
 
 **Python SDK：查询 dataProcess 实体**
 
@@ -256,14 +255,11 @@ print("\nSee dataprocess_migrate_to_flow_job.py for migration code examples.")
 
 ```
 
-
-
 ### 创建等价的 DataFlow 和 DataJob（推荐）
 
-不要使用 dataProcess，而应创建现代的等价实体：
+不要再使用 dataProcess，而应创建现代等价实体：
 
-
-**Python SDK：创建 DataFlow 和 DataJob 以替换 dataProcess**
+**Python SDK：创建 DataFlow 与 DataJob 以替代 dataProcess**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/dataprocess_migrate_to_flow_job.py
@@ -331,12 +327,9 @@ print("- Better integration with modern orchestration platforms")
 
 ```
 
-
-
 ### 完整迁移示例
 
-
-**Python SDK：从 dataProcess 到 dataFlow/dataJob 的完整迁移**
+**Python SDK：从 dataProcess 完整迁移到 dataFlow/dataJob**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/dataprocess_full_migration.py
@@ -438,15 +431,13 @@ print("3. Consider soft-deleting the old dataProcess entity")
 
 ```
 
-
-
 ## 集成点
 
-### 历史用途
+### 历史使用情况
 
 dataProcess 实体此前被以下场景使用：
 
-1. **早期摄取连接器**：早期的 Airflow、Azkaban 连接器在迁移到 dataFlow/dataJob 之前
+1. **早期摄取连接器**：最初的 Airflow、Azkaban 连接器，在迁移到 dataFlow/dataJob 之前
 2. **自定义集成**：用户自行构建且尚未更新的集成
 3. **遗留元数据**：现有 DataHub 实例中的历史数据
 
@@ -455,58 +446,57 @@ dataProcess 实体此前被以下场景使用：
 所有现代 DataHub 连接器都使用 dataFlow 和 dataJob：
 
 - **Airflow**：DAG → DataFlow，Task → DataJob
-- **dbt**：项目 → DataFlow，模型 → DataJob
+- **dbt**：Project → DataFlow，Model → DataJob
 - **Prefect**：Flow → DataFlow，Task → DataJob
 - **Dagster**：Pipeline → DataFlow，Op/Asset → DataJob
-- **Fivetran**：连接器 → DataFlow，同步操作 → DataJob
+- **Fivetran**：Connector → DataFlow，Sync 操作 → DataJob
 - **AWS Glue**：Job → DataFlow，Step → DataJob
 - **Azure Data Factory**：Pipeline → DataFlow，Activity → DataJob
 
 ### DataProcessInstance
 
-请注意，`dataProcessInstance` **并未弃用**。它表示以下两者的某一次具体执行/运行：
+注意，`dataProcessInstance` **未被废弃**。它表示以下两者的某一次具体执行/运行：
 
 - dataJob（推荐）
 - 遗留的 dataProcess（为向后兼容）
 
-DataProcessInstance 继续用于跟踪流水线运行历史、状态和运行时信息。
+DataProcessInstance 继续用于追踪流水线运行历史、状态和运行时信息。
 
 ## 值得注意的例外情况
 
 ### 移除时间线
 
-- **弃用时间**：2021 年初（随 dataFlow/dataJob 一起引入）
-- **状态**：仍保留在实体注册表中以实现向后兼容
-- **当前状态**：没有活跃的摄取源会创建 dataProcess 实体
-- **移除**：没有具体时间表，为现有数据而维护
+- **废弃时间**：2021 年初（随 dataFlow/dataJob 引入）
+- **状态**：为向后兼容仍保留在实体注册表中
+- **当前状况**：没有任何活跃的摄取源会创建 dataProcess 实体
+- **移除**：没有明确时间表，为既有数据继续保留
 
-### 读取已有数据
+### 读取既有数据
 
-出于向后兼容，dataProcess 实体仍可通过所有 DataHub API 读取。你的实例中已有的 dataProcess 实体将继续正常工作并在 UI 中展示。
+出于向后兼容，dataProcess 实体仍可通过所有 DataHub API 读取。你实例中既有的 dataProcess 实体将继续正常工作并在 UI 中展示。
 
-### 不建议新增写入
+### 不建议新建写入
 
-虽然技术上可以创建新的 dataProcess 实体，但**强烈不推荐**。所有新的集成都应使用 dataFlow 和 dataJob。
+虽然技术上可以创建新的 dataProcess 实体，但**强烈不建议**。所有新集成都应使用 dataFlow 和 dataJob。
 
 ### 升级路径
 
-没有自动迁移工具。拥有大量 dataProcess 数据的组织应：
+没有自动迁移工具。拥有大量 dataProcess 数据的组织应当：
 
-1. 使用 Python SDK 查询已存在的 dataProcess 实体
+1. 使用 Python SDK 查询已有的 dataProcess 实体
 2. 创建等价的 dataFlow 和 dataJob 实体
 3. 保留 URN 映射以维持血缘连续性
-4. 迁移验证完成后，考虑软删除旧的 dataProcess 实体
+4. 在迁移验证通过后，考虑对旧 dataProcess 实体做软删除
 
 ### GraphQL API
 
-dataProcess 实体在 GraphQL API 中仅以最小程度暴露。现代的 GraphQL 查询和变更操作聚焦于 dataFlow 和 dataJob 实体。
+dataProcess 实体在 GraphQL API 中的暴露非常有限。现代的 GraphQL 查询与变更操作聚焦于 dataFlow 与 dataJob 实体。
 
 ## 附加资源
 
 - [DataFlow 实体文档](04-dataflow.md)
 - [DataJob 实体文档](03-datajob.md)
-- [血缘文档](https://docs.datahub.com/docs/features/feature-guides/lineage.md)
-- [Airflow 集成指南](https://docs.datahub.com/docs/lineage/airflow.md)
+- [血缘文档](https://docs.datahub.com/docs/features/feature-guides/lineage)
+- [Airflow 集成指南](https://docs.datahub.com/docs/lineage/airflow)
 
-
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](05-dataprocess.md)。。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](05-dataprocess.md)。

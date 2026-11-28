@@ -7,15 +7,15 @@ source: https://docs.datahub.com/docs/generated/metamodel/entities/ownershiptype
 
 # 所有权类型
 
-所有权类型（OwnershipType）实体表示 DataHub 中自定义的所有权类别。所有权类型定义了用户或用户组可以对数据资产承担的角色与职责。DataHub 提供了内置的所有权类型（技术负责人、业务负责人、数据管家），同时组织也可以创建自定义所有权类型，以匹配其特定的治理模型与组织结构。
+ownershipType 实体表示 DataHub 中的自定义所有权分类。所有权类型定义了用户或用户组对数据资产可以承担的角色与职责。DataHub 内置了若干所有权类型（技术负责人、业务负责人、数据管理员），但组织也可以创建自定义所有权类型，以匹配其特定的治理模型与组织结构。
 
-## 身份（Identity）
+## 标识
 
-所有权类型实体通过单一字段唯一标识：
+OwnershipType 实体由单个字段唯一标识：
 
-- **id**：所有权类型的唯一标识符字符串。对于自定义所有权类型通常是 UUID，对于内置类型则是带系统前缀的标识符。
+- **id**：所有权类型的唯一标识符字符串。对于自定义所有权类型通常是一个 UUID，对于内置类型则是带系统前缀的标识符。
 
-URN 结构遵循如下模式：`urn:li:ownershipType:<id>`
+URN 结构遵循模式：`urn:li:ownershipType:<id>`
 
 示例：
 
@@ -23,31 +23,31 @@ URN 结构遵循如下模式：`urn:li:ownershipType:<id>`
 - 自定义类型：`urn:li:ownershipType:8b3d78d1-a9d9-4f79-a948-10c52e3e8f9e`
 - 具名自定义类型：`urn:li:ownershipType:data_quality_lead`
 
-## 重要能力（Important Capabilities）
+## 重要能力
 
 ### 核心信息
 
-`ownershipTypeInfo` aspect 包含所有权类型的核心元数据：
+`ownershipTypeInfo` 方面（aspect）包含所有权类型的关键元数据：
 
 - **name**：所有权类型的显示名称（例如 "Data Quality Lead"、"Compliance Officer"）
-- **description**：对该所有权类型职责与范围的详细说明
-- **created**：审计戳（audit stamp），记录所有权类型的创建时间与创建者
-- **lastModified**：审计戳，跟踪最近一次修改的时间与操作者
+- **description**：对该所有权类型的职责与范围的详细说明
+- **created**：记录所有权类型何时创建、由谁创建的审计戳（audit stamp）
+- **lastModified**：跟踪最后修改时间与操作者的审计戳
 
-### 内置与自定义所有权类型
+### 内置类型与自定义类型
 
-DataHub 自带四个自动创建的内置所有权类型：
+DataHub 随附四个自动创建的内置所有权类型：
 
 1. **Technical Owner**（`__system__technical_owner`）：参与资产的生产、维护或分发
 2. **Business Owner**（`__system__business_owner`）：与资产相关的主要利益相关方或领域专家
 3. **Data Steward**（`__system__data_steward`）：参与资产的治理
 4. **None**（`__system__none`）：未指定所有权类型
 
-内置类型的 ID 以 `__system__` 开头，不能被彻底删除，只能通过 `status` aspect 进行软删除。自定义所有权类型可以被完整删除，且没有此前缀限制。
+内置类型的 ID 以 `__system__` 为前缀，无法被硬删除，只能通过 `status` 方面进行软删除。自定义所有权类型可以被彻底删除，且不受此前缀限制。
 
 ### 在所有权分配中的使用
 
-所有权类型通过数据资产 `ownership` aspect 中 `Owner` 记录的 `typeUrn` 字段被引用。这在资产所有者与其具体角色之间建立了关系：
+在数据资产的 `ownership` 方面中，所有权类型通过 `Owner` 记录的 `typeUrn` 字段被引用。这在资产负责人与其具体角色之间建立了关系：
 
 ```
 Owner {
@@ -57,19 +57,20 @@ Owner {
 }
 ```
 
-`ownership` aspect 还维护一个 `ownerTypes` 映射，按所有权类型 URN 对所有者分组，该映射通过 mutation hook 自动填充。
+ownership 方面还维护一个 `ownerTypes` 映射，按所有权类型 URN 对负责人分组，该映射通过变更钩子（mutation hooks）自动填充。
 
 ### 状态管理
 
-`status` aspect 控制所有权类型是处于有效状态还是已软删除：
+`status` 方面控制所有权类型是处于生效状态还是已被软删除：
 
-- **removed**：设为 true 时，该所有权类型被视为已删除，但引用会被保留
+- **removed**：设为 true 时，该所有权类型被视为已删除，但相关引用会被保留
 
 内置所有权类型只能被软删除（status.removed = true），而自定义类型可以从系统中彻底移除。
 
-## 代码示例（Code Examples）
+## 代码示例
 
 ### 创建自定义所有权类型
+
 
 **Python SDK：创建自定义所有权类型**
 
@@ -126,9 +127,12 @@ print(f"Created custom ownership type: {ownership_type_urn}")
 
 ```
 
-### 在资产上使用自定义所有权类型
 
-**Python SDK：使用自定义所有权类型分配所有者**
+
+### 将自定义所有权类型用于资产
+
+
+**Python SDK：使用自定义所有权类型分配负责人**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/dataset_add_owner_custom_type.py
@@ -193,9 +197,12 @@ print(f"to dataset {dataset_urn}")
 
 ```
 
+
+
 ### 列出所有权类型
 
-**Python SDK：查询所有所有权类型**
+
+**Python SDK：查询全部所有权类型**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/ownership_type_list.py
@@ -257,17 +264,20 @@ else:
 
 ```
 
+
+
 ### 通过 REST API 查询
+
 
 **通过 REST API 获取所有权类型**
 
-获取指定的所有权类型：
+获取特定的所有权类型：
 
 ```bash
 curl 'http://localhost:8080/entitiesV2/urn%3Ali%3AownershipType%3A__system__technical_owner'
 ```
 
-响应中包含 `ownershipTypeInfo` 与 `status` aspects：
+响应中包含 `ownershipTypeInfo` 与 `status` 方面：
 
 ```json
 {
@@ -291,11 +301,16 @@ curl 'http://localhost:8080/entitiesV2/urn%3Ali%3AownershipType%3A__system__tech
 }
 ```
 
-## 集成点（Integration Points）
 
-### 与 Owner Aspect 的关系
 
-所有权类型实体与大多数数据资产（数据集、仪表盘、图表等）上的 `ownership` aspect 存在主要关系。`Owner` 记录包含一个引用所有权类型实体的 `typeUrn` 字段：
+## 集成点
+
+…
+
+
+### 与 Owner 方面的关系
+
+ownershipType 实体与大多数数据资产（数据集、仪表板、图表等）上的 `ownership` 方面存在主要关系。`Owner` 记录包含一个 `typeUrn` 字段，用于引用 ownershipType 实体：
 
 ```
 @Relationship = {
@@ -305,15 +320,15 @@ curl 'http://localhost:8080/entitiesV2/urn%3Ali%3AownershipType%3A__system__tech
 typeUrn: optional Urn
 ```
 
-该关系带来以下能力：
+该关系支持：
 
-- 在搜索与发现中按所有权类型过滤资产
-- 在整个组织范围内按角色对所有者分组
-- 跟踪每个人对各资产承担的职责
+- 在搜索与发现中按所有权类型筛选资产
+- 按角色在整个组织范围内对负责人分组
+- 跟踪每项资产各项职责的承担者
 
 ### GraphQL API 集成
 
-GraphQL API 通过若干 resolver 暴露所有权类型：
+GraphQL API 通过若干解析器暴露所有权类型：
 
 - **CreateOwnershipTypeResolver**：创建新的自定义所有权类型
 - **UpdateOwnershipTypeResolver**：修改已有的所有权类型
@@ -322,46 +337,50 @@ GraphQL API 通过若干 resolver 暴露所有权类型：
 
 GraphQL 实体类型为 `CUSTOM_OWNERSHIP_TYPE`，映射到 `OwnershipTypeEntity` GraphQL 类型。
 
-### 权限控制
+### 授权
 
-管理所有权类型需要特定权限：
+管理所有权类型需要特定授权：
 
 - 创建、更新或删除所有权类型需要 `canManageOwnershipTypes` 权限
 - 该权限通常仅限于平台管理员与治理团队
 
 ### 常见使用模式
 
-1. **组织特定角色**：定义与组织结构匹配的所有权类型（例如 "Product Manager"、"Data Engineer"、"Analytics Lead"）
+1. **组织专属角色**：定义与组织结构匹配的所有权类型（例如 "Product Manager"、"Data Engineer"、"Analytics Lead"）
+
 2. **合规角色**：为法规合规创建类型（例如 "Privacy Officer"、"Compliance Reviewer"、"Audit Contact"）
+
 3. **生命周期角色**：跟踪数据生命周期中的不同职责（例如 "Data Producer"、"Data Consumer"、"Data Custodian"）
-4. **领域特定角色**：为特定领域建立所有权类型（例如 "Marketing Data Owner"、"Finance Data Steward"）
 
-## 值得注意的例外（Notable Exceptions）
+4. **领域专属角色**：为特定领域确立所有权类型（例如 "Marketing Data Owner"、"Finance Data Steward"）
 
-### 向后兼容性
+## 值得注意的例外
 
-`Owner` 记录同时包含已废弃的 `type` 字段（`OwnershipType` 枚举）与较新的 `typeUrn` 字段（指向所有权类型实体的 Urn 引用）。基于枚举的字段为向后兼容而保留，但不应在新的实现中使用。当使用自定义所有权类型时，该枚举字段被设为 `CUSTOM`。
+### 向后兼容
+
+`Owner` 记录同时包含已弃用的 `type` 字段（OwnershipType 枚举）和较新的 `typeUrn` 字段（指向 ownershipType 实体的 Urn 引用）。基于枚举的字段为向后兼容而保留，但不应在新实现中使用。当使用自定义所有权类型时，枚举字段会被设为 `CUSTOM`。
 
 ### 系统类型的删除
 
-内置所有权类型（ID 以 `__system__` 开头）无法被彻底删除。`OwnershipTypeService.deleteOwnershipType()` 方法会：
+内置所有权类型（ID 以 `__system__` 开头）无法被彻底删除。`OwnershipTypeService.deleteOwnershipType()` 方法将：
 
 - 通过设置 `status.removed = true` 软删除系统类型
-- 通过完全移除实体来硬删除自定义类型
+- 通过彻底移除实体来硬删除自定义类型
 
-这确保了即便系统类型被停用，对它们的引用仍然有效。
+这确保了即使系统类型被停用，对它们的引用仍然有效。
 
-### 从枚举到实体的迁移
+### 从枚举迁移到实体
 
-历史上，所有权类型是作为固定枚举（`OwnershipType.pdl`）定义的。引入所有权类型实体后，在保持兼容性的同时实现了可扩展性。已废弃的枚举值（DEVELOPER、DATAOWNER、DELEGATE、PRODUCER、CONSUMER、STAKEHOLDER）应迁移到相应的系统所有权类型（TECHNICAL_OWNER、BUSINESS_OWNER、DATA_STEWARD）。
+历史上，所有权类型定义为一个固定枚举（`OwnershipType.pdl`）。ownershipType 实体的引入在保持兼容性的同时实现了可扩展性。已弃用的枚举值（DEVELOPER、DATAOWNER、DELEGATE、PRODUCER、CONSUMER、STAKEHOLDER）应迁移到相应的系统所有权类型（TECHNICAL_OWNER、BUSINESS_OWNER、DATA_STEWARD）。
 
 ### ID 生成
 
 创建自定义所有权类型时：
 
-- 系统会自动为 `id` 字段生成 UUID
+- 系统会自动为 `id` 字段生成一个 UUID
 - 组织也可以使用人类可读的 ID（例如 "data_quality_lead"）以便管理
-- ID 不得包含保留字符，且必须符合 URL 安全要求
+- ID 不得包含保留字符，且必须是 URL 安全的
 - `__system__` 前缀为内置类型保留
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](38-ownershiptype.md)。。
+
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](38-ownershiptype.md)。

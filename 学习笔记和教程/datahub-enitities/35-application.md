@@ -7,30 +7,30 @@ source: https://docs.datahub.com/docs/generated/metamodel/entities/application.m
 
 # 应用
 
-应用实体表示在你的数据生态中生产或消费数据资产的软件应用、服务或系统。应用提供了一种组织和归组相关数据资产的方式，按创建、转换或使用这些资产的软件进行归类，从而更好地理解数据溯源与使用模式。
+应用实体表示在你的数据生态中生产或消费数据资产的软件应用、服务或系统。应用提供了一种按创建、转换或使用数据资产的软件来组织和归组相关数据资产的方式，从而更好地理解数据来源和使用模式。
 
 ## 标识
 
-应用由一部分信息标识：
+应用由单一信息唯一确定：
 
-- 应用的唯一标识符（`id`）：这是一个在你的 DataHub 实例内唯一标识该应用的字符串。它可以是任何有意义的标识符，例如应用名、服务名或系统标识符。常见模式包括使用 kebab-case 名称（例如 `customer-analytics-service`）、全限定服务名（例如 `com.company.analytics.customer-service`），或简单的描述性名称（例如 `tableau-reports`）。
+- 应用的唯一标识符（`id`）：这是一个字符串，用于在你的 DataHub 实例内唯一标识该应用。它可以是任何有意义的标识符，例如应用名、服务名或系统标识符。常见做法包括使用 kebab-case 名称（例如 `customer-analytics-service`）、全限定服务名（例如 `com.company.analytics.customer-service`），或简单的描述性名称（例如 `tableau-reports`）。
 
-应用标识符的示例为 `urn:li:application:customer-analytics-service`。
+应用标识符的一个示例是 `urn:li:application:customer-analytics-service`。
 
-与需要平台和环境限定符的数据集不同，应用采用更简单的 URN 结构，仅包含应用标识符，因而能灵活表示组织内各类软件应用。
+与需要平台和环境限定符的数据集不同，应用使用更简单的 URN 结构，仅包含应用标识符，因此可以灵活地表示组织内任何类型的软件应用。
 
 ## 重要能力
 
 ### 应用属性
 
-应用的核心元数据存储在 `applicationProperties` aspect 中。该 aspect 包含：
+关于应用的核心元数据存储在 `applicationProperties` aspect 中。该 aspect 包含：
 
-- **名称**：应用的可读展示名称（例如 "Customer Analytics Service"、"Data Pipeline Orchestrator"）
-- **描述**：说明应用做什么、其用途以及如何使用的文档
-- **自定义属性**：用于存储应用特有附加元数据的键值对
+- **名称**：应用的易读展示名称（例如 “Customer Analytics Service”、“Data Pipeline Orchestrator”）
+- **描述**：说明应用做什么、用途是什么以及如何使用的文档
+- **自定义属性**：用于存储应用专属额外元数据的键值对
 - **外部引用**：指向外部文档、源代码仓库、仪表板或其他相关资源的链接
 
-下面的代码片段展示了如何创建带有基本属性的应用。
+下面的代码片段展示了如何创建带基本属性的应用。
 
 
 **Python SDK：创建应用**
@@ -77,9 +77,11 @@ print(f"Created application: {application_urn}")
 
 ```
 
+
+
 ### 更新应用属性
 
-你可以通过发出新的 `applicationProperties` aspect 来更新已有应用的属性。SDK 会将新属性与已有属性合并。
+你可以通过发出新的 `applicationProperties` aspect 来更新已有应用的属性。SDK 会把新属性与已有属性合并。
 
 
 **Python SDK：更新应用属性**
@@ -124,13 +126,15 @@ print(f"Updated properties for application: {application_urn}")
 
 ```
 
+
+
 ### 标签与术语表术语
 
-与其他实体一样，应用可以附加标签或术语。请阅读[这篇博客](https://medium.com/datahub-project/tags-and-terms-two-powerful-datahub-features-used-in-two-different-scenarios-b5b4791e892e)，以了解标签与术语之间的区别，从而明确何时该使用哪一个。，以了解标签与术语之间的区别，从而明确何时该使用哪一个。
+与其他实体一样，应用可以附加标签或术语。阅读 [这篇博客](https://medium.com/datahub-project/tags-and-terms-two-powerful-datahub-features-used-in-two-different-scenarios-b5b4791e892e)，了解标签与术语之间的区别，从而明白何时该使用哪一个。
 
 #### 为应用添加标签
 
-标签通过 `globalTags` aspect 添加到应用。标签适用于按技术栈、团队归属、关键程度或其他组织维度对应用进行分类。
+标签通过 `globalTags` aspect 添加到应用。标签适合按技术栈、团队归属、关键程度或其他组织维度对应用进行分类。
 
 
 **Python SDK：为应用添加标签**
@@ -175,9 +179,11 @@ print(f"Added tag {tag_to_add} to application {application_urn}")
 
 ```
 
+
+
 #### 为应用添加术语表术语
 
-术语通过 `glossaryTerms` aspect 添加。术语适用于将应用与业务概念、数据域或标准化术语关联起来。
+术语通过 `glossaryTerms` aspect 添加。术语适合把应用与业务概念、数据域或标准化术语关联起来。
 
 
 **Python SDK：为应用添加术语**
@@ -227,9 +233,11 @@ print(f"Added term {term_to_add} to application {application_urn}")
 
 ```
 
-### 所有权
 
-所有权通过 `ownership` aspect 关联到应用。所有者可以有若干不同类型，如 `TECHNICAL_OWNER`、`BUSINESS_OWNER`、`DATA_STEWARD` 等。完整的所有权类型列表及其含义请参见 [OwnershipType.pdl](https://raw.githubusercontent.com/datahub-project/datahub/master/metadata-models/src/main/pegasus/com/linkedin/common/OwnershipType.pdl)。。
+
+### 归属
+
+归属通过 `ownership` aspect 与应用关联。所有者可以有若干不同类型，例如 `TECHNICAL_OWNER`、`BUSINESS_OWNER`、`DATA_STEWARD` 等。完整的归属类型列表及其含义参见 [OwnershipType.pdl](https://raw.githubusercontent.com/datahub-project/datahub/master/metadata-models/src/main/pegasus/com/linkedin/common/OwnershipType.pdl)。
 
 下面的脚本展示了如何使用底层 Python SDK 为应用添加所有者。
 
@@ -283,9 +291,11 @@ print(f"Added owner {owner_to_add} to application {application_urn}")
 
 ```
 
+
+
 ### 域
 
-应用可以与域关联，以按业务领域、部门或数据域进行组织。域通过 `domains` aspect 设置。
+应用可以与域关联，以按业务领域、部门或数据域来组织。域通过 `domains` aspect 设置。
 
 
 **Python SDK：为应用添加域**
@@ -326,19 +336,21 @@ print(f"Added domain {domain_to_add} to application {application_urn}")
 
 ```
 
+
+
 ### 应用资产（成员关系）
 
-应用最强大的能力之一是能够与数据资产关联，从而在应用与该应用生产或消费的数据集、仪表板、图表或其他实体之间建立关系。
+应用最强大的能力之一是能够与数据资产关联。这会在应用与其生产或消费的数据集、仪表板、图表或其他实体之间建立关系。
 
-`applications` aspect 附加在数据资产上（而非应用实体本身），用以标明哪些应用与这些资产相关联。这种双向关系带来以下能力：
+`applications` aspect 附着在数据资产上（而非应用实体本身），以表明哪些应用与这些资产相关联。这种双向关系支持：
 
-- 查找与特定应用关联的所有数据资产
-- 发现哪些应用生产或消费某个数据集
+- 找出与某个特定应用关联的所有数据资产
+- 发现哪些应用生产或消费某个特定数据集
 - 跨应用边界追踪数据血缘
 - 理解应用数据足迹的完整范围
 
 
-**Python SDK：将资产与应用关联**
+**Python SDK：把资产与应用关联**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/application_add_assets.py
@@ -383,9 +395,11 @@ print(f"\nSuccessfully associated {len(dataset_urns)} assets with application")
 
 ```
 
+
+
 ### 查询应用
 
-可以使用 Python SDK 查询应用，以获取全部 aspect 与元数据。
+可以使用 Python SDK 查询应用，以获取全部 aspect 和元数据。
 
 
 **Python SDK：获取应用实体**
@@ -417,13 +431,15 @@ if props.customProperties:
 
 ```
 
-或者使用 curl：
+或使用 curl：
 
 ```bash
 curl 'http://localhost:8080/entities/urn%3Ali%3Aapplication%3Acustomer-analytics-service'
 ```
 
-你还可以使用搜索 API 查询与应用关联的所有资产：
+
+
+你也可以使用 search API 查询与某个应用关联的所有资产：
 
 
 **查找与应用关联的所有资产**
@@ -453,18 +469,25 @@ curl -X POST 'http://localhost:8080/entities?action=search' \
   }'
 ```
 
+
+
 ## 集成点
 
 ### 与其他实体的关系
 
 应用可以与 DataHub 中多种类型的实体关联：
 
-1. **数据集**：最常见的用法是把应用与其生产或消费的数据集关联。这有助于追踪数据溯源，并理解哪些应用位于特定数据集的上游或下游。
-2. **仪表板与图表**：生成报表或可视化的应用可以关联到仪表板和图表实体，明确哪个应用产生了哪些分析产物。
-3. **数据作业与数据流**：ETL 管道和数据处理应用可以关联到它们所编排或执行的 `dataJob` 与 `dataFlow` 实体。
-4. **ML 模型与 ML 特征**：机器学习应用可以关联到其训练或用于推理的模型与特征。
-5. **域**：应用可以归属于业务域，有助于按组织结构或业务职能进行组织。
-6. **所有权**：应用拥有所有者（技术所有者、业务所有者），由其负责维护和运营。
+1. **数据集**：最常见的用法是把应用与其生产或消费的数据集关联起来。这有助于追踪数据来源，并理解哪些应用位于特定数据集的上游或下游。
+
+2. **仪表板与图表**：生成报表或可视化的应用可以链接到仪表板和图表实体，从而清晰表明哪个应用生产了哪些分析产物。
+
+3. **数据任务与数据流**：ETL 管道和数据处理类应用可以与其编排或执行的 dataJob 和 dataFlow 实体关联。
+
+4. **ML 模型与 ML 特征**：机器学习应用可以链接到其训练或推理所使用的模型和特征。
+
+5. **域**：应用可以归属于业务域，有助于按组织结构或业务职能进行整理。
+
+6. **归属**：应用有所有者（技术所有者、业务所有者），由其负责维护和运营。
 
 ### 常见使用模式
 
@@ -478,7 +501,7 @@ Customer Service Application → produces → customer_events dataset
                              → consumes → user_authentication dataset
 ```
 
-该模式通常在摄取期间这样实现：
+该模式通常在采集阶段实现：
 
 - 为每个数据集添加 `applications` aspect
 - 在该 aspect 中引用应用 URN
@@ -495,7 +518,7 @@ Power BI Application → contains → Finance Dashboard
 
 #### 模式 3：数据管道分组
 
-数据管道编排系统可以把相关作业归到某个应用之下：
+数据管道编排系统可以把相关任务归到某个应用之下：
 
 ```
 Airflow Application → orchestrates → daily_etl_pipeline
@@ -505,7 +528,7 @@ Airflow Application → orchestrates → daily_etl_pipeline
 
 ### GraphQL API
 
-应用与 DataHub 的 GraphQL API 完整集成，支持：
+应用与 DataHub 的 GraphQL API 完全集成，支持：
 
 - 通过 `createApplication` mutation 创建应用
 - 更新应用属性
@@ -522,13 +545,13 @@ Airflow Application → orchestrates → daily_etl_pipeline
 应用与数据产品相关但属于不同概念：
 
 - **应用**表示生产或消费数据的软件系统。它们是代表代码与基础设施的技术实体。
-- **数据产品**表示为消费而打包的、经过治理的数据资产。它们是代表数据作为产品的业务实体。
+- **数据产品**表示打包供消费的数据资产。它们是代表“数据即产品”的业务实体。
 
-一个应用可能生产多个数据产品，而一个数据产品也可能由多个应用协同产出。
+一个应用可能生产多个数据产品，而一个数据产品也可能由多个应用协同生产。
 
 ### 应用与平台
 
-不要将应用与数据平台混淆：
+应用不应与数据平台混淆：
 
 - **数据平台**（例如 Snowflake、BigQuery、Kafka）表示承载数据资产的技术或系统。
 - **应用**表示创建或使用这些数据资产的具体软件应用。
@@ -541,9 +564,9 @@ Airflow Application → orchestrates → daily_etl_pipeline
 
 ### 基于 UUID 的标识符
 
-应用 ID 可以是任意字符串，支持但不要求使用 UUID。如果你在通过 ApplicationService 创建应用时未提供 ID，则会自动生成一个 UUID。不过，为便于发现与维护，通常更倾向于使用有意义的、可读的标识符。
+应用 ID 可以是任意字符串，支持但不要求使用 UUID。如果通过 ApplicationService 创建应用时未提供 ID，将自动生成一个 UUID。不过，通常更推荐使用有意义的、易读的标识符，以便更好地支持发现与维护。
 
-### 未来增强方向
+### 未来增强
 
 应用实体相对较新，未来可能会扩展包含：
 
@@ -553,4 +576,4 @@ Airflow Application → orchestrates → daily_etl_pipeline
 - 资源消耗指标
 - 依赖关系图可视化
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](35-application.md)。。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](35-application.md)。

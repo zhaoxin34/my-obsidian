@@ -1,22 +1,22 @@
 ---
-title: 机器学习特征表
+title: ML 特征表
 entity: mlfeaturetable
 order: 22
 source: https://docs.datahub.com/docs/generated/metamodel/entities/mlfeaturetable.md
 ---
 
-# 机器学习特征表
+# ML 特征表
 
-机器学习特征表实体表示在特征库中组织在一起的一组相关机器学习特征。特征表是 ML 特征管理体系中的基本构建单元，它将具有相同主键、更新频率或数据源等共同特征的特征归为一组，连接了数据仓库中的原始数据与 ML 模型在训练和推理期间所消费的特征之间的鸿沟。
+ML 特征表实体表示在特征库（feature store）中组织在一起的一组相关机器学习特征。特征表是 ML 特征管理体系中的基础构件，把具有共同特征（例如相同的主键、更新频率或数据源）的特征归为一组。它们在数据仓库中的原始数据与 ML 模型在训练和推理期间所消费的特征之间架起了桥梁。
 
 ## 标识
 
-机器学习特征表由两部分信息标识：
+ML 特征表由两部分信息唯一确定：
 
-- 承载该特征表的平台：即具体的特征库或 ML 平台技术。示例包括 `feast`、`tecton`、`sagemaker` 等。更多细节请参见 [dataplatform](56-dataplatform.md)。
-- 特征表的名称：在该具体平台内表示这一特征集合的唯一标识符。
+- 承载该特征表的平台：即具体的特征库或 ML 平台技术。示例包括 `feast`、`tecton`、`sagemaker` 等。更多细节参见 [dataplatform](56-dataplatform.md)。
+- 特征表的名称：在该特定平台内唯一标识这组特征的唯一标识符。
 
-机器学习特征表标识符的示例为 `urn:li:mlFeatureTable:(urn:li:dataPlatform:feast,users_feature_table)`。
+ML 特征表标识符的一个示例是 `urn:li:mlFeatureTable:(urn:li:dataPlatform:feast,users_feature_table)`。
 
 标识由 `mlFeatureTableKey` aspect 定义，其中包含：
 
@@ -27,14 +27,14 @@ source: https://docs.datahub.com/docs/generated/metamodel/entities/mlfeaturetabl
 
 ### 特征表属性
 
-机器学习特征表通过 `mlFeatureTableProperties` aspect 支持全面的元数据。该 aspect 捕获特征表的关键特征：
+ML 特征表通过 `mlFeatureTableProperties` aspect 支持全面的元数据。该 aspect 记录特征表的基本特征：
 
 #### 描述与文档
 
-特征表可以带有详细描述，说明其用途、包含的特征类型以及何时使用。这类文档有助于数据科学家和 ML 工程师在组织内发现并理解特征表。
+特征表可以带有详细描述，说明其用途、包含的特征类型以及何时应当使用。这类文档帮助数据科学家和 ML 工程师发现并理解所在组织中的特征表。
 
 
-**Python SDK：创建带属性的机器学习特征表**
+**Python SDK：创建带属性的 ML 特征表**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/mlfeature_table_create_with_properties.py
@@ -70,13 +70,16 @@ emitter.emit(metadata_change_proposal)
 
 ```
 
+
+
 #### 特征
 
-特征表最重要的属性是它所包含的特征集合。特征表通过 `mlFeatures` 属性与其成员特征保持显式关系。这在特征表与每个单独的特征之间建立了 "Contains（包含）" 关系，从而实现：
+特征表最重要的属性是它所包含的特征集合。特征表通过 `mlFeatures` 属性与其中的各个特征保持显式关系。这在特征表与每个具体特征之间建立了 “Contains” 关系，从而支持：
 
-- 发现表中的所有特征
+- 发现表中所有特征
 - 从特征表导航到单个特征
-- 理解特征的组织方式与分组
+- 理解特征的组织与分组方式
+
 
 **Python SDK：向特征表添加特征**
 
@@ -137,15 +140,17 @@ emitter.emit(metadata_change_proposal)
 
 ```
 
+
+
 #### 主键
 
-特征表定义一个或多个主键，用于唯一标识表中的每一行。这些主键至关重要：
+特征表定义一个或多个主键，用于唯一标识表中的每一行。这些主键至关重要，用于：
 
 - 将特征与训练数据集关联（join）
 - 在模型推理期间查找特征值
 - 理解特征的实体粒度（例如用户级、交易级）
 
-当指定多个主键时，它们构成复合键。`mlPrimaryKeys` 属性会与每个主键实体建立 "KeyedBy（以……为键）" 关系。
+当指定多个主键时，它们将作为复合键生效。`mlPrimaryKeys` 属性会与每个主键实体建立 “KeyedBy” 关系。
 
 
 **Python SDK：向特征表添加主键**
@@ -215,25 +220,27 @@ emitter.emit(pk_metadata_change_proposal)
 
 ```
 
+
+
 #### 自定义属性
 
-特征表通过 `customProperties` 字段支持自定义属性，可用于记录不适合标准 schema 的平台特有或组织特有的元数据。这可能包括：
+特征表通过 `customProperties` 字段支持自定义属性，让你记录不适合标准 schema 的平台专属或组织专属元数据。可能包括：
 
 - 更新频率或新鲜度 SLA
 - 特征库配置项
-- 成本或资源使用信息
-- 团队或项目归属详情
+- 成本或资源使用情况
+- 团队或项目归属信息
 
 ### 主键属性
 
-虽然主键由特征表引用，但它们是独立实体，具有由 `mlPrimaryKeyProperties` aspect 定义的自身属性。理解主键元数据对于正确使用特征表至关重要：
+虽然主键是从特征表中被引用的，但它们是独立实体，拥有由 `mlPrimaryKeyProperties` aspect 定义的自身属性。理解主键元数据对于正确使用特征表至关重要：
 
 #### 数据类型
 
 主键具有数据类型（使用 `MLFeatureDataType` 定义），用于指定取值的类型：
 
 - `ORDINAL`：整数值
-- `NOMINAL`：分类值
+- `NOMINAL`：类别值
 - `BINARY`：布尔值
 - `COUNT`：计数值
 - `TIME`：时间戳值
@@ -242,41 +249,41 @@ emitter.emit(pk_metadata_change_proposal)
 
 #### 来源血缘
 
-主键可以通过 `sources` 属性声明其来源数据集。这会创建血缘关系，展示主键值派生自哪些上游数据集。这对于理解数据溯源与影响分析至关重要。
+主键可以通过 `sources` 属性声明其来源数据集。这会建立血缘关系，展示主键取值派生自哪些上游数据集。这对于理解数据来源与影响分析至关重要。
 
 #### 版本管理
 
-主键通过 `version` 属性支持版本管理，使团队能够追踪键定义随时间的变化，并并行维护多个版本。
+主键通过 `version` 属性支持版本管理，使团队能够跟踪键定义随时间的变化，并并行维护多个版本。
 
 ### 标签与术语表术语
 
-与其他 DataHub 实体一样，机器学习特征表支持标签和术语表术语，用于分类与发现：
+与其他 DataHub 实体一样，ML 特征表支持标签和术语表术语，用于分类和发现：
 
 - 标签（通过 `globalTags` aspect）提供轻量级的分类
 - 术语表术语（通过 `glossaryTerms` aspect）关联到业务定义与概念
 
-阅读[这篇博客](https://medium.com/datahub-project/tags-and-terms-two-powerful-datahub-features-used-in-two-different-scenarios-b5b4791e892e)，以了解何时使用标签、何时使用术语。，以了解何时使用标签、何时使用术语。
+阅读 [这篇博客](https://medium.com/datahub-project/tags-and-terms-two-powerful-datahub-features-used-in-two-different-scenarios-b5b4791e892e)，了解何时该使用标签、何时该使用术语。
 
-### 所有权
+### 归属
 
-所有权通过 `ownership` aspect 关联到特征表。所有者可以是负责维护该特征表的个人或团队。清晰的所有权至关重要：
+归属通过 `ownership` aspect 与特征表关联。所有者可以是负责维护该特征表的个人或团队。清晰的归属至关重要，用于：
 
 - 知道遇到特征问题时该联系谁
-- 明确对特征质量与更新的责任归属
+- 理解特征质量与更新的责任归属
 - 治理与访问控制决策
 
 ### 域与组织
 
-特征表可以被组织到域中（通过 `domains` aspect），以表示组织结构或功能领域。这有助于团队通过将相关特征表归组来管理大型特征目录。
+特征表可以被归入域（通过 `domains` aspect），以表示组织结构或职能领域。这有助于团队通过把相关特征表归组在一起，来管理大型特征目录。
 
 ## 代码示例
 
-### 创建完整的机器学习特征表
+### 创建完整的 ML 特征表
 
 下面是一个综合性示例，创建带有全部核心 aspect 的特征表：
 
 
-**Python SDK：创建完整的机器学习特征表**
+**Python SDK：创建完整的 ML 特征表**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/mlfeature_table_create_complete.py
@@ -402,12 +409,14 @@ print(f"Successfully created feature table: {feature_table_urn}")
 
 ```
 
-### 查询机器学习特征表
-
-你可以使用 Python SDK 和 REST API 获取机器学习特征表元数据：
 
 
-**Python SDK：读取机器学习特征表**
+### 查询 ML 特征表
+
+你可以使用 Python SDK 和 REST API 获取 ML 特征表元数据：
+
+
+**Python SDK：读取 ML 特征表**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/mlfeature_table_read.py
@@ -438,7 +447,10 @@ print("MLFeature Table features:", mlfeature_table_properties.mlFeatures)
 
 ```
 
-**REST API：获取机器学习特征表元数据**
+
+
+
+**REST API：获取 ML 特征表元数据**
 
 ```bash
 # Get the complete entity with all aspects
@@ -448,77 +460,79 @@ curl 'http://localhost:8080/entities/urn%3Ali%3AmlFeatureTable%3A(urn%3Ali%3Adat
 curl 'http://localhost:8080/relationships?direction=OUTGOING&urn=urn%3Ali%3AmlFeatureTable%3A(urn%3Ali%3AdataPlatform%3Afeast,users_feature_table)&types=Contains,KeyedBy'
 ```
 
+
+
 ## 集成点
 
-机器学习特征表在 DataHub 元数据模型中与多个其他实体集成：
+ML 特征表在 DataHub 元数据模型中与多个其他实体集成：
 
 ### 与 ML 特征的关系
 
-特征表通过 "Contains（包含）" 关系容纳 ML 特征。`mlFeatures` 数组中的每个特征代表一个单独的特征，它可以：
+特征表通过 “Contains” 关系包含 ML 特征。`mlFeatures` 数组中的每个特征代表一个具体特征，它可以是：
 
 - 被 ML 模型独立使用
-- 拥有自己的元数据、血缘与文档
+- 拥有自己的元数据、血缘和文档
 - 在某些特征库实现中被多个特征表共享
 
-导航是双向的——既可以从特征表导航到特征，也可以从特征回溯到其父表。
+导航是双向的——既可以从特征表导航到特征，也可以从特征返回其父表。
 
 ### 与 ML 主键的关系
 
-特征表通过 "KeyedBy（以……为键）" 关系引用 ML 主键。主键：
+特征表通过 “KeyedBy” 关系引用 ML 主键。主键：
 
 - 定义特征表的实体粒度
-- 支持将特征与训练数据集中的实体标识符关联
-- 当它们表示同一实体类型时，可被多个特征表共享
+- 支持在训练数据集中将特征与实体标识符关联
+- 在表示同一实体类型时，可被多个特征表共享
 - 通过 `sources` 属性拥有指向上游数据集的自身血缘
 
 ### 与 ML 模型的关系
 
-虽然特征表元数据中未直接引用 ML 模型，但 ML 模型通过 `MLModelProperties` 中的 `mlFeatures` 属性消费特征。这会创建 "Consumes（消费）" 血缘关系，展示哪些模型使用了某个特征表中的特征。该血缘可用于：
+虽然特征表元数据中不直接引用模型，但 ML 模型通过 `MLModelProperties` 中的 `mlFeatures` 属性消费特征。这建立了 “Consumes” 血缘关系，展示哪些模型使用了某个特征表中的特征。该血缘可用于：
 
-- 在特征表发生变更时理解下游影响
+- 理解特征表变更带来的下游影响
 - 发现哪些模型依赖特定特征表
-- 追踪特征在各模型中的使用与采纳情况
+- 追踪特征在各模型中的使用与采用情况
 
 ### 与数据集的关系
 
 特征表通过两条路径与数据集间接关联：
 
-1. **通过 ML 特征**：单个特征可以通过其 `sources` 属性声明来源数据集，形成 "DerivedFrom（派生自）" 血缘
+1. **通过 ML 特征**：各个特征可以通过其 `sources` 属性声明来源数据集，形成 “DerivedFrom” 血缘
 2. **通过 ML 主键**：主键可以声明来源数据集，展示实体标识符的来源
 
-这种血缘把特征库与上游数据仓库连接起来，实现了从原始数据到模型预测的端到端数据血缘。
+这种血缘把特征库与上游数据仓库连接起来，实现从原始数据到模型预测的端到端数据血缘。
 
 ### 平台集成
 
-特征表通过 key aspect 中的 `platform` 属性关联到特定数据平台（例如 Feast、Tecton）。这会创建 "SourcePlatform（来源平台）" 关系，其作用是：
+特征表通过 key aspect 中的 `platform` 属性与特定数据平台（例如 Feast、Tecton）关联。这会建立 “SourcePlatform” 关系，用于：
 
 - 标识承载该特征表的特征库系统
-- 支持按平台过滤与组织
+- 支持按平台进行过滤和整理
 - 支持多平台特征库环境
 
 ### 事件（Incidents）
 
-机器学习特征表参与共享的事件子系统。可以通过 `raiseIncident` GraphQL mutation（或 Python SDK）在特征表上发起事件，通过 `MLFeatureTable` GraphQL 类型的 `incidents` 字段列出事件，并且特征表会携带一个汇总的 `incidentsSummary` aspect，随事件的发起与解决自动维护。
+ML 特征表参与共享的 incidents 子系统。可以通过 `raiseIncident` GraphQL mutation（或 Python SDK）在特征表上发起事件，通过 `MLFeatureTable` GraphQL 类型的 `incidents` 字段列回事件列表，并且特征表会携带一个自动维护的汇总 `incidentsSummary` aspect，随事件的发起与解决而更新。
 
 ## 值得注意的例外
 
-### 特征库平台的差异
+### 特征库平台差异
 
-不同特征库平台具有不同的能力和概念：
+不同特征库平台的能力和概念各不相同：
 
-- **Feast**：直接使用 "feature table" 一词。Feast 中的特征表与本实体一一对应。
-- **Tecton**：使用 "feature views" 和 "feature services" 作为类似概念。这些可建模为特征表。
-- **SageMaker Feature Store**：使用 "feature groups"，可映射为特征表。
-- **Databricks Feature Store**：使用 "feature tables"，但采用 database.schema.table 命名模式。
+- **Feast**：直接使用 “feature table” 这一术语。Feast 中的特征表与该实体一一对应。
+- **Tecton**：使用 “feature views” 和 “feature services” 作为类似概念，可将其建模为特征表。
+- **SageMaker Feature Store**：使用 “feature groups”，对应特征表。
+- **Databricks Feature Store**：使用 “feature tables”，但采用 database.schema.table 命名模式。
 
-从这些平台摄取时，请确保命名约定与该平台的术语保持一致。
+从这些平台采集时，请确保命名约定与平台的术语保持一致。
 
-### 自定义属性的使用
+### 自定义属性使用
 
-与同时拥有 `datasetProperties` 和 `editableDatasetProperties` 的数据集不同，特征表具有：
+与同时拥有 `datasetProperties` 和 `editableDatasetProperties` 的数据集不同，特征表只有：
 
-- `mlFeatureTableProperties`：主属性 aspect（通常来自摄取）
-- `editableMlFeatureTableProperties`：仅包含可在 UI 中编辑的描述
+- `mlFeatureTableProperties`：主属性 aspect（通常来自采集）
+- `editableMlFeatureTableProperties`：仅可在 UI 中编辑的描述
 
 对于自定义元数据，请使用 `mlFeatureTableProperties` 中的 `customProperties` 映射，而不是创建自定义 aspect。
 
@@ -526,20 +540,20 @@ curl 'http://localhost:8080/relationships?direction=OUTGOING&urn=urn%3Ali%3AmlFe
 
 使用 SDK 创建特征表时：
 
-- 你**必须先创建被引用的实体**：在特征表中引用各个 ML 特征与 ML 主键之前，先创建它们
+- 你**必须先创建被引用的实体**：先创建各个 ML 特征和 ML 主键，再在特征表中引用它们
 - 特征表只存储 URN 引用——它不会创建特征或主键实体
-- 如果引用了不存在的实体，它们会在 UI 中显示为断裂引用
+- 如果引用了不存在的实体，它们会在 UI 中显示为失效引用
 
-这与某些其他可以内联创建子实体的 DataHub 实体不同。
+这与其他一些 DataHub 实体不同——在那些实体中子实体可以内联创建。
 
-### 血缘方面的注意事项
+### 血缘注意事项
 
-特征表的血缘通常通过其所包含的特征和主键建立：
+特征表血缘通常通过其所包含的特征和主键建立：
 
-- 特征表本身没有直接的 `upstreamLineage` aspect
-- 相反，血缘通过所包含特征的 `sources` 属性流动
-- 查询血缘时，需要通过 "Contains（包含）" 关系向下遍历以找到上游数据集
+- 特征表自身没有直接的 `upstreamLineage` aspect
+- 血缘是通过所含特征的 `sources` 属性流动的
+- 查询血缘时，你需要穿过 “Contains” 关系才能找到上游数据集
 
-这一设计反映出：在 ML 系统中，特征是血缘的原子单位，而特征表是组织性构造。
+这一设计反映出：在 ML 系统中特征才是血缘的原子单位，而特征表只是组织性构件。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](22-mlfeaturetable.md)。。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](22-mlfeaturetable.md)。

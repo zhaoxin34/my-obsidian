@@ -7,21 +7,21 @@ source: https://docs.datahub.com/docs/generated/metamodel/entities/container.md
 
 # 容器
 
-容器（Container）实体是元数据模型中的核心实体，用于表示一组相关数据资产的分组。容器为数据集、图表、仪表盘以及其他容器提供层级化的组织结构，从而在数据平台中实现导航与结构发现。
+容器（container）实体是元数据模型中的核心实体，用于表示一组相关数据资产的分组。容器为数据集、图表、仪表板以及其他容器提供层级化的组织方式，使数据平台内部能够进行导航和结构发现。
 
-## 身份（Identity）
+## 标识
 
-容器通过 GUID（全局唯一标识符）唯一标识，该 GUID 通常由容器类型特有的属性组合推导得出。与数据集使用 platform、name 和 environment 不同，容器采用基于其层级属性的、更灵活的标识方案。
+容器通过 GUID（全局唯一标识符）唯一确定，该 GUID 通常由容器类型特有的属性组合计算得出。与数据集使用 platform、name 和 environment 不同，容器采用基于其层级属性的、更加灵活的标识方案。
 
 容器的 URN 结构为：`urn:li:container:{guid}`
 
-GUID 通常根据容器特有的属性计算得出，例如：
+GUID 通常根据容器特有的属性计算，例如：
 
 - **数据库容器**：platform + instance + database name
 - **Schema 容器**：platform + instance + database + schema name
 - **项目容器**：platform + instance + project_id
 - **文件夹容器**：platform + instance + folder_abs_path
-- **桶容器**：platform + instance + bucket_name
+- **Bucket 容器**：platform + instance + bucket_name
 
 ### URN 示例
 
@@ -29,7 +29,7 @@ GUID 通常根据容器特有的属性计算得出，例如：
 urn:li:container:b5e95fce839e7d78151ed7e0a7420d84
 ```
 
-GUID 通过 `datahub_guid()` 函数基于一组属性字典生成。例如，一个 Snowflake schema 容器可由以下属性标识：
+该 GUID 使用 `datahub_guid()` 函数从一个属性字典中生成。例如，一个 Snowflake schema 容器可由以下属性确定：
 
 ```python
 {
@@ -45,20 +45,20 @@ GUID 通过 `datahub_guid()` 函数基于一组属性字典生成。例如，一
 容器表示数据平台中的各种层级结构：
 
 - **数据库**：关系型系统中的顶层组织单元（MySQL、PostgreSQL、Snowflake）
-- **Schema**：数据库内部的逻辑分组（Snowflake schema、PostgreSQL schema）
-- **项目**：云平台中的组织单元（BigQuery project）
-- **数据集**：云平台中的逻辑分组（BigQuery dataset）
-- **文件夹**：文件系统与数据湖中的目录结构（S3 folder、ADLS directory）
-- **桶**：云对象存储中的顶层存储容器（S3 bucket、GCS bucket）
-- **工作区**：BI 平台中的组织单元（Power BI workspace、Tableau site）
-- **目录**：数据目录中的顶层组织单元（Unity Catalog、Iceberg catalog）
+- **Schema**：数据库内部的逻辑分组（Snowflake schemas、PostgreSQL schemas）
+- **项目**：云平台中的组织单元（BigQuery projects）
+- **数据集**：云平台中的逻辑分组（BigQuery datasets）
+- **文件夹**：文件系统与数据湖中的目录结构（S3 folders、ADLS directories）
+- **Bucket**：云对象存储中的顶层存储容器（S3 buckets、GCS buckets）
+- **工作区**：BI 平台中的组织单元（Power BI workspaces、Tableau sites）
+- **目录**：数据目录中的顶层组织单元（Unity Catalog、Iceberg catalogs）
 - **元数据存储**：存储元数据仓库（Hive metastore、Unity metastore）
 
 ## 重要能力
 
 ### 容器属性
 
-`containerProperties` 方面（aspect）包含来自源系统的元数据：
+`containerProperties` 方面（aspect）包含从源系统继承的元数据：
 
 - **name**：容器的显示名称（必填）
 - **qualifiedName**：全限定名称（可选，例如 "prod.analytics.reporting"）
@@ -73,16 +73,16 @@ GUID 通过 `datahub_guid()` 函数基于一组属性字典生成。例如，一
 
 `editableContainerProperties` 方面允许用户通过 UI 覆盖或补充信息：
 
-- **description**：用户提供的描述，用于补充或覆盖源系统的描述
+- **description**：用户提供的描述，用于补充或覆盖源系统中的描述
 
-这种分离确保了源系统的元数据与用户提供的标注信息不会相互冲突。
+这种分离确保了源系统的元数据与用户标注之间不会冲突。
 
 ### 层级关系
 
-容器通过 `container` 方面支持嵌套层级，该方面将容器链接到其父容器，从而实现多级组织结构：
+容器通过 `container` 方面支持嵌套层级结构，该方面将容器链接到其父容器。这使得多级组织结构成为可能：
 
 ```
-Platform（隐式）
+Platform (implicit)
 └── Database Container
     └── Schema Container
         └── Dataset
@@ -92,22 +92,22 @@ Platform（隐式）
 
 ```
 Snowflake Platform
-└── ANALYTICS_DB（Database Container）
-    └── REPORTING（Schema Container）
-        └── SALES_METRICS（Dataset）
-        └── REVENUE_TABLE（Dataset）
+└── ANALYTICS_DB (Database Container)
+    └── REPORTING (Schema Container)
+        └── SALES_METRICS (Dataset)
+        └── REVENUE_TABLE (Dataset)
 ```
 
 ### 子类型
 
-`subTypes` 方面用于指定容器的类型，帮助 UI 渲染相应的图标与行为。常见子类型包括：
+`subTypes` 方面指定容器的类型，有助于 UI 渲染相应的图标与行为。常见子类型包括：
 
 - **Database**：关系型数据库容器
-- **Schema**：数据库内的 schema 级容器
+- **Schema**：数据库内部的 Schema 级容器
 - **Project**：云项目容器（GCP、Azure）
-- **Dataset**：BigQuery 数据集容器
+- **Dataset**：BigQuery dataset 容器
 - **Folder**：文件系统文件夹
-- **Bucket**：对象存储桶
+- **Bucket**：对象存储 Bucket
 - **Workspace**：BI 平台工作区
 - **Catalog**：数据目录容器
 - **Metastore**：元数据存储容器
@@ -115,39 +115,40 @@ Snowflake Platform
 
 ### 作为容器的 ML 实验
 
-机器学习实验被建模为带有 `MLFLOW_EXPERIMENT` 子类型的容器。这一模式可以将相关的训练运行（即 `dataProcessInstance` 实体）组织成逻辑分组，以便比较与追踪：
+机器学习实验被建模为带有 `MLFLOW_EXPERIMENT` 子类型的容器。该模式可以把相关的训练运行（即 `dataProcessInstance` 实体）组织成逻辑分组，便于比较与追踪：
 
 ```
-ML Experiment（Container）
-├── Training Run 1（DataProcessInstance）
-├── Training Run 2（DataProcessInstance）
-└── Training Run 3（DataProcessInstance）
+ML Experiment (Container)
+├── Training Run 1 (DataProcessInstance)
+├── Training Run 2 (DataProcessInstance)
+└── Training Run 3 (DataProcessInstance)
 ```
 
-训练运行通过 `container` 方面归属于实验。这一结构与常见 ML 平台（如 MLflow）的模式一致，并带来以下能力：
+训练运行通过 `container` 方面归属于实验。该结构与常见的 ML 平台模式（如 MLflow）一致，并带来以下能力：
 
 - 比较多次训练尝试的指标
-- 追踪模型在迭代过程中的演进
+- 追踪模型在迭代过程中的演化
 - 按项目或目标组织训练工作
 
 关于 ML 实验与训练运行的更多信息，请参阅：
 
-- [ML 模型实体文档](19-mlmodel.md#training-runs-and-experiments)
-- [训练运行的 DataProcessInstance 文档](06-dataprocessinstance.md#tracking-ml-training-run-in-a-container)
+- [ML Model 实体文档](19-mlmodel.md)
+- [DataProcessInstance 文档（训练运行）](06-dataprocessinstance.md)
 
-### 可包含的实体
+### 可被容纳的实体
 
 以下实体类型可以包含在容器中：
 
-- Datasets
-- Charts
-- Dashboards
-- DataProcessInstances（例如 ML 实验中的训练运行）
-- 其他 Containers（用于嵌套层级）
+- 数据集
+- 图表
+- 仪表板
+- DataProcessInstance（例如 ML 实验中的训练运行）
+- 其他容器（用于嵌套层级）
 
 ## 代码示例
 
 ### 创建数据库容器
+
 
 **Python SDK：创建数据库容器**
 
@@ -178,7 +179,10 @@ print(f"Created database container with URN: {container.urn}")
 
 ```
 
-### 创建带父容器的 Schema 容器
+
+
+### 创建带父级的 Schema 容器
+
 
 **Python SDK：创建带父数据库的 schema 容器**
 
@@ -228,9 +232,12 @@ print("Schema container is nested under database container")
 
 ```
 
+
+
 ### 为容器添加元数据
 
-**Python SDK：为容器添加标签、术语与负责人**
+
+**Python SDK：为容器添加标签、术语和所有权**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/container_add_metadata.py
@@ -291,19 +298,24 @@ print(f"  - Domain: {container.domain}")
 
 ```
 
+
+
 ### 通过 REST API 查询容器
 
-可以使用标准的实体获取 API 检索容器：
+容器可以使用标准的实体获取 API 进行检索：
 
-**获取包含所有方面的容器实体**
+
+**获取包含全部方面的容器实体**
 
 ```bash
 curl 'http://localhost:8080/entities/urn%3Ali%3Acontainer%3Ab5e95fce839e7d78151ed7e0a7420d84'
 ```
 
-响应将包含与该容器关联的所有方面，包括属性、负责人、标签、术语等。
+响应将包含与该容器关联的所有方面，包括属性、所有权、标签、术语等。
+
 
 若要查找某个容器内的所有实体，请使用 relationships API：
+
 
 **查找容器内包含的所有实体**
 
@@ -311,13 +323,14 @@ curl 'http://localhost:8080/entities/urn%3Ali%3Acontainer%3Ab5e95fce839e7d78151e
 curl 'http://localhost:8080/relationships?direction=INCOMING&urn=urn%3Ali%3Acontainer%3Ab5e95fce839e7d78151ed7e0a7420d84&types=IsPartOf'
 ```
 
-这将返回所有以该容器为父容器的实体（数据集、图表、仪表盘、子容器）。
+这将返回所有以该容器为父级的实体（数据集、图表、仪表板、子容器）。
+
 
 ## 集成点
 
 ### 与数据集的关系
 
-数据集是容器中最常包含的实体。该关系通过数据集上的 `container` 方面建立，该方面指向容器 URN。
+数据集是最常被包含在容器中的实体。该关系通过数据集上的 `container` 方面建立，指向容器 URN。
 
 ```python
 # Dataset links to its parent container (schema)
@@ -333,66 +346,67 @@ dataset = Dataset(
 
 容器通过父子关系在 DataHub UI 中实现层级导航：
 
-1. **自顶向下浏览**：用户可以从数据库导航到 schema，再导航到表
+1. **自顶向下浏览**：用户可以从数据库导航到 schema 再到表
 2. **自底向上面包屑**：数据集在面包屑路径中显示其父容器
 3. **浏览路径**：容器用于自动生成浏览路径
 
 ### GraphQL 解析器
 
-容器实体拥有专门的 GraphQL 解析器：
+容器实体提供了专门的 GraphQL 解析器：
 
-- **ContainerEntitiesResolver**：检索容器内的所有实体（数据集、图表、仪表盘、子容器）
-- **ParentContainersResolver**：检索任意实体的完整父容器层级
+- **ContainerEntitiesResolver**：获取容器内的所有实体（数据集、图表、仪表板、子容器）
+- **ParentContainersResolver**：获取任意实体的完整父容器层级
 
 这些解析器支撑了 UI 的层级导航与容器概览页面。
 
 ### 常见使用模式
 
 1. **数据库/Schema 层级**：关系型数据库使用 Database 与 Schema 容器
-2. **项目/数据集层级**：BigQuery 使用 Project 与 Dataset 容器
+2. **项目/Dataset 层级**：BigQuery 使用 Project 与 Dataset 容器
 3. **工作区/文件夹层级**：BI 工具使用 Workspace 容器进行组织
-4. **桶/文件夹层级**：数据湖使用 Bucket 与 Folder 容器
+4. **Bucket/文件夹层级**：数据湖使用 Bucket 与 Folder 容器
 5. **目录/Schema 层级**：现代目录（Unity、Iceberg）使用 Catalog 与 Schema 容器
 
 ## 值得注意的例外
 
 ### GUID 稳定性
 
-容器 GUID 必须在多次摄取之间保持稳定。由于容器以 GUID 而非 URN 中的显式属性来标识，更改 GUID 计算方式将创建一个新的容器实体，而不是更新现有实体。
+容器 GUID 必须在多次采集之间保持稳定。由于容器以 GUID 而非 URN 中显式的属性来标识，改变 GUID 计算方式会创建一个新的容器实体，而不是更新已有实体。
 
 创建自定义容器时，请确保用于生成 GUID 的属性满足：
 
 - 随时间保持稳定
 - 在平台内唯一
-- 派生自不可变的源系统标识符
+- 源自不可变的源系统标识符
 
 ### 自引用容器
 
-虽然容器可以包含其他容器，但请注意不要创建循环引用。父子关系应构成有向无环图（DAG），而不是环。
+虽然容器可以包含其他容器，但请注意不要形成循环引用。父子关系应构成有向无环图（DAG），而非环。
 
 ### 环境处理
 
-ContainerKey 中的 `env` 字段为向后兼容而做了特殊处理。在某些数据源中，平台实例被错误地设置成了环境值。`backcompat_env_as_instance` 标志用于处理这种情况。
+ContainerKey 中的 `env` 字段为向后兼容做了特殊处理。在某些数据源中，平台实例被错误地设置成了环境值。`backcompat_env_as_instance` 标志用于处理这种情况。
 
-使用 `env` 字段时：
+使用 `env` 字段时请注意：
 
-- 将其设置为合法的 FabricType（PROD、DEV、QA 等）
-- 不要将其用于平台实例标识
-- 多实例部署请使用独立的 `instance` 字段
+- 将其设置为有效的 FabricType（PROD、DEV、QA 等）
+- 不要用它来标识平台实例
+- 对于多实例部署，请使用独立的 `instance` 字段
 
 ### 平台实例关联
 
-与在 URN 中嵌入平台实例的数据集不同，容器通过 `dataPlatformInstance` 方面关联平台实例。这使容器可以与数据平台的特定实例相关联，同时保持 GUID 稳定。
+与将平台实例嵌入 URN 的数据集不同，容器通过 `dataPlatformInstance` 方面关联平台实例。这使得容器既可关联到数据平台的具体实例，又能保持 GUID 稳定。
 
 ### 访问控制
 
-容器支持 `access` 方面，可用于在容器层级建模访问控制策略。这在以下场景中尤其有用：
+容器支持 `access` 方面，可用于在容器级别建模访问控制策略。这在以下场景中尤为有用：
 
 - 数据库级权限
 - Schema 级访问控制
 - 项目级授权
 - 工作区级安全策略
 
-设置在容器上的访问控制可以被所包含的实体继承，不过该行为取决于具体平台的实现。
+设置在容器上的访问控制可以被其中包含的实体继承，不过具体行为取决于相应平台的实现。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](13-container.md)。。
+
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](13-container.md)。
