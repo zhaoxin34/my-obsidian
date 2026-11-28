@@ -1,22 +1,22 @@
 ---
-title: 数据作业
+title: 数据任务
 entity: datajob
 order: 03
 source: https://docs.datahub.com/docs/generated/metamodel/entities/datajob.md
 ---
 
-# 数据作业
+# 数据任务
 
-数据作业表示数据管道或工作流中单个数据处理工作单元。它们是更大数据流中负责转换、移动或处理数据的任务、步骤或操作。示例包括 Airflow 任务、dbt 模型、Spark 作业、Databricks notebook，以及编排系统中的类似处理单元。
+数据任务表示数据管道或工作流中一个个独立的数据处理工作单元。它们是更大数据流中负责转换、移动或处理数据的任务、步骤或操作。示例包括 Airflow 任务、dbt 模型、Spark 作业、Databricks notebook，以及编排系统中类似的处理单元。
 
 ## 标识
 
-数据作业由两部分信息标识：
+数据任务由两部分信息唯一确定：
 
-- 所归属的数据流（管道/工作流）：表示为指向父级 `dataFlow` 实体的 URN。数据流定义了编排器（例如 `airflow`、`spark`、`dbt`）、流 ID（例如 DAG 名称或管道名称）以及其运行所在的集群。
-- 该流内唯一的作业标识符：这是一个字符串，在其父流内唯一标识该任务（例如任务名、步骤名、模型名）。
+- 其所属的数据流（管道/工作流）：表示为一个指向父级 `dataFlow` 实体的 URN。该数据流定义了编排器（例如 `airflow`、`spark`、`dbt`）、流 ID（例如 DAG 名称或管道名称），以及运行所在的集群。
+- 该流内唯一的任务标识符：这是一个字符串，用于在其父流中唯一标识该任务（例如任务名、步骤名、模型名）。
 
-数据作业的 URN 结构为：`urn:li:dataJob:(urn:li:dataFlow:(<orchestrator>,<flow_id>,<cluster>),<job_id>)`
+数据任务的 URN 结构为：`urn:li:dataJob:(urn:li:dataFlow:(<orchestrator>,<flow_id>,<cluster>),<job_id>)`
 
 ### 示例
 
@@ -46,74 +46,74 @@ urn:li:dataJob:(urn:li:dataFlow:(databricks,etl_workflow,production),process_eve
 
 ## 重要能力
 
-### 作业信息（dataJobInfo）
+### 任务信息（dataJobInfo）
 
-`dataJobInfo` aspect 捕获数据作业的核心属性：
+`dataJobInfo` aspect 记录数据任务的核心属性：
 
-- **名称**：作业的可读名称（支持搜索与自动补全）
-- **描述**：作业具体作用的详细描述
-- **类型**：作业的类型（例如 SQL、Python、Spark 等）
-- **流 URN**：对父级数据流的引用
-- **创建/修改时间戳**：作业在源系统中创建或最后修改的时间
-- **环境**：作业运行所处的环境（PROD、DEV、QA 等）
-- **自定义属性**：源系统特有的附加键值属性
+- **名称**：任务的易读名称（支持自动补全搜索）
+- **描述**：任务用途的详细说明
+- **类型**：任务类型（例如 SQL、Python、Spark 等）
+- **流 URN**：指向父级数据流的引用
+- **创建/修改时间戳**：任务在源系统中创建或最后修改的时间
+- **环境**：任务运行所处的环境（PROD、DEV、QA 等）
+- **自定义属性**：特定于源系统的额外键值属性
 - **外部引用**：指向外部文档或定义的链接（例如 GitHub 链接）
 
 ### 输入/输出血缘（dataJobInputOutput）
 
-`dataJobInputOutput` aspect 定义作业的数据血缘关系：
+`dataJobInputOutput` aspect 定义该任务的数据血缘关系：
 
-- **输入数据集**：作业在处理过程中消费的数据集（通过 `inputDatasetEdges`）
-- **输出数据集**：作业产出的数据集（通过 `outputDatasetEdges`）
-- **输入数据作业**：该作业所依赖的其他数据作业（通过 `inputDatajobEdges`）
-- **输入数据集字段**：从输入数据集中消费的具体 schema 字段
-- **输出数据集字段**：在输出数据集中产出的具体 schema 字段
+- **输入数据集**：任务在处理过程中消费的数据集（通过 `inputDatasetEdges`）
+- **输出数据集**：任务产生的数据集（通过 `outputDatasetEdges`）
+- **输入数据任务**：该任务所依赖的其他数据任务（通过 `inputDatajobEdges`）
+- **输入数据集字段**：从输入数据集消费的具体 schema 字段
+- **输出数据集字段**：在输出数据集中产生的具体 schema 字段
 - **细粒度血缘**：列级血缘映射，展示哪些上游字段贡献给下游字段
 
-该 aspect 建立了关键关系，使 DataHub 能够在整个数据生态中构建并可视化数据血缘图。
+该 aspect 建立了关键关系，使 DataHub 能够在整个数据生态中构建并可视化数据血缘图谱。
 
 ### 可编辑属性（editableDataJobProperties）
 
-`editableDataJobProperties` aspect 存储通过 DataHub UI 进行的文档编辑：
+`editableDataJobProperties` aspect 存储通过 DataHub UI 所做的文档编辑：
 
-- **描述**：用户编辑的文档，可补充或覆盖摄取而来的描述
-- **变更审计标记**：记录由谁在何时进行了编辑
+- **描述**：用户编辑的文档，用于补充或覆盖采集到的描述
+- **变更审计戳**：记录谁在何时做了编辑
 
-这种分离确保了 UI 中的手工编辑得以保留，不会被摄取管道覆盖。
+这种分离确保 UI 中的人工编辑得到保留，不会被采集管道覆盖。
 
-### 所有权
+### 归属
 
-与其他实体一样，数据作业通过 `ownership` aspect 支持所有权。所有者可以是用户或用户组，具有多种所有权类型（DATAOWNER、PRODUCER、DEVELOPER 等）。这有助于确定谁负责维护和排查该作业的问题。
+与其他实体一样，数据任务通过 `ownership` aspect 支持归属。所有者可以是用户或群组，具有多种归属类型（DATAOWNER、PRODUCER、DEVELOPER 等）。这有助于确定谁负责维护和排查该任务。
 
 ### 标签与术语表术语
 
-数据作业可以被打标签并关联术语表术语：
+数据任务可以打标签并关联术语表术语：
 
-- **标签**（`globalTags` aspect）：用于分类、分级或运维目的（例如 PII、critical、deprecated）
-- **术语表术语**（`glossaryTerms` aspect）：将作业与术语表中的业务术语和概念关联起来
+- **标签**（`globalTags` aspect）：用于分类、分级或运维目的（例如 PII、关键、已废弃）
+- **术语表术语**（`glossaryTerms` aspect）：将任务与术语表中的业务术语和概念关联起来
 
 ### 域与应用
 
-数据作业可以被组织到以下结构中：
+数据任务可以被组织为：
 
 - **域**（`domains` aspect）：用于组织结构的业务域或数据域
 - **应用**（`applications` aspect）：关联到特定的应用或系统
 
 ### 结构化属性与表单
 
-数据作业支持：
+数据任务支持：
 
 - **结构化属性**：由你的组织定义的自定义类型化属性
 - **表单**：用于保持一致性的结构化文档表单
 
 ## 代码示例
 
-### 创建数据作业
+### 创建数据任务
 
-创建数据作业最简单的方式是使用 Python SDK v2：
+创建数据任务最简单的方式是使用 Python SDK v2：
 
 
-**Python SDK：创建基本数据作业**
+**Python SDK：创建基本数据任务**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/datajob_create_basic.py
@@ -145,12 +145,14 @@ print(f"Created data job: {datajob.urn}")
 
 ```
 
-### 添加标签、术语与所有权
-
-可以为数据作业添加常用元数据，以提升可发现性与治理能力：
 
 
-**Python SDK：为数据作业添加标签、术语与所有权**
+### 添加标签、术语与归属
+
+可以向数据任务添加常用元数据，以提升可发现性与治理水平：
+
+
+**Python SDK：为数据任务添加标签、术语与归属**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/datajob_add_tags_terms_ownership.py
@@ -190,12 +192,14 @@ print(f"Added tags, terms, and ownership to {datajob_urn}")
 
 ```
 
-### 更新作业属性
-
-你可以使用底层 API 更新作业属性（例如描述）：
 
 
-**Python SDK：更新数据作业描述**
+### 更新任务属性
+
+你可以使用底层 API 更新任务属性（例如描述）：
+
+
+**Python SDK：更新数据任务描述**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/datajob_update_description.py
@@ -222,12 +226,14 @@ print(f"Updated description for {datajob_urn}")
 
 ```
 
-### 查询数据作业信息
-
-通过 Python SDK 获取数据作业信息：
 
 
-**Python SDK：查询数据作业**
+### 查询数据任务信息
+
+通过 Python SDK 获取数据任务信息：
+
+
+**Python SDK：查询数据任务**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/datajob_query_rest.py
@@ -309,9 +315,11 @@ if tags is not None:
 
 ```
 
-### 为数据作业添加血缘
 
-数据作业常用于定义血缘关系。请参见已有的血缘示例：
+
+### 为数据任务添加血缘
+
+数据任务常用于定义血缘关系。参见现有的血缘示例：
 
 
 **Python SDK：使用 DataJobPatchBuilder 添加血缘**
@@ -396,7 +404,10 @@ for patch_mcp in patch_mcps:
 
 ```
 
-**Python SDK：通过数据作业定义细粒度血缘**
+
+
+
+**Python SDK：通过数据任务定义细粒度血缘**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/lineage_emitter_datajob_finegrained.py
@@ -514,88 +525,90 @@ emitter.emit_mcp(dataJobLineageMcp)
 
 ```
 
+
+
 ## 集成点
 
 ### 与 DataFlow 的关系
 
-每个数据作业恰好属于一个 `dataFlow` 实体，后者表示父级管道或工作流。数据流捕获：
+每个数据任务恰好归属于一个 `dataFlow` 实体，后者代表父级的管道或工作流。数据流记录：
 
 - 编排器/平台（Airflow、Spark、dbt 等）
 - 流/管道/DAG 标识符
 - 其执行所在的集群或环境
 
-这种层级关系使 DataHub 能够将作业组织到其工作流中，并理解其执行上下文。
+这种层级关系使 DataHub 能够在工作流中组织任务，并理解其执行上下文。
 
 ### 与数据集的关系
 
-数据作业通过定义以下关系来建立血缘：
+数据任务通过定义以下关系来建立血缘：
 
-- 与输入数据集的 **Consumes（消费）** 关系
-- 与输出数据集的 **Produces（产出）** 关系
+- 与输入数据集的**消费（Consumes）**关系
+- 与输出数据集的**产出（Produces）**关系
 
-这些关系构成了 DataHub 血缘图的基础。当作业处理数据时，它在上游来源与下游产出之间建立连接，从而支持影响分析和数据发现。
+这些关系是 DataHub 血缘图谱的基础。当任务处理数据时，它在上游来源与下游输出之间创建连接，从而支持影响分析和数据发现。
 
 ### 与 DataProcessInstance 的关系
 
-`dataJob` 表示处理任务的定义，而 `dataProcessInstance` 表示该作业的某一次具体执行或运行。处理实例捕获：
+`dataJob` 表示处理任务的定义，而 `dataProcessInstance` 表示该任务的某次具体执行或运行。流程实例记录：
 
 - 运行时信息（开始时间、结束时间、耗时）
 - 状态（成功、失败、运行中）
-- 该次运行具体的输入/输出数据集
+- 该次运行对应的输入/输出数据集
 - 错误信息与日志
 
-这种分离使你既能追踪作业的静态定义，也能追踪其动态运行时行为。
+这种分离使你既能跟踪任务的静态定义，也能跟踪其动态运行时行为。
 
 ### GraphQL 解析器
 
-DataHub GraphQL API 为数据作业提供丰富的查询能力：
+DataHub GraphQL API 为数据任务提供丰富的查询能力：
 
-- **DataJobType**：查询数据作业信息的主类型
+- **DataJobType**：用于查询数据任务信息的主类型
 - **DataJobRunsResolver**：解析执行历史与运行信息
-- **DataFlowDataJobsRelationshipsMapper**：映射流与作业之间的关系
-- **UpdateLineageResolver**：处理作业的血缘更新
+- **DataFlowDataJobsRelationshipsMapper**：映射流与任务之间的关系
+- **UpdateLineageResolver**：处理任务的血缘更新
 
-### 摄取来源
+### 采集来源
 
-数据作业通常从以下来源摄取：
+数据任务通常采集自：
 
-- **Airflow**：任务与 DAG，并进行血缘抽取
-- **dbt**：将模型作为数据作业，并基于 SQL 抽取血缘
+- **Airflow**：任务与 DAG，并提取血缘
+- **dbt**：以模型作为数据任务，并基于 SQL 提取血缘
 - **Spark**：作业定义及其数据集依赖
 - **Databricks**：notebook 与工作流
-- **Dagster**：将 op 和 asset 作为处理单元
+- **Dagster**：op 与 asset 作为处理单元
 - **Prefect**：任务与流
 - **AWS Glue**：ETL 作业
 - **Azure Data Factory**：管道活动
 - **Looker**：LookML 模型与派生表
 
-这些连接器会自动从源系统抽取作业定义、血缘与元数据。
+这些连接器会自动从源系统提取作业定义、血缘与元数据。
 
 ## 值得注意的例外
 
-### DataHub 摄取作业
+### DataHub 采集任务
 
-DataHub 自身的摄取管道表示为带有特殊 aspect 的数据作业：
+DataHub 自身的采集管道以带有特殊 aspect 的数据任务表示：
 
-- **datahubIngestionRunSummary**：跟踪摄取运行统计信息、已处理实体、警告与错误
-- **datahubIngestionCheckpoint**：维护增量摄取的状态
+- **datahubIngestionRunSummary**：跟踪采集运行的统计信息、已处理实体数、警告与错误
+- **datahubIngestionCheckpoint**：维护增量采集的状态
 
-这些 aspect 专用于 DataHub 的内部摄取框架，不用于通用的数据作业。
+这些 aspect 专用于 DataHub 内部采集框架，不用于通用的数据任务。
 
-### 作业状态弃用
+### 任务状态弃用
 
-`dataJobInfo` 中的 `status` 字段已被弃用，转而使用 `dataProcessInstance` 模型。不再把作业状态存储在作业定义本身，而是为每次执行创建独立的处理实例实体并携带各自的状态信息。这使作业定义与运行时执行历史之间的划分更加清晰。
+`dataJobInfo` 中的 `status` 字段已被 `dataProcessInstance` 模型取代。不再把任务状态存储在任务定义本身，而是为每次执行创建独立的流程实例实体，并在其中保存各自的状态信息。这使任务定义与运行时执行历史之间的分离更加清晰。
 
-### 子类型的使用
+### SubType 使用
 
-`subTypes` aspect 允许将作业划分为以下类别：
+`subTypes` aspect 允许你把任务归类为：
 
-- SQL 作业
-- Python 作业
-- Notebook 作业
-- 容器作业
-- 自定义作业类型
+- SQL 任务
+- Python 任务
+- Notebook 任务
+- 容器任务
+- 自定义任务类型
 
-这有助于在 UI 和 API 查询中对作业进行过滤与组织。
+这有助于在 UI 与 API 查询中对任务进行过滤和整理。
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](03-datajob.md)。。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](03-datajob.md)。

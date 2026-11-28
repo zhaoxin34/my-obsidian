@@ -7,28 +7,29 @@ source: https://docs.datahub.com/docs/generated/metamodel/entities/role.md
 
 # 角色
 
-角色（role）实体表示来自源系统（例如 Snowflake、BigQuery）的外部访问管理角色，这些角色控制着对数据资产的访问权限。该实体使 DataHub 能够建模并展示哪些角色提供了对数据集的访问，帮助数据消费方了解访问特定数据资源所需的权限。
+role 实体表示来自源系统（例如 Snowflake、BigQuery）的外部访问管理角色，它们控制对数据资产的访问。该实体使 DataHub 能够建模并展示哪些角色可提供对数据集的访问，帮助数据使用者了解访问特定数据资源所需的权限。
 
-## 身份（Identity）
+## 标识
 
-角色由单一信息标识：
+角色由单条信息标识：
 
-- 角色的唯一标识符：通常派生自定义该角色的外部 IAM 系统。该标识符应保持稳定，并在你所在组织的各数据平台间唯一。
+- 角色的唯一标识符：通常派生自定义该角色的外部 IAM 系统。该标识符应在你所在组织的数据平台之间保持稳定且唯一。
 
 角色标识符示例：`urn:li:role:snowflake_reader_role`。
 
-## 重要能力（Important Capabilities）
+## 重要能力
 
 ### 角色属性
 
-角色属性存储在 `roleProperties` aspect 中，包含外部访问管理角色的关键信息：
+角色属性存储在 `roleProperties` 方面中，包含关于该外部访问管理角色的关键信息：
 
-- **名称（Name）**：该角色在外部系统中的显示名称（例如 "Snowflake Reader Role"）
-- **描述（Description）**：一段人类可读的说明，解释该角色的用途与范围
-- **类型（Type）**：该角色提供的访问级别（例如 "READ"、"WRITE"、"ADMIN"）
-- **申请 URL（Request URL）**：指向外部系统的可选链接，用户可在其中申请获得该角色的访问权限
+- **名称**：该角色在外部系统中的显示名称（例如 "Snowflake Reader Role"）
+- **描述**：说明该角色用途与范围的人类可读描述
+- **类型**：该角色提供的访问级别（例如 "READ"、"WRITE"、"ADMIN"）
+- **申请 URL**：指向外部系统的可选链接，用户可在其中申请该角色的访问权限
 
 以下代码片段展示了如何创建带属性的角色：
+
 
 **Python SDK：创建带属性的角色**
 
@@ -67,18 +68,21 @@ print(f"Created role: {role_urn}")
 
 ```
 
-### 角色成员（Actors）
 
-角色可通过 `actors` aspect 分配给用户和用户组。它跟踪哪些用户（corpuser 实体）与用户组（corpGroup 实体）已在外部系统中被授予该角色。
 
-actors aspect 包含：
+### 角色成员（Actor）
 
-- **用户（Users）**：已获得该角色的 corp 用户列表
-- **用户组（Groups）**：已分配该角色的 corp 用户组列表
+角色可以通过 `actors` 方面分配给用户和用户组。该方面跟踪哪些用户（corpuser 实体）与用户组（corpGroup 实体）已在外部系统中被授予该角色。
+
+actors 方面包含：
+
+- **Users**：已获得该角色的 corp 用户列表
+- **Groups**：被分配该角色的 corp 用户组列表
 
 以下代码片段展示了如何将用户与用户组分配给角色：
 
-**Python SDK：将用户与用户组分配给角色**
+
+**Python SDK：将用户和用户组分配给角色**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/role_assign_actors.py
@@ -120,11 +124,14 @@ print(f"Assigned users and groups to role: {role_urn}")
 
 ```
 
+
+
 ### 数据集访问集成
 
-角色通过数据集实体上的 `access` aspect 与数据集关联。该 aspect 列出哪些角色为特定数据集提供访问权限，从而清晰呈现访问控制的全貌。
+角色通过数据集实体上的 `access` 方面与数据集相连。该方面列出哪些角色可提供对特定数据集的访问，形成清晰的访问控制全景视图。
 
 以下代码片段展示了如何将角色与数据集关联：
+
 
 **Python SDK：将角色与数据集关联**
 
@@ -163,9 +170,12 @@ print(f"Associated roles with dataset: {dataset_urn}")
 
 ```
 
+
+
 ### 查询角色信息
 
-可以使用标准 REST API 端点获取角色信息。响应包含该角色实体的全部 aspects。
+你可以使用标准 REST API 端点获取角色信息。响应包含该角色实体的所有方面。
+
 
 **通过 REST API 查询角色实体**
 
@@ -175,9 +185,12 @@ curl 'http://localhost:8080/entities/urn%3Ali%3Arole%3Asnowflake_reader_role'
 
 这将返回完整的角色实体，包括：
 
-- `roleKey`：身份 aspect
+- `roleKey`：标识方面
 - `roleProperties`：名称、描述、类型与申请 URL
-- `actors`：分配给该角色的用户与用户组
+- `actors`：分配给该角色的用户和用户组
+
+
+
 
 **Python SDK：查询角色实体**
 
@@ -210,6 +223,9 @@ if actors is not None:
 
 ```
 
+
+
+
 **通过 REST API 搜索角色**
 
 ```bash
@@ -223,73 +239,79 @@ curl -X POST 'http://localhost:8080/entities?action=search' \
   }'
 ```
 
-该查询在角色名称中进行搜索并返回匹配的角色 URN。
+这会在角色名称中搜索，并返回匹配的角色 URN。
 
-## 集成点（Integration Points）
+
+
+## 集成点
 
 ### 与 CorpUser 和 CorpGroup 的关系
 
-角色与用户实体和用户组实体存在直接关系：
+角色与用户和用户组实体之间存在直接关系：
 
-- **RoleUser**：通过 "Has" 关系把角色链接到 `corpuser` 实体
-- **RoleGroup**：通过 "Has" 关系把角色链接到 `corpGroup` 实体
+- **RoleUser**：通过 "Has" 关系将角色与 `corpuser` 实体相连
+- **RoleGroup**：通过 "Has" 关系将角色与 `corpGroup` 实体相连
 
-这些关系带来：
+这些关系支持：
 
 - 查看哪些用户/用户组拥有特定角色
-- 发现某个用户或用户组被分配的所有角色
+- 发现某个用户或用户组被分配的全部角色
 - 审计整个数据生态中的访问模式
 
 ### 与 DataHub 角色的区别
 
 区分 `role` 实体与 `dataHubRole` 实体很重要：
 
-- **role**（本实体）：表示来自源系统（例如 Snowflake 角色、BigQuery 角色）的外部访问管理角色，这些角色控制着这些平台中数据资产的访问
+- **role**（本实体）：表示来自源系统（例如 Snowflake 角色、BigQuery 角色）的外部访问管理角色，
+  它们控制这些平台上对数据资产的访问
 - **dataHubRole**：表示 DataHub 内部的角色，用于控制 DataHub 功能的权限（例如管理员角色、编辑者角色）
 
-corpuser 与 corpGroup 实体上的 `roleMembership` aspect 指的是 `dataHubRole` 实体，而非此处记录的外部 `role` 实体。
+corpuser 与 corpGroup 实体上的 `roleMembership` 方面指的是 `dataHubRole` 实体，而不是本文记录的外部 `role` 实体。
 
 ### 使用模式
 
 role 实体的常见使用模式包括：
 
-1. **访问发现**：数据消费方可查看哪些角色为其所需数据集提供访问权限
-2. **自助式访问申请**：用户可识别合适的角色，并通过提供的申请 URL 申请访问
-3. **访问审计**：合规团队可跟踪哪些角色为敏感数据集提供访问权限
+1. **访问发现**：数据使用者可查看哪些角色可提供对其所需数据集的访问
+2. **自助式访问申请**：用户可确定合适的角色并通过提供的申请 URL 申请访问
+3. **访问审计**：合规团队可跟踪哪些角色可提供对敏感数据集的访问
 4. **统一访问视图**：平台团队可创建跨多个数据平台的集中式访问控制视图
 
 ### GraphQL API
 
-role 实体通过 DataHub 的 GraphQL API 以 `Role` 类型暴露。主要 resolver 包括：
+role 实体通过 DataHub 的 GraphQL API 暴露为 `Role` 类型。主要解析器包括：
 
-- `RoleType`：为 role 实体提供搜索与批量加载能力
-- `ListRolesResolver`：查询系统中的所有角色
-- `BatchAssignRoleResolver`：批量将角色分配给用户/用户组
-- `AcceptRoleResolver`：接受角色分配的流程
+- `RoleType`：为角色实体提供搜索与批量加载能力
+- `ListRolesResolver`：查询系统中所有角色
+- `BatchAssignRoleResolver`：向用户/用户组批量分配角色
+- `AcceptRoleResolver`：接受角色分配的工作流
 
-## 值得注意的例外（Notable Exceptions）
+## 值得注意的例外
 
 ### 实体支持有限
 
-当前 role 实体与访问管理功能仅支持**数据集实体**。虽然从概念上讲角色可应用于其他数据资产（仪表盘、图表等），但 `access` aspect 目前仅为数据集定义。
+目前，role 实体与访问管理功能仅支持**数据集实体**。虽然从概念上讲角色也可应用于其他数据资产
+（仪表板、图表等），但 `access` 方面目前仅对数据集定义。
 
 未来的增强可能会把基于角色的访问管理扩展到更多实体类型。
 
 ### 外部系统集成
 
-role 实体旨在表示存在于外部系统中的角色。DataHub 并不直接创建或管理这些角色 —— 它仅为发现与文档目的对其建模。角色成员的实际授予与回收必须在源系统中完成。
+role 实体旨在表示外部系统中存在的角色。DataHub 并不直接创建或管理这些角色——
+它仅为发现与文档目的对其进行建模。角色成员的实际授予与回收必须在源系统中完成。
 
 ### 需要配置
 
-在自托管部署中，访问管理 UI 功能默认关闭。要在 UI 中启用角色可视化，请将 `datahub-gms` 服务的 `SHOW_ACCESS_MANAGEMENT` 环境变量设置为 `true`。
+在自托管部署中，访问管理 UI 功能默认处于禁用状态。若要在 UI 中展示角色可视化，
+请为 `datahub-gms` 服务将 `SHOW_ACCESS_MANAGEMENT` 环境变量设置为 `true`。
 
 ### 活跃开发中
 
-role 实体与访问管理功能正在活跃开发中，可能发生变化。计划中的增强包括：
+role 实体与访问管理功能正在积极开发中，可能发生变化。计划中的增强包括：
 
-- 在角色之外建模外部策略
+- 除角色之外还对外部策略建模
 - 从 BigQuery、Snowflake 等来源自动提取角色
-- 扩展对数据集以外更多实体类型的支持
+- 扩展对数据集之外更多实体类型的支持
 - 带审批流程的高级访问申请工作流
 
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](02-role.md)。。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](02-role.md)。

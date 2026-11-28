@@ -7,25 +7,25 @@ source: https://docs.datahub.com/docs/generated/metamodel/entities/glossaryterm.
 
 # 术语表术语
 
-术语表术语（GlossaryTerm）代表一个标准化的业务定义或词汇术语，可以在整个组织范围内关联到数据资产。GlossaryTerm 是 DataHub 业务术语表（Business Glossary）功能的基本构件，使团队能够建立并维护用于描述数据概念的共享词汇表。
+术语表术语（GlossaryTerm）表示一个标准化的业务定义或词汇术语，可以在整个组织范围内与数据资产关联。术语表术语是 DataHub 业务术语表功能的基本构件，使团队能够建立并维护用于描述数据概念的共享词汇体系。
 
-在实际使用中，GlossaryTerm 让你可以：
+在实践中，术语表术语让你能够：
 
 - 用清晰、权威的定义来定义业务术语
 - 在相关业务概念之间创建关系（继承、包含等）
-- 用标准化业务术语标记数据资产（数据集、仪表板、图表等）
-- 对业务词汇表建立治理与归属机制
+- 用标准化的业务术语为数据资产（数据集、仪表盘、图表等）打标签
+- 对业务词汇建立治理与归属
 - 链接到外部资源与文档
 
-例如，一个 GlossaryTerm 可以为“Customer Lifetime Value (CLV)”给出精确的业务定义，将其与“Revenue”“Customer”等其他术语关联，并应用到存储 CLV 计算结果的具体数据集列上。
+例如，一个术语表术语可以精确定义“客户终身价值（CLV）”，并将其与“收入”“客户”等其他术语关联起来，同时应用到存储 CLV 计算结果的具体数据集列上。
 
-## 标识（Identity）
+## 标识
 
-GlossaryTerm 由单个字段唯一标识：其 **name**。该名称在整个生命周期中充当该术语的持久标识符。
+术语表术语由单个字段唯一标识：即它的 **name**。该名称在整个生命周期内充当该术语的持久标识符。
 
 ### URN 结构
 
-GlossaryTerm 的 URN（统一资源名称）遵循如下模式：
+术语表术语的 URN（统一资源名称）遵循如下模式：
 
 ```
 urn:li:glossaryTerm:<term_name>
@@ -33,7 +33,7 @@ urn:li:glossaryTerm:<term_name>
 
 其中：
 
-- `<term_name>`：术语的唯一字符串标识符。它可以是人类可读的（例如 "CustomerLifetimeValue"），也可以是生成的 ID（例如 "clv-001" 或 UUID）。
+- `<term_name>`：术语的唯一字符串标识符。可以是可读的（例如 "CustomerLifetimeValue"），也可以是生成的 ID（例如 "clv-001" 或某个 UUID）。
 
 ### 示例
 
@@ -55,10 +55,10 @@ urn:li:glossaryTerm:CustomerLifetimeValue
 
 ### 术语命名的最佳实践
 
-1. **使用层级化命名**：为术语加上所属分类前缀（例如 `Classification.PII`、`Finance.Revenue`），即使名称是扁平的也能表达结构。
-2. **保持一致**：选择一种命名约定（camelCase、点号记法等）并统一使用。
-3. **保持稳定**：术语名称即标识符，不应更改。显示名称请使用 `glossaryTermInfo` 中的 `name` 字段。
-4. **考虑组织结构**：虽然 URN 是扁平的，但你可以使用 glossaryNodes（术语组）在 UI 中创建层级化的组织结构。
+1. **使用层级式记法**：为术语加上所属类别的前缀（例如 `Classification.PII`、`Finance.Revenue`），即使名称本身是扁平的，也能体现结构。
+2. **保持一致**：选定一种命名约定（camelCase、点号记法等）并统一使用。
+3. **保持永久性**：术语名称即标识符，不应更改。请使用 `glossaryTermInfo` 中的 `name` 字段作为显示名称。
+4. **考虑组织方式**：虽然 URN 是扁平的，但你可以使用 glossaryNodes（术语组）在 UI 中创建层级化的组织结构。
 
 ## 重要能力
 
@@ -66,13 +66,13 @@ urn:li:glossaryTerm:CustomerLifetimeValue
 
 `glossaryTermInfo` aspect 包含术语的基本业务信息：
 
-- **definition**（必填）：术语的权威业务定义。应当清晰、简洁，并提供足够的上下文让任何人都能理解该术语的含义。
-- **name**：在 UI 中显示的名称。它可以比 URN 标识符更友好（例如 "Customer Lifetime Value" 对比 "CustomerLifetimeValue"）。
-- **parentNode**：对 GlossaryNode（术语组）的引用，作为对术语进行层级化组织的文件夹。
-- **termSource**：标识该术语是 "INTERNAL"（在组织内部定义）还是 "EXTERNAL"（来自 FIBO 等外部标准）。
+- **definition**（必填）：术语的权威业务定义。应当清晰、简洁，并为任何需要理解该术语含义的人提供足够的上下文。
+- **name**：在 UI 中展示的名称。它可以比 URN 标识符更友好（例如 "Customer Lifetime Value" 与 "CustomerLifetimeValue"）。
+- **parentNode**：对某个 GlossaryNode（术语组）的引用，该节点充当以层级方式组织术语的文件夹。
+- **termSource**：指示该术语是 "INTERNAL"（在组织内部定义）还是 "EXTERNAL"（来自 FIBO 等外部标准）。
 - **sourceRef**：外部术语来源的引用标识符（例如 "FIBO" 表示 Financial Industry Business Ontology）。
 - **sourceUrl**：指向该术语外部定义的 URL。
-- **customProperties**：针对你所在组织的额外元数据键值对。
+- **customProperties**：针对你的组织的额外元数据键值对。
 
 示例：
 
@@ -87,35 +87,35 @@ urn:li:glossaryTerm:CustomerLifetimeValue
 
 ### 术语关系（glossaryRelatedTerms）
 
-GlossaryTerm 支持多种关系类型，用于建模业务概念之间的语义联系：
+术语表术语支持多种关系类型，有助于建模业务概念之间的语义关联：
 
 #### 1. IsA 关系（继承）
 
-表示某个术语是另一个术语的特殊化类型。这构成一个"Is-A"层级，更具体的术语继承更宽泛术语的特征。
+表示某个术语是另一个术语的特化类型。这会形成一个“是一个（Is-A）”层级，其中更具体的术语继承更宽泛术语的特征。
 
 **使用场景**：`Email` IsA `PersonalInformation`，`SocialSecurityNumber` IsA `PersonalInformation`
 
 #### 2. HasA 关系（包含）
 
-表示某个术语包含或由另一个术语组成。这构成一个"Has-A"关系，即复杂概念由更简单的部分构成。
+表示某个术语包含或由另一个术语组成。这会形成一个“有一个（Has-A）”关系，其中一个复杂概念由更简单的部分构成。
 
 **使用场景**：`Address` HasA `ZipCode`，`Address` HasA `Street`，`Address` HasA `City`
 
 #### 3. Values 关系
 
-为枚举型术语定义允许的取值。适用于受控词汇表，即某个术语拥有一组固定的有效取值。
+定义枚举型术语的允许取值。对于取值集合固定的可控词汇表尤其有用。
 
 **使用场景**：`ColorEnum` HasValues `Red`、`Green`、`Blue`
 
 #### 4. RelatedTo 关系
 
-用于语义相关但不适配其他类别的术语的通用关系。
+用于语义相关但不适合归入其他类别的术语的通用关系。
 
 **使用场景**：`Revenue` RelatedTo `Profit`，`Customer` RelatedTo `Account`
 
 ### 层级化组织
 
-GlossaryTerm 可以通过 **GlossaryNodes**（术语组）进行层级化组织。`glossaryTermInfo` 中的 `parentNode` 字段建立起这种关系：
+术语表术语可以通过 **GlossaryNodes**（术语组）进行层级化组织。`glossaryTermInfo` 中的 `parentNode` 字段建立了这一关系：
 
 ```
 GlossaryNode: Classification
@@ -133,29 +133,29 @@ GlossaryNode: PersonalInformation
 
 ### 将术语应用到数据资产
 
-当术语被应用到实际数据资产时才真正发挥作用。术语可以挂载到：
+术语表术语在应用到实际数据资产后才真正发挥价值。术语可以挂载到：
 
 - 数据集（表、视图、文件）
 - 数据集字段（列）
-- 仪表板
+- 仪表盘
 - 图表
-- 数据任务
-- 容器
+- 数据任务（Data Job）
+- 容器（Container）
 - 以及许多其他实体类型
 
-当术语被应用到数据资产时，会创建一个 **TermedWith** 关系，从而实现：
+当术语被应用到数据资产时，会创建一条 **TermedWith** 关系，从而实现：
 
-- 发现：查找所有被某个特定业务概念标记的资产
+- 发现：找出所有被打上特定业务概念标签的资产
 - 治理：跟踪哪些资产包含敏感数据类型
 - 文档：为技术资产提供业务上下文
 - 合规：识别受监管要求约束的数据集
 
 ## 代码示例
 
-### 创建 GlossaryTerm
+### 创建术语表术语
 
 
-**Python SDK：创建基础 GlossaryTerm**
+**Python SDK：创建基础术语表术语**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/glossary_term_create.py
@@ -177,7 +177,7 @@ client.entities.upsert(term)
 
 
 
-**Python SDK：创建带完整元数据的 GlossaryTerm**
+**Python SDK：创建带完整元数据的术语表术语**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/glossary_term_create_with_metadata.py
@@ -216,7 +216,7 @@ client.entities.upsert(term)
 ### 管理术语关系
 
 
-**Python SDK：在 GlossaryTerm 之间添加关系**
+**Python SDK：在术语表术语之间添加关系**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/glossary_term_add_relationships.py
@@ -279,7 +279,7 @@ client.entities.upsert(color_enum_term)
 ### 将术语应用到资产
 
 
-**Python SDK：为一个数据集添加 GlossaryTerm**
+**Python SDK：为数据集添加术语表术语**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/dataset_add_term.py
@@ -340,7 +340,7 @@ if __name__ == "__main__":
 
 
 
-**Python SDK：为一个数据集列添加 GlossaryTerm**
+**Python SDK：为数据集列添加术语表术语**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/dataset_add_column_term.py
@@ -360,10 +360,10 @@ client.entities.update(dataset)
 
 
 
-### 查询 GlossaryTerm
+### 查询术语表术语
 
 
-**REST API：按 URN 获取 GlossaryTerm**
+**REST API：按 URN 获取术语表术语**
 
 ```bash
 # Fetch a GlossaryTerm entity
@@ -382,7 +382,7 @@ curl -X GET 'http://localhost:8080/entities/urn%3Ali%3AglossaryTerm%3ACustomerLi
 
 
 
-**REST API：搜索被某个术语标记的资产**
+**REST API：搜索打上某个术语标签的资产**
 
 ```bash
 # Find all datasets tagged with a specific term
@@ -413,7 +413,7 @@ curl -X POST 'http://localhost:8080/entities?action=search' \
 
 
 
-**Python SDK：查询应用于数据集的术语**
+**Python SDK：查询应用到数据集的术语**
 
 ```python
 # Inlined from /metadata-ingestion/examples/library/dataset_query_terms.py
@@ -467,7 +467,7 @@ nodes:
 # datahub ingest -c business_glossary.yml
 ```
 
-完整的 YAML 格式规范请参见 [Business Glossary Source](https://docs.datahub.com/docs/generated/ingestion/sources/business-glossary.md) 文档。 文档。
+完整的 YAML 格式规范请参见 [Business Glossary Source](https://docs.datahub.com/docs/generated/ingestion/sources/business-glossary) 文档。
 
 
 
@@ -475,15 +475,15 @@ nodes:
 
 ### 与 GlossaryNode 的关系
 
-GlossaryNode（术语组）为 GlossaryTerm 提供层级化的组织结构。可以把 GlossaryNode 看作文件夹，把 GlossaryTerm 看作其中的文件。
+GlossaryNodes（术语组）为术语表术语提供层级化组织。可以把 GlossaryNodes 看作文件夹，把 GlossaryTerms 看作其中的文件。
 
-- 一个 GlossaryTerm 最多只能有一个父 GlossaryNode（通过 `glossaryTermInfo` 中的 `parentNode` 指定）
-- GlossaryNode 可以同时包含 GlossaryTerm 和其他 GlossaryNode（形成嵌套层级）
-- 根级别的术语（无父节点）显示在术语表顶部
+- 一个术语表术语最多只能有一个父 GlossaryNode（通过 `glossaryTermInfo` 中的 `parentNode` 指定）
+- GlossaryNodes 既可以包含 GlossaryTerms，也可以包含其他 GlossaryNodes（形成嵌套层级）
+- 处于根层级（无父节点）的术语显示在术语表顶部
 
 ### 应用于数据资产
 
-GlossaryTerm 可通过 `glossaryTerms` aspect 应用于 DataHub 中的大多数实体类型：
+术语表术语可以通过 `glossaryTerms` aspect 应用到 DataHub 中大多数实体类型：
 
 **支持的实体：**
 
@@ -496,22 +496,22 @@ GlossaryTerm 可通过 `glossaryTerms` aspect 应用于 DataHub 中的大多数�
 - dataProduct、application
 - erModelRelationship、businessAttribute
 
-当你将术语应用到某个实体时，DataHub 会创建：
+将术语应用到某个实体时，DataHub 会创建：
 
 1. 目标实体上的 `glossaryTerms` aspect，其中包含术语关联
 2. 图中的一条 **TermedWith** 关系边
-3. 一个可搜索的索引条目，便于你查找所有带有该术语的资产
+3. 一条可搜索的索引记录，使你能够找出所有带有该术语的资产
 
 ### GraphQL API
 
-GraphQL API 为 GlossaryTerm 提供丰富的查询与变更能力：
+GraphQL API 为术语表术语提供丰富的查询与变更能力：
 
 **查询：**
 
 - 获取术语详情及其相关实体
 - 以层级方式浏览术语
 - 按名称或定义搜索术语
-- 获取所有被某个术语标记的实体
+- 获取所有打上某术语标签的实体
 
 **变更：**
 
@@ -520,67 +520,66 @@ GraphQL API 为 GlossaryTerm 提供丰富的查询与变更能力：
 - `removeTerm`、`batchRemoveTerms`：从实体移除术语
 - `updateParentNode`：将术语移动到不同的父组
 
-详细示例参见 [GraphQL API 文档](https://docs.datahub.com/docs/api/graphql/overview.md)。
+详细示例请参见 [GraphQL API 文档](https://docs.datahub.com/docs/api/graphql/overview)。
 
 ### 与搜索和发现集成
 
-GlossaryTerm 从多个方面提升可发现性：
+术语表术语在多个方面提升了可发现性：
 
-1. **分面搜索（Faceted Search）**：用户可以按术语表术语筛选搜索结果
-2. **术语传递（Term Propagation）**：当术语在数据集层级应用时，可以被下游资产继承
-3. **相关实体**：术语页面展示所有被该术语标记的资产
-4. **自动补全**：用户在搜索或标记资产时输入内容会提示相关术语
+1. **分面搜索**：用户可以按术语表术语筛选搜索结果
+2. **术语传播**：当术语在数据集层级应用时，可以被下游资产继承
+3. **相关实体**：术语页面会显示所有打上该术语标签的资产
+4. **自动补全**：用户在搜索或给资产打标签时，术语会被自动提示
 
 ### 治理与访问控制
 
-GlossaryTerm 支持通过 DataHub 的策略系统进行细粒度访问控制：
+术语表术语通过 DataHub 的策略系统支持细粒度访问控制：
 
-- **Manage Direct Glossary Children**：在特定术语组下直接创建/编辑/删除术语的权限
-- **Manage All Glossary Children**：管理某术语组整个子树中任意术语的权限
-- 标准实体策略（查看、编辑、删除）适用于单个术语
+- **管理直接术语子级**：在特定术语组下直接创建/编辑/删除术语的权限
+- **管理全部术语子级**：管理某术语组整个子树中任意术语的权限
+- 针对单个术语适用标准实体策略（查看、编辑、删除）
 
-权限细节参见 [Business Glossary 文档](https://docs.datahub.com/docs/glossary/business-glossary.md)。
+有关权限的详细信息，请参见[业务术语表文档](https://docs.datahub.com/docs/glossary/business-glossary)。
 
 ## 值得注意的例外情况
 
-### 术语名称 vs 显示名称
+### 术语名称与显示名称
 
 URN 标识符（`glossaryTermKey` 中的 `name`）与显示名称（`glossaryTermInfo` 中的 `name`）是分开的。最佳实践：
 
-- **URN 名称**：使用稳定不变的标识符（例如 "clv-001"、"Classification.PII"）
-- **显示名称**：使用便于阅读且可更新的标签（例如 "Customer Lifetime Value"、"Personally Identifiable Information"）
+- **URN 名称**：使用稳定且不改变的标识符（例如 "clv-001"、"Classification.PII"）
+- **显示名称**：使用便于阅读、可随时更新的标签（例如 "Customer Lifetime Value"、"Personally Identifiable Information"）
 
 ### 外部术语来源
 
-当使用来自外部标准（FIBO、ISO、行业术语表）的术语时：
+使用来自外部标准（FIBO、ISO、行业术语表）的术语时：
 
-- 将 `termSource` 设为 "EXTERNAL"
+- 将 `termSource` 设置为 "EXTERNAL"
 - 用标准名称填充 `sourceRef`（例如 "FIBO"）
-- 包含 `sourceUrl` 指向权威定义
-- 考虑使用外部标准的标识符作为你的 URN 名称以保持一致
+- 包含指向权威定义的 `sourceUrl`
+- 考虑使用外部标准的标识符作为你的 URN 名称，以保持一致性
 
-### 术语关系 vs 层级
+### 术语关系与层级
 
-不要混淆：
+不要混淆以下两者：
 
 - **父子层级**（通过 `parentNode` → GlossaryNode）：用于浏览的组织结构
-- **语义关系**（通过 `glossaryRelatedTerms`）：概念之间的含义联系
+- **语义关系**（通过 `glossaryRelatedTerms`）：概念之间的含义关联
 
-一个术语可以既有用于组织的 `parentNode`（例如术语 "Email" 位于节点 "PersonalInformation" 下），也有语义关系（例如 "Email" IsA "PII"，"Email" RelatedTo "Contact"）。
+一个术语既可以有用于组织的 `parentNode`（例如术语 "Email" 位于节点 "PersonalInformation" 下），也可以有语义关系（例如 "Email" IsA "PII"，"Email" RelatedTo "Contact"）。
 
 ### GlossaryTerm 上的 Schema 元数据
 
-GlossaryTerm 支持 `schemaMetadata` aspect，该 aspect 很少被使用，但有助于为术语本身定义结构化属性。当术语需要携带超出简单自定义属性之外的强类型属性时，可使用这一高级特性。
+术语表术语支持 `schemaMetadata` aspect，该 aspect 很少被使用，但有助于在术语自身上定义结构化属性。这是一项高级功能，适用于术语需要承载超出简单自定义属性之外的带类型属性的场景。
 
 ### 弃用行为
 
-当 GlossaryTerm 被弃用时（通过 `deprecation` aspect）：
+当术语表术语被弃用（通过 `deprecation` aspect）时：
 
-- 该术语仍保留在系统中，其关系也会被保留
-- 被该术语标记的资产会保留这些关联
+- 该术语仍保留在系统中，其关系也被保留
+- 打上该术语标签的资产会保留这些关联
 - UI 会显示弃用警告
 - 该术语可能会从自动补全与建议中隐藏
 - 建议创建新术语并迁移资产，而不是复用已弃用的术语名称
 
-
-> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](15-glossaryterm.md)。。
+> 本文为 DataHub 官方文档的中文翻译。原始页面末尾的 “Technical Reference Guide”（自动生成的 Aspects/字段参考表）仍为英文，未包含在本文中，可查阅 [原页面](15-glossaryterm.md)。
