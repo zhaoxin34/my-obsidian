@@ -53,18 +53,44 @@
             "id": "a93f0d8d5ebcb99b",
             "type": "leaf",
             "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.15.1"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.15.1"
+            }
+          },
+          {
+            "id": "dede5c5ca4e9ad6d",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
-                "file": "学习笔记和教程/datahub-enitities/01-dataset.md",
+                "file": "Untitled.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01-dataset"
+              "title": "Untitled"
+            }
+          },
+          {
+            "id": "364fa1c56014b82b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled 1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled 1"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -98,7 +124,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "react",
+                "query": "nginx",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -119,7 +145,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -224,11 +251,10 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "a93f0d8d5ebcb99b",
+  "active": "364fa1c56014b82b",
   "lastOpenFiles": [
     "学习笔记和教程/datahub-enitities/附录A-字段路径规范V2.md",
     "Untitled 1.md",
-    "学习笔记和教程/datahub-enitities/agentskill.md",
     "学习笔记和教程/datahub-enitities/71-datahubopenapischema.md",
     "学习笔记和教程/datahub-enitities/70-datahubconnection.md",
     "学习笔记和教程/datahub-enitities/69-datahubpersona.md",
@@ -252,6 +278,7 @@
     "学习笔记和教程/datahub-enitities/51-service.md",
     "学习笔记和教程/datahub-enitities/50-platformresource.md",
     "学习笔记和教程/datahub-enitities/49-datahubfile.md",
+    "学习笔记和教程/datahub-enitities/48-datahubpagemodule.md",
     "学习笔记和教程/datahub-enitities",
     "文档列表.base",
     "Untitled.base",
